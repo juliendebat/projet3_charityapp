@@ -13,7 +13,7 @@ import fr.isika.projet3.repository.AssociationRepository;
 
 
 @Service
-@Transactional
+
 public class AssociationService  implements IAssociationService{
 
     private AssociationRepository associationRepository;
