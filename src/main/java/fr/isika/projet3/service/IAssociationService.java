@@ -4,6 +4,8 @@ import java.util.List;
 import fr.isika.projet3.entities.Association;
 
 
+
+
 public interface IAssociationService {
 
     public List<Association> finfAll();

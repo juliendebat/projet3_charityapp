@@ -27,10 +27,10 @@ public class AssociationController {
     public AssociationController(AssociationService associationService) {
         this.associationService = associationService;
     }
-    @RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public ModelAndView hello(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
+        mv.setViewName("home");
         return mv;
     }
     @RequestMapping(value = "/addAssociation", method = RequestMethod.GET)
@@ -43,7 +43,7 @@ public class AssociationController {
 
     @RequestMapping(value = "/addAssociation", method = RequestMethod.POST)
     public ModelAndView saveNewUser(@ModelAttribute Association association, BindingResult result) {
-        ModelAndView mv = new ModelAndView("redirect:/index");
+        ModelAndView mv = new ModelAndView("redirect:/home");
 
         if (result.hasErrors()) {
             return new ModelAndView("error");
