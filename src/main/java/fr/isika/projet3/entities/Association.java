@@ -1,10 +1,7 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "associations")
@@ -18,6 +15,17 @@ public class Association {
     private int zipCode;
     private String city;
     private String country;
+
+    @OneToMany
+    private List<Event> lEvent;
+
+    public List<Event> getlEvent() {
+        return lEvent;
+    }
+
+    public void setlEvent(List<Event> lEvent) {
+        this.lEvent = lEvent;
+    }
 
     public int getId() {
         return id;

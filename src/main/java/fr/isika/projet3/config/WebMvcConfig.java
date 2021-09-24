@@ -15,6 +15,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
     }
-    
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+    }
 
 }

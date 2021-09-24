@@ -23,7 +23,7 @@ public class AssociationController {
     public AssociationController() {
     }
 
-    @Autowired
+
     public AssociationController(AssociationService associationService) {
         this.associationService = associationService;
     }

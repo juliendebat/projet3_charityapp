@@ -13,7 +13,6 @@ import fr.isika.projet3.repository.AssociationRepository;
 
 
 @Service
-
 public class AssociationService  implements IAssociationService{
 
     private AssociationRepository associationRepository;
@@ -51,7 +50,6 @@ public class AssociationService  implements IAssociationService{
 
 	@Override
 	public List<Association> finfAll() {
-		// TODO Auto-generated method stub
 		return associationRepository.findAll();
 	}
 
