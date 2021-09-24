@@ -2,7 +2,7 @@ package fr.isika.projet3.controller;
 
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.service.AssociationService;
-import fr.isika.projet3.service.IAssociationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

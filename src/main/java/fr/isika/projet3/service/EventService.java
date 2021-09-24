@@ -2,9 +2,13 @@ package fr.isika.projet3.service;
 
 import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.repository.EventRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class EventService implements IEventService{
     private EventRepository eventRepository;
 
