@@ -1,0 +1,51 @@
+package fr.isika.projet3.entities;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="partners")
+public class Partner {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int Id;
+	private int funding;
+	private int mdp;
+	
+	@OneToOne
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public int getId() {
+		return Id;
+	}
+	public void setId(int id) {
+		Id = id;
+	}
+	public int getFunding() {
+		return funding;
+	}
+	public void setFunding(int funding) {
+		this.funding = funding;
+	}
+	public int getMdp() {
+		return mdp;
+	}
+	public void setMdp(int mdp) {
+		this.mdp = mdp;
+	}
+	
+	
+	
+}

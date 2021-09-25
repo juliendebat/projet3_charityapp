@@ -1,5 +1,6 @@
 package fr.isika.projet3.config;
 
+
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class ServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
