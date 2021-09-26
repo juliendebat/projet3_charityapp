@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,13 +15,24 @@ public class Partner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	private int id;
 	private int funding;
 	private int mdp;
 	
 	@OneToOne
 	private User user;
 
+	@OneToOne
+	PartnerEntity partnerentity;
+	
+
+	public PartnerEntity getPartnerentity() {
+		return partnerentity;
+	}
+	public void setPartnerentity(PartnerEntity partnerentity) {
+		this.partnerentity = partnerentity;
+	}
+	
 	public User getUser() {
 		return user;
 	}
@@ -28,10 +40,10 @@ public class Partner {
 		this.user = user;
 	}
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		id = id;
 	}
 	public int getFunding() {
 		return funding;

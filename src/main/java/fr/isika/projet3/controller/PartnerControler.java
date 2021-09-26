@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.isika.projet3.entities.Partner;
+import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.service.IPartnerEntityService;
 import fr.isika.projet3.service.IPartnerService;
 import fr.isika.projet3.service.IUserService;
 
@@ -23,11 +25,14 @@ import fr.isika.projet3.service.IUserService;
 public class PartnerControler {
 	// Constructor based Dependency Injection
 	 
-	    @Autowired
+	   @Autowired
 		private IUserService userService;
 	    
-	    @Autowired
+        @Autowired
 	    private IPartnerService partnerService ;
+        
+        @Autowired
+	    private IPartnerEntityService partnerEntityService ;
 	    
 
 		public PartnerControler() {
@@ -38,13 +43,6 @@ public class PartnerControler {
 			this.partnerService = partnerService;
 		}
 
-
-		@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
-		public ModelAndView hello(HttpServletResponse response) throws IOException {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("home");
-			return mv;
-		}
 
 		// Get All Users
 		@RequestMapping(value = "/allUsers", method = RequestMethod.POST)
@@ -63,24 +61,49 @@ public class PartnerControler {
 			mv.addObject("headerMessage", "Add partner Details");
 			mv.addObject("user", new User());
 			mv.addObject("partner", new Partner());
+			mv.addObject("partnerEntity", new PartnerEntity());
 			return mv;
 		}
 
 		@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@ModelAttribute("User") User user, @ModelAttribute("Partner") Partner partner, BindingResult result) {
+		public ModelAndView saveNewUser(@ModelAttribute("User") User user,
+				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
+				@ModelAttribute("Partner") Partner partner, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");
 
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
-						
 			
-		    boolean isAdded1 = userService.saveUser(user);
-            partner.setUser(user);
-			boolean isAdded = partnerService.savePartner(partner);
-		
+			boolean isPartnerEntityAdded = true;
+			boolean isUserAdded = true;
+			boolean isPartnerAdded = true;
 			
-			if (isAdded && isAdded) {
+			if (partnerentity.getEntityName() == "") {
+				isUserAdded=false;
+				isPartnerAdded=false;
+			    isUserAdded = userService.saveUser(user);
+				partner.setUser(user);			
+				isPartnerAdded = partnerService.savePartner(partner);
+			}
+			
+			else {
+				isUserAdded=false;
+				isPartnerAdded=false;
+				isPartnerEntityAdded=false;
+				isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
+				
+				partner.setPartnerentity(partnerentity);
+				
+	            isUserAdded = userService.saveUser(user);	
+				partner.setUser(user);	
+				isPartnerAdded = partnerService.savePartner(partner);
+				
+			}
+			
+			
+
+			if (isUserAdded && isPartnerEntityAdded && isPartnerAdded) {
 				mv.addObject("message", "New partner successfully added");
 			} else {
 				return new ModelAndView("error");

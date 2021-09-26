@@ -16,7 +16,8 @@ import fr.isika.projet3.repository.UserRepository;
 public class UserService implements IUserService{
 
 	// Implementing Constructor based DI
-            @Autowired
+      
+	        @Autowired
 	 		private UserRepository repository;
 			
 			public UserService() {

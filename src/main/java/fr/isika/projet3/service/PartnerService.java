@@ -16,7 +16,7 @@ import fr.isika.projet3.repository.UserRepository;
 public class PartnerService implements IPartnerService{
 
 	
-	    @Autowired
+	   @Autowired
 		private PartnerRepository repository;
 		
 		public PartnerService() {
