@@ -20,7 +20,4 @@ public class ServletInitializer extends AbstractAnnotationConfigDispatcherServle
 	}
 
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8

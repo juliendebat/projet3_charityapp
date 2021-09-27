@@ -1,30 +1,6 @@
-<<<<<<< HEAD
-<%--
-  Created by IntelliJ IDEA.
-  User: warry
-  Date: 23/09/2021
-  Time: 21:52
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-<h1>bien enregister </h1>
-</body>
-</html>
-=======
-<<<<<<<< HEAD:src/main/webapp/WEB-INF/views/home.jsp
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
-========
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<!DOCTYPE html>
->>>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8:src/main/webapp/index.jsp
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -33,7 +9,7 @@
         <meta name="author" content="" />
         <title>Charity Raise - Plateforme de Gestion de Dons évènementiel pour les associations</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="<c:out value="resources/assets/favicon.ico"/>" />
         <!-- Bootstrap Icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Google fonts-->
@@ -75,22 +51,45 @@
                 </div>
             </div>
         </header>
-        </br>
-  	
-  		<form action="allAssociations" method="post">
-		<input type="submit" value="List All Associations" />
-		</form>
-  
-  
-  
-        <!-- Subscribe-->
+        <br/>
+	<div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+		<div class="col-lg-6">
+			<div class="form-floating mb-3">
+				<form action="allAssociations" method="post" id="contactForm">
+					<input type="submit" value="Liste de toutes les associations" />
+				</form>
+				</br>
+<!-- 				<form action="addAssociation" method="get" id="contactForm"> -->
+<!-- 					<input type="submit" value="ajouter une association" /> -->
+<!-- 				</form> -->
+				</br>
+				<form action="allUsers" method="post" id="contactForm">
+					<input type="submit" value="Liste de tous les utilisateurs" />
+				</form>
+				</br>
+<!-- 				<form action="addUser" method="get" id="contactForm"> -->
+<!-- 					<input type="submit" value="ajouter un utilisateur" /> -->
+<!-- 				</form> -->
+				</br>
+				<form action="allEvents" method="post" id="contactForm">
+					<input type="submit" value="Liste de tous les évènements" />
+				</form>
+				</br>
+<!-- 				<form action="addEvent" method="get" id="contactForm"> -->
+<!-- 					<input type="submit" value="ajouter un évènement" /> -->
+<!-- 				</form> -->
+			</div>
+		</div>
+	</div>
+
+	<!-- Subscribe-->
          <section class="page-section" id="subscribe">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 col-xl-6 text-center">
                         <h2 class="mt-0">Créez votre plateforme de gestion de dons événementiel !</h2>
                         <hr class="divider" />
-                        <p class="text-muted mb-5">Prêt à démarrer votre prochain projet avec nous ? Remplissez le formulaire et commencez d�s aujourd'hui � g�rez votre plateforme !</p>
+                        <p class="text-muted mb-5">Prêt à démarrer votre prochain projet avec nous ? Remplissez le formulaire et commencez dès aujourd'hui à gérez votre plateforme !</p>
                     </div>
                 </div>
                 <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
@@ -231,8 +230,8 @@
             <div class="container-fluid p-0">
                 <div class="row g-0">
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/1.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -240,8 +239,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/2.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/2.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -249,8 +248,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/3.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/3.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -258,8 +257,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/4.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/4.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -267,8 +266,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/5.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/5.jpg" alt="..." />
                             <div class="portfolio-box-caption">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -276,8 +275,8 @@
                         </a>
                     </div>
                     <div class="col-lg-4 col-sm-6">
-                        <a class="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg" title="Project Name">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                        <a class="portfolio-box" href="resources/assets/img/portfolio/fullsize/6.jpg" title="Project Name">
+                            <img class="img-fluid" src="resources/assets/img/portfolio/thumbnails/6.jpg" alt="..." />
                             <div class="portfolio-box-caption p-3">
                                 <div class="project-category text-white-50">Category</div>
                                 <div class="project-name">Project Name</div>
@@ -340,7 +339,8 @@
         <!-- SimpleLightbox plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="<c:out value="resources/js/scripts.js"/>"></script>
+        <script src="resources/js/scripts.js"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
@@ -348,4 +348,3 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
->>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8
