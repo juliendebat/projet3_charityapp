@@ -23,6 +23,7 @@ public class Association {
     private int zipCode;
     private String city;
     private String country;
+
     private String associationEmail;
     private String description;
     @ManyToMany
@@ -33,6 +34,7 @@ public class Association {
     private String adminFirstName;
     private String adminEmail;
     private int phone;
+    
 	public Long getId() {
 		return id;
 	}

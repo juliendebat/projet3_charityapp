@@ -75,7 +75,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editUser/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditUserForm(@PathVariable Long id) {
+	public ModelAndView displayEditUserForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("/editUser");
 		User user = userService.getUserById(id);
 		mv.addObject("headerMessage", "Edit User Details");
@@ -101,7 +101,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteUserById(@PathVariable Long id) {
+	public ModelAndView deleteUserById(@PathVariable int id) {
 		boolean isDeleted = userService.deleteUserById(id);
 		System.out.println("User deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home_user");

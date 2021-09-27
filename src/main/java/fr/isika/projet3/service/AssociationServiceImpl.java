@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.repository.AssociationRepository;
 
+
 @Service
 @Transactional
 public class AssociationServiceImpl implements AssociationService {
@@ -63,3 +64,4 @@ public class AssociationServiceImpl implements AssociationService {
 		}
 
 }
+

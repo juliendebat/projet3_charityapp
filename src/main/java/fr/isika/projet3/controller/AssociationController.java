@@ -1,9 +1,11 @@
 package fr.isika.projet3.controller;
 
+
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -109,5 +111,6 @@ public class AssociationController {
 			return mv;
 
 		}
+
 
 }
