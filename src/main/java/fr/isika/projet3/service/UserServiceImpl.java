@@ -13,6 +13,7 @@ import fr.isika.projet3.repository.UserRepository;
 
 @Service
 @Transactional
+<<<<<<< HEAD
 public class UserServiceImpl implements UserService {
 
 		// Implementing Constructor based DI
@@ -63,3 +64,62 @@ public class UserServiceImpl implements UserService {
 	}
 
 }
+=======
+public class UserServiceImpl implements UserService{
+
+	// Implementing Constructor based DI
+      
+	        @Autowired
+	 		private UserRepository repository;
+			
+			public UserServiceImpl() {
+				
+			}
+			
+			
+			public UserServiceImpl(UserRepository repository) {
+				super();
+				this.repository = repository;
+			}
+			
+		
+		public List<User> getAllUsers() {
+
+			return (List<User>) repository.findAll();
+		}
+
+	
+
+		public boolean saveUser(User user) {
+			try {
+				repository.save(user);
+				return true;
+			}catch(Exception ex) {
+				return false;
+			}
+		}
+
+		public boolean deleteUserById(int id) {
+			try {
+				repository.deleteById(id);
+				return true;
+			}catch(Exception ex) {
+				return false;
+			}
+			
+		}
+
+		@Override
+		public User getUserById(int id) {
+			User user = repository.findById(id).get();
+			return user;
+		
+		}
+
+		
+
+	
+	
+	
+}
+>>>>>>> 162763fb97ad68d388a0676696fafeb9cf1ac3d7

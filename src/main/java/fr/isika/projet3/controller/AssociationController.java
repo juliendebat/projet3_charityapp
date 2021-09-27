@@ -1,9 +1,14 @@
 package fr.isika.projet3.controller;
 
+<<<<<<< HEAD
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+=======
+import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.service.AssociationServiceImpl;
+>>>>>>> 162763fb97ad68d388a0676696fafeb9cf1ac3d7
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -110,4 +115,46 @@ public class AssociationController {
 
 		}
 
+<<<<<<< HEAD
+=======
+	@Autowired
+    private AssociationServiceImpl associationService;
+
+    public AssociationController() {
+    }
+
+    public AssociationController(AssociationServiceImpl associationService) {
+        this.associationService = associationService;
+    }
+    @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
+    public ModelAndView hello(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home");
+        return mv;
+    }
+    @RequestMapping(value = "/addAssociation", method = RequestMethod.GET)
+    public ModelAndView displayNewUserForm() {
+        ModelAndView mv = new ModelAndView("addAssociation");
+        mv.addObject("headerMessage", "Add User Details");
+        mv.addObject("association", new Association());
+        return mv;
+    }
+
+    @RequestMapping(value = "/addAssociation", method = RequestMethod.POST)
+    public ModelAndView saveNewUser(@ModelAttribute Association association, BindingResult result) {
+        ModelAndView mv = new ModelAndView("redirect:/home");
+
+        if (result.hasErrors()) {
+            return new ModelAndView("error");
+        }
+        boolean isAdded = associationService.saveAssociation(association);
+        if (isAdded) {
+            mv.addObject("message", "New Association successfully added");
+        } else {
+            return new ModelAndView("error");
+        }
+
+        return mv;
+    }
+>>>>>>> 162763fb97ad68d388a0676696fafeb9cf1ac3d7
 }
