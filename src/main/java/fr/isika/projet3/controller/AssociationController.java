@@ -1,7 +1,7 @@
 package fr.isika.projet3.controller;
 
 import fr.isika.projet3.entities.Association;
-import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.AssociationServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,13 +19,12 @@ import java.io.IOException;
 public class AssociationController {
 
 	@Autowired
-    private AssociationService associationService;
+    private AssociationServiceImpl associationService;
 
     public AssociationController() {
     }
 
-
-    public AssociationController(AssociationService associationService) {
+    public AssociationController(AssociationServiceImpl associationService) {
         this.associationService = associationService;
     }
     @RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)

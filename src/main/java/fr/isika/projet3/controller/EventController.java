@@ -2,7 +2,7 @@ package fr.isika.projet3.controller;
 
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Event;
-import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.EventServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,12 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class EventController {
 	
     @Autowired
-    private EventService eventService;
+    private EventServiceImpl eventService;
 
     public EventController() {
     }
 
-    public EventController(EventService eventService) {
+    public EventController(EventServiceImpl eventService) {
         this.eventService = eventService;
     }
 

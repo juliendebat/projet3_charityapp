@@ -17,28 +17,28 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
-import fr.isika.projet3.service.IPartnerEntityService;
-import fr.isika.projet3.service.IPartnerService;
-import fr.isika.projet3.service.IUserService;
+import fr.isika.projet3.service.PartnerEntityService;
+import fr.isika.projet3.service.PartnerService;
+import fr.isika.projet3.service.UserService;
 
 @Controller
-public class PartnerControler {
+public class PartnerController {
 	// Constructor based Dependency Injection
 	 
 	   @Autowired
-		private IUserService userService;
+		private UserService userService;
 	    
         @Autowired
-	    private IPartnerService partnerService ;
+	    private PartnerService partnerService ;
         
         @Autowired
-	    private IPartnerEntityService partnerEntityService ;
+	    private PartnerEntityService partnerEntityService ;
 	    
 
-		public PartnerControler() {
+		public PartnerController() {
 		}
 
-		public PartnerControler(IPartnerService partnerService) {
+		public PartnerController(PartnerService partnerService) {
 			super();
 			this.partnerService = partnerService;
 		}
