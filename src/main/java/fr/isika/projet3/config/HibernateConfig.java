@@ -1,5 +1,8 @@
 package fr.isika.projet3.config;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -76,4 +79,7 @@ public class HibernateConfig {
     }
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8

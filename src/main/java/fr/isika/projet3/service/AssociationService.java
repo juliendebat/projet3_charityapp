@@ -1,5 +1,6 @@
 package fr.isika.projet3.service;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,3 +56,16 @@ public class AssociationService  implements IAssociationService{
 
 
 }
+=======
+import java.util.List;
+
+import fr.isika.projet3.entities.Association;
+
+public interface AssociationService {
+
+	public List getAllAssociations();
+	public Association getAssociationById(Long id);
+	public boolean saveAssociation(Association association);
+	public boolean deleteAssociationById(Long id);
+}
+>>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8

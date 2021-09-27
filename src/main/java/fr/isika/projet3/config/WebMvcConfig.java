@@ -12,9 +12,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @ComponentScan(basePackages = "fr.isika.projet3")
 public class WebMvcConfig implements WebMvcConfigurer {
 
+<<<<<<< HEAD
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
     }
+=======
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp");
+    }
+    
+>>>>>>> 6a6af6cb4137a5f1c8898152a7a6911b66c3c8a8
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
