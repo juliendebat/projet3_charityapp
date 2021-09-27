@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.LoginAssociation;
 import fr.isika.projet3.service.AssociationServiceImpl;
+import fr.isika.projet3.service.EventServiceImpl;
 
 @Controller
 public class LoginAssociationController {
@@ -25,18 +26,25 @@ public class LoginAssociationController {
 		@Autowired
 	    private AssociationServiceImpl associationService;
 	
+		 public LoginAssociationController() {
+		    }
+
+		    public LoginAssociationController(AssociationServiceImpl associationService) {
+		        this.associationService = associationService;
+		    }
+		
 		
 		 @RequestMapping(value = {"/dashboardAdmin" }, method = RequestMethod.GET)
-		    public ModelAndView hello(HttpServletResponse response) throws IOException {
+		    public ModelAndView hello1(HttpServletResponse response) throws IOException {
 		        ModelAndView mv = new ModelAndView();
 		        mv.setViewName("dashboardAdmin");
 		        return mv;}
 		 
 		 @RequestMapping(value = {"/authentificationfailed" }, method = RequestMethod.GET)
 		    public ModelAndView authentification(HttpServletResponse response) throws IOException {
-		        ModelAndView mv = new ModelAndView();
-		        mv.setViewName("authentificationfailed");
-		        return mv;}
+		        ModelAndView mv1 = new ModelAndView();
+		        mv1.setViewName("authentificationfailed");
+		        return mv1;}
 		
 	    @RequestMapping(value = "/LoginAssociation2", method = RequestMethod.GET)	
 	    public ModelAndView displayNewEventForm() {
@@ -48,7 +56,7 @@ public class LoginAssociationController {
 	    @RequestMapping(value = "/LoginAssociation2", method = RequestMethod.POST)
 	    public ModelAndView connection(HttpServletRequest request,@ModelAttribute LoginAssociation loginAssociation, BindingResult result) {
 	        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin");
-	        
+	        ModelAndView mv1 = new ModelAndView("redirect:/authentificationfailed");
 	        if (result.hasErrors()) {
 	            return new ModelAndView("error");
 	        }
@@ -73,10 +81,13 @@ public class LoginAssociationController {
 		
 	      else {
 	    	  System.out.println("asso existe PAS");
-	    	  ModelAndView mv1 = new ModelAndView("redirect:/authentificationfailed");
+	    	
 	        return mv1;
 	         }
+	         
 	         }
-			return null;
-	    }	
+			return mv1;
 	    }
+}
+	    	
+	    

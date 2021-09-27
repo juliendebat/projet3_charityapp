@@ -3,11 +3,13 @@ package fr.isika.projet3.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Donation;
 import fr.isika.projet3.repository.DonationRepository;
 import fr.isika.projet3.repository.UserRepository;
 
+@Service
 public class DonationServiceImpl implements DonationService {
 
 	@Autowired

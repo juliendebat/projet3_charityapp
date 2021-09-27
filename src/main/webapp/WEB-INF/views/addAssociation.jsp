@@ -1,24 +1,19 @@
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: warry
-  Date: 23/09/2021
-  Time: 19:41
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Home</title>
-</head>git
+</head>
 <body>
 <h1>${headerMessage}</h1>
 
 <form:form method="POST" action="addAssociation" modelAttribute="association">
     <table>
         <tr>
-            <td><form:label path="associassionName">Nom de L'assos</form:label></td>
-            <td><form:input path="associassionName"/></td>
+            <td><form:label path="associationName">Nom de L'assos</form:label></td>
+            <td><form:input path="associationName"/></td>
         </tr>
         <tr>
             <td><form:label path="rnaNumber">rnaNumber</form:label></td>
