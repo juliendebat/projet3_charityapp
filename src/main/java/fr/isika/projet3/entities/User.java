@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -26,7 +27,7 @@ public class User {
 	private int roleId;
 	private boolean hasDonated;
 	
-	@ManyToOne 
+	@ManyToOne
 	private Association association;
 	
 	

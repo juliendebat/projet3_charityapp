@@ -8,10 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Niiiice</h2>
+<h2>DasboardAdmin</h2>
 
 
-	
+	<p>
+		<c:if
+			test="${!empty sessionScope.assos}">
+			<p>Vous êtes ${ sessionScope.assos.associassionName } !</p>
+			<p>Association Id : ${ sessionScope.assos.id } !</p>
+		</c:if>
+	</p>
 </body>
 </html>
 

@@ -1,6 +1,6 @@
 package fr.isika.projet3.service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -59,9 +59,27 @@ public class AssociationServiceImpl  implements AssociationService{
 	}
 
 	@Override
-	public List<Association> finfAll() {
-		return associationRepository.findAll();
+	public List<Association> findAll() {
+		return (List<Association>) associationRepository.findAll();
 	}
+
+
+
+	@Override
+	public Association getAssociationByEmail(String email) {
+		
+		Association asso= associationRepository.findByEmail(email);
+
+		return asso;
+	}
+	
+	
+	
+	// Login Controller
+	
+	
+	
+	
 
 
 }

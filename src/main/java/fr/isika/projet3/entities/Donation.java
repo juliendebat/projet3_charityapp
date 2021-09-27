@@ -11,14 +11,14 @@ public class Donation {
 	
 	@Id
 	private int Id;
-	private double amount;
-	
-	private State state;
-	
+	private double amount;	
+	private State state;	
 	private int paymentMethod;
 	
 	@OneToOne
 	private User donnateur;
+	
+	
 	
 
 }

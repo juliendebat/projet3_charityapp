@@ -9,13 +9,34 @@ public class Association {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    
     private String associassionName;
     private int rnaNumber;
     private String address;
     private int zipCode;
     private String city;
     private String country;
+    private String email;
+    
+    
+    public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getPassword() {
+		return password;
+	}
+
+	public void setPassword(int password) {
+		this.password = password;
+	}
+
+	
+    private int password;
     
     //rajouter oneToONe collecteDon
   

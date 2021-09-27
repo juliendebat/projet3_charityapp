@@ -18,6 +18,7 @@ import java.io.IOException;
 @Controller
 public class AssociationController {
 
+	
 	@Autowired
     private AssociationServiceImpl associationService;
 
