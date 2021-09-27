@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML>
@@ -349,28 +349,4 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>
-=======
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<h2>Niiiice</h2>
-</body>
-</html>
 
-<%--
-  Created by IntelliJ IDEA.
-  User: warry
-  Date: 23/09/2021
-  Time: 21:52
-  To change this template use File | Settings | File Templates.
---%>
-
-
->>>>>>> 162763fb97ad68d388a0676696fafeb9cf1ac3d7

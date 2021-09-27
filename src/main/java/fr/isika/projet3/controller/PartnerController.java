@@ -45,13 +45,13 @@ public class PartnerController {
 
 
 		// Get All Users
-		@RequestMapping(value = "/allUsers", method = RequestMethod.POST)
-		public ModelAndView displayAllUser() {
+		@RequestMapping(value = "/allPartners", method = RequestMethod.POST)
+		public ModelAndView showAllUsers() {
 			System.out.println("User Page Requested : All Users");
 			ModelAndView mv = new ModelAndView();
 			List userList = userService.getAllUsers();
 			mv.addObject("userList", userList);
-			mv.setViewName("allUsers");
+			mv.setViewName("allPartners");
 			return mv;
 		}
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.repository.AssociationRepository;
 
-<<<<<<< HEAD
+
 @Service
 @Transactional
 public class AssociationServiceImpl implements AssociationService {
@@ -64,59 +64,4 @@ public class AssociationServiceImpl implements AssociationService {
 		}
 
 }
-=======
 
-
-@Service
-public class AssociationServiceImpl  implements AssociationService{
-
-	@Autowired
-    private AssociationRepository associationRepository;
-
-	
-	
-    public AssociationServiceImpl() {
-	
-	}
-
-
-
-	public AssociationServiceImpl(AssociationRepository associationRepository) {
-        this.associationRepository = associationRepository;
-    }
-
-   
-
-    public Association getAssociationById(Long id) {
-        Association association = associationRepository.findById(id).get();
-        return association;
-    }
-
-   
-
-    public boolean deleteAssociationById(Long id) {
-        try {
-        	associationRepository.deleteById(id);
-            return true;
-        }catch(Exception ex) {
-            return false;
-        }
-    }
-
-	public boolean saveAssociation(Association association) {
-		try {
-        	associationRepository.save(association);
-            return true;
-        }catch(Exception ex) {
-            return false;
-        }
-	}
-
-	@Override
-	public List<Association> finfAll() {
-		return associationRepository.findAll();
-	}
-
-
-}
->>>>>>> 162763fb97ad68d388a0676696fafeb9cf1ac3d7
