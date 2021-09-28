@@ -32,6 +32,7 @@ public class LoginAssociationController {
 		    public LoginAssociationController(AssociationServiceImpl associationService) {
 		        this.associationService = associationService;
 		    }
+<<<<<<< HEAD
 		
 		
 		 @RequestMapping(value = {"/dashboardAdmin/index" }, method = RequestMethod.GET)
@@ -39,6 +40,10 @@ public class LoginAssociationController {
 		        ModelAndView mv = new ModelAndView();
 		        mv.setViewName("dashboardAdmin/index");
 		        return mv;}
+=======
+
+
+>>>>>>> 847a577f8b7784ec40efcb2deec2bf585fc3f753
 		 
 		 @RequestMapping(value = {"dashboardAdmin/tables" }, method = RequestMethod.GET)
 		    public ModelAndView tables(HttpServletResponse response) throws IOException {

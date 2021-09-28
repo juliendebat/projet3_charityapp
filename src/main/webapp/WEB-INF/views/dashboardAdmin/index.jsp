@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -773,3 +774,20 @@
 	</c:if>
 
 </html>
+=======
+<%--
+  Created by IntelliJ IDEA.
+  User: warry
+  Date: 28/09/2021
+  Time: 13:39
+  To change this template use File | Settings | File Templates.
+--%>
+
+<%@include file="headerAdmin.jsp"%>
+<html>
+
+<body>
+<h1>Yo</h1>
+</body>
+</html>
+>>>>>>> 847a577f8b7784ec40efcb2deec2bf585fc3f753
