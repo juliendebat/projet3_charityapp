@@ -1,6 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -19,7 +20,7 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+        <link href=<c:out value="resources/css/styles.css"/> rel="stylesheet" />
     </head>
     <body id="page-top">
         <!-- Navigation-->

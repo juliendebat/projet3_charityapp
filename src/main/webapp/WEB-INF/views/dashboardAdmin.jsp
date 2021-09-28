@@ -14,7 +14,7 @@
 	<p>
 		<c:if
 			test="${!empty sessionScope.assos}">
-			<p>Vous êtes ${ sessionScope.assos.associassionName } !</p>
+			<p>Vous êtes ${ sessionScope.assos.associationName } !</p>
 			<p>Association Id : ${ sessionScope.assos.id } !</p>
 		</c:if>
 	</p>

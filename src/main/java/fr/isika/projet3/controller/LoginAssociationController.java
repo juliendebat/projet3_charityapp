@@ -32,13 +32,8 @@ public class LoginAssociationController {
 		    public LoginAssociationController(AssociationServiceImpl associationService) {
 		        this.associationService = associationService;
 		    }
-		
-		
-		 @RequestMapping(value = {"/dashboardAdmin" }, method = RequestMethod.GET)
-		    public ModelAndView hello1(HttpServletResponse response) throws IOException {
-		        ModelAndView mv = new ModelAndView();
-		        mv.setViewName("dashboardAdmin");
-		        return mv;}
+
+
 		 
 		 @RequestMapping(value = {"/authentificationfailed" }, method = RequestMethod.GET)
 		    public ModelAndView authentification(HttpServletResponse response) throws IOException {
@@ -55,7 +50,7 @@ public class LoginAssociationController {
 
 	    @RequestMapping(value = "/LoginAssociation2", method = RequestMethod.POST)
 	    public ModelAndView connection(HttpServletRequest request,@ModelAttribute LoginAssociation loginAssociation, BindingResult result) {
-	        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin");
+	        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/index");
 	        ModelAndView mv1 = new ModelAndView("redirect:/authentificationfailed");
 	        if (result.hasErrors()) {
 	            return new ModelAndView("error");
