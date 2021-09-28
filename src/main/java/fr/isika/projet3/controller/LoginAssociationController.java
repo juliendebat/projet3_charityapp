@@ -34,11 +34,18 @@ public class LoginAssociationController {
 		    }
 		
 		
-		 @RequestMapping(value = {"/dashboardAdmin" }, method = RequestMethod.GET)
+		 @RequestMapping(value = {"/dashboardAdmin/index" }, method = RequestMethod.GET)
 		    public ModelAndView hello1(HttpServletResponse response) throws IOException {
 		        ModelAndView mv = new ModelAndView();
-		        mv.setViewName("dashboardAdmin");
+		        mv.setViewName("dashboardAdmin/index");
 		        return mv;}
+		 
+		 @RequestMapping(value = {"dashboardAdmin/tables" }, method = RequestMethod.GET)
+		    public ModelAndView tables(HttpServletResponse response) throws IOException {
+		        ModelAndView mv = new ModelAndView();
+		        mv.setViewName("dashboardAdmin/tables");
+		        return mv;}
+		 
 		 
 		 @RequestMapping(value = {"/authentificationfailed" }, method = RequestMethod.GET)
 		    public ModelAndView authentification(HttpServletResponse response) throws IOException {
@@ -55,7 +62,7 @@ public class LoginAssociationController {
 
 	    @RequestMapping(value = "/LoginAssociation2", method = RequestMethod.POST)
 	    public ModelAndView connection(HttpServletRequest request,@ModelAttribute LoginAssociation loginAssociation, BindingResult result) {
-	        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin");
+	        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/index");
 	        ModelAndView mv1 = new ModelAndView("redirect:/authentificationfailed");
 	        if (result.hasErrors()) {
 	            return new ModelAndView("error");
@@ -72,15 +79,12 @@ public class LoginAssociationController {
 	    	  HttpSession associationSession = request.getSession();
 	    	  associationSession.setAttribute("assos", asso);
 	    	
-	    	  
-	    	  
-	        System.out.println("asso existe");
+    	
 	    	  return mv; 
 	      }
 	         
 		
-	      else {
-	    	  System.out.println("asso existe PAS");
+	      else {	    
 	    	
 	        return mv1;
 	         }
