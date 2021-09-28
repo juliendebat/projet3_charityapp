@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8" />
+		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -19,15 +19,15 @@
         <!-- SimpleLightbox plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+        <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet"/>
 </head>
 <body>
 	<br>
 	<br>
 	<br>
-	<a href="${pageContext.request.contextPath}/addAssociation">Add Association</a>
+	<a href="${pageContext.request.contextPath}/addAssociation">Ajouter une Association</a>
 	<br>
-	<h3>List of all associations</h3>
+	<h3>Liste des Associations</h3>
 	${message}
 	<br>
 	<br>
@@ -60,7 +60,7 @@
 					<td>${association.zipCode}</td>
 					<td>${association.city}</td>
 					<td>${association.country}</td>
-					<td>${association.associationEmail}</td>
+					<td>${association.email}</td>
 					<td>${association.description}</td>
 					<td>${association.adminLastName}</td>
 					<td>${association.adminFirstName}</td>

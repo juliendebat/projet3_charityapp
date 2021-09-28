@@ -25,52 +25,49 @@
 	<br>
 	<br>
 	<br>
-	<a href="${pageContext.request.contextPath}/addUser">Add User</a>
+	<a href="${pageContext.request.contextPath}/addEvent">Ajouter un évènement</a>
 	<br>
-	<h3>List of all users</h3>
+	<h3>Liste des évènements</h3>
 	${message}
 	<br>
 	<br>
 	<table border="1px" cellpadding="0" cellspacing="0">
 		<thead>
 			<tr>
-				<th>Nom de Famille</th>
-				<th>Prénom</th>
-				<th>age</th>
-				<th>userEmail</th>
-				<th>userAddress</th>
-				<th>complementaryUserAddress</th>
-				<th>zipCode</th>
-				<th>town</th>
-				<th>country</th>
-				<th>mobilePhone</th>
+				<th>Nom de l'évènement</th>
+				<th>Description de l'évènement</th>
+				<th>Catégorie</th>
+				<th>Ville de l'évènement</th>
+				<th>Pays</th>
+				<th>Date de début</th>
+				<th>Date de fin</th>
+				<th>Lien image</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
 		</thead>
 
 		<tbody>
-			<c:forEach var="user" items="${userList}">
+			<c:forEach var="event" items="${eventList}">
 				<tr>
-					<td>${user.lastName}</td>
-					<td>${user.firstName}</td>
-					<td>${user.age}</td>
-					<td>${user.userEmail}</td>
-					<td>${user.userAddress}</td>
-					<td>${user.complementaryUserAddress}</td>
-					<td>${user.zipCode}</td>
-					<td>${user.town}</td>
-					<td>${user.country}</td>
-					<td>${user.mobilePhone}</td>
-					
-					
+					<td>${event.eventName}</td>
+					<td>${event.eventDescription}</td>
+					<td>${event.eventCategory}</td>
+					<td>${event.eventCity}</td>
+					<td>${event.eventCountry}</td>
+					<td>${event.eventDateStart}</td>
+					<td>${event.eventDateEnd}</td>
+					<td>${event.eventThumbnailLink}</td>
+				
 					<td><a
-						href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
+						href="${pageContext.request.contextPath}/editEvent/${event.id}">Edit</a></td>
 					<td><a
-						href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
+						href="${pageContext.request.contextPath}/deleteEvent/${event.id}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
+
+
 	</table>
 </body>
 </html>

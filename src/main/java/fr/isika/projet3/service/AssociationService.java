@@ -10,4 +10,6 @@ public interface AssociationService {
 	public Association getAssociationById(Long id);
 	public boolean saveAssociation(Association association);
 	public boolean deleteAssociationById(Long id);
+	public Association getAssociationByEmail(String email);
+	
 }

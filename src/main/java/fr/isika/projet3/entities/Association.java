@@ -23,7 +23,7 @@ public class Association {
     private int zipCode;
     private String city;
     private String country;
-    private String associationEmail;
+    private String email;
     private String description;
     @ManyToMany
     private List<User> lUser;
@@ -32,7 +32,10 @@ public class Association {
     private String adminLastName;
     private String adminFirstName;
     private String adminEmail;
-    private int phone;
+    private String password;
+    
+    
+	private int phone;
 	public Long getId() {
 		return id;
 	}
@@ -75,11 +78,11 @@ public class Association {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getAssociationEmail() {
-		return associationEmail;
+	public String getEmail() {
+		return email;
 	}
-	public void setAssociationEmail(String associationEmail) {
-		this.associationEmail = associationEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getDescription() {
 		return description;
@@ -116,6 +119,12 @@ public class Association {
 	}
 	public void setPhone(int phone) {
 		this.phone = phone;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
     
     

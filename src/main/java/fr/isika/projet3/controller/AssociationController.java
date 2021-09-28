@@ -15,19 +15,22 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.UserService;
 
 @Controller
 public class AssociationController {
 	// Constructor based Dependency Injection
 		private AssociationService associationService;
+		private UserService userService;
 
 		public AssociationController() {
 
 		}
 
 		@Autowired
-		public AssociationController(AssociationService associationService) {
+		public AssociationController(AssociationService associationService, UserService uservice) {
 			this.associationService = associationService;
+			this.userService = userService;
 		}
 
 
@@ -48,7 +51,7 @@ public class AssociationController {
 			mv.setViewName("allAssociations");
 			return mv;
 		}
-
+		
 		@RequestMapping(value = "/addAssociation", method = RequestMethod.GET)
 		public ModelAndView displayNewAssociationForm() {
 			ModelAndView mv = new ModelAndView("addAssociation");

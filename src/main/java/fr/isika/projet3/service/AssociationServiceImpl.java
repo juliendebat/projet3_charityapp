@@ -62,4 +62,10 @@ public class AssociationServiceImpl implements AssociationService {
 			
 		}
 
+		@Override
+		public Association getAssociationByEmail(String email) {
+			Association association = associationRepository.findByEmail(email);
+			return association;
+		}
+
 }
