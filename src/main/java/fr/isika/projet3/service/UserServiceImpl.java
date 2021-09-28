@@ -18,13 +18,14 @@ import fr.isika.projet3.repository.UserRepository;
 public class UserServiceImpl implements UserService {
 
 	// Implementing Constructor based DI
+	         @Autowired
 			private UserRepository repository;
 			
 			public UserServiceImpl() {
 				
 			}
 			
-			@Autowired
+			//@Autowired
 			public UserServiceImpl(UserRepository repository) {
 				super();
 				this.repository = repository;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		@Override
-		public User getUserById(int id) {
+		public User getUserById(Long id) {
 			User user = repository.findById(id).get();
 			return user;
 		}
@@ -54,7 +55,7 @@ public class UserServiceImpl implements UserService {
 		}
 
 		@Override
-		public boolean deleteUserById(int id) {
+		public boolean deleteUserById(Long id) {
 			try {
 				repository.deleteById(id);
 				return true;

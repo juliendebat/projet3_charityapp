@@ -38,7 +38,7 @@ public class PartnerServiceImpl implements PartnerService{
 	}
 
 	@Override
-	public Partner getPartnerById(int id) {
+	public Partner getPartnerById(Long id) {
 		Partner partner = repository.findById(id).get();
 		return partner;
 	}
@@ -57,7 +57,7 @@ public class PartnerServiceImpl implements PartnerService{
 	}
 
 	@Override
-	public boolean deletePartnerById(int id) {
+	public boolean deletePartnerById(Long id) {
 		try {
 			repository.deleteById(id);
 			return true;

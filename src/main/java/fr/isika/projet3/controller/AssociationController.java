@@ -22,13 +22,14 @@ import fr.isika.projet3.service.AssociationService;
 @Controller
 public class AssociationController {
 	// Constructor based Dependency Injection
+	@Autowired
 		private AssociationService associationService;
 
 		public AssociationController() {
 
 		}
 
-		@Autowired
+		//@Autowired
 		public AssociationController(AssociationService associationService) {
 			this.associationService = associationService;
 		}
@@ -111,6 +112,5 @@ public class AssociationController {
 			return mv;
 
 		}
-
 
 }

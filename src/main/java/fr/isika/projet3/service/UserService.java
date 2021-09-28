@@ -7,8 +7,8 @@ import fr.isika.projet3.entities.User;
 public interface UserService  {
 
 	public List getAllUsers();
-	public User getUserById(int id);
+	public User getUserById(Long id);
 	public boolean saveUser(User user);
-	public boolean deleteUserById(int id);
+	public boolean deleteUserById(Long id);
 
 }

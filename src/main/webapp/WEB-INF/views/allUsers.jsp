@@ -33,7 +33,7 @@
 				<tr>
 					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
-					<td>${user.userName}</td>
+<%-- 					<td>${user.userName}</td> --%>
 					<td><a
 						href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
 					<td><a
