@@ -22,10 +22,10 @@
                     <td><form:label path="lastName">LastName</form:label></td>
                     <td><form:input path="lastName"/></td>
                 </tr>
-                <tr>
-                    <td><form:label path="userName">UserName</form:label></td>
-                    <td><form:input path="userName"/></td>
-                </tr>
+<!--                 <tr> -->
+<%--                     <td><form:label path="userName">UserName</form:label></td> --%>
+<%--                     <td><form:input path="userName"/></td> --%>
+<!--                 </tr> -->
                 <tr>
                     <td><input type="submit" value="Submit"/></td>
                 </tr>

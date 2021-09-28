@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -20,19 +21,20 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String lastName;
 	private String firstName;
 	private String email;
 	private int age;
 	private String address;
+	private int roleId;
 	private int zip;
 	private String town;
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
 	
-	@ManyToOne 
+	@ManyToOne
 	private Association association;
 	
 	public String getEmail() {
@@ -42,11 +44,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

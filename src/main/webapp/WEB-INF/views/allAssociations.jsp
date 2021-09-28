@@ -62,10 +62,10 @@
 					<td>${association.country}</td>
 					<td>${association.associationEmail}</td>
 					<td>${association.description}</td>
-					<td>${association.adminLastName}</td>
-					<td>${association.adminFirstName}</td>
-					<td>${association.adminEmail}</td>
-					<td>${association.phone}</td>
+					<td>${association.adminLastName}</td> 
+					<td>${association.adminFirstName}</td> 
+					<td>${association.adminEmail}</td> 
+					<td>${association.phone}</td> 
 					<td><a
 						href="${pageContext.request.contextPath}/editAssociation/${association.id}">Edit</a></td>
 					<td><a

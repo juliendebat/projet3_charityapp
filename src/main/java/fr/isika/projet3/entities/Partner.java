@@ -1,11 +1,11 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,7 +15,7 @@ public class Partner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private int funding;
 	private int mdp;
 	
@@ -39,11 +39,11 @@ public class Partner {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
-		id = id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public int getFunding() {
 		return funding;

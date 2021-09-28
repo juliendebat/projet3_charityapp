@@ -14,14 +14,14 @@ public class Donation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int Id;
-	private double amount;
-	
-	private State state;
-	
+	private double amount;	
+	private State state;	
 	private int paymentMethod;
 	
 	@OneToOne
 	private User donnateur;
+	
+	
 	
 
 }

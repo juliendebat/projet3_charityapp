@@ -8,7 +8,7 @@ import fr.isika.projet3.entities.User;
 public interface PartnerService {
 
 	public List<Partner> getAllPartners();
-	public Partner getPartnerById(int id);
+	public Partner getPartnerById(Long id);
 	public boolean savePartner(Partner user);
-	public boolean deletePartnerById(int id);
+	public boolean deletePartnerById(Long id);
 }
