@@ -37,6 +37,8 @@ public class AssociationController {
 		@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
 		public ModelAndView hello(HttpServletResponse response) throws IOException {
 			ModelAndView mv = new ModelAndView();
+			List<Association> associationList = associationService.getAllAssociations();
+			mv.addObject("associationList", associationList);
 			mv.setViewName("home");
 			return mv;
 		}
@@ -59,7 +61,8 @@ public class AssociationController {
 			mv.addObject("association", new Association());
 			return mv;
 		}
-
+		
+		//add one Association
 		@RequestMapping(value = "/addAssociation", method = RequestMethod.POST)
 		public ModelAndView saveNewAssociation(@ModelAttribute Association association, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");
@@ -76,7 +79,8 @@ public class AssociationController {
 
 			return mv;
 		}
-
+		
+		//edit one Association
 		@RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.GET)
 		public ModelAndView displayEditAssociationForm(@PathVariable Long id) {
 			ModelAndView mv = new ModelAndView("/editAssociation");
@@ -103,6 +107,7 @@ public class AssociationController {
 			return mv;
 		}
 
+		//delete one association
 		@RequestMapping(value = "/deleteAssociation/{id}", method = RequestMethod.GET)
 		public ModelAndView deleteAssociationById(@PathVariable Long id) {
 			boolean isDeleted = associationService.deleteAssociationById(id);
@@ -111,4 +116,14 @@ public class AssociationController {
 			return mv;
 
 		}
+		
+		//edit one Association
+				@RequestMapping(value = "/homePageAssociation/{id}", method = RequestMethod.GET)
+				public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
+					ModelAndView mv = new ModelAndView("/homePageAssociation");
+					Association association = associationService.getAssociationById(id);
+					mv.addObject("headerMessage", "Edit home Page Association Details");
+					mv.addObject("association", association);
+					return mv;
+				}
 }

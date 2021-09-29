@@ -46,11 +46,11 @@
                 <tr>
                     <td><form:label path="city">Ville</form:label></td>
                     <td><form:input path="city"/></td>
-                </tr>
-                   <tr>
-                    <td><form:label path="country">Pays</form:label></td>
-                    <td><form:input path="country"/></td>
-                </tr>
+<!--                 </tr> -->
+<!--                    <tr> -->
+<%--                     <td><form:label path="country">Pays</form:label></td> --%>
+<%--                     <td><form:input path="country"/></td> --%>
+<!--                 </tr> -->
                 <tr>
                     <td><form:label path="email">Email de l'Association</form:label></td>
                     <td><form:input path="email"/></td>
@@ -59,18 +59,18 @@
                     <td><form:label path="description">Description / Objet de l'Association</form:label></td>
                     <td><form:input path="description"/></td>
                 </tr>
-                <tr>
-                    <td><form:label path="adminLastName">Nom de l'administrateur</form:label></td>
-                    <td><form:input path="adminLastName"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="adminFirstName">Prénom de l'administrateur</form:label></td>
-                    <td><form:input path="adminFirstName"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="adminEmail">Email de l'administrateur</form:label></td>
-                    <td><form:input path="adminEmail"/></td>
-                </tr>
+<!--                 <tr> -->
+<%--                     <td><form:label path="adminLastName">Nom de l'administrateur</form:label></td> --%>
+<%--                     <td><form:input path="adminLastName"/></td> --%>
+<!--                 </tr> -->
+<!--                 <tr> -->
+<%--                     <td><form:label path="adminFirstName">Prénom de l'administrateur</form:label></td> --%>
+<%--                     <td><form:input path="adminFirstName"/></td> --%>
+<!--                 </tr> -->
+<!--                 <tr> -->
+<%--                     <td><form:label path="adminEmail">Email de l'administrateur</form:label></td> --%>
+<%--                     <td><form:input path="adminEmail"/></td> --%>
+<!--                 </tr> -->
                  <tr>
                     <td><form:label path="password">mot de passe de l'administrateur</form:label></td>
                     <td><form:input path="password"/></td>

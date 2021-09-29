@@ -39,13 +39,13 @@
 				<th>Adresse</th>
 				<th>Code postal</th>
 				<th>Ville</th>
-				<th>Pays</th>
+<!-- 				<th>Pays</th> -->
 				<th>Email de l'association</th>
 				<th>Description/objet</th>
-				<th>Nom de l'administrateur</th>
-				<th>Prénom de l'administrateur</th>
-				<th>Email de l'administrateur</th>
-				<th>Téléphone de l'administrateur</th>
+<!-- 				<th>Nom de l'administrateur</th> -->
+<!-- 				<th>Prénom de l'administrateur</th> -->
+<!-- 				<th>Email de l'administrateur</th> -->
+<!-- 				<th>Téléphone de l'administrateur</th> -->
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
@@ -59,13 +59,13 @@
 					<td>${association.address}</td>
 					<td>${association.zipCode}</td>
 					<td>${association.city}</td>
-					<td>${association.country}</td>
+<%-- 					<td>${association.country}</td> --%>
 					<td>${association.email}</td>
 					<td>${association.description}</td>
-					<td>${association.adminLastName}</td>
-					<td>${association.adminFirstName}</td>
-					<td>${association.adminEmail}</td>
-					<td>${association.phone}</td>
+<%-- 					<td>${association.adminLastName}</td> --%>
+<%-- 					<td>${association.adminFirstName}</td> --%>
+<%-- 					<td>${association.adminEmail}</td> --%>
+<%-- 					<td>${association.phone}</td> --%>
 					<td><a
 						href="${pageContext.request.contextPath}/editAssociation/${association.id}">Edit</a></td>
 					<td><a

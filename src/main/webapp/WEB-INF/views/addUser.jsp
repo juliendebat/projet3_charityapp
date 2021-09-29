@@ -40,29 +40,29 @@
                     <td><form:input path="age"/></td>
                 </tr>
                 <tr>
-                    <td><form:label path="userEmail">Email de l'utilisateur</form:label></td>
-                    <td><form:input path="userEmail"/></td>
+                    <td><form:label path="email">Email de l'utilisateur</form:label></td>
+                    <td><form:input path="email"/></td>
                 </tr>
                 <tr>
-                    <td><form:label path="userAddress">Adresse</form:label></td>
-                    <td><form:input path="userAddress"/></td>
+                    <td><form:label path="address">Adresse</form:label></td>
+                    <td><form:input path="address"/></td>
                 </tr>
                 <tr>
-                    <td><form:label path="complementaryUserAddress">Adresse complémentaire</form:label></td>
-                    <td><form:input path="complementaryUserAddress"/></td>
+                    <td><form:label path="complementaryAddress">Adresse complémentaire</form:label></td>
+                    <td><form:input path="complementaryAddress"/></td>
                 </tr>
                  <tr>
-                    <td><form:label path="zipCode">Code Postal</form:label></td>
-                    <td><form:input path="zipCode"/></td>
+                    <td><form:label path="zip">Code Postal</form:label></td>
+                    <td><form:input path="zip"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="town">Ville</form:label></td>
                     <td><form:input path="town"/></td>
                 </tr>
-                <tr>
-                    <td><form:label path="country">Pays</form:label></td>
-                    <td><form:input path="country"/></td>
-                </tr>
+<!--                 <tr> -->
+<%--                     <td><form:label path="country">Pays</form:label></td> --%>
+<%--                     <td><form:input path="country"/></td> --%>
+<!--                 </tr> -->
                 <tr>
                     <td><form:label path="mobilePhone">Téléphone</form:label></td>
                     <td><form:input path="mobilePhone"/></td>

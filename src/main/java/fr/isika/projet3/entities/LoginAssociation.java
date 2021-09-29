@@ -4,15 +4,15 @@ package fr.isika.projet3.entities;
 public class LoginAssociation {
 	
 	
-	private String password;
+	private int password;
 	private String email;
 	private boolean isAuthentified;
 	
 	
-	public String getPassword() {
+	public int getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
+	public void setPassword(int password) {
 		this.password = password;
 	}
 	public String getEmail() {

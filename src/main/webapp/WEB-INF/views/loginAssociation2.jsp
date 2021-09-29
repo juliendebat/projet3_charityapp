@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
@@ -48,7 +48,8 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ms-auto my-2 my-lg-0">
-					<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/home">Accueil</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${pageContext.request.contextPath}/home">Accueil</a></li>
 					<li class="nav-item"><a class="nav-link" href="#services">Associations</a></li>
 					<li class="nav-item"><a class="nav-link" href="#subscribe">S'inscrire</a></li>
 					<li class="nav-item"><a class="nav-link" href="#portfolio">Se
@@ -80,46 +81,62 @@
 					<!-- To make this form functional, sign up at-->
 					<!-- https://startbootstrap.com/solution/contact-forms-->
 					<!-- to get an API token!-->
-						<form id="contactForm" method="POST" action="" >
-                             <!-- Email Admin input-->
-                            <div class="form-floating mb-3">
-                              <spring:bind path="loginAssociation.email">
-                                <input  class="form-control" id="email" type="text" name="${status.expression}" value="${status.value }" placeholder="admin@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email de l'administrateur*</label>
-                                <div class="invalid-feedback" data-sb-feedback="emailAdmin:required">Un email est requis.</div>
-                                <div class="invalid-feedback" data-sb-feedback="emailAdmin:email">l'email n'est pas valide.</div>
-                             </spring:bind>
-                            </div>
-                             <!--Admin password input-->
-                            <div class="form-floating mb-3">
-                              <spring:bind path="loginAssociation.password">
-                                <input class="form-control" id="mdp" type="text" name="${status.expression}" value="${status.value }" placeholder="Enter admin password..." data-sb-validations="required" />
-                                <label for="mpd">Mot de passe de l'administrateur*</label>
-                                <div class="invalid-feedback" data-sb-feedback="adminPassword:required">le mot de passe de l'administrateur est requis.</div>
-                                <div class="invalid-feedback" data-sb-feedback="adminPassword:password">le mot de passe n'est pas valide.</div>
-                              </spring:bind>
-                            </div>
-
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Se connecter</button></div>
-                        </form>
+					<form id="contactForm" method="post" action="">
+						<!-- Email Admin input-->
+						<div class="form-floating mb-3">
+							<spring:bind path="loginAssociation2.email">
+								<input class="form-control" id="email" type="text"
+									name="${status.expression}" value="${status.value}"
+									placeholder="association@example.com"
+									data-sb-validations="required,email" />
+								<label for="email">Email de l'association*</label>
+								<div class="invalid-feedback" data-sb-feedback="email:required">Un
+									email est requis.</div>
+								<div class="invalid-feedback" data-sb-feedback="email:email">l'email
+									n'est pas valide.</div>
+							</spring:bind>
+						</div>
+						<!--Admin password input-->
+						<div class="form-floating mb-3">
+							<spring:bind path="loginAssociation2.password">
+								<input class="form-control" id="mdp" type="password"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Enter admin password..."
+									data-sb-validations="required" />
+								<label for="mpd">Mot de passe de l'administrateur*</label>
+								<div class="invalid-feedback"
+									data-sb-feedback="password:required">le mot de passe de
+									l'administrateur est requis.</div>
+								<div class="invalid-feedback"
+									data-sb-feedback="password:password">le mot de passe
+									n'est pas valide.</div>
+							</spring:bind>
+						</div>
+						<!-- Submit success message-->
+						<!---->
+						<!-- This is what your users will see when the form-->
+						<!-- has successfully submitted-->
+						<div class="d-none" id="submitSuccessMessage">
+							<div class="text-center mb-3">
+								<div class="fw-bolder">Form submission successful!</div>
+								To activate this form, sign up at <br /> <a
+									href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+							</div>
+						</div>
+						<!-- Submit error message-->
+						<!---->
+						<!-- This is what your users will see when there is-->
+						<!-- an error submitting the form-->
+						<div class="d-none" id="submitErrorMessage">
+							<div class="text-center text-danger mb-3">Error sending
+								message!</div>
+						</div>
+						<!-- Submit Button-->
+						<div class="d-grid">
+							<button class="btn btn-primary btn-xl disabled" id="submitButton"
+								type="submit">Se connecter</button>
+						</div>
+					</form>
 				</div>
 			</div>
 			<div class="row gx-4 gx-lg-5 justify-content-center">
@@ -145,13 +162,14 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 	<!-- Core theme JS-->
-<%-- 	<script src="<c:out value="resources/js/scripts.js"/>"></script> --%>
+	<%-- 	<script src="<c:out value="resources/js/scripts.js"/>"></script> --%>
 	<script src="resources/js/scripts.js"></script>
 	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 	<!-- * *                               SB Forms JS                               * *-->
 	<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
 	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-	<script language="javascript" type="text/javascript" src="resources/js/jquery-3.6.0.min.js"> 
+	<script language="javascript" type="text/javascript"
+		src="resources/js/jquery-3.6.0.min.js"> 
 </body>
 </html>

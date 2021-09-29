@@ -42,7 +42,7 @@
 				<th>complementaryUserAddress</th>
 				<th>zipCode</th>
 				<th>town</th>
-				<th>country</th>
+<!-- 				<th>country</th> -->
 				<th>mobilePhone</th>
 				<th>Edit</th>
 				<th>Delete</th>
@@ -55,12 +55,12 @@
 					<td>${user.lastName}</td>
 					<td>${user.firstName}</td>
 					<td>${user.age}</td>
-					<td>${user.userEmail}</td>
-					<td>${user.userAddress}</td>
-					<td>${user.complementaryUserAddress}</td>
-					<td>${user.zipCode}</td>
+					<td>${user.email}</td>
+					<td>${user.address}</td>
+					<td>${user.complementaryAddress}</td>
+					<td>${user.zip}</td>
 					<td>${user.town}</td>
-					<td>${user.country}</td>
+<%-- 					<td>${user.country}</td> --%>
 					<td>${user.mobilePhone}</td>
 					
 					

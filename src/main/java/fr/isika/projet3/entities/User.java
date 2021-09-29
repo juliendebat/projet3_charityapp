@@ -3,109 +3,132 @@ package fr.isika.projet3.entities;
 import javax.persistence.*;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+
 @Entity
 @Table(name="users")
 public class User {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+	private Long id;
 	private String lastName;
 	private String firstName;
+	private String email;
 	private int age;
-	private String userEmail;
-	private String userAddress;
-	private String complementaryUserAddress;
-	private int zipCode;
-	private String town;
-	private String country;
-	private int mobilePhone;
+	private String address;
 	private int roleId;
+	private int zip;
+	private String town;
+	private int mobilePhone;
+	private String complementaryAddress;
 	private boolean hasDonated;
 	
-	public long getId() {
+	@ManyToOne
+	private Association association;
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(long id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getLastName() {
 		return lastName;
 	}
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 	public int getAge() {
 		return age;
 	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public String getUserEmail() {
-		return userEmail;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getUserAddress() {
-		return userAddress;
+
+	public int getZip() {
+		return zip;
 	}
-	public void setUserAddress(String userAddress) {
-		this.userAddress = userAddress;
+
+	public void setZip(int zip) {
+		this.zip = zip;
 	}
-	public String getComplementaryUserAddress() {
-		return complementaryUserAddress;
-	}
-	public void setComplementaryUserAddress(String complementaryUserAddress) {
-		this.complementaryUserAddress = complementaryUserAddress;
-	}
-	public int getZipCode() {
-		return zipCode;
-	}
-	public void setZipCode(int zipCode) {
-		this.zipCode = zipCode;
-	}
+
 	public String getTown() {
 		return town;
 	}
+
 	public void setTown(String town) {
 		this.town = town;
 	}
-	public String getCountry() {
-		return country;
-	}
-	public void setCountry(String country) {
-		this.country = country;
-	}
+
 	public int getMobilePhone() {
 		return mobilePhone;
 	}
+
 	public void setMobilePhone(int mobilePhone) {
 		this.mobilePhone = mobilePhone;
 	}
-	public int getRoleId() {
-		return roleId;
+
+	public String getComplementaryAddress() {
+		return complementaryAddress;
 	}
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+
+	public void setComplementaryAddress(String complementaryAddress) {
+		this.complementaryAddress = complementaryAddress;
 	}
+
+
 	public boolean isHasDonated() {
 		return hasDonated;
 	}
+
 	public void setHasDonated(boolean hasDonated) {
 		this.hasDonated = hasDonated;
 	}
-	
-	
-	
-	
 
-   
+	public Association getAssociation() {
+		return association;
+	}
 
+	public void setAssociation(Association association) {
+		this.association = association;
+	}	
 }
