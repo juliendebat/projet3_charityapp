@@ -2,6 +2,8 @@ package fr.isika.projet3.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +61,17 @@ public class AssociationServiceImpl implements AssociationService {
 	public Association getAssociationByEmail(String email) {
 		Association association = associationRepository.findByEmail(email);
 		return association;
+	}
+
+	@Override
+	public boolean isAuthentificationOk(String email, int password) {
+		Association asso = associationRepository.findByEmail(email);
+		if (asso != null) 
+			if (asso.getPassword()==password) {
+				return true;
+			} else {return false;}	
+	
+		return false;
+
 	}
 }

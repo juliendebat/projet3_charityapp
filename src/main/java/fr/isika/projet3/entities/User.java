@@ -1,6 +1,8 @@
 package fr.isika.projet3.entities;
 
 
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -34,8 +36,35 @@ public class User {
 	private String complementaryAddress;
 	private boolean hasDonated;
 	
-	@ManyToOne
-	private Association association;
+	@OneToOne
+	Partner partner;
+	
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
+	}
+
+	public List<Association> getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(List<Association> association) {
+		this.association = association;
+	}
+
+	@ManyToMany
+	private List<Association> association;
 	
 	public String getEmail() {
 		return email;
@@ -125,13 +154,7 @@ public class User {
 		this.hasDonated = hasDonated;
 	}
 
-	public Association getAssociation() {
-		return association;
-	}
-
-	public void setAssociation(Association association) {
-		this.association = association;
-	}
+	
 	
 	
 

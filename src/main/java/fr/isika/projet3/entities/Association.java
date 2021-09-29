@@ -35,7 +35,7 @@ public class Association {
     private String country;
     private String email;
     private int password;
-   private String description;
+    private String description;
     
     @ManyToMany
     private List<User> lUser;

@@ -13,6 +13,7 @@ public interface AssociationService {
     public boolean saveAssociation(Association association);
     public boolean deleteAssociationById(Long id);
     
+    public boolean isAuthentificationOk(String email, int password);
     
     
 }

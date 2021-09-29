@@ -7,31 +7,68 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <script language="javascript" type="text/javascript" src="resources/js/jquery-3.6.0.min.js"> 
         </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>Home</title>
 </head>
 <body>
 
 
-	<form action="" method="post">	
+<!-- 	<form name="form1" method="post" >	 -->
 	
-		<spring:bind path="LoginAssociation.email">
-		    <label for="email">Email :</label>
-			<input id="email "type="text" name="${status.expression}"
-				value="${status.value}">
-			<br />			
-		</spring:bind>
+<%-- 		<spring:bind path="LoginAssociation.email"> --%>
+<!-- 		    <label for="email">Email :</label> -->
+<%-- 			<input id="email"type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"> --%>
+<!-- 			<br />			 -->
+<%-- 		</spring:bind> --%>
 		
-		<spring:bind path="LoginAssociation.password">
-		 <label for="mdp">Mot de passe :</label>
-			<input id="mdp"type="text" name="${status.expression}"
-				value="${status.value}">
-			<br />
-			</spring:bind>
+<%-- 		<spring:bind path="LoginAssociation.password"> --%>
+<!-- 		 <label for="mdp">Mot de passe :</label> -->
+<%-- 			<input id="mdp"type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"> --%>
+<!-- 			<br /> -->
+<%-- 			</spring:bind> --%>
 	
-		<input type="submit" value="Se connecter" />
-	</form>
+<!-- 		<button id="button" type="submit">Se Connecter</button> -->
+<!-- 	</form> -->
 
-
+   <form name="addForm">
+            Email : <input type="text" name="email"/>
+            MDP : <input type="password" name="mdp"/>
+            </form>
+  
+        <button id="bouton">Se connecter</button>
+        
+<div id="div2"></div>
+ <script> 
+  
+            $(document).ready(function(){
+        
+            $("#bouton").click(function(){
+        
+            	var  email = document.addForm.email.value;
+                var  mdp = document.addForm.mdp.value;
+                $.ajax(
+                {
+                url: "checkEmailAndPassword", 
+                type: "POST",       
+                data: {
+                "email":email,
+                "mdp":mdp,               
+                },
+                success: function(result){
+                	
+                		 var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
+                         window.location.href = successUrl;
+                		 
+                	    },                         
+                error :function(){
+                	 $("#div2").html("error");                   
+                            }
+                });
+            });
+            });
+            </script>
 
 
 

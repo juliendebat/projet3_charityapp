@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
@@ -71,6 +72,8 @@ public class PartnerController {
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");
 
+		
+			
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
@@ -85,6 +88,8 @@ public class PartnerController {
 			    isUserAdded = userService.saveUser(user);
 				partner.setUser(user);			
 				isPartnerAdded = partnerService.savePartner(partner);
+				//ajouter user dans association
+				
 			}
 			
 			else {

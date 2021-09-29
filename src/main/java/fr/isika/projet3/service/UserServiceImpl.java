@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.UserRepository;
 
@@ -65,5 +66,20 @@ public class UserServiceImpl implements UserService {
 			
 		}
 
+		
+		public List<User> getAllUserByAssociation(Association association) {			
+			List<User> users = repository.findByAssociation(association);
+			return users;			
+		}
 
+		@Override
+		public List<User> getAllPartnersByAssociation(Association association) {
+			List<User> users = repository.findByAssociation(association);
+			for (User user : users) {				
+				if(user.getPartner() == null) {
+					users.remove(user);
+				}
+			}			
+			return users;
+		}
 }

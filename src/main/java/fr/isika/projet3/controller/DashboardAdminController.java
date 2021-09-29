@@ -8,13 +8,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.util.List;
 
 @Controller
 public class DashboardAdminController {
 
+	
+	private HttpSession associationSession;
+	private Association ass;
 
     private UserService userService;
 
@@ -22,15 +28,15 @@ public class DashboardAdminController {
         this.userService = userService;
     }
 
+    
     @RequestMapping(value = {"/dashboardAdmin/index" }, method = RequestMethod.GET)
-    public ModelAndView hello1(HttpServletResponse response) throws IOException {
+    public ModelAndView pageindex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
 
-        List usersList = userService.getAllUsers();
-       mv.addObject("usersList",usersList );
-
-
-        mv.setViewName("dashboardAdmin/index");
+        // recupérer session de LoginControler
+       associationSession = request.getSession();
+       ass= (Association) associationSession.getAttribute("assos");       
+       mv.setViewName("dashboardAdmin/index");
         return mv;
     }
 
@@ -40,4 +46,31 @@ public class DashboardAdminController {
         mv.setViewName("dashboardAdmin/headerAdmin");
         return mv;
     }
+    
+    @RequestMapping(value = {"/dashboardAdmin/footerAdmin" }, method = RequestMethod.GET)
+    public ModelAndView initFooter(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/footerAdmin");
+        return mv;
+    }
+    
+    @RequestMapping(value = {"dashboardAdmin/allPartners" }, method = RequestMethod.GET)
+    public ModelAndView showAllPartners(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/allPartners");
+        
+       List<User> partners= userService.getAllPartnersByAssociation(ass);
+       mv.addObject("partnerlist", partners );         
+        return mv;}
+    //kill session
+    @RequestMapping(value = "/killSession")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "redirect:/LoginAssociation2";  //Where you go after logout here.
+    }
+    
+    
 }
