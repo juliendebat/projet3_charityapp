@@ -11,8 +11,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="partners")
-public class Partner {
+@Table(name="promotors")
+public class Promotor {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,14 +24,14 @@ public class Partner {
 	private User user;
 
 	@OneToOne
-	PartnerEntity partnerentity;
+	PromotorEntity promotorentity;
 	
 
-	public PartnerEntity getPartnerentity() {
-		return partnerentity;
+	public PromotorEntity getPromotorentity() {
+		return promotorentity;
 	}
-	public void setPartnerentity(PartnerEntity partnerentity) {
-		this.partnerentity = partnerentity;
+	public void setPromotorentity(PromotorEntity promotorentity) {
+		this.promotorentity = promotorentity;
 	}
 	
 	public User getUser() {
