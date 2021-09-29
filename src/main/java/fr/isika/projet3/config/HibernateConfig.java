@@ -26,8 +26,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 })
 public class HibernateConfig {
 
+    private final Environment environment;
     @Autowired
-    private Environment environment;
+    public HibernateConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     /************* Start Spring JPA config details **************/
     @Bean(name = "entityManagerFactory")

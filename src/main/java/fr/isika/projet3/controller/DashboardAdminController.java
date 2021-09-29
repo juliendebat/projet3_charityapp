@@ -40,4 +40,11 @@ public class DashboardAdminController {
         mv.setViewName("dashboardAdmin/headerAdmin");
         return mv;
     }
+
+    @RequestMapping(value = {"/dashboardAdmin/footerAdmin" }, method = RequestMethod.GET)
+    public ModelAndView initfooter(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/footerAdmin");
+        return mv;
+    }
 }

@@ -16,12 +16,12 @@
             <td><form:input path="associationName"/></td>
         </tr>
         <tr>
-            <td><form:label path="rnaNumber">rnaNumber</form:label></td>
-            <td><form:input path="rnaNumber"/></td>
+            <td><form:label path="email">email</form:label></td>
+            <td><form:input path="email"/></td>
         </tr>
         <tr>
-            <td><form:label path="address">address</form:label></td>
-            <td><form:input path="address"/></td>
+            <td><form:label path="password">password</form:label></td>
+            <td><form:input path="password"/></td>
         </tr>
         <tr>
             <td><form:label path="zipCode">zipCode</form:label></td>

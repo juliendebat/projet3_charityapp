@@ -66,9 +66,6 @@ public class LoginAssociationController {
 	    	  
 	    	  HttpSession associationSession = request.getSession();
 	    	  associationSession.setAttribute("assos", asso);
-	    	
-	    	  
-	    	  
 	        System.out.println("asso existe");
 	    	  return mv; 
 	      }
