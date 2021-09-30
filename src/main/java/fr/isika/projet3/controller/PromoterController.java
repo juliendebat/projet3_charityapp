@@ -74,9 +74,9 @@ public class PromoterController {
 				@ModelAttribute Promoter promoter, @ModelAttribute Event event, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
 			
-//			if (result.hasErrors()) {
-//				return new ModelAndView("error");
-//			}
+			if (result.hasErrors()) {
+				return new ModelAndView("error");
+			}
 			
 			boolean isEventAdded = eventService.saveEvent(event);
 			boolean isUserAdded = userService.saveUser(user);

@@ -24,10 +24,10 @@ public class Promoter {
 	private int id;
 	private int mdp;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne
 	private User user;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany
 	private List<Event> lEvent;
 	
 	
