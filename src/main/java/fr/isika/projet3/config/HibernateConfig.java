@@ -17,6 +17,11 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
+
+import fr.isika.projet3.repository.FileUploadRepository;
+import fr.isika.projet3.service.FileUploadService;
+import fr.isika.projet3.service.FileUploadServiceImpl;
 
 @Configuration
 @EnableTransactionManagement
@@ -73,6 +78,20 @@ public class HibernateConfig {
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         return properties;
+    }
+    
+    @Autowired
+    @Bean(name = "fileUploadService")
+    public FileUploadService getUserDao(FileUploadRepository fileUploadRepository) {
+        return new FileUploadServiceImpl(fileUploadRepository);
+    }
+    
+    @Bean(name = "multipartResolver")
+    public CommonsMultipartResolver getCommonsMultipartResolver() {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+        multipartResolver.setMaxUploadSize(20971520);   // 20MB
+        multipartResolver.setMaxInMemorySize(1048576);  // 1MB
+        return multipartResolver;
     }
 
 }

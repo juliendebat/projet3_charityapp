@@ -27,8 +27,8 @@
 <br>
 <br>
 <br>
-	<form action="allUsers" method="post">
-		<input type="submit" value="List All Users" />
+	<form action="allEvents" method="post">
+		<input type="submit" value="List All Events" />
 	</form>
 </body>
 </html>
