@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Event;
+import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.repository.EventRepository;
+import fr.isika.projet3.repository.PromoterRepository;
 
 @Service
 @Transactional
@@ -17,15 +19,17 @@ public class EventServiceImpl implements EventService {
 
 	// Implementing Constructor based DI
 				private EventRepository eventRepository;
+				private PromoterRepository promoterRepository;
 				
 				public EventServiceImpl() {
 					
 				}
 				
 				@Autowired
-				public EventServiceImpl(EventRepository eventRepository) {
+				public EventServiceImpl(EventRepository eventRepository,PromoterRepository promoterRepository) {
 					super();
 					this.eventRepository = eventRepository;
+					this.promoterRepository = promoterRepository;
 				}
 				
 			@Override
@@ -60,5 +64,12 @@ public class EventServiceImpl implements EventService {
 					return false;
 				}
 				
+			}
+
+			@Override
+			public List getAllEventsByPromoter(Promoter promoter, Event event) {
+				List list = new ArrayList();
+//				promoterRepository.
+				return null;
 			}
 }

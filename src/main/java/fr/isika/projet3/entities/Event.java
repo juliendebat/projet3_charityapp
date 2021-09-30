@@ -21,6 +21,17 @@ public class Event {
 
     @ManyToOne
     private Association association;
+    
+    @ManyToOne
+    private Promoter promoter;
+
+	public Promoter getPromoter() {
+		return promoter;
+	}
+
+	public void setPromoter(Promoter promoter) {
+		this.promoter = promoter;
+	}
 
 	public Long getId() {
 		return id;
