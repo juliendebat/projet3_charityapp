@@ -1,9 +1,6 @@
-
 <%@include file="headerAdmin.jsp"%>
-
 <c:choose>
 	<c:when test="${!empty sessionScope.assos}">
-
 		<div class="container-fluid">
 			<!-- Page Heading -->
 			<div class="card shadow mb-4">
@@ -28,12 +25,9 @@
 									<th>Societe/Association</th>
 									<th>Edit</th>
 									<th>Delete</th>
-
 								</tr>
 							</thead>
-
 							<tbody>
-
 								<c:forEach var="partner" items="${partnerlist}">
 
 									<tr>
@@ -50,22 +44,14 @@
 
 										<td><a
 											href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
-
 									</tr>
-
 								</c:forEach>
-
-
-
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-
-
 			<!-- /.container-fluid -->
-
 		</div>
 	</c:when>
 	<c:otherwise>
@@ -73,7 +59,6 @@
         <br />
 	</c:otherwise>
 </c:choose>
-
 <%@include file="footerAdmin.jsp"%>
 
 

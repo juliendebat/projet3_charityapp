@@ -64,10 +64,10 @@ public class AssociationServiceImpl implements AssociationService {
 	}
 
 	@Override
-	public boolean isAuthentificationOk(String email, int password) {
+	public boolean isAuthentificationOk(String email, String password) {
 		Association asso = associationRepository.findByEmail(email);
 		if (asso != null) 
-			if (asso.getPassword()==password) {
+			if (asso.getPassword().equals(password)) {
 				return true;
 			} else {return false;}	
 	

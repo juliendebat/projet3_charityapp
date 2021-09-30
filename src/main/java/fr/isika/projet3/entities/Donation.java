@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -13,13 +14,44 @@ public class Donation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	private Long Id;
 	private double amount;	
 	private State state;	
-	private int paymentMethod;
-	
-	@OneToOne
-	private User donnateur;
+
+	@ManyToOne
+	private User user;
+
+	public Long getId() {
+		return Id;
+	}
+
+	public void setId(Long id) {
+		Id = id;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public User getDonnateur() {
+		return user;
+	}
+
+	public void setDonnateur(User donnateur) {
+		this.user = donnateur;
+	}
 	
 	
 	

@@ -13,7 +13,10 @@ public interface UserService  {
 	public boolean saveUser(User user);
 	public boolean deleteUserById(Long id);
 	
-	//julien
+	//julien --> Partners
 	public List<User> getAllUserByAssociation(Association association);
 	public List<User> getAllPartnersByAssociation(Association association);
+	
+	//julien  --> Donations par association
+	public List<User> getAllContributorsByAssociation(Association association);
 }

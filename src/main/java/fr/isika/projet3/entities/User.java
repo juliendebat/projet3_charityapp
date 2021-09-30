@@ -1,6 +1,6 @@
 package fr.isika.projet3.entities;
 
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -14,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
 
 @Entity
 @Table(name="users")
@@ -35,6 +34,10 @@ public class User {
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
+	
+	@OneToMany
+	List<Donation> donations;
+	
 	
 	@OneToOne
 	Partner partner;
@@ -155,7 +158,13 @@ public class User {
 	}
 
 	
-	
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
+	}
+
+	public User() {
+		donations=new ArrayList<Donation>();
+	}
 	
 
 	

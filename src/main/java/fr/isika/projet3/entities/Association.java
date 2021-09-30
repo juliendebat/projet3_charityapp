@@ -16,8 +16,7 @@ public class Association {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
+    private Long id;    
     private String associationName;
     
 //=======
@@ -34,7 +33,7 @@ public class Association {
     private String city;
     private String country;
     private String email;
-    private int password;
+    private String password;
     private String description;
     
     @ManyToMany
@@ -104,11 +103,11 @@ public class Association {
 		this.email = email;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -127,10 +126,6 @@ public class Association {
 	public void setlUser(List<User> lUser) {
 		this.lUser = lUser;
 	}
-    
-  
-    
-    
     
     @OneToMany
     private List<Event> lEvent;

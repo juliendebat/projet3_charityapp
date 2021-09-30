@@ -45,24 +45,22 @@ public class DashboardAdminController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("dashboardAdmin/headerAdmin");
         return mv;
-    }
-    
+    }   
     @RequestMapping(value = {"/dashboardAdmin/footerAdmin" }, method = RequestMethod.GET)
     public ModelAndView initFooter(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("dashboardAdmin/footerAdmin");
         return mv;
-    }
-    
-    @RequestMapping(value = {"dashboardAdmin/allPartners" }, method = RequestMethod.GET)
-    public ModelAndView showAllPartners(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    }   
+    @RequestMapping(value = {"/dashboardAdmin/allPartnersAss" }, method = RequestMethod.GET)
+    public ModelAndView showAllPartners(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("dashboardAdmin/allPartners");
-        
+        mv.setViewName("dashboardAdmin/allPartnersAss");        
        List<User> partners= userService.getAllPartnersByAssociation(ass);
        mv.addObject("partnerlist", partners );         
         return mv;}
-    //kill session
+    
+    //julien kill session
     @RequestMapping(value = "/killSession")
     public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);

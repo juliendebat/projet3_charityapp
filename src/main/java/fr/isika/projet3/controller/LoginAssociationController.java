@@ -81,16 +81,16 @@ public class LoginAssociationController {
 	
 	@RequestMapping(value = "/checkEmailAndPassword", method = RequestMethod.POST)
 	public @ResponseBody 
-	String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("mdp") int mdp) throws NotFoundException {		
+	String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("mdp") String mdp) throws NotFoundException {		
 		boolean ok = associationService.isAuthentificationOk(email, mdp);	
 		if(ok) 
 		{
 			Association asso = associationService.getAssociationByEmail(email);
 			HttpSession associationSession = request.getSession();
 			associationSession.setAttribute("assos", asso);				
-			 return "succes";
+			 return "success";
 		}
-		else  return "error"; 
+		else  return "error";
 		 
 	}	
 	

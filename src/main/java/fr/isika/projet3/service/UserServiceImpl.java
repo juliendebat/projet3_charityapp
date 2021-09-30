@@ -82,4 +82,15 @@ public class UserServiceImpl implements UserService {
 			}			
 			return users;
 		}
+		
+        //julien
+		@Override
+		public List<User> getAllContributorsByAssociation(Association association) {
+			List<User> listeUserHasDonated=repository.findByAssociationAndHasDonated(association, true);
+			return listeUserHasDonated;			
+		}
+		
+		
+		
+		
 }

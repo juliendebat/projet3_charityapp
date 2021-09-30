@@ -33,9 +33,11 @@
 <!-- 	</form> -->
 
    <form name="addForm">
-            Email : <input type="text" name="email"/>
-            MDP : <input type="password" name="mdp"/>
-            </form>
+          <label for="id">Identifiant : </label>
+          <input id="id" type="text" name="email"/><br>
+           <label for="pass">Mot de passe : </label>
+          <input id="pass" type="password" name="mdp"/>
+           </form>
   
         <button id="bouton">Se connecter</button>
         
@@ -55,15 +57,23 @@
                 data: {
                 "email":email,
                 "mdp":mdp,               
+                },               
+                success: function(result)
+                {
+                	if(result=="success"){
+                	console.log("fonction success");
+                	console.log(result);
+                	 var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
+                   window.location.href = successUrl;
+                	 
+                	}
+                	else {console.log("fonction error");
+               	 $("#div2").text("error de dc o");     }
+               	
                 },
-                success: function(result){
-                	
-                		 var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
-                         window.location.href = successUrl;
-                		 
-                	    },                         
-                error :function(){
-                	 $("#div2").html("error");                   
+                                       
+                error: function() {
+                	               console.log("fonction error");
                             }
                 });
             });

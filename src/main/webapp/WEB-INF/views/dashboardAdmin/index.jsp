@@ -1,6 +1,4 @@
 <%@include file="headerAdmin.jsp"%>
-
-
 <c:choose>
 	<c:when test="${!empty sessionScope.assos}">	
 		<div class="container-fluid">
