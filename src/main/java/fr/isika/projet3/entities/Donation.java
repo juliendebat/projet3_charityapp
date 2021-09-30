@@ -1,5 +1,6 @@
 package fr.isika.projet3.entities;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,15 +14,13 @@ public class Donation {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int Id;
+	private int id;
 	private double amount;	
 	private State state;	
 	private int paymentMethod;
 	
 	@OneToOne
+
 	private User donnateur;
-	
-	
-	
 
 }

@@ -14,14 +14,14 @@
 
 	<form action="" method="post">	
 	
-		<spring:bind path="LoginAssociation.email">
+		<spring:bind path="loginAssociation2.email">
 		    <label for="email">Email :</label>
 			<input id="email "type="text" name="${status.expression}"
 				value="${status.value}">
 			<br />			
 		</spring:bind>
 		
-		<spring:bind path="LoginAssociation.password">
+		<spring:bind path="loginAssociation2.password">
 		 <label for="mdp">Mot de passe :</label>
 			<input id="mdp"type="text" name="${status.expression}"
 				value="${status.value}">

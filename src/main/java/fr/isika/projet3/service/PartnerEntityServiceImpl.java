@@ -63,3 +63,4 @@ public class PartnerEntityServiceImpl implements PartnerEntityService {
 	}
 
 }
+

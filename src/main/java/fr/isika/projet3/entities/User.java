@@ -27,8 +27,7 @@ public class User {
 	private String email;
 	private int age;
 	private String address;
-	private int roleId;
-	private int zip;
+	private int zipCode;
 	private String town;
 	private int mobilePhone;
 	private String complementaryAddress;
@@ -84,12 +83,12 @@ public class User {
 		this.address = address;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getTown() {
@@ -116,7 +115,6 @@ public class User {
 		this.complementaryAddress = complementaryAddress;
 	}
 
-
 	public boolean isHasDonated() {
 		return hasDonated;
 	}
@@ -132,10 +130,6 @@ public class User {
 	public void setAssociation(Association association) {
 		this.association = association;
 	}
-	
-	
 
-	
-	
 }
 

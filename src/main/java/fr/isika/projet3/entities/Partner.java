@@ -1,6 +1,5 @@
 package fr.isika.projet3.entities;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,22 +16,20 @@ public class Partner {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int funding;
-	private int mdp;
+	private String password;
 	
 	@OneToOne
 	private User user;
 
 	@OneToOne
-	PartnerEntity partnerentity;
-	
+	private PartnerEntity partnerEntity;
 
 	public PartnerEntity getPartnerentity() {
-		return partnerentity;
+		return partnerEntity;
 	}
 	public void setPartnerentity(PartnerEntity partnerentity) {
-		this.partnerentity = partnerentity;
+		this.partnerEntity = partnerentity;
 	}
-	
 	public User getUser() {
 		return user;
 	}
@@ -51,13 +48,11 @@ public class Partner {
 	public void setFunding(int funding) {
 		this.funding = funding;
 	}
-	public int getMdp() {
-		return mdp;
+	public String getPassword() {
+		return password;
 	}
-	public void setMdp(int mdp) {
-		this.mdp = mdp;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	
-	
+
 }

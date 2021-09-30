@@ -1,19 +1,16 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.Entity;
 
 
 public class LoginAssociation {
 	
 	
-	private int password;
+	private String password;
 	private String email;
-	private boolean isAuthentified;
-	
-	public int getPassword() {
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(int password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getEmail() {
@@ -22,14 +19,7 @@ public class LoginAssociation {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean isAuthentified() {
-		return isAuthentified;
-	}
-	public void setAuthentified(boolean isAuthentified) {
-		this.isAuthentified = isAuthentified;
-	}
 
-	
-	
-	
+
+
 }

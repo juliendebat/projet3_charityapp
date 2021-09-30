@@ -54,10 +54,13 @@ public class AssociationServiceImpl implements AssociationService {
 		} catch (Exception ex) {
 			return false;
 		}
+
 	}
 	@Override
 	public Association getAssociationByEmail(String email) {
 		Association association = associationRepository.findByEmail(email);
 		return association;
 	}
+
 }
+

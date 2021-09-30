@@ -5,7 +5,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-		
+		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -25,22 +25,40 @@
 <body>
 	<h1>${headerMessage}</h1>
 	
-        <form:form method="POST" action="editAssociation" modelAttribute="association">
-        
-        	<form:hidden path="id" /> 
+        <form:form method="POST" action="addEvent" modelAttribute="event">
              <table>
-                <tr>
-                    <td><form:label path="associationName">Nom de l'Association</form:label></td>
-                    <td><form:input path="associationName"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="rnaNumber">Numéro RNA</form:label></td>
-                    <td><form:input path="rnaNumber"/></td>
-                </tr>
-                <tr>
-                    <td><form:label path="address">Adresse</form:label></td>
-                    <td><form:input path="address"/></td>
-                </tr>
+               <tr>
+				<td><form:label path="eventName">Nom de l'évènement</form:label></td>
+				<td><form:input path="eventName" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDescription">Description de l'évènement</form:label></td>
+				<td><form:input path="eventDescription" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCategory">Catégorie de l'évènement</form:label></td>
+				<td><form:input path="eventCategory" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCity">Ville de l'évènement</form:label></td>
+				<td><form:input path="eventCity" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCountry">Pays</form:label></td>
+				<td><form:input path="eventCountry" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDateStart">Date de début</form:label></td>
+				<td><form:input path="eventDateStart" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDateEnd">Date de fin</form:label></td>
+				<td><form:input path="eventDateEnd" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventThumbnailLink">Lien photo</form:label></td>
+				<td><form:input path="eventThumbnailLink" /></td>
+			</tr>
                 <tr>
                     <td><input type="submit" value="Submit"/></td>
                 </tr>

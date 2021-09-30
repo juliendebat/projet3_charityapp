@@ -8,9 +8,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
+
 public interface AssociationRepository extends CrudRepository<Association, Long> {
-
-	
-	 Association findByEmail(String email);
-
+	Association findByEmail(String email);
 }
+
