@@ -80,7 +80,7 @@ public class AssociationController {
     //add one Association
     @RequestMapping(value = "/addAssociation", method = RequestMethod.POST)
     public ModelAndView saveNewAssociation(HttpServletRequest request, @ModelAttribute Association association, BindingResult result) {
-        ModelAndView mv = new ModelAndView("redirect:/LoginAssociation2");
+        ModelAndView mv = new ModelAndView("redirect:/loginAssociation");
 
         if (result.hasErrors()) {
             return new ModelAndView("error");

@@ -1,6 +1,10 @@
 
 
+
 <%@include file="headerAdmin.jsp"%>
+
+<c:choose>
+    <c:when test="${!empty sessionScope.assos}">
 <script></script>
 <div class="container">
 
@@ -47,5 +51,14 @@
     </div>
 
 </div>
+
+	</c:when>
+	<c:otherwise>
+//redirection page login
+        <br />
+	</c:otherwise>
+</c:choose>
+
+
 
 <%@include file="footerAdmin.jsp"%>

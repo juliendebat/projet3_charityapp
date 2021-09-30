@@ -17,6 +17,7 @@ public class Association {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long id;
     private String associationName;
     private int rnaNumber;
@@ -33,13 +34,9 @@ public class Association {
 
     @ManyToMany
     private List<User> lUser;
-	@OneToMany
-	private List<Event> lEvent;
-	@OneToMany
-	private List<Donation> lDonation;
+
 
 	// A garder ou pas ???
-
 
 
 	public Long getId() {
@@ -106,6 +103,22 @@ public class Association {
 		this.email = email;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public int getPhone() {
 		return phone;
 	}
@@ -130,31 +143,6 @@ public class Association {
 		this.photo = photo;
 	}
 
-	public List<Donation> getlDonation() {
-		return lDonation;
-	}
-
-	public void setlDonation(List<Donation> lDonation) {
-		this.lDonation = lDonation;
-	}
-
-	public String getPassword() {
-		return password;
-
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public List<User> getlUser() {
 		return lUser;
 	}
@@ -163,15 +151,4 @@ public class Association {
 		this.lUser = lUser;
 	}
 
-
-	public List<Event> getlEvent() {
-		return lEvent;
-	}
-
-	public void setlEvent(List<Event> lEvent) {
-		this.lEvent = lEvent;
-	}
-
-
-    
 }

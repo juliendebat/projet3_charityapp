@@ -63,9 +63,7 @@
 					<td>${association.email}</td>
 					<td>${association.description}</td>
 
-					<td>${association.adminLastName}</td> 
-					<td>${association.adminFirstName}</td> 
-					<td>${association.adminEmail}</td> 
+
 					<td>${association.phone}</td>
 
 <%-- 					<td>${association.adminLastName}</td> --%>

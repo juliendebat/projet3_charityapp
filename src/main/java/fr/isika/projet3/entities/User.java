@@ -1,5 +1,7 @@
 package fr.isika.projet3.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -12,7 +14,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-
 
 @Entity
 @Table(name="users")
@@ -33,8 +34,32 @@ public class User {
 	private String complementaryAddress;
 	private boolean hasDonated;
 	
-	@ManyToOne
-	private Association association;
+	@OneToMany
+	List<Donation> donations;
+
+	@OneToOne
+	Partner partner;
+	
+
+
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
+	}
+
+	public List<Association> getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(List<Association> association) {
+		this.association = association;
+	}
+
+	@ManyToMany
+	private List<Association> association;
 	
 	public String getEmail() {
 		return email;
@@ -123,13 +148,15 @@ public class User {
 		this.hasDonated = hasDonated;
 	}
 
-	public Association getAssociation() {
-		return association;
+	
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
 	}
 
-	public void setAssociation(Association association) {
-		this.association = association;
+	public User() {
+		donations=new ArrayList<Donation>();
 	}
+
 
 }
 

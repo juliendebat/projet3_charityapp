@@ -1,15 +1,4 @@
-<<<<<<< HEAD
 
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-<h1>${headerMessage}</h1>
-=======
 <%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
@@ -58,11 +47,11 @@
                 <tr>
                     <td><form:label path="city">Ville</form:label></td>
                     <td><form:input path="city"/></td>
-<!--                 </tr> -->
-<!--                    <tr> -->
-<%--                     <td><form:label path="country">Pays</form:label></td> --%>
-<%--                     <td><form:input path="country"/></td> --%>
-<!--                 </tr> -->
+               </tr>
+                  <tr>
+                   <td><form:label path="country">Pays</form:label></td>
+                    <td><form:input path="country"/></td>
+              </tr>
                 <tr>
                     <td><form:label path="email">Email de l'Association</form:label></td>
                     <td><form:input path="email"/></td>
@@ -71,18 +60,7 @@
                     <td><form:label path="description">Description / Objet de l'Association</form:label></td>
                     <td><form:input path="description"/></td>
                 </tr>
-<!--                 <tr> -->
-<%--                     <td><form:label path="adminLastName">Nom de l'administrateur</form:label></td> --%>
-<%--                     <td><form:input path="adminLastName"/></td> --%>
-<!--                 </tr> -->
-<!--                 <tr> -->
-<%--                     <td><form:label path="adminFirstName">Prénom de l'administrateur</form:label></td> --%>
-<%--                     <td><form:input path="adminFirstName"/></td> --%>
-<!--                 </tr> -->
-<!--                 <tr> -->
-<%--                     <td><form:label path="adminEmail">Email de l'administrateur</form:label></td> --%>
-<%--                     <td><form:input path="adminEmail"/></td> --%>
-<!--                 </tr> -->
+
                  <tr>
                     <td><form:label path="password">mot de passe de l'administrateur</form:label></td>
                     <td><form:input path="password"/></td>

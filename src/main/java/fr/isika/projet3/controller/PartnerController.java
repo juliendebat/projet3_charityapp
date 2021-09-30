@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
@@ -65,11 +66,14 @@ public class PartnerController {
 		return mv;
 	}
 
+
 	@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
 	public ModelAndView saveNewUser(@ModelAttribute("User") User user,
 									@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 									@ModelAttribute("Partner") Partner partner, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home");
+
+
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -80,15 +84,19 @@ public class PartnerController {
 		boolean isPartnerAdded = true;
 
 		if (partnerentity.getEntityName() == "") {
-			isUserAdded = false;
-			isPartnerAdded = false;
+			isUserAdded=false;
+			isPartnerAdded=false;
 			isUserAdded = userService.saveUser(user);
 			partner.setUser(user);
 			isPartnerAdded = partnerService.savePartner(partner);
-		} else {
-			isUserAdded = false;
-			isPartnerAdded = false;
-			isPartnerEntityAdded = false;
+			//ajouter user dans association
+
+		}
+
+		else {
+			isUserAdded=false;
+			isPartnerAdded=false;
+			isPartnerEntityAdded=false;
 			isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
 
 			partner.setPartnerentity(partnerentity);
@@ -100,6 +108,7 @@ public class PartnerController {
 		}
 
 
+
 		if (isUserAdded && isPartnerEntityAdded && isPartnerAdded) {
 			mv.addObject("message", "New partner successfully added");
 		} else {
@@ -108,5 +117,6 @@ public class PartnerController {
 
 		return mv;
 	}
+
 
 }
