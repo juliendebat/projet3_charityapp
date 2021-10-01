@@ -1,6 +1,7 @@
 package fr.isika.projet3.entities;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class Donation {
 	private double amount;	
 	private State state;	
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	private User user;
 
 	public Long getId() {
@@ -47,13 +48,15 @@ public class Donation {
 		this.state = state;
 	}
 
-	public User getDonnateur() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setDonnateur(User donnateur) {
-		this.user = donnateur;
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+
 	
 	
 	

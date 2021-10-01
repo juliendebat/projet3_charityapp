@@ -3,6 +3,7 @@ package fr.isika.projet3.controller;
 import fr.isika.projet3.entities.*;
 import fr.isika.projet3.repository.UserRepository;
 import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.PartnerEntityService;
 import fr.isika.projet3.service.PartnerService;
 import fr.isika.projet3.service.UserService;
@@ -36,6 +37,8 @@ public class DashboardAdminController {
     private PartnerService partnerService;
 	@Autowired
     private PartnerEntityService partnerEntityService;
+	@Autowired
+    private DonationService donationService;
 
 
     public DashboardAdminController(UserService userService) {
@@ -65,6 +68,8 @@ public class DashboardAdminController {
         mv.setViewName("dashboardAdmin/footerAdmin");
         return mv;
     }   
+    
+    //Partners
     @RequestMapping(value = {"/dashboardAdmin/allPartnersAss"}, method = RequestMethod.GET)
     public ModelAndView showAllPartners(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
@@ -75,7 +80,7 @@ public class DashboardAdminController {
         return mv;}
     
     @RequestMapping(value = "/dashboardAdmin/editPartner/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditUserForm(@PathVariable Long id) {
+	public ModelAndView displayEditPartnerForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/dashboardAdmin/editPartner");
 		User user = userService.getUserById(id);
 		Partner partner = partnerService.getPartnerByUser(user);
@@ -89,7 +94,7 @@ public class DashboardAdminController {
     
     
 	@RequestMapping(value = "/dashboardAdmin/editPartner/{id}", method = RequestMethod.POST)
-	public ModelAndView saveEditedUser(@ModelAttribute User user, @ModelAttribute Partner partner, @ModelAttribute("entity") PartnerEntity entity, BindingResult result) {
+	public ModelAndView saveEditedPartner(@ModelAttribute User user, @ModelAttribute Partner partner, @ModelAttribute("entity") PartnerEntity entity, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allPartnersAss");
 // areprendre
 		if (result.hasErrors()) {
@@ -119,6 +124,40 @@ public class DashboardAdminController {
 		return mv;
 	}
 
+	
+	
+	//Donations
+	    @RequestMapping(value = "/dashboardAdmin/allDonations", method = RequestMethod.GET)
+	    public ModelAndView displayAllDonations() {
+		ModelAndView mv = new ModelAndView("/dashboardAdmin/allDonations");
+
+		List<User> contributors = userService.getAllContributorsByAssociation(ass);
+		List<Donation> donations = donationService.getAllDonationByAssociation(contributors);
+		mv.addObject("donations", donations);
+
+		return mv;
+	}
+	    
+	    @RequestMapping(value = "/dashboardAdmin/checkDonation/{id}", method = RequestMethod.GET)
+	    public ModelAndView checkDonation(@PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
+
+	   donationService.checkDonation(id);
+	   
+
+		return mv;
+	}
+	
+	    @RequestMapping(value = "/dashboardAdmin/cancelDonation/{id}", method = RequestMethod.GET)
+	    public ModelAndView cancelDonation(@PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
+
+	   donationService.cancelDonation(id);
+
+		return mv;
+	}
+	
+	
     //julien kill session
     @RequestMapping(value = "/killSession")
     public String logout(HttpServletRequest request) {
@@ -128,5 +167,4 @@ public class DashboardAdminController {
         }
         return "redirect:../loginAssociation";  //Where you go after logout here.
     }
-
 }

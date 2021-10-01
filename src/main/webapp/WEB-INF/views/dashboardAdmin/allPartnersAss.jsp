@@ -56,7 +56,7 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-<c:redirect url="/dashboardAdmin/LoginAssociation2"/>    
+<c:redirect url="/dashboardAdmin/loginAssociation"/>    
 	</c:otherwise>
 </c:choose>
 <%@include file="footerAdmin.jsp"%>

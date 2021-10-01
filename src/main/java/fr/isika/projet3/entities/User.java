@@ -24,7 +24,7 @@ public class User {
 	private String complementaryAddress;
 	private boolean hasDonated;
 
-	@OneToMany
+	@OneToMany(mappedBy ="user")
 	List<Donation> donations;
 
 	@OneToOne(mappedBy = "user")

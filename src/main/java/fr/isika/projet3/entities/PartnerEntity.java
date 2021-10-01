@@ -18,7 +18,7 @@ public class PartnerEntity {
 		private String entityName;
 		private String entityregistrationNumber;
 		
-		@OneToOne(cascade = CascadeType.ALL)
+		@OneToOne(cascade = CascadeType.ALL )
 		Partner partner;
 		
 		public int getId() {

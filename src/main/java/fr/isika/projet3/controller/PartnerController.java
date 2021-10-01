@@ -59,8 +59,8 @@ public class PartnerController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/addPartner", method = RequestMethod.GET)
-	public ModelAndView displayNewUserForm() {
+	@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.GET)
+	public ModelAndView displayNewUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addPartner");
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
@@ -69,46 +69,31 @@ public class PartnerController {
 		return mv;
 	}
 
-
-		@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@ModelAttribute("User") User user,
+		@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.POST)
+		public ModelAndView saveNewUser(@PathVariable Long id,@ModelAttribute("User") User user,
 				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
-			//a supprimer (test):
-			Long id=1l;
-			
-			//julien user-asso
+
 			Association association=associationService.getAssociationById(id);
 			user.setAssociation(association);
 			
-			
-			boolean isPartnerEntityAdded = true;
-	
+			boolean isPartnerEntityAdded = true;	
 			boolean isPartnerAdded = true;
 			
 			if (partnerentity.getEntityName() == "") {				
 				isPartnerAdded=false;
-			    //isUserAdded = userService.saveUser(user);
 				partner.setUser(user);
-				isPartnerAdded = partnerService.savePartner(partner);
-				
-			}
-			
+				isPartnerAdded = partnerService.savePartner(partner);				
+			}			
 			else {
-			
-			
-				isPartnerEntityAdded=false;
-				
-				partnerentity.setPartner(partner);
-				//partner.setPartnerentity(partnerentity);
-				
-	            //isUserAdded = userService.saveUser(user);	
-				partner.setUser(user);				
-				//isPartnerAdded = partnerService.savePartner(partner);		
+
+				isPartnerEntityAdded=false;				
+				partnerentity.setPartner(partner);				
+				partner.setUser(user);					
 				isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
 			}
 

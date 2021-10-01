@@ -14,7 +14,7 @@
 	
 		<spring:bind path="user.lastName">
 		    <label for="lastname">Nom :</label>
-			<input id="lastname "type="text" name="${status.expression}"
+			<input id="lastname"type="text" name="${status.expression}"
 				value="${status.value}">
 			<br />			
 		</spring:bind>
@@ -80,8 +80,42 @@
 			cb : <form:radiobutton path="donation.state" value="done"/>  
 			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 
 			 
-		<input type="submit" value="Faire un don" />
+		<input type="submit" id="btn" value="Faire un don" />
 	</form>
+	
+	<div id="div2" style="color:#ff0000"></div>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						$("#btn").click(function(){
+							var  email = document.contactForm.email.value;
+							;
+							var  mdp =document.contactForm.mdp.value;
+							$.ajax(
+									{
+										url: "checkEmailAndPassword",
+										type: "POST",
+										data: {
+											"email":email,
+											"mdp":mdp,
+										},
+										success: function(result)
+										{
+											if(result=="success"){
+												console.log("fonction success");
+												console.log(result);
+												var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
+												window.location.href = successUrl;
+											}
+											else {console.log("fonction error");
+												$("#div2").text("Identifiant et/ou Mot de passe incorrect. Merci de réessayer.");     }
+										},
+										error: function() {
+											console.log("fonction error");
+										}
+									});
+						});
+					});
+				</script>
 	
 </body>
 </html>

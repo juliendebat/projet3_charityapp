@@ -40,7 +40,7 @@
     
 	</c:when>
 	<c:otherwise>
-       <c:redirect url="/LoginAssociation2"/>
+       <c:redirect url="/loginAssociation"/>
 	</c:otherwise>
 
 

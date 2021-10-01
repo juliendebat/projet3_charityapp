@@ -38,7 +38,6 @@ public class Association {
 		this.lUser = new ArrayList<User>();
 	}
 
-
 	public Long getId() {
 		return id;
 	}

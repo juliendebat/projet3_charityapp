@@ -2,7 +2,9 @@ package fr.isika.projet3.controller;
 
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.MailService;
 import fr.isika.projet3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +34,22 @@ public class AssociationController {
     private String message = "Bonjour" +
             "Ce mail vous confirme votre inscription !!!!";
 
+   
     private UserService userService;
 
+	private DonationService donationService;
+	
 
     public AssociationController() {
 
     }
 
     @Autowired
-    public AssociationController(AssociationService associationService, MailService mailService) {
+    public AssociationController(AssociationService associationService, MailService mailService,UserService userService,DonationService donationService) {
         this.associationService = associationService;
         this.mailService = mailService;
+        this.donationService=donationService;
+        this.userService=userService;
 
 
     }
@@ -145,6 +152,13 @@ public class AssociationController {
         Association association = associationService.getAssociationById(id);
         mv.addObject("headerMessage", "Edit home Page Association Details");
         mv.addObject("association", association);
+
+        //maj compteur don
+		List<User> contributors = userService.getAllContributorsByAssociation(association);
+		Double sumDonations = donationService.getSumDonationsByAssociation(contributors);
+	    mv.addObject("sumdonations",sumDonations);
+
+        
         return mv;
     }
 }

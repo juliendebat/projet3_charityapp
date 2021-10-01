@@ -30,8 +30,9 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/addPromoter/${association.id}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/addPromoter/${association.id}">Devenir Promoteur</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/addPartner/${association.id}">Devenir Partenaire</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/donation/add_donation/${association.id}">Faire un don</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                     </ul>
@@ -41,6 +42,10 @@
         <!-- Page content-->
         <div class="container mt-5">
         <h1>${headerMessage}</h1>
+	
+	
+Prommesses de don en cours	<h1>${sumdonations}</h1>
+	
 	
         <form:form  action="" modelAttribute="association">
         
