@@ -36,7 +36,7 @@ public class Association {
     private String password;
     private String description;
     
-    @ManyToMany
+    @OneToMany(mappedBy ="association")
     private List<User> lUser;
 
 	public Long getId() {

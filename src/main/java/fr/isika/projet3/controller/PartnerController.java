@@ -18,6 +18,7 @@ import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.PartnerEntityService;
 import fr.isika.projet3.service.PartnerService;
 import fr.isika.projet3.service.UserService;
@@ -26,14 +27,14 @@ import fr.isika.projet3.service.UserService;
 public class PartnerController {
 	// Constructor based Dependency Injection
 	 
-	   @Autowired
-		private UserService userService;
-	    
+	    @Autowired
+		private UserService userService;	    
         @Autowired
-	    private PartnerService partnerService ;
-        
+	    private PartnerService partnerService ;       
         @Autowired
 	    private PartnerEntityService partnerEntityService ;
+        @Autowired
+	    private AssociationService associationService ;
 	    
 
 		public PartnerController() {
@@ -71,44 +72,44 @@ public class PartnerController {
 				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");
-
-		
-			
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
+			//a supprimer (test):
+			Long id=5l;
+			
+			//julien user-asso
+			Association association=associationService.getAssociationById(id);
+			user.setAssociation(association);
+			
 			
 			boolean isPartnerEntityAdded = true;
-			boolean isUserAdded = true;
+	
 			boolean isPartnerAdded = true;
 			
-			if (partnerentity.getEntityName() == "") {
-				isUserAdded=false;
+			if (partnerentity.getEntityName() == "") {				
 				isPartnerAdded=false;
-			    isUserAdded = userService.saveUser(user);
-				partner.setUser(user);			
+			    //isUserAdded = userService.saveUser(user);
+				partner.setUser(user);
 				isPartnerAdded = partnerService.savePartner(partner);
-				//ajouter user dans association
 				
 			}
 			
 			else {
-				isUserAdded=false;
-				isPartnerAdded=false;
+			
+			
 				isPartnerEntityAdded=false;
+				
+				partnerentity.setPartner(partner);
+				//partner.setPartnerentity(partnerentity);
+				
+	            //isUserAdded = userService.saveUser(user);	
+				partner.setUser(user);				
+				//isPartnerAdded = partnerService.savePartner(partner);		
 				isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
-				
-				partner.setPartnerentity(partnerentity);
-				
-	            isUserAdded = userService.saveUser(user);	
-				partner.setUser(user);	
-				isPartnerAdded = partnerService.savePartner(partner);
-				
 			}
-			
-			
 
-			if (isUserAdded && isPartnerEntityAdded && isPartnerAdded) {
+			if ( isPartnerEntityAdded && isPartnerAdded) {
 				mv.addObject("message", "New partner successfully added");
 			} else {
 				return new ModelAndView("error");

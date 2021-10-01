@@ -71,6 +71,15 @@ public class PartnerServiceImpl implements PartnerService{
 	}
 
 
+	@Override
+	public Partner getPartnerByUser(User user) {
+		
+		Partner partner=partnerRepository.findByUser(user);
+		return partner;
+		
+	}
+
+
 
 
 }

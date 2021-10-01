@@ -40,7 +40,7 @@
 										<td><c:out value="${ partner.partner.funding }" /></td>
 
 										<td><a
-											href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
+											href="${pageContext.request.contextPath}/dashboardAdmin/editPartner/${partner.id}">Edit</a></td>
 
 										<td><a
 											href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
@@ -55,7 +55,7 @@
 		</div>
 	</c:when>
 	<c:otherwise>
-//redirection page login
+<c:redirect url="/dashboardAdmin/LoginAssociation2"/>
         <br />
 	</c:otherwise>
 </c:choose>

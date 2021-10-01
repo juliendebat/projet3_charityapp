@@ -10,6 +10,6 @@ import fr.isika.projet3.entities.User;
 @Repository
 public interface PartnerRepository extends CrudRepository<Partner, Long>{
 	
-
+Partner findByUser(User user);
 
 }

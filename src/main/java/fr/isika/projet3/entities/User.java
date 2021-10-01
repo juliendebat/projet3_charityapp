@@ -5,16 +5,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 @Entity
 @Table(name="users")
 public class User {
@@ -39,7 +29,7 @@ public class User {
 	List<Donation> donations;
 	
 	
-	@OneToOne
+	@OneToOne(mappedBy = "user")
 	Partner partner;
 	
 	public int getRoleId() {
@@ -58,16 +48,18 @@ public class User {
 		this.partner = partner;
 	}
 
-	public List<Association> getAssociation() {
-		return association;
-	}
 
-	public void setAssociation(List<Association> association) {
+
+	
+
+	public void setAssociation(Association association) {
 		this.association = association;
 	}
 
-	@ManyToMany
-	private List<Association> association;
+
+
+	@ManyToOne
+	private Association association;
 	
 	public String getEmail() {
 		return email;

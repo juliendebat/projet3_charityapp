@@ -39,47 +39,18 @@ public class LoginAssociationController {
 		this.associationService = associationService;
 	}
 
-	@RequestMapping(value = { "/authentificationfailed" }, method = RequestMethod.GET)
-	public ModelAndView authentification(HttpServletResponse response) throws IOException {
-		ModelAndView mv1 = new ModelAndView();
-		mv1.setViewName("authentificationfailed");
-		return mv1;
-	}
 
 	@RequestMapping(value = "/LoginAssociation2", method = RequestMethod.GET)
 	public ModelAndView displayNewEventForm() {
 		ModelAndView mv = new ModelAndView("LoginAssociation2");
-		mv.addObject("LoginAssociation", new LoginAssociation());
 		return mv;
 	}
 
-//	@RequestMapping(value = "/LoginAssociation2", method = RequestMethod.POST)
-//	public ModelAndView connection(HttpServletRequest request, @ModelAttribute LoginAssociation loginAssociation,
-//			BindingResult result) {
-//		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/index");
-//		ModelAndView mv1 = new ModelAndView("redirect:/authentificationfailed");
-//		if (result.hasErrors()) {
-//			return new ModelAndView("error");
-//		}
-//		Association asso = associationService.getAssociationByEmail(loginAssociation.getEmail());
-//
-//		if (asso != null) {
-//			System.out.println("asso n'est pas nul");
-//			if (asso.getEmail().equals(loginAssociation.getEmail())
-//					&& asso.getPassword() == (loginAssociation.getPassword())) {
-//				HttpSession associationSession = request.getSession();
-//				associationSession.setAttribute("assos", asso);
-//				return mv;
-//			} 	
-//		
-//		return null;
-//		}
-//		return mv1;
-//	}
+
 
 
 	
-	@RequestMapping(value = "/checkEmailAndPassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/checkEmailAndPasswordAsso", method = RequestMethod.POST)
 	public @ResponseBody 
 	String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("mdp") String mdp) throws NotFoundException {		
 		boolean ok = associationService.isAuthentificationOk(email, mdp);	

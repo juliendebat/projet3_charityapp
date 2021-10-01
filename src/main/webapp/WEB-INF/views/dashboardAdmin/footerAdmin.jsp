@@ -38,7 +38,7 @@
     
 	</c:when>
 	<c:otherwise>
-        <br />
+       <c:redirect url="/LoginAssociation2"/>
 	</c:otherwise>
 </c:choose>
 
