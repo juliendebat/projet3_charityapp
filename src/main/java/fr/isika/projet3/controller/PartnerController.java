@@ -26,6 +26,7 @@ import fr.isika.projet3.service.UserService;
 @Controller
 public class PartnerController {
 	// Constructor based Dependency Injection
+
 	 
 	    @Autowired
 		private UserService userService;	    
@@ -40,32 +41,34 @@ public class PartnerController {
 		public PartnerController() {
 		}
 
-		public PartnerController(PartnerService partnerService) {
-			super();
-			this.partnerService = partnerService;
-		}
+
+	public PartnerController(PartnerService partnerService) {
+		super();
+		this.partnerService = partnerService;
+	}
 
 
-		// Get All Users
-		@RequestMapping(value = "/allPartners", method = RequestMethod.POST)
-		public ModelAndView showAllUsers() {
-			System.out.println("User Page Requested : All Users");
-			ModelAndView mv = new ModelAndView();
-			List userList = userService.getAllUsers();
-			mv.addObject("userList", userList);
-			mv.setViewName("allPartners");
-			return mv;
-		}
+	// Get All Users
+	@RequestMapping(value = "/allPartners", method = RequestMethod.POST)
+	public ModelAndView showAllUsers() {
+		System.out.println("User Page Requested : All Users");
+		ModelAndView mv = new ModelAndView();
+		List userList = userService.getAllUsers();
+		mv.addObject("userList", userList);
+		mv.setViewName("allPartners");
+		return mv;
+	}
 
-		@RequestMapping(value = "/addPartner", method = RequestMethod.GET)
-		public ModelAndView displayNewUserForm() {
-			ModelAndView mv = new ModelAndView("addPartner");
-			mv.addObject("headerMessage", "Add partner Details");
-			mv.addObject("user", new User());
-			mv.addObject("partner", new Partner());
-			mv.addObject("partnerEntity", new PartnerEntity());
-			return mv;
-		}
+	@RequestMapping(value = "/addPartner", method = RequestMethod.GET)
+	public ModelAndView displayNewUserForm() {
+		ModelAndView mv = new ModelAndView("addPartner");
+		mv.addObject("headerMessage", "Add partner Details");
+		mv.addObject("user", new User());
+		mv.addObject("partner", new Partner());
+		mv.addObject("partnerEntity", new PartnerEntity());
+		return mv;
+	}
+
 
 		@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
 		public ModelAndView saveNewUser(@ModelAttribute("User") User user,
@@ -76,7 +79,7 @@ public class PartnerController {
 				return new ModelAndView("error");
 			}
 			//a supprimer (test):
-			Long id=5l;
+			Long id=1l;
 			
 			//julien user-asso
 			Association association=associationService.getAssociationById(id);
@@ -114,8 +117,8 @@ public class PartnerController {
 			} else {
 				return new ModelAndView("error");
 			}
-
 			return mv;
-		}
+
+	}
 
 }

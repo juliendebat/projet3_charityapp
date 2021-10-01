@@ -56,12 +56,14 @@ public class AssociationServiceImpl implements AssociationService {
 		} catch (Exception ex) {
 			return false;
 		}
+
 	}
 	@Override
 	public Association getAssociationByEmail(String email) {
 		Association association = associationRepository.findByEmail(email);
 		return association;
 	}
+
 
 	@Override
 	public boolean isAuthentificationOk(String email, String password) {
@@ -75,3 +77,4 @@ public class AssociationServiceImpl implements AssociationService {
 
 	}
 }
+

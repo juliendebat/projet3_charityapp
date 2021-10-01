@@ -1,11 +1,11 @@
 package fr.isika.projet3.entities;
 
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,24 +19,28 @@ public class Partner {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int funding;
-	private int mdp;
+	private String password;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
+
 	@OneToOne(mappedBy ="partner")
 	PartnerEntity partnerentity;
-	
 
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private PartnerEntity partnerEntity;
+
+
+	public User getUser() {
+		return user;
+	}
 	public PartnerEntity getPartnerentity() {
 		return partnerentity;
 	}
 	public void setPartnerentity(PartnerEntity partnerentity) {
 		this.partnerentity = partnerentity;
-	}
-	
-	public User getUser() {
-		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
@@ -53,13 +57,11 @@ public class Partner {
 	public void setFunding(int funding) {
 		this.funding = funding;
 	}
-	public int getMdp() {
-		return mdp;
+	public String getPassword() {
+		return password;
 	}
-	public void setMdp(int mdp) {
-		this.mdp = mdp;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	
-	
-	
+
 }

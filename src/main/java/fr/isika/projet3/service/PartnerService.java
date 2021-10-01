@@ -5,6 +5,7 @@ import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.User;
 
 
+
 public interface PartnerService {
 
 	public List<Partner> getAllPartners();

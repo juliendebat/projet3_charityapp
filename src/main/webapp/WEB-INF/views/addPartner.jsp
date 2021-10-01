@@ -131,7 +131,7 @@
 			<br />
 			</spring:bind>
 			
-			<spring:bind path="partner.mdp">
+			<spring:bind path="partner.password">
 		 <label for="password">Mot de passe :</label>
 			<input id="password" type="password" name="${status.expression}"
 				value="${status.value}">

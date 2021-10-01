@@ -181,12 +181,30 @@
 
                                     }
 
-
                                  else {console.log("fonction error");
                                  
                                  document.contactForm.email.value="";
                                  document.contactForm.mdp.value="";
                                        $("#div2").text("Identifiant et/ou Mot de passe incorrect. Merci de réessayer.");     }
+
+<!-- 	<form name="form1" method="post" >	 -->
+	
+
+		<spring:bind path="loginAssociation.email">
+		    <label for="email">Email :</label>
+			<input id="email "type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		
+		<spring:bind path="loginAssociation.password">
+		 <label for="mdp">Mot de passe :</label>
+			<input id="mdp"type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />
+			</spring:bind>
+
+
 
                                  },
 

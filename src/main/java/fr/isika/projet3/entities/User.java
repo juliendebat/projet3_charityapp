@@ -18,56 +18,30 @@ public class User {
 	private String email;
 	private int age;
 	private String address;
-	private int roleId;
-	private int zip;
+	private int zipCode;
 	private String town;
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
-	
+
 	@OneToMany
 	List<Donation> donations;
-	
-	
+
 	@OneToOne(mappedBy = "user")
 	Partner partner;
-	
-	public int getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
-
-	public Partner getPartner() {
-		return partner;
-	}
-
-	public void setPartner(Partner partner) {
-		this.partner = partner;
-	}
-
-
-
-	
-
-	public void setAssociation(Association association) {
-		this.association = association;
-	}
-
-
 
 	@ManyToOne
 	private Association association;
-	
-	public String getEmail() {
-		return email;
+
+
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public User() {
+		donations=new ArrayList<Donation>();
 	}
+
 	public Long getId() {
 		return id;
 	}
@@ -92,6 +66,14 @@ public class User {
 		this.firstName = firstName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -108,12 +90,12 @@ public class User {
 		this.address = address;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getTown() {
@@ -140,7 +122,6 @@ public class User {
 		this.complementaryAddress = complementaryAddress;
 	}
 
-
 	public boolean isHasDonated() {
 		return hasDonated;
 	}
@@ -149,17 +130,28 @@ public class User {
 		this.hasDonated = hasDonated;
 	}
 
-	
-	public void addDonation(Donation donation) {
-		this.donations.add(donation);
+	public List<Donation> getDonations() {
+		return donations;
 	}
 
-	public User() {
-		donations=new ArrayList<Donation>();
+	public void setDonations(List<Donation> donations) {
+		this.donations = donations;
 	}
-	
 
-	
-	
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
+	}
+
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
+		this.association = association;
+	}
+
 }
-

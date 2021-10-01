@@ -1,43 +1,43 @@
 package fr.isika.projet3.entities;
 
+
+
+import java.util.ArrayList;
+
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="associations")
 public class Association {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;    
-    private String associationName;
-    
-//=======
-//
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-//	private Long id;
-//    private String associationName;
-//>>>>>>> 6746832124d327880b4c082be6b21720d0e51d6d
-    
-    private int rnaNumber;
-    private String address;
-    private int zipCode;
-    private String city;
-    private String country;
-    private String email;
-    private String password;
-    private String description;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String associationName;
+	private int rnaNumber;
+	private String address;
+	private int zipCode;
+	private String city;
+	private String country;
+	private String email;
+	private String password;
+	private String description;
+	private int phone;
+	private String theme;
+	private String photo;
+
+	
     
     @OneToMany(mappedBy ="association")
     private List<User> lUser;
+	
+	
+	public Association() {
+		this.lUser = new ArrayList<User>();
+	}
+
 
 	public Long getId() {
 		return id;
@@ -119,58 +119,6 @@ public class Association {
 		this.description = description;
 	}
 
-	public List<User> getlUser() {
-		return lUser;
-	}
-
-	public void setlUser(List<User> lUser) {
-		this.lUser = lUser;
-	}
-    
-    @OneToMany
-    private List<Event> lEvent;
-    
-    
-    // A garder ou pas ???
-    
-   private String adminLastName;
-    private String adminFirstName;
-    private String adminEmail;
-    private int phone;
-    private String associationEmail;
-
-	public List<Event> getlEvent() {
-		return lEvent;
-	}
-
-	public void setlEvent(List<Event> lEvent) {
-		this.lEvent = lEvent;
-	}
-
-	public String getAdminLastName() {
-		return adminLastName;
-	}
-
-	public void setAdminLastName(String adminLastName) {
-		this.adminLastName = adminLastName;
-	}
-
-	public String getAdminFirstName() {
-		return adminFirstName;
-	}
-
-	public void setAdminFirstName(String adminFirstName) {
-		this.adminFirstName = adminFirstName;
-	}
-
-	public String getAdminEmail() {
-		return adminEmail;
-	}
-
-	public void setAdminEmail(String adminEmail) {
-		this.adminEmail = adminEmail;
-	}
-
 	public int getPhone() {
 		return phone;
 	}
@@ -179,14 +127,30 @@ public class Association {
 		this.phone = phone;
 	}
 
-	public String getAssociationEmail() {
-		return associationEmail;
+	public String getTheme() {
+		return theme;
 	}
 
-	public void setAssociationEmail(String associationEmail) {
-		this.associationEmail = associationEmail;
+	public void setTheme(String theme) {
+		this.theme = theme;
 	}
-  
-    
-    
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public List<User> getlUser() {
+		return lUser;
+	}
+
+	public void setlUser(List<User> lUser) {
+		this.lUser = lUser;
+	}
+
 }
+
+

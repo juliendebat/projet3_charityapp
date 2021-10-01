@@ -126,8 +126,7 @@ public class DashboardAdminController {
         if (session != null) {
             session.invalidate();
         }
-        return "redirect:/LoginAssociation2";  //Where you go after logout here.
+        return "redirect:../loginAssociation";  //Where you go after logout here.
     }
-    
-    
+
 }

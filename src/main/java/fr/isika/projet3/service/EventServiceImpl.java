@@ -1,56 +1,75 @@
 package fr.isika.projet3.service;
 
-import fr.isika.projet3.entities.Event;
-import fr.isika.projet3.repository.EventRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import fr.isika.projet3.entities.Event;
+import fr.isika.projet3.entities.Promoter;
+import fr.isika.projet3.repository.EventRepository;
+import fr.isika.projet3.repository.PromoterRepository;
 
 @Service
-public class EventServiceImpl implements EventService{
-	
-    @Autowired
-    private EventRepository eventRepository;
+public class EventServiceImpl implements EventService {
 
-    public EventServiceImpl() {
-    }
+	// Implementing Constructor based DI
+				private EventRepository eventRepository;
+				private PromoterRepository promoterRepository;
+				
+				public EventServiceImpl() {
+					
+				}
+				
+				@Autowired
+				public EventServiceImpl(EventRepository eventRepository,PromoterRepository promoterRepository) {
+					super();
+					this.eventRepository = eventRepository;
+					this.promoterRepository = promoterRepository;
+				}
+				
+			@Override
+			public List getAllEvents() {
+				List list = new ArrayList();
+				eventRepository.findAll().forEach(e -> list.add(e));
+				return list;
+			}
 
-    public EventServiceImpl(EventRepository eventRepository) {
-        this.eventRepository = eventRepository;
-    }
+			@Override
+			public Event getEventById(Long id) {
+				Event event = eventRepository.findById(id).get();
+				return event;
+			}
 
-    @Override
-    public List<Event> finfAll() {
-        return eventRepository.findAll();
-    }
+			@Override
+			public boolean saveEvent(Event event) {
+				try {
+					eventRepository.save(event);
+					return true;
+				}catch(Exception ex) {
+					return false;
+				}
+			}
 
-    public Event getEventById(Long id) {
-        Event event = eventRepository.findById(id).get();
-        return event;
-    }
+			@Override
+			public boolean deleteEventById(Long id) {
+				try {
+					eventRepository.deleteById(id);
+					return true;
+				}catch(Exception ex) {
+					return false;
+				}
+				
+			}
 
-
-    public boolean saveEvent(Event event) {
-        try {
-            eventRepository.save(event);
-            return true;
-        }catch(Exception ex) {
-            return false;
-        }
-    }
-
-
-    public boolean deleteEventById(Long id) {
-        try {
-            eventRepository.deleteById(id);
-            return true;
-        }catch(Exception ex) {
-            return false;
-        }
-    }
-
-
+			/*@Override
+			public List getAllEventsByPromoter(Promoter promoter, Event event) {
+				List list = new ArrayList();
+				promoterRepository.
+				return null;
+			}*/
 }

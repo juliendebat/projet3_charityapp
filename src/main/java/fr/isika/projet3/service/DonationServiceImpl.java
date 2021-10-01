@@ -10,6 +10,8 @@ import fr.isika.projet3.entities.State;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.DonationRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class DonationServiceImpl implements DonationService {
 

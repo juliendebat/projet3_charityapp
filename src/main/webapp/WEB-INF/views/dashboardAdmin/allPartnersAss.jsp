@@ -1,4 +1,5 @@
 <%@include file="headerAdmin.jsp"%>
+
 <c:choose>
 	<c:when test="${!empty sessionScope.assos}">
 		<div class="container-fluid">
@@ -51,12 +52,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.container-fluid -->
+	
 		</div>
 	</c:when>
 	<c:otherwise>
-<c:redirect url="/dashboardAdmin/LoginAssociation2"/>
-        <br />
+<c:redirect url="/dashboardAdmin/LoginAssociation2"/>    
 	</c:otherwise>
 </c:choose>
 <%@include file="footerAdmin.jsp"%>

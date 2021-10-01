@@ -1,7 +1,5 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.Entity;
-
 
 public class LoginAssociation {
 	
@@ -21,5 +19,4 @@ public class LoginAssociation {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 }

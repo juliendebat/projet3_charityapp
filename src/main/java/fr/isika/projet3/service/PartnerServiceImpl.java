@@ -4,17 +4,16 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import fr.isika.projet3.repository.PartnerRepository;
+import fr.isika.projet3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.isika.projet3.entities.Association;
+
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.User;
-import fr.isika.projet3.repository.PartnerRepository;
-import fr.isika.projet3.repository.UserRepository;
 
 @Service
-@Transactional
 public class PartnerServiceImpl implements PartnerService{
 
 	
@@ -23,10 +22,8 @@ public class PartnerServiceImpl implements PartnerService{
 		
        @Autowired
 	   private UserRepository userRepository;
-	   
-	   
-		public PartnerServiceImpl() {
-			
+	   	   
+		public PartnerServiceImpl() {			
 		}
 		
 			
@@ -50,14 +47,11 @@ public class PartnerServiceImpl implements PartnerService{
 	@Override
 	public boolean savePartner(Partner partner) {
 		try {
-			
-			
 			partnerRepository.save(partner);
 			return true;
 		}catch(Exception ex) {
 			return false;
-		}
-	
+		}	
 	}
 
 	@Override
@@ -70,16 +64,10 @@ public class PartnerServiceImpl implements PartnerService{
 		}
 	}
 
-
 	@Override
-	public Partner getPartnerByUser(User user) {
-		
+	public Partner getPartnerByUser(User user) {		
 		Partner partner=partnerRepository.findByUser(user);
-		return partner;
-		
+		return partner;		
 	}
-
-
-
-
 }
+
