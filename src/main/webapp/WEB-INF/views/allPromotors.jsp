@@ -22,7 +22,6 @@
 			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
-				<th>UserName</th>
 				<th>Edit</th>
 				<th>Delete</th>
 			</tr>
