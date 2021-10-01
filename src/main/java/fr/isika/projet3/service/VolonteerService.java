@@ -11,7 +11,6 @@ public interface VolonteerService {
 	public List<Volonteer> getAllVolonteers();
 	public Volonteer getVolonteerById(int id);
 	public boolean saveVolonteer(Volonteer volonteer);
-	public boolean saveVolonteerWithEvent(Volonteer volonteer, Event event);
 	public boolean deleteVolonteerById(int id);
 
 }

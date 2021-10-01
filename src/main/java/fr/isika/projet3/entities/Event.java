@@ -4,117 +4,127 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "event")
+@Table(name = "events")
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     private String eventName;
     private String eventDescription;
     private String eventCategory;
     private String eventCity;
-    private String EventCountry;
-    private Date EventDateStart;
-    private Date EventDateEnd;
-    private String EventThumbnailLink;
+    private String eventCountry;
+    private String eventDateStart;
+    private String eventDateEnd;
+    private String eventThumbnailLink;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Association association;
     
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Promoter promoter;
+    
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Volonteer volonteer;
 
-    public int getId() {
-        return id;
-    }
+	public Promoter getPromoter() {
+		return promoter;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setPromoter(Promoter promoter) {
+		this.promoter = promoter;
+	}
+	
+	public Volonteer getVolonteer() {
+		return volonteer;
+	}
 
-    public String getEventName() {
-        return eventName;
-    }
+	public void setVolonteer(Volonteer volonteer) {
+		this.volonteer = volonteer;
+	}
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getEventDescription() {
-        return eventDescription;
-    }
-
-    public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
-    }
-
-    public String getEventCategory() {
-        return eventCategory;
-    }
-
-    public void setEventCategory(String eventCategory) {
-        this.eventCategory = eventCategory;
-    }
-
-    public String getEventCity() {
-        return eventCity;
-    }
-
-    public void setEventCity(String eventCity) {
-        this.eventCity = eventCity;
-    }
-
-    public String getEventCountry() {
-        return EventCountry;
-    }
-
-    public void setEventCountry(String eventCountry) {
-        EventCountry = eventCountry;
-    }
-
-    public Date getEventDateStart() {
-        return EventDateStart;
-    }
-
-    public void setEventDateStart(Date eventDateStart) {
-        EventDateStart = eventDateStart;
-    }
-
-    public Date getEventDateEnd() {
-        return EventDateEnd;
-    }
-
-    public void setEventDateEnd(Date eventDateEnd) {
-        EventDateEnd = eventDateEnd;
-    }
-
-    public String getEventThumbnailLink() {
-        return EventThumbnailLink;
-    }
-
-    public void setEventThumbnailLink(String eventThumbnailLink) {
-        EventThumbnailLink = eventThumbnailLink;
-    }
-
-	public Event(int id, String eventName, String eventDescription, String eventCategory, String eventCity,
-			String eventCountry, Date eventDateStart, Date eventDateEnd, String eventThumbnailLink,
-			Association association) {
-		super();
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getEventName() {
+		return eventName;
+	}
+
+	public void setEventName(String eventName) {
 		this.eventName = eventName;
+	}
+
+	public String getEventDescription() {
+		return eventDescription;
+	}
+
+	public void setEventDescription(String eventDescription) {
 		this.eventDescription = eventDescription;
+	}
+
+	public String getEventCategory() {
+		return eventCategory;
+	}
+
+	public void setEventCategory(String eventCategory) {
 		this.eventCategory = eventCategory;
+	}
+
+	public String getEventCity() {
+		return eventCity;
+	}
+
+	public void setEventCity(String eventCity) {
 		this.eventCity = eventCity;
-		EventCountry = eventCountry;
-		EventDateStart = eventDateStart;
-		EventDateEnd = eventDateEnd;
-		EventThumbnailLink = eventThumbnailLink;
+	}
+
+	public String getEventCountry() {
+		return eventCountry;
+	}
+
+	public void setEventCountry(String eventCountry) {
+		this.eventCountry = eventCountry;
+	}
+
+	public String getEventDateStart() {
+		return eventDateStart;
+	}
+
+	public void setEventDateStart(String eventDateStart) {
+		this.eventDateStart = eventDateStart;
+	}
+
+	public String getEventDateEnd() {
+		return eventDateEnd;
+	}
+
+	public void setEventDateEnd(String eventDateEnd) {
+		this.eventDateEnd = eventDateEnd;
+	}
+
+	public String getEventThumbnailLink() {
+		return eventThumbnailLink;
+	}
+
+	public void setEventThumbnailLink(String eventThumbnailLink) {
+		this.eventThumbnailLink = eventThumbnailLink;
+	}
+
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
 		this.association = association;
 	}
 
-	public Event() {
-		super();
-	}
-    
+   
+
     
 }
-

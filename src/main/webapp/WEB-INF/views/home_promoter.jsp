@@ -5,15 +5,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home Page</title>
+<title>Home Promoter</title>
 </head>
 <body>
 
 <br>
 <br>
 <br>
-	<form action="allVolonteers" method="get">
-		<input type="submit" value="List All Volonteers" />
+	<form action="allPromoters" method="post">
+		<input type="submit" value="List All Promoters" />
 	</form>
 </body>
 </html>

@@ -18,8 +18,10 @@ import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
+import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.entities.Volonteer;
+import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.UserService;
 import fr.isika.projet3.service.VolonteerService;
@@ -27,20 +29,24 @@ import fr.isika.projet3.service.VolonteerService;
 @Controller
 public class VolonteerController {
 	// Constructor based Dependency Injection
-	@Autowired
 	private VolonteerService volonteerService;
-	@Autowired
 	private EventService eventService;
-	@Autowired
 	private UserService userService;
+	private AssociationService associationService;
+
 
 	public VolonteerController() {
 
 	}
 
 	@Autowired
-	public VolonteerController(VolonteerService volonteerService) {
+	public VolonteerController(VolonteerService volonteerService, UserService userService,
+			AssociationService associationService, EventService eventService) {
+		super();
 		this.volonteerService = volonteerService;
+		this.eventService = eventService;
+		this.userService = userService;
+		this.associationService = associationService;
 	}
 	
 	
@@ -54,39 +60,46 @@ public class VolonteerController {
 	}
 
 	// Get All Users
-	@RequestMapping(value = "/allVolonteers", method = RequestMethod.POST)
+	@RequestMapping(value = "/allVolonteers", method = RequestMethod.GET)
 	public ModelAndView displayAllVolonteers() {
 		System.out.println("Page Requested : All Volonteers");
 		ModelAndView mv = new ModelAndView();
 		List<Volonteer> volonteerList = volonteerService.getAllVolonteers();
-		//List<User> userList = userService.getAllUsers();
 		mv.addObject("volonteerList", volonteerList);
-		//mv.addObject("userList", userList);
 		mv.setViewName("allVolonteers");
 		return mv;
 	}
 
-	@RequestMapping(value = "/addVolonteer", method = RequestMethod.GET)
+	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.GET)
 	public ModelAndView displayNewVolonteerForm() {
 		ModelAndView mv = new ModelAndView("addVolonteer");
+		List<Event> eventList = eventService.getAllEvents();
 		mv.addObject("headerMessage", "Add User Details");
-		mv.addObject("volonteer", new Volonteer());
 		mv.addObject("user", new User());
+		mv.addObject("volonteer", new Volonteer());
+		mv.addObject("eventList", eventList);
+		mv.addObject("association", new Association());
 		return mv;
 	}
 
-	@RequestMapping(value = "/addVolonteer", method = RequestMethod.POST)
-	public ModelAndView saveNewVolonteer(@ModelAttribute("Volonteer") Volonteer volonteer, 
-			@ModelAttribute("User") User user, BindingResult result) {
-		//ModelAndView mv = new ModelAndView("redirect:/allEvents/{id}");
+	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.POST)
+	public ModelAndView saveNewVolonteer(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Event event,
+			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
 		}
+		association = associationService.getAssociationById(id);
+		user.setAssociation(association);
 		boolean isUserAdded = userService.saveUser(user);
-		boolean isAdded = volonteerService.saveVolonteer(volonteer);
-		if (isAdded && isUserAdded) {
+		volonteer.setUser(user);
+		boolean isVolonteerAdded = volonteerService.saveVolonteer(volonteer);
+		event.setVolonteer(volonteer);
+		boolean isEventAdded = eventService.saveEvent(event);
+
+
+		if (isUserAdded && isVolonteerAdded && isEventAdded) {
 			mv.addObject("message", "New volonteer successfully added");
 		} else {
 			return new ModelAndView("error");
@@ -96,38 +109,26 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/editVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditVoloteerForm(@PathVariable int id) {
+	public ModelAndView displayEditVolonteerForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("/editVolonteer");
 		Volonteer volonteer = volonteerService.getVolonteerById(id);
-		User user = volonteer.getUser();
-		List<Event> events = eventService.getAllEvents();
-		//Event event = volonteer.getEvent();
-		mv.addObject("headerMessage", "Edit Volonteer Details");
-		mv.addObject("user", user);
-		mv.addObject("events", events);
+		mv.addObject("headerMessage", "Edit volonteer Details");
 		mv.addObject("volonteer", volonteer);
 		return mv;
 	}
 
-	
 	@RequestMapping(value = "/editVolonteer/{id}", method = RequestMethod.POST)
-	public ModelAndView saveEditedVolonteer(@ModelAttribute Volonteer volonteer, 
-			@ModelAttribute User user, @ModelAttribute Event event, BindingResult result) {
+	public ModelAndView saveEditedVolonteer(@ModelAttribute Volonteer volonteer, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
-		
-		
+	
+
 		if (result.hasErrors()) {
 			System.out.println(result.toString());
 			return new ModelAndView("error");
 		}
-		volonteer.setUser(user);
-		volonteer.setEvent(event);
 		boolean isSaved = volonteerService.saveVolonteer(volonteer);
-		
+		if (!isSaved) {
 
-		if (isSaved) {
-			mv.addObject("message", "New partner successfully added");
-		} else {
 			return new ModelAndView("error");
 		}
 

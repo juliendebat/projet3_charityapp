@@ -61,14 +61,5 @@ public class VolonteerServiceImpl implements VolonteerService {
 
 	}
 	
-	public boolean saveVolonteerWithEvent(Volonteer volonteer, Event event) {
-		try {
-			volonteer.setEvent(event);
-			repository.save(volonteer);
-			return true;
-		} catch (Exception ex) {
-			return false;
-		}
-	}
 
 }
