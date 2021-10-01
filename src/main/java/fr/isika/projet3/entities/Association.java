@@ -1,13 +1,10 @@
 package fr.isika.projet3.entities;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="associations")
@@ -30,8 +27,8 @@ public class Association {
     private int password;
    private String description;
     
-    @ManyToMany
-    private List<User> lUser;
+    @OneToMany
+	private List<User> lUser;
 
 	public Long getId() {
 		return id;
@@ -101,6 +98,8 @@ public class Association {
 		return password;
 	}
 
+
+
 	public void setPassword(int password) {
 		this.password = password;
 	}
@@ -120,12 +119,14 @@ public class Association {
 	public void setlUser(List<User> lUser) {
 		this.lUser = lUser;
 	}
-    
-  
-    
-    
-    
-    @OneToMany
+
+
+	public Association() {
+
+		this.lUser = new ArrayList<User>();
+	}
+
+	@OneToMany
     private List<Event> lEvent;
     
     
@@ -184,7 +185,10 @@ public class Association {
 	public void setAssociationEmail(String associationEmail) {
 		this.associationEmail = associationEmail;
 	}
-  
-    
-    
+
+
+    public void addUser(User user) {
+
+		lUser.add(user);
+    }
 }

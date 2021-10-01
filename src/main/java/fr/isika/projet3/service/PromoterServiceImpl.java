@@ -1,4 +1,5 @@
 package fr.isika.projet3.service;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import fr.isika.projet3.repository.PromoterRepository;
 
 
 @Service
-
 public class PromoterServiceImpl implements PromoterService{
 
 	// Implementing Constructor based DI

@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.service.AssociationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -29,16 +31,18 @@ public class PromoterController {
 		private UserService userService;
 	    private PromoterService promoterService ;
 	    private EventService eventService ;
-	    
+	    private AssociationService associationService;
+
 		public PromoterController() {
 		}
 
 		@Autowired
-		public PromoterController(PromoterService promoterService, UserService userService, EventService eventService ) {
+		public PromoterController(PromoterService promoterService, UserService userService, EventService eventService,AssociationService associationService ) {
 			super();
 			this.promoterService = promoterService;
 			this.eventService = eventService;
 			this.userService = userService;
+			this.associationService = associationService;
 		}
 		
 		@RequestMapping(value = {"/home_promoter" }, method = RequestMethod.GET)
@@ -59,33 +63,38 @@ public class PromoterController {
 			return mv;
 		}
 
-		@RequestMapping(value = "/addPromoter", method = RequestMethod.GET)
-		public ModelAndView displayNewPromotorForm() {
+		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.GET)
+		public ModelAndView displayNewPromotorForm(@PathVariable Long id) {
 			ModelAndView mv = new ModelAndView("addPromoter");
 			mv.addObject("headerMessage", "Add promoter Details");
 			mv.addObject("user", new User());
 			mv.addObject("promoter", new Promoter());
 			mv.addObject("event", new Event());
+			mv.addObject("association", new Association());
 			return mv;
 		}
 
-		@RequestMapping(value = "/addPromoter", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@ModelAttribute User user,
+		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.POST)
+		public ModelAndView saveNewUser(@PathVariable Long id, @ModelAttribute User user,@ModelAttribute Association association,
 				@ModelAttribute Promoter promoter, @ModelAttribute Event event, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
 			
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
-			
-			boolean isEventAdded = eventService.saveEvent(event);
-			boolean isUserAdded = userService.saveUser(user);
-			promoter.setUser(user);
-			promoter.addEvent(event);
-			boolean isPromoterAdded = promoterService.savePromoter(promoter);
-			
+				association = associationService.getAssociationById(id);
+				user.setAssociation(association);
+				boolean isUserAdded = userService.saveUser(user);
+				promoter.setUser(user);
+				boolean isPromoterAdded = promoterService.savePromoter(promoter);
+				event.setPromoter(promoter);
+				boolean isEventAdded = eventService.saveEvent(event);
+
 
 			if (isUserAdded && isEventAdded && isPromoterAdded) {
+
+
+
 				mv.addObject("message", "New promotor successfully added");
 			} else {
 				return new ModelAndView("error");

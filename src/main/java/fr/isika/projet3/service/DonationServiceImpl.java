@@ -9,6 +9,8 @@ import fr.isika.projet3.entities.Donation;
 import fr.isika.projet3.repository.DonationRepository;
 import fr.isika.projet3.repository.UserRepository;
 
+import javax.transaction.Transactional;
+
 @Service
 public class DonationServiceImpl implements DonationService {
 

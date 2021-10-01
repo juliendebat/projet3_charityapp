@@ -35,6 +35,7 @@ public class User {
 	
 	@ManyToOne
 	private Association association;
+
 	
 	public String getEmail() {
 		return email;

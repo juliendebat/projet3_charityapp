@@ -22,7 +22,7 @@ public class Event {
     @ManyToOne
     private Association association;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Promoter promoter;
 
 	public Promoter getPromoter() {

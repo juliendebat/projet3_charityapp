@@ -12,7 +12,7 @@ import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.UserRepository;
 
 @Service
-@Transactional
+
 public class UserServiceImpl implements UserService {
 
 		// Implementing Constructor based DI

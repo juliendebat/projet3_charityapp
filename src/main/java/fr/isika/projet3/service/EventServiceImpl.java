@@ -14,7 +14,6 @@ import fr.isika.projet3.repository.EventRepository;
 import fr.isika.projet3.repository.PromoterRepository;
 
 @Service
-@Transactional
 public class EventServiceImpl implements EventService {
 
 	// Implementing Constructor based DI
