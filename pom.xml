@@ -7,7 +7,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <version>0.0.1-SNAPSHOT</version>
   <name>project3_charityapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
-<<<<<<< HEAD
+
   
   
 <properties>
@@ -16,27 +16,15 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		<mysql.connector.version>5.1.17</mysql.connector.version>
 	</properties>
 	<dependencies>
-=======
 
 
-	<properties>		<spring.version>5.0.3.RELEASE</spring.version>
-		<hibernate.version>5.2.10.Final</hibernate.version>
-		<mysql.connector.version>5.1.17</mysql.connector.version>
-	</properties>
-	
-	
-		<dependencies>
->>>>>>> 6746832124d327880b4c082be6b21720d0e51d6d
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
 
-=======
->>>>>>> 6746832124d327880b4c082be6b21720d0e51d6d
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -85,7 +73,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<artifactId>taglibs-standard-impl</artifactId>
 			<version>1.2.3</version>
 		</dependency>
-<<<<<<< HEAD
+
 		
 		 <dependency>
             <groupId>com.sun.xml.bind</groupId>
@@ -121,21 +109,8 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-=======
-
-	</dependencies>
-
-	<build>
-		<finalName>project3_charityapp</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
 					<encoding>UTF-8</encoding>
->>>>>>> 6746832124d327880b4c082be6b21720d0e51d6d
+
 				</configuration>
 			</plugin>
 			<plugin>
