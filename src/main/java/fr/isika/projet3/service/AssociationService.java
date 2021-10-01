@@ -9,7 +9,6 @@ public interface AssociationService {
 
     public List<Association> getAllAssociations();
 
-    //    public List<Association> findAll();
     public Association getAssociationById(Long id);
 
     public Association getAssociationByEmail(String email);
@@ -18,8 +17,8 @@ public interface AssociationService {
 
     public boolean deleteAssociationById(Long id);
 
-
     public boolean isAuthentificationOk(String email, String password);
+
 
 }
 

@@ -1,43 +1,37 @@
 package fr.isika.projet3.entities;
-import sun.awt.image.ImageWatched;
+
+
+
+import java.util.ArrayList;
 
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="associations")
 public class Association {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 
-    private Long id;
-    private String associationName;
-    private int rnaNumber;
-    private String address;
-    private int zipCode;
-    private String city;
-    private String country;
-    private String email;
-    private String password;
-   	private String description;
+	private Long id;
+	private String associationName;
+	private int rnaNumber;
+	private String address;
+	private int zipCode;
+	private String city;
+	private String country;
+	private String email;
+	private String password;
+	private String description;
 	private int phone;
 	private String theme;
 	private String photo;
 
-    @ManyToMany
-    private List<User> lUser;
-
-
-	// A garder ou pas ???
-
+	public Association() {
+		this.lUser = new ArrayList<>();
+	}
 
 	public Long getId() {
 		return id;
@@ -151,4 +145,8 @@ public class Association {
 		this.lUser = lUser;
 	}
 
+	@ManyToMany
+	private List<User> lUser;
 }
+
+

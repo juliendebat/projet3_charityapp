@@ -14,7 +14,6 @@ import fr.isika.projet3.repository.PartnerEntityRepository;
 
 
 @Service
-@Transactional
 public class PartnerEntityServiceImpl implements PartnerEntityService {
 
 	   @Autowired

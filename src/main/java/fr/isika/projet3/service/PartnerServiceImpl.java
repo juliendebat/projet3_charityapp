@@ -14,7 +14,6 @@ import fr.isika.projet3.entities.Partner;
 
 
 @Service
-@Transactional
 public class PartnerServiceImpl implements PartnerService{
 
 	

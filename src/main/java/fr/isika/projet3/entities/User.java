@@ -34,13 +34,15 @@ public class User {
 	private String complementaryAddress;
 	private boolean hasDonated;
 	
+
 	@OneToMany
 	List<Donation> donations;
 
 	@OneToOne
 	Partner partner;
-	
 
+	@ManyToOne
+	private Association association;
 
 	public Partner getPartner() {
 		return partner;
@@ -50,17 +52,6 @@ public class User {
 		this.partner = partner;
 	}
 
-	public List<Association> getAssociation() {
-		return association;
-	}
-
-	public void setAssociation(List<Association> association) {
-		this.association = association;
-	}
-
-	@ManyToMany
-	private List<Association> association;
-	
 	public String getEmail() {
 		return email;
 	}
@@ -68,6 +59,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public Long getId() {
 		return id;
 	}

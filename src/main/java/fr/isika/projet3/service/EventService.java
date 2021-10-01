@@ -3,6 +3,7 @@ package fr.isika.projet3.service;
 import java.util.List;
 
 import fr.isika.projet3.entities.Event;
+import fr.isika.projet3.entities.Promoter;
 
 public interface EventService {
 
