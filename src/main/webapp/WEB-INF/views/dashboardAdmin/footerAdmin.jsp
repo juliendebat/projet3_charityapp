@@ -36,10 +36,14 @@
             </div>
         </div>
 
-    </c:when>
-    <c:otherwise>
-        <br />
-    </c:otherwise>
+    </div>
+    
+	</c:when>
+	<c:otherwise>
+       <c:redirect url="/LoginAssociation2"/>
+	</c:otherwise>
+
+
 </c:choose>
 
 <!-- Bootstrap core JavaScript-->

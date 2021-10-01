@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 import fr.isika.projet3.entities.Partner;
-
+import fr.isika.projet3.entities.User;
 
 @Service
 public class PartnerServiceImpl implements PartnerService{
@@ -22,10 +22,8 @@ public class PartnerServiceImpl implements PartnerService{
 		
        @Autowired
 	   private UserRepository userRepository;
-	   
-	   
-		public PartnerServiceImpl() {
-			
+	   	   
+		public PartnerServiceImpl() {			
 		}
 		
 			
@@ -49,14 +47,11 @@ public class PartnerServiceImpl implements PartnerService{
 	@Override
 	public boolean savePartner(Partner partner) {
 		try {
-			
-			
 			partnerRepository.save(partner);
 			return true;
 		}catch(Exception ex) {
 			return false;
-		}
-	
+		}	
 	}
 
 	@Override
@@ -69,5 +64,10 @@ public class PartnerServiceImpl implements PartnerService{
 		}
 	}
 
+	@Override
+	public Partner getPartnerByUser(User user) {		
+		Partner partner=partnerRepository.findByUser(user);
+		return partner;		
+	}
 }
 

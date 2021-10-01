@@ -64,5 +64,11 @@ public class PartnerEntityServiceImpl implements PartnerEntityService {
 	}
 
 
+	public PartnerEntity getPartnerEntityByPartner(Partner partner) {
+		PartnerEntity entity = ((PartnerEntityRepository) repository).findByPartner(partner);
+		return entity;
+	}
+
+
 }
 

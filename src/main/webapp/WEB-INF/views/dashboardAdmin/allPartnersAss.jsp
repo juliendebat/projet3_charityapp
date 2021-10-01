@@ -1,4 +1,5 @@
 <%@include file="headerAdmin.jsp"%>
+
 <c:choose>
 	<c:when test="${!empty sessionScope.assos}">
 		<div class="container-fluid">
@@ -40,7 +41,7 @@
 										<td><c:out value="${ partner.partner.funding }" /></td>
 
 										<td><a
-											href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
+											href="${pageContext.request.contextPath}/dashboardAdmin/editPartner/${partner.id}">Edit</a></td>
 
 										<td><a
 											href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
@@ -51,12 +52,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.container-fluid -->
+	
 		</div>
 	</c:when>
 	<c:otherwise>
-//redirection page login
-        <br />
+<c:redirect url="/dashboardAdmin/LoginAssociation2"/>    
 	</c:otherwise>
 </c:choose>
 <%@include file="footerAdmin.jsp"%>

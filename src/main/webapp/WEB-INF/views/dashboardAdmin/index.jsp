@@ -54,7 +54,7 @@
 
 	</c:when>
 	<c:otherwise>
-//redirection page login
+<c:redirect url="/LoginAssociation2"/>
         <br />
 	</c:otherwise>
 </c:choose>

@@ -22,8 +22,7 @@ import java.util.List;
 
 @Controller
 public class AssociationController {
-    // Constructor based Dependency Injection
-    //@Autowired
+
     private AssociationService associationService;
 
     private MailService mailService;
@@ -149,4 +148,5 @@ public class AssociationController {
         return mv;
     }
 }
+
 

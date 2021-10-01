@@ -1,6 +1,15 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.*;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="partners")
@@ -15,17 +24,23 @@ public class Partner {
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
-	@OneToOne(cascade = CascadeType.ALL)
-	private PartnerEntity partnerEntity;
 
-	public PartnerEntity getPartnerentity() {
-		return partnerEntity;
-	}
-	public void setPartnerentity(PartnerEntity partnerentity) {
-		this.partnerEntity = partnerentity;
-	}
+	@OneToOne(mappedBy ="partner")
+	PartnerEntity partnerentity;
+
+	
+//	@OneToOne(cascade = CascadeType.ALL)
+//	private PartnerEntity partnerEntity;
+
+
 	public User getUser() {
 		return user;
+	}
+	public PartnerEntity getPartnerentity() {
+		return partnerentity;
+	}
+	public void setPartnerentity(PartnerEntity partnerentity) {
+		this.partnerentity = partnerentity;
 	}
 	public void setUser(User user) {
 		this.user = user;
