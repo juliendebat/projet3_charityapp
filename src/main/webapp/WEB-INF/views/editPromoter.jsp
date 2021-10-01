@@ -36,8 +36,8 @@
                     <td><form:input path="user.address"/></td>
                 </tr>
                  <tr>
-                    <td><form:label path="user.zip">Code Postal</form:label></td>
-                    <td><form:input path="user.zip"/></td>
+                    <td><form:label path="user.zipCode">Code Postal</form:label></td>
+                    <td><form:input path="user.zipCode"/></td>
                 </tr>
                  <tr>
                     <td><form:label path="user.town">Ville</form:label></td>

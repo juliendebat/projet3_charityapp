@@ -1,12 +1,6 @@
 package fr.isika.projet3.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="partners")
@@ -18,10 +12,10 @@ public class Partner {
 	private int funding;
 	private String password;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private PartnerEntity partnerEntity;
 
 	public PartnerEntity getPartnerentity() {

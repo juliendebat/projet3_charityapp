@@ -30,13 +30,13 @@ public class Promoter {
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	private List<Event> lEvent;
 	
 	
 	public Promoter() {
 		super();
-		lEvent = new ArrayList<>();
+		lEvent = new ArrayList<Event>();
 	}
 	public List<Event> getlEvent() {
 		return lEvent;

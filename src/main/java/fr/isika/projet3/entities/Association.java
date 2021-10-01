@@ -30,7 +30,7 @@ public class Association {
 	private String photo;
 
 	public Association() {
-		this.lUser = new ArrayList<>();
+		this.lUser = new ArrayList<User>();
 	}
 
 	public Long getId() {
@@ -145,7 +145,7 @@ public class Association {
 		this.lUser = lUser;
 	}
 
-	@ManyToMany
+	@ManyToMany()
 	private List<User> lUser;
 }
 

@@ -66,10 +66,10 @@ public class EventServiceImpl implements EventService {
 				
 			}
 
-			@Override
+			/*@Override
 			public List getAllEventsByPromoter(Promoter promoter, Event event) {
 				List list = new ArrayList();
-//				promoterRepository.
+				promoterRepository.
 				return null;
-			}
+			}*/
 }

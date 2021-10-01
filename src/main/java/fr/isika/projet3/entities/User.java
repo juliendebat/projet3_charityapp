@@ -33,13 +33,14 @@ public class User {
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
-	
+
 
 	@OneToMany
 	List<Donation> donations;
 
 	@OneToOne
 	Partner partner;
+
 
 	@ManyToOne
 	private Association association;
@@ -140,7 +141,7 @@ public class User {
 		this.hasDonated = hasDonated;
 	}
 
-	
+
 	public void addDonation(Donation donation) {
 		this.donations.add(donation);
 	}
@@ -149,6 +150,20 @@ public class User {
 		donations=new ArrayList<Donation>();
 	}
 
+	public List<Donation> getDonations() {
+		return donations;
+	}
 
+	public void setDonations(List<Donation> donations) {
+		this.donations = donations;
+	}
+
+	public Association getAssociation() {
+		return association;
+	}
+
+	public void setAssociation(Association association) {
+		this.association = association;
+	}
 }
 
