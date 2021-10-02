@@ -1,17 +1,9 @@
 package fr.isika.projet3.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
-
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 
 @Entity
 @Table(name="users")
@@ -20,33 +12,41 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String lastName;
 	private String firstName;
 	private String email;
 	private int age;
 	private String address;
-	private int zip;
+	private int zipCode;
 	private String town;
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
-	
-	@ManyToOne 
+
+	@OneToMany
+	List<Donation> donations;
+
+	@OneToOne(mappedBy = "user")
+	Partner partner;
+
+	@ManyToOne
 	private Association association;
-	
-	public String getEmail() {
-		return email;
+
+
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public User() {
+		donations=new ArrayList<Donation>();
 	}
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,6 +66,14 @@ public class User {
 		this.firstName = firstName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -82,12 +90,12 @@ public class User {
 		this.address = address;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getTown() {
@@ -114,13 +122,28 @@ public class User {
 		this.complementaryAddress = complementaryAddress;
 	}
 
-
 	public boolean isHasDonated() {
 		return hasDonated;
 	}
 
 	public void setHasDonated(boolean hasDonated) {
 		this.hasDonated = hasDonated;
+	}
+
+	public List<Donation> getDonations() {
+		return donations;
+	}
+
+	public void setDonations(List<Donation> donations) {
+		this.donations = donations;
+	}
+
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
 	}
 
 	public Association getAssociation() {
@@ -131,30 +154,4 @@ public class User {
 		this.association = association;
 	}
 
-	public User(int id, String lastName, String firstName, String email, int age, String address, int zip, String town,
-			int mobilePhone, String complementaryAddress, boolean hasDonated, Association association) {
-		super();
-		this.id = id;
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.email = email;
-		this.age = age;
-		this.address = address;
-		this.zip = zip;
-		this.town = town;
-		this.mobilePhone = mobilePhone;
-		this.complementaryAddress = complementaryAddress;
-		this.hasDonated = hasDonated;
-		this.association = association;
-	}
-
-	public User() {
-		super();
-	}
-	
-	
-
-	
-	
 }
-

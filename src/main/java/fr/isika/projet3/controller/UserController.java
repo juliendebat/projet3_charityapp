@@ -19,13 +19,14 @@ import fr.isika.projet3.service.UserService;
 @Controller
 public class UserController {
 	// Constructor based Dependency Injection
+	@Autowired
 	private UserService userService;
 
 	public UserController() {
 
 	}
 
-	@Autowired
+	//@Autowired
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
@@ -75,7 +76,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editUser/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditUserForm(@PathVariable int id) {
+	public ModelAndView displayEditUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editUser");
 		User user = userService.getUserById(id);
 		mv.addObject("headerMessage", "Edit User Details");
@@ -101,7 +102,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/deleteUser/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteUserById(@PathVariable int id) {
+	public ModelAndView deleteUserById(@PathVariable Long id) {
 		boolean isDeleted = userService.deleteUserById(id);
 		System.out.println("User deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home_user");

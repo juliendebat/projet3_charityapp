@@ -35,8 +35,12 @@
                 
 </script>
 
+<<<<<<< HEAD
 	<form action="" method="post">
 	
+=======
+	<form action="" method="post" >
+>>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
 		<spring:bind path="user.lastName">
 		    <label for="lastname">Nom :</label>
 			<input id="lastname "type="text" name="${status.expression}"

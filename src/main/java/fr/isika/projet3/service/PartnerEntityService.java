@@ -10,4 +10,10 @@ public interface PartnerEntityService {
 	public PartnerEntity getPartnerEntityById(int id);
 	public boolean savePartnerEntity(PartnerEntity user);
 	public boolean deletePartnerEntityById(int id);
+
+	
+	public PartnerEntity getPartnerEntityByPartner(Partner partner);
+	
+
+
 }

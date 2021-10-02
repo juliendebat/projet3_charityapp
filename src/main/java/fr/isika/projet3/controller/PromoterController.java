@@ -53,7 +53,7 @@ public class PromoterController {
 		}
 		
 		// Get All Promoters
-		@RequestMapping(value = "/allPromoters", method = RequestMethod.GET)
+		@RequestMapping(value = "/allPromoters", method = RequestMethod.POST)
 		public ModelAndView showAllPromoters() {
 			System.out.println("Promotor Page Requested : All Promotors");
 			ModelAndView mv = new ModelAndView();
@@ -84,14 +84,14 @@ public class PromoterController {
 			}
 				association = associationService.getAssociationById(id);
 				user.setAssociation(association);
-				boolean isUserAdded = userService.saveUser(user);
 				promoter.setUser(user);
-				boolean isPromoterAdded = promoterService.savePromoter(promoter);
 				event.setPromoter(promoter);
+				//boolean isPromoterAdded = promoterService.savePromoter(promoter);
+				//boolean isUserAdded = userService.saveUser(user);
 				boolean isEventAdded = eventService.saveEvent(event);
 
 
-			if (isUserAdded && isEventAdded && isPromoterAdded) {
+			if ( isEventAdded ) {
 
 
 

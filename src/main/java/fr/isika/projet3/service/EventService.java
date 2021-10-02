@@ -7,8 +7,10 @@ import java.util.List;
 
 public interface EventService {
 
-    public Event getEventById(int id);
-    public boolean saveEvent(Event event);
-    public boolean deleteEventById(Long id);
+
 	public List getAllEvents();
+	public Event getEventById(Long id);
+	public boolean saveEvent(Event event);
+	public boolean deleteEventById(Long id);
+
 }

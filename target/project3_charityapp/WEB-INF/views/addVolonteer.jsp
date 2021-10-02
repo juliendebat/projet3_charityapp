@@ -88,36 +88,15 @@
 				value="${status.value}">
 			<br />
 		</spring:bind>
-
+		
 		<select name="eventList">
 
-			<c:forEach var="event" items="eventList">
-				<spring:bind path="event.eventName">
-					<option id="eventName" name="${status.expression}"
-						value="${status.value}" selected="selected">${status.value}</option>
-				</spring:bind>
-			</c:forEach>
+			<c:forEach var="event" items="${eventList}">
+					<option id="eventName" name="eventName"
+						value="${event.eventName}" selected="selected">${event.eventName}</option>
+				</c:forEach>
 
 		</select>
-
-<%-- 		<spring:bind path="event.eventName"> --%>
-<!-- 			<p> -->
-<!-- 				<label for="eventName">Nom de l'évènement :</label> <input -->
-<%-- 					id="eventName" type="text" name="${status.expression}" --%>
-<%-- 					value="${status.value}"> --%>
-<!-- 			</p> -->
-<!-- 			<br /> -->
-<%-- 		</spring:bind> --%>
-
-<%-- 		<spring:bind path="event.eventDescription"> --%>
-<!-- 			<p> -->
-<!-- 				<label for="eventDescription">Description :</label> <input -->
-<%-- 					id="eventDescription" type="text" name="${status.expression}" --%>
-<%-- 					value="${status.value}"> --%>
-<!-- 			</p> -->
-<!-- 			<br /> -->
-
-<%-- 		</spring:bind> --%>
 
 		<input type="submit" value="Create" />
 	</form>

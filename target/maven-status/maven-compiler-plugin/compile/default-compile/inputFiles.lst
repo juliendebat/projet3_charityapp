@@ -1,4 +1,5 @@
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\UserController.java
+C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\MailServiceImpl.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\UserService.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\AssociationServiceImpl.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Promoter.java
@@ -9,6 +10,7 @@ C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charitya
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\UserServiceImpl.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\config\WebMvcConfig.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerService.java
+C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\config\MailConfing.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\config\HibernateConfig.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\repository\VolonteerRepository.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\FileUploadServiceImpl.java
@@ -19,6 +21,7 @@ C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charitya
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Event.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\repository\UserRepository.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\PartnerController.java
+C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\MailService.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerEntityServiceImpl.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\EventController.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\repository\PromoterRepository.java
@@ -29,6 +32,7 @@ C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charitya
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\PartnerEntity.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\FileUploadService.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\PromoterService.java
+C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\DashboardAdminController.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\AssociationController.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Association.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\VolonteerService.java
@@ -43,6 +47,7 @@ C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charitya
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\EventServiceImpl.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\State.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\repository\DonationRepository.java
+C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\controller\DonationController.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\entities\UploadFile.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\config\ServletInitializer.java
 C:\Users\sebas\OneDrive\Bureau\FORMATION\ISIKA\40_Projet_3\Repo\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerEntityService.java

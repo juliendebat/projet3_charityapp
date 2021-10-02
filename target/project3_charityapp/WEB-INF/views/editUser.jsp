@@ -62,6 +62,14 @@
                     <td><form:input path="town"/></td>
                 </tr>
 <!--                 <tr> -->
+<<<<<<< HEAD
+=======
+
+<%--                     <td><form:label path="userName">UserName</form:label></td> --%>
+<%--                     <td><form:input path="userName"/></td> --%>
+<!--                 </tr> -->
+
+>>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
 <%--                     <td><form:label path="country">Pays</form:label></td> --%>
 <%--                     <td><form:input path="country"/></td> --%>
 <!--                 </tr> -->
@@ -69,6 +77,10 @@
                     <td><form:label path="mobilePhone">Téléphone</form:label></td>
                     <td><form:input path="mobilePhone"/></td>
                 </tr>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
                 <tr>
                     <td><input type="submit" value="Submit"/></td>
                 </tr>

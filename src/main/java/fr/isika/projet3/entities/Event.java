@@ -4,7 +4,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "events")
+
+@Table(name = "event")
+
 public class Event {
 
     @Id
@@ -28,14 +30,94 @@ public class Event {
     @ManyToOne(cascade = CascadeType.ALL)
     private Volonteer volonteer;
 
-	public Promoter getPromoter() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public String getEventDescription() {
+        return eventDescription;
+    }
+
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+
+    public String getEventCategory() {
+        return eventCategory;
+    }
+
+    public void setEventCategory(String eventCategory) {
+        this.eventCategory = eventCategory;
+    }
+
+    public String getEventCity() {
+        return eventCity;
+    }
+
+    public void setEventCity(String eventCity) {
+        this.eventCity = eventCity;
+    }
+
+    public String getEventCountry() {
+        return eventCountry;
+    }
+
+    public void setEventCountry(String eventCountry) {
+        this.eventCountry = eventCountry;
+    }
+
+    public String getEventDateStart() {
+        return eventDateStart;
+    }
+
+    public void setEventDateStart(String eventDateStart) {
+        this.eventDateStart = eventDateStart;
+    }
+
+    public String getEventDateEnd() {
+        return eventDateEnd;
+    }
+
+    public void setEventDateEnd(String eventDateEnd) {
+        this.eventDateEnd = eventDateEnd;
+    }
+
+    public String getEventThumbnailLink() {
+        return eventThumbnailLink;
+    }
+
+    public void setEventThumbnailLink(String eventThumbnailLink) {
+        this.eventThumbnailLink = eventThumbnailLink;
+    }
+
+    public Association getAssociation() {
+        return association;
+    }
+
+    public void setAssociation(Association association) {
+        this.association = association;
+    }
+
+    public Promoter getPromoter() {
 		return promoter;
 	}
 
 	public void setPromoter(Promoter promoter) {
 		this.promoter = promoter;
 	}
-	
+
 	public Volonteer getVolonteer() {
 		return volonteer;
 	}
@@ -44,87 +126,5 @@ public class Event {
 		this.volonteer = volonteer;
 	}
 
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getEventName() {
-		return eventName;
-	}
-
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
-
-	public String getEventDescription() {
-		return eventDescription;
-	}
-
-	public void setEventDescription(String eventDescription) {
-		this.eventDescription = eventDescription;
-	}
-
-	public String getEventCategory() {
-		return eventCategory;
-	}
-
-	public void setEventCategory(String eventCategory) {
-		this.eventCategory = eventCategory;
-	}
-
-	public String getEventCity() {
-		return eventCity;
-	}
-
-	public void setEventCity(String eventCity) {
-		this.eventCity = eventCity;
-	}
-
-	public String getEventCountry() {
-		return eventCountry;
-	}
-
-	public void setEventCountry(String eventCountry) {
-		this.eventCountry = eventCountry;
-	}
-
-	public String getEventDateStart() {
-		return eventDateStart;
-	}
-
-	public void setEventDateStart(String eventDateStart) {
-		this.eventDateStart = eventDateStart;
-	}
-
-	public String getEventDateEnd() {
-		return eventDateEnd;
-	}
-
-	public void setEventDateEnd(String eventDateEnd) {
-		this.eventDateEnd = eventDateEnd;
-	}
-
-	public String getEventThumbnailLink() {
-		return eventThumbnailLink;
-	}
-
-	public void setEventThumbnailLink(String eventThumbnailLink) {
-		this.eventThumbnailLink = eventThumbnailLink;
-	}
-
-	public Association getAssociation() {
-		return association;
-	}
-
-	public void setAssociation(Association association) {
-		this.association = association;
-	}
-
-   
-
-    
 }

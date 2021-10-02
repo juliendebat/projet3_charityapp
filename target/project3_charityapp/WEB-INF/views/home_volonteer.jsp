@@ -12,7 +12,7 @@
 <br>
 <br>
 <br>
-	<form action="allVolonteers" method="post">
+	<form action="allVolonteers" method="get">
 		<input type="submit" value="List All Volonteers" />
 	</form>
 </body>

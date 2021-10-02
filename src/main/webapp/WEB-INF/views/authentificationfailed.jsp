@@ -10,4 +10,19 @@
 <body>
 <h2>authentification failed</h2>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+
+</html>
+
+<%--
+  Created by IntelliJ IDEA.
+  User: warry
+  Date: 23/09/2021
+  Time: 21:52
+  To change this template use File | Settings | File Templates.
+--%>
+
+
+>>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39

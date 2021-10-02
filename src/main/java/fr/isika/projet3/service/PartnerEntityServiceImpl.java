@@ -9,15 +9,16 @@ import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.PartnerEntityRepository;
 
 
 @Service
-@Transactional
 public class PartnerEntityServiceImpl implements PartnerEntityService {
 
 	   @Autowired
 		private PartnerEntityRepository repository;
+	  
 		
 		public PartnerEntityServiceImpl() {
 			
@@ -61,5 +62,12 @@ public class PartnerEntityServiceImpl implements PartnerEntityService {
 			return false;
 		}
 	}
+
+
+	public PartnerEntity getPartnerEntityByPartner(Partner partner) {
+		PartnerEntity entity = ((PartnerEntityRepository) repository).findByPartner(partner);
+		return entity;
+	}
+
 
 }

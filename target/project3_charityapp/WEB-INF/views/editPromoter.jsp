@@ -36,8 +36,13 @@
                     <td><form:input path="user.address"/></td>
                 </tr>
                  <tr>
+<<<<<<< HEAD
                     <td><form:label path="user.zip">Code Postal</form:label></td>
                     <td><form:input path="user.zip"/></td>
+=======
+                    <td><form:label path="user.zipCode">Code Postal</form:label></td>
+                    <td><form:input path="user.zipCode"/></td>
+>>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
                 </tr>
                  <tr>
                     <td><form:label path="user.town">Ville</form:label></td>
