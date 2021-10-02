@@ -19,4 +19,5 @@ public interface UserService  {
 	
 	//julien  --> Donations par association
 	public List<User> getAllContributorsByAssociation(Association association);
+	public boolean CheckContributorIdentity(String email);
 }

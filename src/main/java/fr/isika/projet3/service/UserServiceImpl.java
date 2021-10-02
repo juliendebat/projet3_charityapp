@@ -90,6 +90,18 @@ public class UserServiceImpl implements UserService {
 			return listeUserHasDonated;			
 		}
 		
+        //julien
+		@Override
+		public boolean CheckContributorIdentity(String email) {
+			
+			User user=repository.findByEmail(email);
+			
+			if(user == null ) return true;
+			else return false;
+			
+			
+		}
+		
 		
 		
 		

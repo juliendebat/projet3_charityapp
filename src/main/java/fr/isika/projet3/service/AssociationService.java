@@ -19,6 +19,8 @@ public interface AssociationService {
 
     public boolean isAuthentificationOk(String email, String password);
 
+	
+
 
 }
 

@@ -5,13 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
+	
+			
+
 <title>Add Donation</title>
 </head>
 <body>
 
-<form action="" method="post">
-	
+<form name="form" id="form1" action="" method="post">	
 		<spring:bind path="user.lastName">
 		    <label for="lastname">Nom :</label>
 			<input id="lastname"type="text" name="${status.expression}"
@@ -79,43 +82,54 @@
 
 			cb : <form:radiobutton path="donation.state" value="done"/>  
 			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 
-			 
-		<input type="submit" id="btn" value="Faire un don" />
-	</form>
+			
+			 <input type="Submit" value="Faire un don"/>
+	</form>	
 	
-	<div id="div2" style="color:#ff0000"></div>
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$("#btn").click(function(){
-							var  email = document.contactForm.email.value;
-							;
-							var  mdp =document.contactForm.mdp.value;
-							$.ajax(
-									{
-										url: "checkEmailAndPassword",
-										type: "POST",
-										data: {
-											"email":email,
-											"mdp":mdp,
-										},
-										success: function(result)
-										{
-											if(result=="success"){
-												console.log("fonction success");
-												console.log(result);
-												var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
-												window.location.href = successUrl;
-											}
-											else {console.log("fonction error");
-												$("#div2").text("Identifiant et/ou Mot de passe incorrect. Merci de réessayer.");     }
-										},
-										error: function() {
-											console.log("fonction error");
-										}
-									});
-						});
+	<br>
+	<br>
+<div id="div2" style="color:#ff0000"></div>
+	
+	<script>
+	
+	$(document).ready(function() {
+		var ret = false;
+		$("#form1").submit(function(event){
+	    if(!ret) {
+	        //Empeche la validation du formulaire
+	        event.preventDefault();
+	 
+	        var  email = document.getElementById("email").value;
+	 
+	    	$.ajax(
+					{
+						url: "${pageContext.request.contextPath}/checkIdentityContributor",
+						type: "POST",
+						data: {
+				
+							"email":email
+						},
+						success: function(result)
+						{											
+							if(result=="inconnu"){		
+							alert("true");
+								ret=true;
+								 $("#form1")[0].submit();
+							}
+							else {$("#div2").text("dejà enregistré");
+							ret=false;
+
+							
+							}; 
+						}
 					});
-				</script>
+	      
+	    }//fin if ret
+	    
+		});
+	});
+	
+	</script>
 	
 </body>
 </html>

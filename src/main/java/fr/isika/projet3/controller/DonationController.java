@@ -3,7 +3,9 @@ package fr.isika.projet3.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import fr.isika.projet3.entities.Association;
@@ -22,6 +26,7 @@ import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.UserService;
+import javassist.NotFoundException;
 
 @Controller
 public class DonationController {
@@ -56,6 +61,7 @@ public class DonationController {
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("donation", new Donation());
+
 		return mv;
 	}
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
@@ -84,7 +90,13 @@ public class DonationController {
 	return mv;
 	}
 	
-	
+	    @RequestMapping(value = "/checkIdentityContributor", method = RequestMethod.POST)
+	    public @ResponseBody
+	    String checkConnexion(HttpServletRequest request, @RequestParam("email") String email) throws NotFoundException{
+	        
+		 boolean ok = userService.CheckContributorIdentity(email); 
+	        if (ok)  return "inconnu";
+	        else return "enregistré";  
+	    }
 
-	
 }

@@ -145,7 +145,7 @@
 					$(document).ready(function(){
 						$("#btn").click(function(){
 							var  email = document.contactForm.email.value;
-							;
+
 							var  mdp =document.contactForm.mdp.value;
 							$.ajax(
 									{
