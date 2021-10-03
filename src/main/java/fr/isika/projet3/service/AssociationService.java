@@ -19,6 +19,10 @@ public interface AssociationService {
 
     public boolean isAuthentificationOk(String email, String password);
 
+	public boolean isRnaNumberAlreadyUsed(int rnaNumber);
+
+	public boolean isEmailAndPAsswordNotAlreadyUsed(String email, String password);
+
 	
 
 

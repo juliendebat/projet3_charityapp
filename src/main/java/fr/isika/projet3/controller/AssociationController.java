@@ -7,6 +7,8 @@ import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.MailService;
 import fr.isika.projet3.service.UserService;
+import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -161,6 +165,19 @@ public class AssociationController {
         
         return mv;
     }
+    
+    
+    
+    //julien check Asso existe
+    @RequestMapping(value = "/checkAssociationAlreadyExist", method = RequestMethod.POST)
+	@ResponseBody
+    public String checkAssociationAlreadyExist(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("rna") int rna, @RequestParam("password") String password) throws NotFoundException{
+	    boolean isRnaOK  =associationService.isRnaNumberAlreadyUsed(rna);
+	    boolean isEmailAndPaswordOk=associationService.isEmailAndPAsswordNotAlreadyUsed(email,password);
+	    
+	    if (isRnaOK && isEmailAndPaswordOk) return "success";
+	    else return "Les informations fournies ne nous permettent pas de créer de compte, veuillez vérifier votre numéro RNA, ou veuillez choisir un autre email/mot de passe.";
+		
 }
 
-
+}

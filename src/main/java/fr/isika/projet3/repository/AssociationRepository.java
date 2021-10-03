@@ -11,5 +11,7 @@ import org.springframework.stereotype.Repository;
 
 public interface AssociationRepository extends CrudRepository<Association, Long> {
 	Association findByEmail(String email);
+	Association findByRnaNumber(int rnaNumber);
+	Association findByEmailAndPassword(String email, String password);
 }
 

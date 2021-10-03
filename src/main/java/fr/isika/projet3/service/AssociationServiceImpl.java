@@ -76,5 +76,23 @@ public class AssociationServiceImpl implements AssociationService {
 		return false;
 
 	}
+
+	@Override
+	public boolean isRnaNumberAlreadyUsed(int rnaNumber) {
+		Association association=associationRepository.findByRnaNumber(rnaNumber);
+		if(association==null) return true;
+		else return false;
+	}
+
+	@Override
+	public boolean isEmailAndPAsswordNotAlreadyUsed(String email, String password) {
+		
+		Association association = associationRepository.findByEmailAndPassword(email, password);
+		if(association==null) return true;
+		else return false;
+		
+	}
+
+	
 }
 
