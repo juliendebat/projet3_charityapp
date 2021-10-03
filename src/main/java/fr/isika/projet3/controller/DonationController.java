@@ -61,11 +61,11 @@ public class DonationController {
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("donation", new Donation());
-
+		mv.addObject("idAsso",id);
 		return mv;
 	}
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
-	public ModelAndView saveNewDonation(@PathVariable Long id, @ModelAttribute("User") User user,
+	public ModelAndView saveNewDonationNewUser(@PathVariable Long id, @ModelAttribute("User") User user,
 	@ModelAttribute("donation") Donation donation, BindingResult result) {
 	ModelAndView mv = new ModelAndView("/donation/home_donation");
 	
@@ -90,13 +90,47 @@ public class DonationController {
 	return mv;
 	}
 	
-	    @RequestMapping(value = "/checkIdentityContributor", method = RequestMethod.POST)
-	    public @ResponseBody
-	    String checkConnexion(HttpServletRequest request, @RequestParam("email") String email) throws NotFoundException{
-	        
-		 boolean ok = userService.CheckContributorIdentity(email); 
+	@RequestMapping(value = "/checkIdentityContributor", method = RequestMethod.POST)
+	@ResponseBody
+    public String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("idAsso") Long id) throws NotFoundException{
+	        Association asso=associationService.getAssociationById(id);
+		 boolean ok = userService.CheckContributorIdentity(email, asso); 
 	        if (ok)  return "inconnu";
-	        else return "enregistré";  
+	        else return getUserInformation(email, asso);  
 	    }
+	
+	public String getUserInformation(String email, Association association) {
+		return userService.getUserInformation(email, association);
 
-}
+		}
+	
+	
+		@RequestMapping(value = { "donation/pageUserChecked/{id}" }, method = RequestMethod.GET)
+		public ModelAndView userCheckedPage(@PathVariable Long id) throws IOException {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("donation/pageUserChecked");
+			
+			User user=userService.getUserById(id);
+			List<Donation> donations = donationService.getDonationsByUser(user);
+			mv.addObject("user",user);
+			mv.addObject("donations",donations);
+			mv.addObject("donation", new Donation());
+			return mv;
+		}
+		
+		@RequestMapping(value = { "donation/pageUserChecked/{id}" }, method = RequestMethod.POST)
+		public ModelAndView saveNewDonationUserExist(@PathVariable Long id) throws IOException {
+			ModelAndView mv = new ModelAndView();
+			mv.setViewName("donation/pageUserChecked");
+			
+			User user=userService.getUserById(id);
+			List<Donation> donations = donationService.getDonationsByUser(user);
+			mv.addObject("user",user);
+			mv.addObject("donations",donations);
+			mv.addObject("donation", new Donation());
+			return mv;
+		}
+
+	
+	}
+

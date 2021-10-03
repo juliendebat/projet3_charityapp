@@ -86,6 +86,9 @@ public class DonationServiceImpl implements DonationService {
 		return paidDonations;
 	}
 
+	
+	
+	
 	@Override
 	public List<Donation> getAllDonationByAssociation(List<User> contributors) {
 		List<Donation> donationlist = new ArrayList<>();
@@ -107,6 +110,12 @@ public class DonationServiceImpl implements DonationService {
 		Donation donation= this.getDonationById(iddonation);
 		donation.setState(State.rejected);
 		this.saveDonation(donation);
+	}
+
+	@Override
+	public List<Donation> getDonationsByUser(User user) {
+		List<Donation> donations = repository.findByUser(user);
+		return donations;
 	}
 	
 }

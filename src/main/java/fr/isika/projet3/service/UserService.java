@@ -19,5 +19,8 @@ public interface UserService  {
 	
 	//julien  --> Donations par association
 	public List<User> getAllContributorsByAssociation(Association association);
-	public boolean CheckContributorIdentity(String email);
+	
+	//julien check Use information before donation
+	public boolean CheckContributorIdentity(String email, Association association);
+	public String getUserInformation(String email, Association association);
 }

@@ -89,10 +89,11 @@
 	<br>
 	<br>
 <div id="div2" style="color:#ff0000"></div>
-	
+<a div="div3 "href="${pageContext.request.contextPath}/donation/pageUserChecked">Confirmer mon identitée</a>
 	<script>
 	
 	$(document).ready(function() {
+		$("#div3").hide();
 		var ret = false;
 		$("#form1").submit(function(event){
 	    if(!ret) {
@@ -100,6 +101,7 @@
 	        event.preventDefault();
 	 
 	        var  email = document.getElementById("email").value;
+	        var  idAsso = ${id};
 	 
 	    	$.ajax(
 					{
@@ -107,7 +109,8 @@
 						type: "POST",
 						data: {
 				
-							"email":email
+							"email":email,
+							"idAsso":idAsso
 						},
 						success: function(result)
 						{											
@@ -116,10 +119,9 @@
 								ret=true;
 								 $("#form1")[0].submit();
 							}
-							else {$("#div2").text("dejà enregistré");
-							ret=false;
-
-							
+							else {$("#div2").text(result);
+							$("#div3").show();
+							ret=false;							
 							}; 
 						}
 					});

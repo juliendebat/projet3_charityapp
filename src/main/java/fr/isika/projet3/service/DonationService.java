@@ -16,8 +16,10 @@ public interface DonationService {
 	public Double getSumDonationsByAssociation(List<User> users);
 	public List<Donation> getAllPaidDonationsByAssociation(List<Donation> donations);
 	public List<Donation> getAllDonationByAssociation(List<User> contributors);
-	void checkDonation(Long iddonation);
-	void cancelDonation(Long iddonation);
+	public void checkDonation(Long iddonation);
+	public void cancelDonation(Long iddonation);
+	
+	public List<Donation> getDonationsByUser(User user);
 
 	
 }

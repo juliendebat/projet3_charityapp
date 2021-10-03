@@ -92,17 +92,22 @@ public class UserServiceImpl implements UserService {
 		
         //julien
 		@Override
-		public boolean CheckContributorIdentity(String email) {
+		public boolean CheckContributorIdentity(String email, Association association) {
 			
-			User user=repository.findByEmail(email);
-			
+			User user=repository.findByEmailAndAssociation(email,association);
 			if(user == null ) return true;
-			else return false;
-			
-			
+			else return false;	
 		}
 		
-		
+		@Override	
+	    public String getUserInformation(String email, Association association) {
+	    	User user=repository.findByEmailAndAssociation(email, association);
+	    	String globalInformation="";
+	    	if(user!=null) {
+	    		return globalInformation="Nous avons déjà des information correspondant à l'addresse mail : "+user.getEmail()+"Etes-vous "+user.getFirstName()+" "+user.getLastName()+", "+Integer.toString(user.getAge()) +" an, résidant à" +user.getTown()+", "+user.getMobilePhone()+" ?";
+	    	}
+			return null;	    	
+	    }
 		
 		
 }
