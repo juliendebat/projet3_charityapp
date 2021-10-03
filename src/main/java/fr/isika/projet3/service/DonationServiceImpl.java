@@ -72,9 +72,6 @@ public class DonationServiceImpl implements DonationService {
 		return sum;
 	}
 
-
-	
-	
 	@Override
 	public List<Donation> getAllPaidDonationsByAssociation(List<Donation> donations) {
 		

@@ -10,12 +10,19 @@ public interface UserService  {
 
 	public List<User> getAllUsers();
 	public User getUserById(Long id);
+	
+	
 	public boolean saveUser(User user);
 	public boolean deleteUserById(Long id);
 	
 	//julien --> Partners
 	public List<User> getAllUserByAssociation(Association association);
-	public List<User> getAllPartnersByAssociation(Association association);
+	
+	
+	
+	
+	/////////////
+	public List<Partner> getAllPartnersByAssociation(Association association);
 	
 	//julien  --> Donations par association
 	public List<User> getAllContributorsByAssociation(Association association);
@@ -23,4 +30,9 @@ public interface UserService  {
 	//julien check Use information before donation
 	public boolean CheckContributorIdentity(String email, Association association);
 	public String getUserInformation(String email, Association association);
+		
+	public User getUserByEmailAndAssociation(String email, Association association);
+	
+	
+	
 }

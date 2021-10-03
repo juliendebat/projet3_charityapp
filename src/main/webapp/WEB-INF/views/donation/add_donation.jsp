@@ -7,13 +7,10 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta charset="UTF-8">
-	
-			
-
+				
 <title>Add Donation</title>
 </head>
 <body>
-
 <form name="form" id="form1" action="" method="post">	
 		<spring:bind path="user.lastName">
 		    <label for="lastname">Nom :</label>
@@ -84,54 +81,51 @@
 			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 
 			
 			 <input type="Submit" value="Faire un don"/>
-	</form>	
-	
+	</form>		
 	<br>
 	<br>
+
 <div id="div2" style="color:#ff0000"></div>
-<a div="div3 "href="${pageContext.request.contextPath}/donation/pageUserChecked">Confirmer mon identitée</a>
-	<script>
-	
-	$(document).ready(function() {
+<a id="div3" href="${pageContext.request.contextPath}/donation/pageUserChecked/${id}">Confirmer mon identitée</a>
+	<script>	
+	$(document).ready(function(){
+		
 		$("#div3").hide();
+
 		var ret = false;
+		
 		$("#form1").submit(function(event){
 	    if(!ret) {
 	        //Empeche la validation du formulaire
 	        event.preventDefault();
 	 
-	        var  email = document.getElementById("email").value;
-	        var  idAsso = ${id};
-	 
-	    	$.ajax(
-					{
-						url: "${pageContext.request.contextPath}/checkIdentityContributor",
+	         
+	          var email= document.getElementById("email").value;
+	          var  idAsso = ${id};	
+	        
+	    	$.ajax({ url: "${pageContext.request.contextPath}/checkIdentityContributor",
 						type: "POST",
-						data: {
-				
+						data: {				
 							"email":email,
 							"idAsso":idAsso
 						},
 						success: function(result)
 						{											
 							if(result=="inconnu"){		
-							alert("true");
 								ret=true;
 								 $("#form1")[0].submit();
 							}
 							else {$("#div2").text(result);
 							$("#div3").show();
+
 							ret=false;							
 							}; 
 						}
-					});
-	      
-	    }//fin if ret
-	    
+					});	      
+	    }//fin if ret	    
 		});
 	});
-	
 	</script>
-	
+
 </body>
 </html>

@@ -9,18 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.repository.PartnerRepository;
 import fr.isika.projet3.repository.UserRepository;
 
 
 
 @Service
-
 public class UserServiceImpl implements UserService {
 
 	// Implementing Constructor based DI
 	         @Autowired
 			private UserRepository repository;
+	         @Autowired
+			private PartnerRepository partnerrepository;
 			
 			public UserServiceImpl() {
 				
@@ -72,17 +75,19 @@ public class UserServiceImpl implements UserService {
 			return users;			
 		}
 
+		@SuppressWarnings("null")
 		@Override
-		public List<User> getAllPartnersByAssociation(Association association) {
+		public List<Partner> getAllPartnersByAssociation(Association association) {
 			List<User> users = repository.findByAssociation(association);
-			for (User user : users) {				
-				if(user.getPartner() == null) {
-					users.remove(user);
-				}
+		List<Partner> partners = new ArrayList<>();
+			for (User user : users) {							
+			Partner partner = partnerrepository.findByUser(user);
+			if(partner!=null) {
+				partners.add(partner);
+			}
 			}			
-			return users;
-		}
-		
+			return partners;
+		}		
         //julien
 		@Override
 		public List<User> getAllContributorsByAssociation(Association association) {
@@ -108,6 +113,14 @@ public class UserServiceImpl implements UserService {
 	    	}
 			return null;	    	
 	    }
+
+		@Override
+		public User getUserByEmailAndAssociation(String email, Association association) {		
+			User user=repository.findByEmailAndAssociation(email, association);
+			return user;			
+		}
+
+		
 		
 		
 }

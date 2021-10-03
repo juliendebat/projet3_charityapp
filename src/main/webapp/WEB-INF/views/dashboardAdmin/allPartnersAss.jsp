@@ -32,14 +32,14 @@
 								<c:forEach var="partner" items="${partnerlist}">
 
 									<tr>
-										<td><c:out value="${ partner.lastName }" /></td>
-										<td><c:out value="${ partner.firstName }" /></td>
-										<td><c:out value="${ partner.age }" /></td>
-										<td><c:out value="${ partner.address }" /></td>
-										<td><c:out value="${ partner.town }" /></td>
-										<td><c:out value="${ partner.email }" /></td>
-										<td><c:out value="${ partner.partner.funding }" /></td>
-
+										<td><c:out value="${ partner.user.lastName }" /></td>
+										<td><c:out value="${ partner.user.firstName }" /></td>
+										<td><c:out value="${ partner.user.age }" /></td>
+										<td><c:out value="${ partner.user.address }" /></td>
+										<td><c:out value="${ partner.user.town }" /></td>
+										<td><c:out value="${ partner.user.email }" /></td>
+										<td><c:out value="${ partner.funding }" /></td>
+                                         <td><c:out value="${ partner.partnerentity.entityName }" /></td>
 										<td><a
 											href="${pageContext.request.contextPath}/dashboardAdmin/editPartner/${partner.id}">Edit</a></td>
 

@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
+   <%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <html>
 <head>
@@ -12,7 +13,7 @@
 </head>
 <body>
 
-Vous êtes ${user.firstname} ${user.lastname }
+Vous êtes ${user.firstName} ${user.lastName }
 
 <p>Pour modifier les dons en cours, merci de contacter l'administateur de l'association</p>
 <div class="table-responsive">
@@ -56,6 +57,13 @@ Vous êtes ${user.firstname} ${user.lastname }
 				value="${status.value}">
 			<br />
 			</spring:bind>
+			
+				<spring:bind path="user.id">
+			<input id="id" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />
+			</spring:bind>
+			
 
 			cb : <form:radiobutton path="donation.state" value="done"/>  
 			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 

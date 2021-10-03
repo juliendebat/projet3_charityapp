@@ -49,7 +49,6 @@ public class DashboardAdminController {
     @RequestMapping(value = {"/dashboardAdmin/index" }, method = RequestMethod.GET)
     public ModelAndView pageindex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
-
         // recupérer session de LoginControler
        associationSession = request.getSession();
        ass= (Association) associationSession.getAttribute("assos");       
@@ -74,7 +73,7 @@ public class DashboardAdminController {
     public ModelAndView showAllPartners(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("dashboardAdmin/allPartnersAss");        
-       List<User> partners= userService.getAllPartnersByAssociation(ass);
+       List<Partner> partners= userService.getAllPartnersByAssociation(ass);
        mv.addObject("partnerlist", partners );
        mv.addObject("ass",ass);
         return mv;}
@@ -157,6 +156,19 @@ public class DashboardAdminController {
 		return mv;
 	}
 	
+	    
+	    //test Aminie liste user
+	    @RequestMapping(value = "/dashboardAdmin/userList", method = RequestMethod.GET)
+	    public ModelAndView displayAllUsers() {
+	       ModelAndView mv = new ModelAndView("/dashboardAdmin/userList");
+	       List<User> usersList = userService.getAllUserByAssociation(ass);
+	       mv.addObject("usersList", usersList);
+	       return mv;
+	    }
+	    
+	    
+	    
+	    
 	
     //julien kill session
     @RequestMapping(value = "/killSession")
