@@ -62,21 +62,13 @@
 <%-- 					<td>${association.country}</td> --%>
 					<td>${association.email}</td>
 					<td>${association.description}</td>
-<<<<<<< HEAD
-=======
-
-
 					<td>${association.phone}</td>
 
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
+
 <%-- 					<td>${association.adminLastName}</td> --%>
 <%-- 					<td>${association.adminFirstName}</td> --%>
 <%-- 					<td>${association.adminEmail}</td> --%>
 <%-- 					<td>${association.phone}</td> --%>
-<<<<<<< HEAD
-=======
-
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
 					<td><a
 						href="${pageContext.request.contextPath}/editAssociation/${association.id}">Edit</a></td>
 					<td><a

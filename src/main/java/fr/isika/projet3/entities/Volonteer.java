@@ -23,7 +23,6 @@ public class Volonteer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-	private String mdp;
 	private String dispo;
 	
 	
@@ -33,14 +32,6 @@ public class Volonteer {
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Event> lEvent;
 	
-	
-	public String getMdp() {
-		return mdp;
-	}
-
-	public void setMdp(String mdp) {
-		this.mdp = mdp;
-	}
 
 
 	public String getDispo() {

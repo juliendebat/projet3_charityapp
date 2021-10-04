@@ -92,14 +92,14 @@ public class VolonteerController {
 		}
 		association = associationService.getAssociationById(id);
 		user.setAssociation(association);
-		boolean isUserAdded = userService.saveUser(user);
+		//boolean isUserAdded = userService.saveUser(user);
 		volonteer.setUser(user);
-		boolean isVolonteerAdded = volonteerService.saveVolonteer(volonteer);
+		//boolean isVolonteerAdded = volonteerService.saveVolonteer(volonteer);
 		event.setVolonteer(volonteer);
 		boolean isEventAdded = eventService.saveEvent(event);
 
 
-		if (isUserAdded && isVolonteerAdded && isEventAdded) {
+		if (isEventAdded) {
 			mv.addObject("message", "New volonteer successfully added");
 		} else {
 			return new ModelAndView("error");

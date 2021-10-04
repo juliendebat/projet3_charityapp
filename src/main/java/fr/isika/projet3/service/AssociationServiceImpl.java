@@ -2,6 +2,8 @@ package fr.isika.projet3.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,7 +11,6 @@ import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.repository.AssociationRepository;
 
 @Service
-@Transactional
 public class AssociationServiceImpl implements AssociationService {
 	// Implementing Constructor based DI private
 	@Autowired																 
@@ -76,5 +77,3 @@ public class AssociationServiceImpl implements AssociationService {
 
 	}
 }
-
-

@@ -52,8 +52,7 @@
 										href="${pageContext.request.contextPath}/home">Accueil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#services">Associations</a></li>
 				<li class="nav-item"><a class="nav-link" href="#subscribe">S'inscrire</a></li>
-				<li class="nav-item"><a class="nav-link" href="#portfolio">Se
-					Connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="#portfolio">Se Connecter</a></li>
 			</ul>
 		</div>
 	</div>
@@ -205,6 +204,6 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 <script language="javascript" type="text/javascript"
-		src="resources/js/jquery-3.6.0.min.js">
+		src="resources/js/jquery-3.6.0.min.js"></script>
 	</body>
 	</html>

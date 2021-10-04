@@ -52,8 +52,30 @@ public class AssociationController {
         ModelAndView mv = new ModelAndView();
         List<Association> associationList = associationService.getAllAssociations();
         mv.addObject("associationList", associationList);
+        mv.addObject("association", new Association());
         mv.setViewName("home");
         return mv;
+    }
+    
+  //add one Association depuis le homePage
+    @RequestMapping(value = "/home", method = RequestMethod.POST)
+    public ModelAndView saveNewAssociationfromHomePage(HttpServletRequest request, @ModelAttribute Association association, BindingResult result) {
+      ModelAndView mv = new ModelAndView("redirect:/loginAssociation");
+      if (result.hasErrors()) {
+        return new ModelAndView("error");
+      }
+      boolean isAdded = associationService.saveAssociation(association);
+      if (isAdded) {
+        mv.addObject("message", "New association successfully added");
+        HttpSession associationSession = request.getSession();
+        Association asso = associationService.getAssociationById(association.getId());
+//        mailReceiver = asso.getEmail();
+//        associationSession.setAttribute("asso", asso);
+//        mailService.sendEmail(emailSender, mailReceiver, subject, message);
+      } else {
+        return new ModelAndView("error");
+      }
+      return mv;
     }
 
     // Get All Associations

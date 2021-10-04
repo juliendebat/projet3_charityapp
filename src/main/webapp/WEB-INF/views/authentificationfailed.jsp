@@ -10,11 +10,9 @@
 <body>
 <h2>authentification failed</h2>
 </body>
-<<<<<<< HEAD
-</html>
-=======
 
 </html>
+
 
 <%--
   Created by IntelliJ IDEA.
@@ -25,4 +23,4 @@
 --%>
 
 
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
+
