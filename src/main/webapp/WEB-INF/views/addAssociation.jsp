@@ -1,5 +1,5 @@
-
-<%@page contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -22,11 +22,12 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 	<h1>${headerMessage}</h1>
 	
-        <form:form method="POST" action="addAssociation" modelAttribute="association">
+        <form:form method="POST" id="form1" action="addAssociation" modelAttribute="association">
              <table>
                 <tr>
                     <td><form:label path="associationName">Nom de l'Association</form:label></td>
@@ -34,7 +35,7 @@
                 </tr>
                 <tr>
                     <td><form:label path="rnaNumber">Numéro RNA</form:label></td>
-                    <td><form:input path="rnaNumber"/></td>
+                    <td><form:input id="rnaNumber" path="rnaNumber"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="address">Adresse</form:label></td>
@@ -54,7 +55,7 @@
               </tr>
                 <tr>
                     <td><form:label path="email">Email de l'Association</form:label></td>
-                    <td><form:input path="email"/></td>
+                    <td><form:input id="email" path="email"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="description">Description / Objet de l'Association</form:label></td>
@@ -63,17 +64,58 @@
 
                  <tr>
                     <td><form:label path="password">mot de passe de l'administrateur</form:label></td>
-                    <td><form:input path="password"/></td>
+                    <td><form:input id="password" path="password"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="phone">téléphone de l'administrateur</form:label></td>
                     <td><form:input path="phone"/></td>
                 </tr>
                 <tr>
-                    <td><input type="submit" value="Submit"/></td>
+                    <td><input type="Submit" value="Valider"/></td>
                 </tr>
             </table>
         </form:form>
+
+<div id="div2" style="color:#ff0000"></div>  
+    <script>	
+	$(document).ready(function(){
+		 
+		var ret = false;
+		
+		$("#form1").submit(function(event){
+	    if(!ret) {
+	        //Empeche la validation du formulaire
+	        event.preventDefault();
+
+	         var email = document.getElementById("email").value;
+	          var rna = document.getElementById("rnaNumber").value;	         
+	
+	    	$.ajax(
+	    			{ url: "${pageContext.request.contextPath}/checkAssociationAlreadyExist",
+						type: "POST",
+						data: {				
+							"email":email,
+							"rna":rna,
+						},
+						success: function(result)
+						{											
+							if(result=="success"){
+								ret=true;
+								 $("#form1")[0].submit();
+							}
+							else {
+								
+								$("#div2").text(result);
+							ret=false;							
+							}; 
+						}
+						
+						
+					});	      
+	    }//fin if ret	    
+		});
+	});
+	</script>
 
 </body>
 </html>

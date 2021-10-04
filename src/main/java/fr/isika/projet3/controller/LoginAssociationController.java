@@ -21,9 +21,7 @@ import java.io.IOException;
 @Controller
 public class LoginAssociationController {
 
-
     @Autowired
-
     private AssociationServiceImpl associationService;
 
 
@@ -95,7 +93,6 @@ public class LoginAssociationController {
         } else return "error";
 
     }
-
 
 }
 

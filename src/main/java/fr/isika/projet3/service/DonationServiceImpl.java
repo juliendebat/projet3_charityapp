@@ -45,6 +45,7 @@ public class DonationServiceImpl implements DonationService {
 	@Override
 	public boolean deleteDonationById(Long id) {
 		try {
+	
 			repository.deleteById(id);
 			return true;
 		}catch(Exception ex) {
@@ -59,13 +60,16 @@ public class DonationServiceImpl implements DonationService {
 		return list;
 	}
 
-	@Override
-	public List<Donation> getAllDonationsByAssociation(List<User> users) {
+	public Double getSumDonationsByAssociation(List<User> users) {
 		List<Donation> donationlist = new ArrayList<>();
 		for (User user : users) {			
-			donationlist.add(repository.findByUser(user));
+			donationlist.addAll(repository.findByUser(user));
+		}		
+		Double sum =0d;		
+		for (Donation donation : donationlist) {
+			sum+=donation.getAmount();
 		}
-		return donationlist;		
+		return sum;
 	}
 
 	@Override
@@ -80,5 +84,35 @@ public class DonationServiceImpl implements DonationService {
 	}
 
 	
+	
+	
+	@Override
+	public List<Donation> getAllDonationByAssociation(List<User> contributors) {
+		List<Donation> donationlist = new ArrayList<>();
+		for (User user : contributors) {			
+			donationlist.addAll(repository.findByUser(user));
+		}	
+		return donationlist;
+	}
+	
+	@Override
+	public void checkDonation(Long iddonation) {
+		Donation donation= this.getDonationById(iddonation);
+		donation.setState(State.done);
+		this.saveDonation(donation);
+	}
+
+	@Override
+	public void cancelDonation(Long iddonation) {
+		Donation donation= this.getDonationById(iddonation);
+		donation.setState(State.rejected);
+		this.saveDonation(donation);
+	}
+
+	@Override
+	public List<Donation> getDonationsByUser(User user) {
+		List<Donation> donations = repository.findByUser(user);
+		return donations;
+	}
 	
 }

@@ -14,7 +14,6 @@ public class Association {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-
 	private Long id;
 	private String associationName;
 	private int rnaNumber;
@@ -29,6 +28,12 @@ public class Association {
 	private String theme;
 	private String photo;
 
+	
+    
+    @OneToMany(mappedBy ="association")
+    private List<User> lUser;
+	
+	
 	public Association() {
 		this.lUser = new ArrayList<User>();
 	}
@@ -145,8 +150,11 @@ public class Association {
 		this.lUser = lUser;
 	}
 
+<<<<<<< HEAD
 	@OneToMany(mappedBy = "association")
 	private List<User> lUser;
+=======
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
 }
 
 

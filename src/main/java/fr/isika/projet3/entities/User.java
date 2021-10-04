@@ -5,16 +5,6 @@ import java.util.List;
 
 import javax.persistence.*;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 @Entity
 @Table(name="users")
 public class User {
@@ -34,31 +24,22 @@ public class User {
 	private String complementaryAddress;
 	private boolean hasDonated;
 
-
-	@OneToMany
+	@OneToMany(mappedBy ="user")
 	List<Donation> donations;
 
-	@OneToOne
+	@OneToOne(mappedBy = "user")
 	Partner partner;
-
 
 	@ManyToOne
 	private Association association;
 
-	public Partner getPartner() {
-		return partner;
+
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
 	}
 
-	public void setPartner(Partner partner) {
-		this.partner = partner;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
+	public User() {
+		donations=new ArrayList<Donation>();
 	}
 
 	public Long getId() {
@@ -83,6 +64,14 @@ public class User {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getAge() {
@@ -141,21 +130,20 @@ public class User {
 		this.hasDonated = hasDonated;
 	}
 
-
-	public void addDonation(Donation donation) {
-		this.donations.add(donation);
-	}
-
-	public User() {
-		donations=new ArrayList<Donation>();
-	}
-
 	public List<Donation> getDonations() {
 		return donations;
 	}
 
 	public void setDonations(List<Donation> donations) {
 		this.donations = donations;
+	}
+
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
 	}
 
 	public Association getAssociation() {
@@ -165,5 +153,5 @@ public class User {
 	public void setAssociation(Association association) {
 		this.association = association;
 	}
-}
 
+}

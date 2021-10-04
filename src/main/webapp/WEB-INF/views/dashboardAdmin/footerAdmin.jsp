@@ -50,9 +50,25 @@
             </div>
         </div>
 
+<<<<<<< HEAD
         <!-- Bootstrap core JavaScript-->
         <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+=======
+    </div>
+    
+	</c:when>
+	<c:otherwise>
+       <c:redirect url="/loginAssociation"/>
+	</c:otherwise>
+
+
+</c:choose>
+
+<!-- Bootstrap core JavaScript-->
+<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.min.js" ></script>
+<script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
 
         <!-- Core plugin JavaScript-->
         <script src="${pageContext.request.contextPath}/resources/vendor/jquery-easing/jquery.easing.min.js"></script>

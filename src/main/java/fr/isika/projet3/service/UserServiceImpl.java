@@ -9,18 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.repository.PartnerRepository;
 import fr.isika.projet3.repository.UserRepository;
 
 
 
 @Service
-
 public class UserServiceImpl implements UserService {
 
 	// Implementing Constructor based DI
 	         @Autowired
 			private UserRepository repository;
+	         @Autowired
+			private PartnerRepository partnerrepository;
 			
 			public UserServiceImpl() {
 				
@@ -72,17 +75,19 @@ public class UserServiceImpl implements UserService {
 			return users;			
 		}
 
+		@SuppressWarnings("null")
 		@Override
-		public List<User> getAllPartnersByAssociation(Association association) {
+		public List<Partner> getAllPartnersByAssociation(Association association) {
 			List<User> users = repository.findByAssociation(association);
-			for (User user : users) {				
-				if(user.getPartner() == null) {
-					users.remove(user);
-				}
+		List<Partner> partners = new ArrayList<>();
+			for (User user : users) {							
+			Partner partner = partnerrepository.findByUser(user);
+			if(partner!=null) {
+				partners.add(partner);
+			}
 			}			
-			return users;
-		}
-		
+			return partners;
+		}		
         //julien
 		@Override
 		public List<User> getAllContributorsByAssociation(Association association) {
@@ -90,6 +95,31 @@ public class UserServiceImpl implements UserService {
 			return listeUserHasDonated;			
 		}
 		
+        //julien
+		@Override
+		public boolean CheckContributorIdentity(String email, Association association) {
+			
+			User user=repository.findByEmailAndAssociation(email,association);
+			if(user == null ) return true;
+			else return false;	
+		}
+		
+		@Override	
+	    public String getUserInformation(String email, Association association) {
+	    	User user=repository.findByEmailAndAssociation(email, association);
+	    	String globalInformation="";
+	    	if(user!=null) {
+	    		return globalInformation="Nous avons déjà des information correspondant à l'addresse mail : "+user.getEmail()+"Etes-vous "+user.getFirstName()+" "+user.getLastName()+", "+Integer.toString(user.getAge()) +" an, résidant à" +user.getTown()+", "+user.getMobilePhone()+" ?";
+	    	}
+			return null;	    	
+	    }
+
+		@Override
+		public User getUserByEmailAndAssociation(String email, Association association) {		
+			User user=repository.findByEmailAndAssociation(email, association);
+			return user;			
+		}
+
 		
 		
 		

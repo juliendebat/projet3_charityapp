@@ -18,6 +18,7 @@ import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.PartnerEntity;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.PartnerEntityService;
 import fr.isika.projet3.service.PartnerService;
 import fr.isika.projet3.service.UserService;
@@ -26,18 +27,20 @@ import fr.isika.projet3.service.UserService;
 public class PartnerController {
 	// Constructor based Dependency Injection
 
-	@Autowired
-	private UserService userService;
+	 
+	    @Autowired
+		private UserService userService;	    
+        @Autowired
+	    private PartnerService partnerService ;       
+        @Autowired
+	    private PartnerEntityService partnerEntityService ;
+        @Autowired
+	    private AssociationService associationService ;
+	    
 
-	@Autowired
-	private PartnerService partnerService;
+		public PartnerController() {
+		}
 
-	@Autowired
-	private PartnerEntityService partnerEntityService;
-
-
-	public PartnerController() {
-	}
 
 	public PartnerController(PartnerService partnerService) {
 		super();
@@ -56,8 +59,8 @@ public class PartnerController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/addPartner", method = RequestMethod.GET)
-	public ModelAndView displayNewUserForm() {
+	@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.GET)
+	public ModelAndView displayNewUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addPartner");
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
@@ -66,57 +69,41 @@ public class PartnerController {
 		return mv;
 	}
 
+		@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.POST)
+		public ModelAndView saveNewUser(@PathVariable Long id,@ModelAttribute("User") User user,
+				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
+				@ModelAttribute("Partner") Partner partner, BindingResult result) {
+			ModelAndView mv = new ModelAndView("redirect:/home");
+			if (result.hasErrors()) {
+				return new ModelAndView("error");
+			}
 
-	@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
-	public ModelAndView saveNewUser(@ModelAttribute("User") User user,
-									@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
-									@ModelAttribute("Partner") Partner partner, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home");
+			Association association=associationService.getAssociationById(id);
+			user.setAssociation(association);
+			
+			boolean isPartnerEntityAdded = true;	
+			boolean isPartnerAdded = true;
+			
+			if (partnerentity.getEntityName() == "") {				
+				isPartnerAdded=false;
+				partner.setUser(user);
+				isPartnerAdded = partnerService.savePartner(partner);				
+			}			
+			else {
 
+				isPartnerEntityAdded=false;				
+				partnerentity.setPartner(partner);				
+				partner.setUser(user);					
+				isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
+			}
 
+			if ( isPartnerEntityAdded && isPartnerAdded) {
+				mv.addObject("message", "New partner successfully added");
+			} else {
+				return new ModelAndView("error");
+			}
+			return mv;
 
-		if (result.hasErrors()) {
-			return new ModelAndView("error");
-		}
-
-		boolean isPartnerEntityAdded = true;
-		boolean isUserAdded = true;
-		boolean isPartnerAdded = true;
-
-		if (partnerentity.getEntityName() == "") {
-			isUserAdded=false;
-			isPartnerAdded=false;
-			isUserAdded = userService.saveUser(user);
-			partner.setUser(user);
-			isPartnerAdded = partnerService.savePartner(partner);
-			//ajouter user dans association
-
-		}
-
-		else {
-			isUserAdded=false;
-			isPartnerAdded=false;
-			isPartnerEntityAdded=false;
-			isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
-
-			partner.setPartnerentity(partnerentity);
-
-			isUserAdded = userService.saveUser(user);
-			partner.setUser(user);
-			isPartnerAdded = partnerService.savePartner(partner);
-
-		}
-
-
-
-		if (isUserAdded && isPartnerEntityAdded && isPartnerAdded) {
-			mv.addObject("message", "New partner successfully added");
-		} else {
-			return new ModelAndView("error");
-		}
-
-		return mv;
 	}
-
 
 }

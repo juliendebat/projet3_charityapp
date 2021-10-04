@@ -1,4 +1,5 @@
 <%@include file="headerAdmin.jsp"%>
+
 <c:choose>
 	<c:when test="${!empty sessionScope.assos}">
 		<div class="container-fluid">
@@ -31,16 +32,16 @@
 								<c:forEach var="partner" items="${partnerlist}">
 
 									<tr>
-										<td><c:out value="${ partner.lastName }" /></td>
-										<td><c:out value="${ partner.firstName }" /></td>
-										<td><c:out value="${ partner.age }" /></td>
-										<td><c:out value="${ partner.address }" /></td>
-										<td><c:out value="${ partner.town }" /></td>
-										<td><c:out value="${ partner.email }" /></td>
-										<td><c:out value="${ partner.partner.funding }" /></td>
-
+										<td><c:out value="${ partner.user.lastName }" /></td>
+										<td><c:out value="${ partner.user.firstName }" /></td>
+										<td><c:out value="${ partner.user.age }" /></td>
+										<td><c:out value="${ partner.user.address }" /></td>
+										<td><c:out value="${ partner.user.town }" /></td>
+										<td><c:out value="${ partner.user.email }" /></td>
+										<td><c:out value="${ partner.funding }" /></td>
+                                         <td><c:out value="${ partner.partnerentity.entityName }" /></td>
 										<td><a
-											href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
+											href="${pageContext.request.contextPath}/dashboardAdmin/editPartner/${partner.id}">Edit</a></td>
 
 										<td><a
 											href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
@@ -51,12 +52,11 @@
 					</div>
 				</div>
 			</div>
-			<!-- /.container-fluid -->
+	
 		</div>
 	</c:when>
 	<c:otherwise>
-//redirection page login
-        <br />
+<c:redirect url="/dashboardAdmin/loginAssociation"/>    
 	</c:otherwise>
 </c:choose>
 <%@include file="footerAdmin.jsp"%>

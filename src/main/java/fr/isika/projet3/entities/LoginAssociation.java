@@ -1,13 +1,11 @@
 package fr.isika.projet3.entities;
 
 
-
 public class LoginAssociation {
 	
 	
 	private String password;
 	private String email;
-	
 
 	public String getPassword() {
 		return password;
@@ -21,7 +19,4 @@ public class LoginAssociation {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-
 }

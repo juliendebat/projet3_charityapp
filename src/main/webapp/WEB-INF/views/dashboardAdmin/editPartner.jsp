@@ -1,72 +1,18 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
- <script language="javascript" type="text/javascript" src="resources/js/jquery-3.6.0.min.js"> 
-        </script>
-<title>Home</title>
+<title>Edit Partner</title>
 </head>
 <body>
-
 	<h1>${headerMessage}</h1>
 	
-	
-	
-	
-<%--         <form:form method="POST" action="addUser" > --%>
-<!--              <table> -->
-<!--                 <tr> -->
-<%--                     <td><form:label path="user.firstName">First Name</form:label></td> --%>
-<%--                     <td><form:input path="user.firstName"/></td> --%>
-<!--                 </tr> -->
-<!--                 <tr> -->
-<%--                     <td><form:label path="user.lastName">LastName</form:label></td> --%>
-<%--                     <td><form:input path="user.lastName"/></td> --%>
-<!--                 </tr> -->
-<!--                 <tr> -->
-<%--                     <td><form:label path="user.email">email</form:label></td> --%>
-<%--                     <td><form:input path="user.email"/></td> --%>
-<!--                 </tr> -->
-<!--                       <tr> -->
-<%--                     <td><form:label path="partner.funding">funding</form:label></td> --%>
-<%--                     <td><form:input path="partner.funding"/></td> --%>
-<!--                 </tr> -->
-<!--                       <tr> -->
-<%--                     <td><form:label path="partner.mdp">mdp</form:label></td> --%>
-<%--                     <td><form:input path="partner.mdp"/></td> --%>
-<!--                 </tr> -->
-<!--                 <tr> -->
-<!--                     <td><input type="submit" value="Submit"/></td> -->
-<!--                 </tr> -->
-<!--             </table> -->
-<%--         </form:form> --%>
+       <form action="" method="post">
 
-<button id="b1">Je représente une société</button>
-
- <script language="javascript" type="text/javascript" >
-                $(document).ready(function(){
-                	
-                	
-                            $("p").hide();
-                            $("#b1").click(hide1);                     
-                });
-                
-                function hide1(){
-                    
-                    $("p").toggle();
-                   
-                
-                }
-       
-     //associationId hidden           
-                
-                
-</script>
-
-	<form action="" method="post">
 	
 		<spring:bind path="user.lastName">
 		    <label for="lastname">Nom :</label>
@@ -137,15 +83,14 @@
 				value="${status.value}">
 			<br />
 		</spring:bind>
-		<p>Détail de l' entreprise ou de l'association représentée :</p>	
-		<spring:bind path="partnerEntity.entityName">
+		<spring:bind path="entity.entityName">
 		<p> <label for="entityName">Nom de l'entitée représentée :</label>
 			<input id="entityName" type="text" name="${status.expression}"
 				value="${status.value}"></p>
 			<br />
-				</spring:bind>
+		</spring:bind>
 			
-				<spring:bind path="partnerEntity.entityregistrationNumber">
+				<spring:bind path="entity.entityregistrationNumber">
 		<p> <label for="entityregistrationNumber">Numéro d'enregistrement :</label>
 			<input id="entityregistrationNumber" type="text" name="${status.expression}"
 				value="${status.value}"></p>
@@ -153,12 +98,8 @@
 			
 		</spring:bind>
 		
-		<input type="submit" value="Create" />
+		<input type="submit" value="Modifier" />
 	</form>
-
-
-
-
 
 </body>
 </html>

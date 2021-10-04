@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\PromoterController.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerService.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Donation.java
@@ -8,6 +9,14 @@ C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\User.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\repository\PromoterRepository.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\DonationController.java
+=======
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerService.java
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Donation.java
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\repository\PartnerEntityRepository.java
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\config\HibernateConfig.java
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\UserController.java
+C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\User.java
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\EventService.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\config\ServletInitializer.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\repository\DonationRepository.java
@@ -24,7 +33,10 @@ C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\State.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\PartnerServiceImpl.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\DashboardAdminController.java
+<<<<<<< HEAD
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Promoter.java
+=======
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Event.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\AssociationController.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\entities\Partner.java
@@ -40,5 +52,8 @@ C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\config\MailConfing.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\controller\LoginAssociationController.java
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\UserService.java
+<<<<<<< HEAD
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\service\PromoterServiceImpl.java
+=======
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
 C:\Users\warry\Desktop\Projet\projet3_charityapp\src\main\java\fr\isika\projet3\repository\PartnerRepository.java

@@ -2,9 +2,13 @@ package fr.isika.projet3.controller;
 
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.MailService;
 import fr.isika.projet3.service.UserService;
+import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -12,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +28,7 @@ import java.util.List;
 
 @Controller
 public class AssociationController {
-    // Constructor based Dependency Injection
-    //@Autowired
+
     private AssociationService associationService;
 
     private MailService mailService;
@@ -33,17 +38,22 @@ public class AssociationController {
     private String message = "Bonjour" +
             "Ce mail vous confirme votre inscription !!!!";
 
+   
     private UserService userService;
 
+	private DonationService donationService;
+	
 
     public AssociationController() {
 
     }
 
     @Autowired
-    public AssociationController(AssociationService associationService, MailService mailService) {
+    public AssociationController(AssociationService associationService, MailService mailService,UserService userService,DonationService donationService) {
         this.associationService = associationService;
         this.mailService = mailService;
+        this.donationService=donationService;
+        this.userService=userService;
 
 
     }
@@ -146,7 +156,28 @@ public class AssociationController {
         Association association = associationService.getAssociationById(id);
         mv.addObject("headerMessage", "Edit home Page Association Details");
         mv.addObject("association", association);
+
+        //maj compteur don
+		List<User> contributors = userService.getAllContributorsByAssociation(association);
+		Double sumDonations = donationService.getSumDonationsByAssociation(contributors);
+	    mv.addObject("sumdonations",sumDonations);
+
+        
         return mv;
     }
+    
+    
+    
+    //julien check Asso existe
+    @RequestMapping(value = "/checkAssociationAlreadyExist", method = RequestMethod.POST)
+	@ResponseBody
+    public String checkAssociationAlreadyExist(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("rna") int rna) throws NotFoundException{
+	    boolean isRnaOK  =associationService.isRnaNumberAlreadyUsed(rna);
+	    boolean isEmailOk=associationService.isEmailNotAlreadyUsed(email);
+	    
+	    if (isRnaOK && isEmailOk) return "success";
+	    else return "Les informations fournies ne nous permettent pas de créer de compte, veuillez vérifier votre numéro RNA, ou veuillez choisir un autre email.";
+		
 }
 
+}
