@@ -86,14 +86,9 @@
 	    if(!ret) {
 	        //Empeche la validation du formulaire
 	        event.preventDefault();
-	 
-	         alert("coucou2");
+
 	         var email = document.getElementById("email").value;
 	          var rna = document.getElementById("rnaNumber").value;	         
-	          var password = document.getElementById("password").value;
-
-	        alert(email);
-	        alert(rna);
 	
 	    	$.ajax(
 	    			{ url: "${pageContext.request.contextPath}/checkAssociationAlreadyExist",
@@ -101,12 +96,10 @@
 						data: {				
 							"email":email,
 							"rna":rna,
-							"password":password
 						},
 						success: function(result)
 						{											
 							if(result=="success"){
-								alert("ok");
 								ret=true;
 								 $("#form1")[0].submit();
 							}

@@ -171,12 +171,12 @@ public class AssociationController {
     //julien check Asso existe
     @RequestMapping(value = "/checkAssociationAlreadyExist", method = RequestMethod.POST)
 	@ResponseBody
-    public String checkAssociationAlreadyExist(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("rna") int rna, @RequestParam("password") String password) throws NotFoundException{
+    public String checkAssociationAlreadyExist(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("rna") int rna) throws NotFoundException{
 	    boolean isRnaOK  =associationService.isRnaNumberAlreadyUsed(rna);
-	    boolean isEmailAndPaswordOk=associationService.isEmailAndPAsswordNotAlreadyUsed(email,password);
+	    boolean isEmailOk=associationService.isEmailNotAlreadyUsed(email);
 	    
-	    if (isRnaOK && isEmailAndPaswordOk) return "success";
-	    else return "Les informations fournies ne nous permettent pas de créer de compte, veuillez vérifier votre numéro RNA, ou veuillez choisir un autre email/mot de passe.";
+	    if (isRnaOK && isEmailOk) return "success";
+	    else return "Les informations fournies ne nous permettent pas de créer de compte, veuillez vérifier votre numéro RNA, ou veuillez choisir un autre email.";
 		
 }
 

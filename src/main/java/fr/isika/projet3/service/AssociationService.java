@@ -21,7 +21,7 @@ public interface AssociationService {
 
 	public boolean isRnaNumberAlreadyUsed(int rnaNumber);
 
-	public boolean isEmailAndPAsswordNotAlreadyUsed(String email, String password);
+	public boolean isEmailNotAlreadyUsed(String email);
 
 	
 

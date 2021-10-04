@@ -143,6 +143,7 @@ public class DonationController {
 			ModelAndView mv = new ModelAndView("/donation/home_donation");
 			Long id2=user.getId();
 			User user2=userService.getUserById(id2);
+			user2.setHasDonated(true);
 			donation.setUser(user2);
 			boolean isDonationAdded = donationService.saveDonation(donation);
 			Double sum = donation.getAmount();

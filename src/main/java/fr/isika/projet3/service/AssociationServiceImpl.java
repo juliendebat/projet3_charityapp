@@ -85,9 +85,9 @@ public class AssociationServiceImpl implements AssociationService {
 	}
 
 	@Override
-	public boolean isEmailAndPAsswordNotAlreadyUsed(String email, String password) {
+	public boolean isEmailNotAlreadyUsed(String email) {
 		
-		Association association = associationRepository.findByEmailAndPassword(email, password);
+		Association association = associationRepository.findByEmail(email);
 		if(association==null) return true;
 		else return false;
 		
