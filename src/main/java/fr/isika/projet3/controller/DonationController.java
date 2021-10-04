@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Donation;
-import fr.isika.projet3.entities.Partner;
-import fr.isika.projet3.entities.PartnerEntity;
+
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.DonationService;
