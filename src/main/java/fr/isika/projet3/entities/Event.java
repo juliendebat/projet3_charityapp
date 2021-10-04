@@ -24,9 +24,20 @@ public class Event {
     @ManyToOne(cascade = CascadeType.ALL)
     private Association association;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    public Volonteer getVolonteer() {
+		return volonteer;
+	}
+
+	public void setVolonteer(Volonteer volonteer) {
+		this.volonteer = volonteer;
+	}
+
+	@ManyToOne(cascade = CascadeType.ALL)
     private Promoter promoter;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Volonteer volonteer;
+    
     public Long getId() {
         return id;
     }
