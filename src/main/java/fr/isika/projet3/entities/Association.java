@@ -145,7 +145,7 @@ public class Association {
 		this.lUser = lUser;
 	}
 
-	@ManyToMany()
+	@OneToMany(mappedBy = "association")
 	private List<User> lUser;
 }
 

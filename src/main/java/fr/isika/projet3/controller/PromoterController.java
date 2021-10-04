@@ -3,6 +3,7 @@ package fr.isika.projet3.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.isika.projet3.entities.Association;
@@ -46,9 +47,10 @@ public class PromoterController {
 		}
 		
 		@RequestMapping(value = {"/home_promoter" }, method = RequestMethod.GET)
-		public ModelAndView hello(HttpServletResponse response) throws IOException {
+		public ModelAndView hello(HttpServletResponse response, HttpServletRequest request) throws IOException {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("home_promoter");
+
 			return mv;
 		}
 		
@@ -57,6 +59,7 @@ public class PromoterController {
 		public ModelAndView showAllPromoters() {
 			System.out.println("Promotor Page Requested : All Promotors");
 			ModelAndView mv = new ModelAndView();
+
 			List<Promoter> promoterList = promoterService.getAllPromoters();
 			mv.addObject("promoterList", promoterList);
 			mv.setViewName("allPromoters");
