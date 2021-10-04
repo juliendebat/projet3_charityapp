@@ -40,9 +40,7 @@ public class DonationController {
 	private AssociationService associationService;
 
 	//...
-	String email="";
-	
-	
+	String email="";	
 	
 	public String getEmail() {
 		return email;
@@ -155,10 +153,6 @@ public class DonationController {
 				return new ModelAndView("error");
 			}
 			return mv;
-			
-
 		}
-
-	
 	}
 

@@ -18,6 +18,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import fr.isika.projet3.entities.Association;
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("fr.isika.projet3.repository")
@@ -78,5 +80,8 @@ public class HibernateConfig {
         return properties;
     }
 
+    
+ 
+    
 }
 

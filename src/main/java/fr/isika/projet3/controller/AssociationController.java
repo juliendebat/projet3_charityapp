@@ -43,6 +43,12 @@ public class AssociationController {
 
 	private DonationService donationService;
 	
+	   static {
+	    	
+	    	Association asso = new Association();
+	    	asso.setAssociationName("testLancemennt");
+	    	System.out.println("bloc static");
+	    }
 
     public AssociationController() {
 
