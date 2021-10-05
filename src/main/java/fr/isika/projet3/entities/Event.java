@@ -32,7 +32,7 @@ public class Event {
 		this.volonteer = volonteer;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.EAGER)
     private Promoter promoter;
 
     @ManyToOne(cascade = CascadeType.ALL)

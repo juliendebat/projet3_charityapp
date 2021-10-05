@@ -113,7 +113,7 @@ public class AssociationController {
 
     //edit one Association
     @RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.GET)
-    public ModelAndView displayEditAssociationForm(@PathVariable Long id) {
+    public ModelAndView displayEditAssociationForm(@PathVariable int id) {
         ModelAndView mv = new ModelAndView("/editAssociation");
         Association association = associationService.getAssociationById(id);
         mv.addObject("headerMessage", "Edit Association Details");
@@ -140,7 +140,7 @@ public class AssociationController {
 
     //delete one association
     @RequestMapping(value = "/deleteAssociation/{id}", method = RequestMethod.GET)
-    public ModelAndView deleteAssociationById(@PathVariable Long id) {
+    public ModelAndView deleteAssociationById(@PathVariable int id) {
         boolean isDeleted = associationService.deleteAssociationById(id);
         System.out.println("Association deletion response: " + isDeleted);
         ModelAndView mv = new ModelAndView("redirect:/home");
@@ -151,7 +151,7 @@ public class AssociationController {
 
     //edit one Association
     @RequestMapping(value = "/homePageAssociation/{id}", method = RequestMethod.GET)
-    public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
+    public ModelAndView displayHomePageAssociationForm(@PathVariable int id) {
         ModelAndView mv = new ModelAndView("/homePageAssociation");
         Association association = associationService.getAssociationById(id);
         mv.addObject("headerMessage", "Edit home Page Association Details");

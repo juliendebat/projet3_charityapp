@@ -39,7 +39,7 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public Promoter getPromoterById(int id) {
+	public Promoter getPromoterById(Long id) {
 		Promoter promoter = repository.findById(id).get();
 		return promoter;
 	}
@@ -56,7 +56,7 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public boolean deletePromoterById(int id) {
+	public boolean deletePromoterById(Long id) {
 		try {
 			repository.deleteById(id);
 			return true;

@@ -30,6 +30,9 @@
             rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script src="gmaps.js"></script>
 </head>
 <body id="page-top">
 <!-- Navigation-->
@@ -359,6 +362,24 @@
 
             </div>
         </div>
+        <div id="basic_map"></div>
+        <script>
+            $(document).ready(function(){
+                var map = new GMaps({
+                    el: '#basic_map',
+                    lat: 51.5073346,
+                    lng: -0.1276831,
+                    zoom: 12,
+                    zoomControl : true,
+                    zoomControlOpt: {
+                        style : 'SMALL',
+                        position: 'TOP_LEFT'
+                    },
+                    panControl : false,
+                });
+            });
+
+        </script>
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-4 text-center mb-5 mb-lg-0">
                 <i class="bi-phone fs-2 mb-3 text-muted"></i>

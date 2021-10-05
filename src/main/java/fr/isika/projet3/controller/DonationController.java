@@ -63,7 +63,7 @@ public class DonationController {
 	}
 
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.GET)
-	public ModelAndView displayNewDonationForm(@PathVariable Long id) {
+	public ModelAndView displayNewDonationForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("donation/add_donation");
 
 		mv.addObject("headerMessage", "Add partner Details");
@@ -74,7 +74,7 @@ public class DonationController {
 		return mv;
 	}
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
-	public ModelAndView saveNewDonationNewUser(@PathVariable Long id, @ModelAttribute("User") User user,
+	public ModelAndView saveNewDonationNewUser(@PathVariable int id, @ModelAttribute("User") User user,
 	@ModelAttribute("donation") Donation donation, BindingResult result) {
 	ModelAndView mv = new ModelAndView("/donation/home_donation");
 	
@@ -101,7 +101,7 @@ public class DonationController {
 	
 	@RequestMapping(value = "/checkIdentityContributor", method = RequestMethod.POST)
 	@ResponseBody
-    public String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("idAsso") Long id) throws NotFoundException{
+    public String checkConnexion(HttpServletRequest request, @RequestParam("email") String email, @RequestParam("idAsso") int id) throws NotFoundException{
 	        Association asso=associationService.getAssociationById(id);
 	    	this.email=email;
 		 boolean ok = userService.CheckContributorIdentity(email, asso); 
@@ -119,7 +119,7 @@ public class DonationController {
 	
 	//encours
 		@RequestMapping(value = "/donation/pageUserChecked/{id}", method = RequestMethod.GET)
-		public ModelAndView userCheckedPage(@PathVariable Long id) throws IOException {
+		public ModelAndView userCheckedPage(@PathVariable int id) throws IOException {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("donation/pageUserChecked");
 		
@@ -135,12 +135,12 @@ public class DonationController {
 		}
 		
 		@RequestMapping(value = { "donation/pageUserChecked/{id}" }, method = RequestMethod.POST)
-		public ModelAndView saveNewDonationUserExist(@PathVariable Long id,@ModelAttribute("user") User user,
+		public ModelAndView saveNewDonationUserExist(@PathVariable int id,@ModelAttribute("user") User user,
 				@ModelAttribute("donation") Donation donation, BindingResult result) throws IOException {
 			
 			ModelAndView mv = new ModelAndView("/donation/home_donation");
-			Long id2=user.getId();
-			User user2=userService.getUserById(id2);
+			int id2=user.getId();
+			User user2 = userService.getUserById(id2);
 			user2.setHasDonated(true);
 			donation.setUser(user2);
 			boolean isDonationAdded = donationService.saveDonation(donation);

@@ -76,7 +76,7 @@ public class EventController {
 			}
 
 			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView displayEditEventForm(@PathVariable Long id) {
+			public ModelAndView displayEditEventForm(@PathVariable int id) {
 				ModelAndView mv = new ModelAndView("/editEvent");
 				Event event = eventService.getEventById(id);
 				mv.addObject("headerMessage", "Edit Event Details");
@@ -102,7 +102,7 @@ public class EventController {
 			}
 
 			@RequestMapping(value = "/deleteEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView deleteEventById(@PathVariable Long id) {
+			public ModelAndView deleteEventById(@PathVariable int id) {
 				boolean isDeleted = eventService.deleteEventById(id);
 				System.out.println("Event deletion response: " + isDeleted);
 				ModelAndView mv = new ModelAndView("redirect:/home_event");

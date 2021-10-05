@@ -7,7 +7,7 @@
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
 					<h6 class="m-0 font-weight-bold text-primary">Lites des
-						Partenaires de L'Association ${ sessionScope.assos.associationName }
+						Bénévoles de l'Association ${ sessionScope.assos.associationName }
 					</h6>
 				</div>
 				<div class="card-body">
@@ -29,25 +29,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="partner" items="${partnerlist}">
+								<c:forEach var="volonteer" items="${volonteerslist}">
 
 									<tr>
-										<td><c:out value="${ partner.user.lastName }" /></td>
-										<td><c:out value="${ partner.user.firstName }" /></td>
-										<td><c:out value="${ partner.user.age }" /></td>
-										<td><c:out value="${ partner.user.address }" /></td>
-										<td><c:out value="${ partner.user.town }" /></td>
-										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ partner.user.email }" /></a></td>
-										<td><c:out value="${ partner.funding }" /></td>
-                                         <td><c:out value="${ partner.partnerentity.entityName }" /></td>
-									
+										<td><c:out value="${ volonteer.user.lastName }" /></td>
+										<td><c:out value="${ volonteer.user.firstName }" /></td>
+										<td><c:out value="${ volonteer.user.age }" /></td>
+										<td><c:out value="${ volonteer.user.address }" /></td>
+										<td><c:out value="${ volonteer.user.town }" /></td>
+										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ volonteer.user.email }" /></a></td>
+																		
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-	
 		</div>
 	</c:when>
 	<c:otherwise>

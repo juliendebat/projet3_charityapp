@@ -44,10 +44,17 @@ public class DashboardAdminController {
     private PartnerEntityService partnerEntityService;
 	@Autowired
     private DonationService donationService;
+	
 
-	public DashboardAdminController(UserService userService, MailService mailService) {
-		this.userService = userService;
+
+	public DashboardAdminController(MailService mailService, UserService userService, PartnerService partnerService,
+			PartnerEntityService partnerEntityService, DonationService donationService) {
+		super();
 		this.mailService = mailService;
+		this.userService = userService;
+		this.partnerService = partnerService;
+		this.partnerEntityService = partnerEntityService;
+		this.donationService = donationService;
 	}
 
 	@RequestMapping(value = { "/dashboardAdmin/home" }, method = RequestMethod.GET)
@@ -72,7 +79,7 @@ public class DashboardAdminController {
 	}
 
 	@RequestMapping(value = "/dashboardAdmin/mailForm/{id}", method = RequestMethod.GET)
-	public ModelAndView mailSender(HttpServletRequest request, @PathVariable Long id) {
+	public ModelAndView mailSender(HttpServletRequest request, @PathVariable int id) {
 		ModelAndView mv = new ModelAndView("dashboardAdmin/mailForm");
 		User user = userService.getUserById(id);
 		String userMail = user.getEmail();
@@ -81,7 +88,7 @@ public class DashboardAdminController {
 	}
 
 	@RequestMapping(value = "/dashboardAdmin/mailForm/{id}", method = RequestMethod.POST)
-	public ModelAndView mailsend(HttpServletRequest request, @PathVariable Long id) {
+	public ModelAndView mailsend(HttpServletRequest request, @PathVariable int id) {
 		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/home");
 		User user = userService.getUserById(id);
 		String userMail = user.getEmail();
@@ -125,7 +132,7 @@ public class DashboardAdminController {
 }
     
     @RequestMapping(value = "/dashboardAdmin/checkDonation/{id}", method = RequestMethod.GET)
-    public ModelAndView checkDonation(@PathVariable Long id) {
+    public ModelAndView checkDonation(@PathVariable int id) {
 	ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
 
    donationService.checkDonation(id);
@@ -135,7 +142,7 @@ public class DashboardAdminController {
 }
 
     @RequestMapping(value = "/dashboardAdmin/cancelDonation/{id}", method = RequestMethod.GET)
-    public ModelAndView cancelDonation(@PathVariable Long id) {
+    public ModelAndView cancelDonation(@PathVariable int id) {
 	ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
 
    donationService.cancelDonation(id);
@@ -152,6 +159,33 @@ public class DashboardAdminController {
        mv.addObject("partnerlist", partners );
        mv.addObject("ass",ass);
         return mv;}
+    
+    @RequestMapping(value = {"/dashboardAdmin/allPromoters"}, method = RequestMethod.GET)
+    public ModelAndView showAllPromoters(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/allPromoters");        
+       List<Promoter> promoter= userService.getAllPromoterByAssociation(ass);
+       mv.addObject("promoterlist", promoter );
+       mv.addObject("ass",ass);
+        return mv;}
+    
+    @RequestMapping(value = {"/dashboardAdmin/allVolonteers"}, method = RequestMethod.GET)
+    public ModelAndView showAllVolunteer(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/allVolonteers");        
+       List<Volonteer> volonteers = userService.getAllVolonteerByAssociation(ass);
+       mv.addObject("volonteerslist", volonteers );
+       mv.addObject("ass",ass);
+        return mv;}
+    
+//    @RequestMapping(value = {"/dashboardAdmin/allEvents"}, method = RequestMethod.GET)
+//    public ModelAndView showAllEvents(HttpServletResponse response) throws IOException {
+//        ModelAndView mv = new ModelAndView();
+//        mv.setViewName("dashboardAdmin/allEvents");        
+//       List<Event> events = userService.getAllEventsByAssociation(ass);
+//       mv.addObject("volonteerslist", events );
+//       mv.addObject("ass",ass);
+//        return mv;}
 
 	// julien kill session
 	@RequestMapping(value = "/killSession")

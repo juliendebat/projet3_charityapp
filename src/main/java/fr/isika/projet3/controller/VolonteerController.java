@@ -83,7 +83,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.POST)
-	public ModelAndView saveNewVolonteer(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Event event,
+	public ModelAndView saveNewVolonteer(@PathVariable int id, @ModelAttribute User user, @ModelAttribute Event event,
 			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
 

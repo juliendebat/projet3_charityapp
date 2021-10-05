@@ -3,15 +3,18 @@ package fr.isika.projet3.service;
 import java.util.List;
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.entities.Partner;
+import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.entities.Volonteer;
 
 public interface UserService  {
 
 	public List<User> getAllUsers();
-	public User getUserById(Long id);
+	public User getUserById(Long id2);
 	
-	
+
 	public boolean saveUser(User user);
 	public boolean deleteUserById(Long id);
 	
@@ -19,11 +22,11 @@ public interface UserService  {
 	public List<User> getAllUserByAssociation(Association association);
 	
 	
+	public List<Promoter> getAllPromoterByAssociation(Association association);
 	
-	
+	public List<Volonteer> getAllVolonteerByAssociation(Association association);
 	/////////////
 	public List<Partner> getAllPartnersByAssociation(Association association);
-	
 	//julien  --> Donations par association
 	public List<User> getAllContributorsByAssociation(Association association);
 	
@@ -32,6 +35,8 @@ public interface UserService  {
 	public String getUserInformation(String email, Association association);
 		
 	public User getUserByEmailAndAssociation(String email, Association association);
+	
+	
 	
 	
 	

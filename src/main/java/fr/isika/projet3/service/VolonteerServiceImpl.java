@@ -37,7 +37,7 @@ public class VolonteerServiceImpl implements VolonteerService {
 		
 	}
 
-	public Volonteer getVolonteerById(int id) {
+	public Volonteer getVolonteerById(Long id) {
 		Volonteer volonteer = repository.findById(id).get();
 		return volonteer;
 	}
@@ -51,7 +51,7 @@ public class VolonteerServiceImpl implements VolonteerService {
 		}
 	}
 
-	public boolean deleteVolonteerById(int id) {
+	public boolean deleteVolonteerById(Long id) {
 		try {
 			repository.deleteById(id);
 			return true;

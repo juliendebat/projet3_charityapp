@@ -78,7 +78,7 @@ public class PromoterController {
 		}
 
 		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@PathVariable Long id, @ModelAttribute User user,@ModelAttribute Association association,
+		public ModelAndView saveNewUser(@PathVariable int id, @ModelAttribute User user,@ModelAttribute Association association,
 				@ModelAttribute Promoter promoter, @ModelAttribute Event event, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
 			
@@ -89,8 +89,7 @@ public class PromoterController {
 				user.setAssociation(association);
 				promoter.setUser(user);
 				event.setPromoter(promoter);
-				//boolean isPromoterAdded = promoterService.savePromoter(promoter);
-				//boolean isUserAdded = userService.saveUser(user);
+				
 				boolean isEventAdded = eventService.saveEvent(event);
 
 

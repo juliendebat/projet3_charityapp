@@ -13,7 +13,7 @@
             <meta name="description" content="">
             <meta name="author" content="">
 
-            <title>SB Admin 2 - Dashboard</title>
+            <title>SB Admin  - Dashboard</title>
 
             <!-- Custom fonts for this template-->
             <link href="${pageContext.request.contextPath}/resources/vendor/fontawesome-free/css/all.min.css"
@@ -168,7 +168,9 @@
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/usersList">Utilisateurs</a>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPromoters">Organisateurs</a>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPartnersAss">Partenaire</a>
-                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allDonations">Partenaire</a>
+                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allDonations">Donations</a>
+                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allVolonteers">Bénévoles</a>
+                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allEvents">Activitées</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>

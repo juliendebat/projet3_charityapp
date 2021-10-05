@@ -9,8 +9,8 @@ import fr.isika.projet3.entities.Volonteer;
 public interface VolonteerService {
 
 	public List<Volonteer> getAllVolonteers();
-	public Volonteer getVolonteerById(int id);
+	public Volonteer getVolonteerById(Long id);
 	public boolean saveVolonteer(Volonteer volonteer);
-	public boolean deleteVolonteerById(int id);
+	public boolean deleteVolonteerById(Long id);
 
 }

@@ -22,25 +22,21 @@
 									<th>Adresse</th>
 									<th>Ville</th>
 									<th>Mail</th>
-									<th>Financement</th>
-									<th>Societe/Association</th>
-									<th>Edit</th>
-									<th>Delete</th>
+									
+									
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="partner" items="${partnerlist}">
+								<c:forEach var="promoter" items="${promoterlist}">
 
 									<tr>
-										<td><c:out value="${ partner.user.lastName }" /></td>
-										<td><c:out value="${ partner.user.firstName }" /></td>
-										<td><c:out value="${ partner.user.age }" /></td>
-										<td><c:out value="${ partner.user.address }" /></td>
-										<td><c:out value="${ partner.user.town }" /></td>
-										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ partner.user.email }" /></a></td>
-										<td><c:out value="${ partner.funding }" /></td>
-                                         <td><c:out value="${ partner.partnerentity.entityName }" /></td>
-									
+										<td><c:out value="${ promoter.user.lastName }" /></td>
+										<td><c:out value="${ promoter.user.firstName }" /></td>
+										<td><c:out value="${ promoter.user.age }" /></td>
+										<td><c:out value="${ promoter.user.address }" /></td>
+										<td><c:out value="${ promoter.user.town }" /></td>
+										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ promoter.user.email }" /></a></td>
+										
 								</c:forEach>
 							</tbody>
 						</table>
