@@ -29,6 +29,21 @@ public class User {
 
 	@OneToOne(mappedBy = "user")
 	Partner partner;
+	
+	@OneToOne(mappedBy = "user")
+	Promoter promoter;
+	
+	@OneToOne(mappedBy = "user")
+	Volonteer volonteer;
+	
+
+	public Promoter getPromoter() {
+		return promoter;
+	}
+
+	public void setPromoter(Promoter promoter) {
+		this.promoter = promoter;
+	}
 
 	@ManyToOne
 	private Association association;

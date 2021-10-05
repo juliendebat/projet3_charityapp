@@ -1,10 +1,16 @@
-
 <%@include file="headerAdmin.jsp"%>
 <c:choose>
     <c:when test="${!empty sessionScope.assos}">
-<div class="container">
+<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Lites des
+						utilisateurs de L'Association ${ sessionScope.assos.associationName }
+					</h6>
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
 
-    <table class="table table-striped table-bordered" id="usersList" style="width:100%" >
+    <table class="table table-striped table-bordered" id="dataTable" style="width:100%" >
         <thead>
         <tr>
             <th>Id</th>
@@ -38,6 +44,8 @@
         </c:forEach>
         </tbody>
     </table>
+    </div>
+    </div>
 </div>
 
 

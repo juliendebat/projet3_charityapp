@@ -3,19 +3,25 @@ package fr.isika.projet3.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
+
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
-import fr.isika.projet3.repository.AssociationRepository;
+
+import fr.isika.projet3.entities.Volonteer;
+import fr.isika.projet3.repository.EventRepository;
+
+
+
 import fr.isika.projet3.repository.PartnerRepository;
 import fr.isika.projet3.repository.PromoterRepository;
 import fr.isika.projet3.repository.UserRepository;
+import fr.isika.projet3.repository.VolonteerRepository;
 
 
 
@@ -28,13 +34,19 @@ public class UserServiceImpl implements UserService {
 	         
 	         @Autowired
 			private PartnerRepository partnerrepository;
-	         
+	         @Autowired
+			private VolonteerRepository volonteerRepository;
+	         @Autowired
+	        private PromoterRepository promoterRepository;
+	         @Autowired
+	        private EventRepository eventRepository;
 	         @Autowired
 			private PromoterRepository promoterrepository;
 	     
 	         @Autowired
 	         private AssociationService associationService;
 			
+
 			public UserServiceImpl() {
 				
 			}
@@ -129,6 +141,33 @@ public class UserServiceImpl implements UserService {
 			User user=repository.findByEmailAndAssociation(email, association);
 			return user;			
 		}
+		@SuppressWarnings("null")
+		@Override
+		public List<Volonteer> getAllVolonteerByAssociation(Association association) {
+			List<User> users = repository.findByAssociation(association);
+			List<Volonteer> volonteers = new ArrayList<>();
+				for (User user : users) {							
+				Volonteer volonteer = volonteerRepository.findByUser(user);
+				if(volonteer!=null) {
+					volonteers.add(volonteer);
+				}
+				}			
+				return volonteers;
+		}
+
+		@Override
+		public List<Promoter> getAllPromoterByAssociation(Association association) {
+			List<User> users = repository.findByAssociation(association);
+			List<Promoter> promoters = new ArrayList<>();
+				for (User user : users) {							
+				Promoter promoter = promoterRepository.findByUser(user);
+				if(promoter!=null) {
+					promoters.add(promoter);
+				}
+				}			
+				return promoters;
+		}
+	
 
 		@Override
 		public boolean isPromoterConnected(String email, String password, Long id) {

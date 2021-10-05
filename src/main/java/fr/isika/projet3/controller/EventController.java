@@ -80,6 +80,7 @@ public class EventController {
 				return mv;
 			}
 
+
 //			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
 //			public ModelAndView displayEditEventForm(@PathVariable Long id) {
 //				ModelAndView mv = new ModelAndView("/editEvent");
@@ -114,5 +115,6 @@ public class EventController {
 //				return mv;
 //
 //			}
+
 
 }
