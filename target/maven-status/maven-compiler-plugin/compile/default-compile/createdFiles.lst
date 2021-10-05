@@ -17,6 +17,7 @@ fr\isika\projet3\service\PartnerServiceImpl.class
 fr\isika\projet3\entities\Promoter.class
 fr\isika\projet3\service\EventService.class
 fr\isika\projet3\service\UserServiceImpl.class
+fr\isika\projet3\controller\DashboardPromoterController.class
 fr\isika\projet3\service\PromoterServiceImpl.class
 fr\isika\projet3\repository\DonationRepository.class
 fr\isika\projet3\entities\Partner.class
@@ -45,6 +46,7 @@ fr\isika\projet3\service\VolonteerService.class
 fr\isika\projet3\config\HibernateConfig.class
 fr\isika\projet3\controller\DashboardAdminController.class
 fr\isika\projet3\controller\EventController.class
+fr\isika\projet3\controller\LoginPromoterController.class
 fr\isika\projet3\entities\Donation.class
 fr\isika\projet3\service\PartnerEntityServiceImpl.class
 fr\isika\projet3\config\WebMvcConfig.class
