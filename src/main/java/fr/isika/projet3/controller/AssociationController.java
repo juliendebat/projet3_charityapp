@@ -155,18 +155,19 @@ public class AssociationController {
     }
 
 
-    //edit one Association
-    @RequestMapping(value = "/homePageAssociation/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/template/homePageAssociation/{id}", method = RequestMethod.GET)
     public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("/homePageAssociation");
+        ModelAndView mv = new ModelAndView("template/homePageAssociation");
         Association association = associationService.getAssociationById(id);
-        mv.addObject("headerMessage", "Edit home Page Association Details");
-        mv.addObject("association", association);
-
+       
+       
         //maj compteur don
 		List<User> contributors = userService.getAllContributorsByAssociation(association);
 		Double sumDonations = donationService.getSumDonationsByAssociation(contributors);
-	    mv.addObject("sumdonations",sumDonations);
+		 mv.addObject("association", association);
+	        mv.addObject("sumdonations",sumDonations);
+		    mv.addObject("headerAssociationName", association.getAssociationName());
+	        mv.addObject("description", association.getDescription());
 
         
         return mv;

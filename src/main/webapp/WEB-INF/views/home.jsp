@@ -30,9 +30,14 @@
             rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="gmaps.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+ 
 </head>
 <body id="page-top">
 <!-- Navigation-->
@@ -338,7 +343,7 @@
                             <td>${association.city}</td>
                             <td>${association.description}</td>
                             <td><a
-                                    href="${pageContext.request.contextPath}/homePageAssociation/${association.id}">Visitez leur plateforme !</a></td>
+                                    href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}">Visitez leur plateforme !</a></td>
                             <td>
                         </tr>
                     </c:forEach>
@@ -347,39 +352,9 @@
 
                 </table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
         </div>
-        <div id="basic_map"></div>
-        <script>
-            $(document).ready(function(){
-                var map = new GMaps({
-                    el: '#basic_map',
-                    lat: 51.5073346,
-                    lng: -0.1276831,
-                    zoom: 12,
-                    zoomControl : true,
-                    zoomControlOpt: {
-                        style : 'SMALL',
-                        position: 'TOP_LEFT'
-                    },
-                    panControl : false,
-                });
-            });
-
-        </script>
+        
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-lg-4 text-center mb-5 mb-lg-0">
                 <i class="bi-phone fs-2 mb-3 text-muted"></i>
@@ -388,6 +363,42 @@
         </div>
     </div>
 </section>
+<section class="page-section" id="subscribe">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6" text-align="center">
+              <div id="mapid" style="width:100%; height: 480px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script>
+    var mymap = L.map('mapid').setView([48.822689, 2.323608], 13);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoid2Fycnk1NSIsImEiOiJja3VlNXNoaDIwM2d4MzBva2pndWN3MG9rIn0.NU5krvNXQ-XaHze2ssvZOg'
+    }).addTo(mymap);
+    var popup = L.popup();
+    function onMapClick(e) {
+       // alert("You clicked the map at " + e.latlng);
+        popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+    }
+
+    mymap.on('click', onMapClick);
+  			
+    </script>
+
 <!-- Portfolio-->
 <div id="portfolio">
     <div class="container-fluid p-0">
@@ -397,7 +408,7 @@
                    href="resources/assets/img/portfolio/fullsize/1.jpg"
                    title="Project Name"> <img class="img-fluid"
                                               src="resources/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
-                    <div class="portfolio-box-caption">
+          S          <div class="portfolio-box-caption">
                         <div class="project-category text-white-50">Category</div>
                         <div class="project-name">Project Name</div>
                     </div>
