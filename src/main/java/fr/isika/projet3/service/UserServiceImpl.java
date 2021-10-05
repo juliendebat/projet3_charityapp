@@ -13,8 +13,12 @@ import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
+<<<<<<< HEAD
 import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.repository.EventRepository;
+=======
+import fr.isika.projet3.repository.AssociationRepository;
+>>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
 import fr.isika.projet3.repository.PartnerRepository;
 import fr.isika.projet3.repository.PromoterRepository;
 import fr.isika.projet3.repository.UserRepository;
@@ -28,8 +32,10 @@ public class UserServiceImpl implements UserService {
 	// Implementing Constructor based DI
 	         @Autowired
 			private UserRepository repository;
+	         
 	         @Autowired
 			private PartnerRepository partnerrepository;
+<<<<<<< HEAD
 	         @Autowired
 			private VolonteerRepository volonteerRepository;
 	         @Autowired
@@ -37,6 +43,15 @@ public class UserServiceImpl implements UserService {
 	         @Autowired
 	        private EventRepository eventRepository;
 	        
+=======
+	         
+	         @Autowired
+			private PromoterRepository promoterrepository;
+	     
+	         @Autowired
+	         private AssociationService associationService;
+			
+>>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
 			public UserServiceImpl() {
 				
 			}
@@ -158,6 +173,31 @@ public class UserServiceImpl implements UserService {
 				return promoters;
 		}
 	
+
+		@Override
+		public boolean isPromoterConnected(String email, String password, Long id) {
+			 Association association=associationService.getAssociationById(id);
+			 
+			 User user = repository.findByEmailAndAssociation(email, association);
+			 if(user!=null) {
+				 
+			Promoter promoter = promoterrepository.findByUser(user);
+	
+			if(promoter.getPassword().equals(password)) return true;
+			
+			else return false;
+			 }
+			 else return false;
+			
+	
+			
+		}
+
+		@Override
+		public User getUserByEmail(String email) {
+			User user = repository.findByEmail(email);
+			return user;
+		}
 
 		
 		

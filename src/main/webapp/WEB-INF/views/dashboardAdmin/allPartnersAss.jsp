@@ -32,10 +32,10 @@
 								<c:forEach var="partner" items="${partnerlist}">
 
 									<tr>
-										<td><c:out value="${ partner.user.lastName }" /></td>
-										<td><c:out value="${ partner.user.firstName }" /></td>
-										<td><c:out value="${ partner.user.age }" /></td>
-										<td><c:out value="${ partner.user.address }" /></td>
+										<td><c:out value="${ partner.user.lastName}" /></td>
+										<td><c:out value="${ partner.user.firstName}" /></td>
+										<td><c:out value="${ partner.user.age}" /></td>
+										<td><c:out value="${ partner.user.address}" /></td>
 										<td><c:out value="${ partner.user.town }" /></td>
 										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ partner.user.email }" /></a></td>
 										<td><c:out value="${ partner.funding }" /></td>

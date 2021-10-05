@@ -7,6 +7,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
   <version>0.0.1-SNAPSHOT</version>
   <name>project3_charityapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
   
   
 <properties>
@@ -72,6 +73,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<artifactId>taglibs-standard-impl</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+
 		
 		 <dependency>
             <groupId>com.sun.xml.bind</groupId>
@@ -105,8 +107,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<version>5.3.4</version>
 		</dependency>
 
+	</dependencies> 
+<!-- 	<build> -->
+<!-- 		 <finalName>project3_charityapp</finalName> -->
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
+<!-- 				<version>3.5.1</version> or whatever current version -->
 
-	</dependencies>
+<!-- 	</dependencies> -->
 
 	<build>
 		<finalName>project3_charityapp</finalName>
@@ -114,6 +124,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
+
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>

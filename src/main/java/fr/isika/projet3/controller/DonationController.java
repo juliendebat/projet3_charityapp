@@ -38,9 +38,7 @@ public class DonationController {
 	private AssociationService associationService;
 
 	//...
-	String email="";
-	
-	
+	String email="";	
 	
 	public String getEmail() {
 		return email;
@@ -65,14 +63,14 @@ public class DonationController {
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.GET)
 	public ModelAndView displayNewDonationForm(@PathVariable int id) {
 		ModelAndView mv = new ModelAndView("donation/add_donation");
-
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("donation", new Donation());
 		mv.addObject("id",id);
-
 		return mv;
 	}
+	
+	
 	@RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
 	public ModelAndView saveNewDonationNewUser(@PathVariable int id, @ModelAttribute("User") User user,
 	@ModelAttribute("donation") Donation donation, BindingResult result) {
@@ -114,19 +112,13 @@ public class DonationController {
 
 		}
 
-	
-	
-	
 	//encours
 		@RequestMapping(value = "/donation/pageUserChecked/{id}", method = RequestMethod.GET)
 		public ModelAndView userCheckedPage(@PathVariable int id) throws IOException {
 			ModelAndView mv = new ModelAndView();
-			mv.setViewName("donation/pageUserChecked");
-		
-			Association asso = associationService.getAssociationById(id);
-			
-			User user=userService.getUserByEmailAndAssociation(email, asso);
-					
+			mv.setViewName("donation/pageUserChecked");		
+			Association asso = associationService.getAssociationById(id);			
+			User user=userService.getUserByEmailAndAssociation(email, asso);					
 			List<Donation> donations = donationService.getDonationsByUser(user);
 			mv.addObject("user",user);
 			mv.addObject("donations",donations);
@@ -135,9 +127,14 @@ public class DonationController {
 		}
 		
 		@RequestMapping(value = { "donation/pageUserChecked/{id}" }, method = RequestMethod.POST)
+<<<<<<< HEAD
 		public ModelAndView saveNewDonationUserExist(@PathVariable int id,@ModelAttribute("user") User user,
 				@ModelAttribute("donation") Donation donation, BindingResult result) throws IOException {
 			
+=======
+		public ModelAndView saveNewDonationUserExist(@PathVariable Long id,@ModelAttribute("user") User user,
+			@ModelAttribute("donation") Donation donation, BindingResult result) throws IOException {			
+>>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
 			ModelAndView mv = new ModelAndView("/donation/home_donation");
 			int id2=user.getId();
 			User user2 = userService.getUserById(id2);
@@ -153,10 +150,6 @@ public class DonationController {
 				return new ModelAndView("error");
 			}
 			return mv;
-			
-
 		}
-
-	
 	}
 

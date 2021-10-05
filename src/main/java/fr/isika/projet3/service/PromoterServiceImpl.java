@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Promoter;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.PromoterRepository;
 
 
@@ -63,6 +64,11 @@ public class PromoterServiceImpl implements PromoterService{
 		}catch(Exception ex) {
 			return false;
 		}
+	}
+	@Override
+	public Promoter getPromotertByUser(User user) {
+		Promoter promoter = repository.findByUser(user);
+		return promoter;
 	}
 
 }

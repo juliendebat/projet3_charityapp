@@ -17,5 +17,5 @@ public interface UserRepository extends CrudRepository<User, Long>{
 	List<User> findByAssociation(Association association);
 	List<User> findByAssociationAndHasDonated(Association association, Boolean bool);
     User findByEmailAndAssociation(String email, Association association);    
-    //User findByEmail(String email);
+    User findByEmail(String email);
 }

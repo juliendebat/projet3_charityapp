@@ -66,10 +66,11 @@ public class EventServiceImpl implements EventService {
 				
 			}
 
-			/*@Override
-			public List getAllEventsByPromoter(Promoter promoter, Event event) {
-				List list = new ArrayList();
-				promoterRepository.
-				return null;
-			}*/
+			@Override
+			public List<Event> getEventsByPromoter(Promoter promoterinProgress) {
+				List<Event> listeEvent=eventRepository.findByPromoter(promoterinProgress);
+				return listeEvent;
+			}
+
+
 }

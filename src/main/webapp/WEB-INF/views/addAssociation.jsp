@@ -64,7 +64,7 @@
 
                  <tr>
                     <td><form:label path="password">mot de passe de l'administrateur</form:label></td>
-                    <td><form:input id="password" path="password"/></td>
+                    <td><form:input  path="password"/></td>
                 </tr>
                 <tr>
                     <td><form:label path="phone">téléphone de l'administrateur</form:label></td>
@@ -78,10 +78,8 @@
 
 <div id="div2" style="color:#ff0000"></div>  
     <script>	
-	$(document).ready(function(){
-		 
-		var ret = false;
-		
+	$(document).ready(function(){		 
+		var ret = false;		
 		$("#form1").submit(function(event){
 	    if(!ret) {
 	        //Empeche la validation du formulaire
@@ -109,8 +107,6 @@
 							ret=false;							
 							}; 
 						}
-						
-						
 					});	      
 	    }//fin if ret	    
 		});

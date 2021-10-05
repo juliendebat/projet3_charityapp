@@ -92,27 +92,27 @@
 			<br />			
 		</spring:bind>
 			
-			<spring:bind path="promoter.mdp">
+			<spring:bind path="promoter.password">
 		 <label for="password">Mot de passe :</label>
 			<input id="password" type="password" name="${status.expression}"
 				value="${status.value}">
 			<br />
 		</spring:bind>
-		<p>Détail de l' entreprise ou de l'association représentée :</p>	
-		<spring:bind path="event.eventName">
-		<p> <label for="eventName">Nom de l'évènement :</label>
-			<input id="eventName" type="text" name="${status.expression}"
-				value="${status.value}"></p>
-			<br />
-				</spring:bind>
+<!-- 		<p>Détail de l' entreprise ou de l'association représentée :</p>	 -->
+<%-- 		<spring:bind path="event.eventName"> --%>
+<!-- 		<p> <label for="eventName">Nom de l'évènement :</label> -->
+<%-- 			<input id="eventName" type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"></p> --%>
+<!-- 			<br /> -->
+<%-- 				</spring:bind> --%>
 			
-				<spring:bind path="event.eventDescription">
-		<p> <label for="eventDescription">Description :</label>
-			<input id="eventDescription" type="text" name="${status.expression}"
-				value="${status.value}"></p>
-			<br />
+<%-- 				<spring:bind path="event.eventDescription"> --%>
+<!-- 		<p> <label for="eventDescription">Description :</label> -->
+<%-- 			<input id="eventDescription" type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"></p> --%>
+<!-- 			<br /> -->
 			
-		</spring:bind>
+<%-- 		</spring:bind> --%>
 		
 		<input type="submit" value="Create" />
 	</form>

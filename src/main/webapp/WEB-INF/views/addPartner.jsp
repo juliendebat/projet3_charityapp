@@ -60,10 +60,7 @@
                    
                 
                 }
-       
-     //associationId hidden           
-                
-                
+                  
 </script>
 
 	<form action="" method="post">
