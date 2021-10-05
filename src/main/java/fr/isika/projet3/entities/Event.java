@@ -19,6 +19,17 @@ public class Event {
     private String eventDateStart;
     private String eventDateEnd;
     private String eventThumbnailLink;
+    
+    
+    //julien
+    private int targetBudget;
+    private int inprogressBudget;
+    
+    private int volunterRequired;
+    private int volunterinProgress;
+    
+    
+    //ajouter attribut nombre de volontaire requis + budget
 
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    private Association association;
@@ -126,6 +137,38 @@ public class Event {
 
 	public void setPromoter(Promoter promoter) {
 		this.promoter = promoter;
+	}
+
+	public int getTargetBudget() {
+		return targetBudget;
+	}
+
+	public void setTargetBudget(int targetBudget) {
+		this.targetBudget = targetBudget;
+	}
+
+	public int getInprogressBudget() {
+		return inprogressBudget;
+	}
+
+	public void setInprogressBudget(int inprogressBudget) {
+		this.inprogressBudget = inprogressBudget;
+	}
+
+	public int getVolunterRequired() {
+		return volunterRequired;
+	}
+
+	public void setVolunterRequired(int volunterRequired) {
+		this.volunterRequired = volunterRequired;
+	}
+
+	public int getVolunterinProgress() {
+		return volunterinProgress;
+	}
+
+	public void setVolunterinProgress(int volunterinProgress) {
+		this.volunterinProgress = volunterinProgress;
 	}
 
 

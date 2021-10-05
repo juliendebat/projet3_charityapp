@@ -62,7 +62,6 @@ public class DonationController {
         return mv;
     }
 
-
     @RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
     public ModelAndView saveNewDonationNewUser(@PathVariable Long id, @ModelAttribute("User") User user,
                                                @ModelAttribute("donation") Donation donation, BindingResult result) {
@@ -70,7 +69,6 @@ public class DonationController {
 
         Association association = associationService.getAssociationById(id);
         user.setAssociation(association);
-
         if (result.hasErrors()) {
             return new ModelAndView("error");
         }

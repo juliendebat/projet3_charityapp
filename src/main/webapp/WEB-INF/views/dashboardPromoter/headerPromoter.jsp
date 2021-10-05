@@ -166,7 +166,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Listes</h6>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardPromoter/addEventToOnePromoter">Add Event</a>
-                  
+                    <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardPromoter/editPromoter">Profil</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>

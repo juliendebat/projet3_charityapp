@@ -77,9 +77,24 @@ public class DonationServiceImpl implements DonationService {
 		
 		List<Donation> paidDonations = new ArrayList<>();
 		for (Donation donation : donations)
+			if(donation.getState()!=null) {
 			if(donation.getState().equals(State.done)) {
 				paidDonations.add(donation);
 		}
+			}
+		return paidDonations;
+	}
+	
+	@Override
+	public List<Donation> getAllNotPaidDonationsByAssociation(List<Donation> donations) {
+		
+		List<Donation> paidDonations = new ArrayList<>();
+		for (Donation donation : donations)
+			if(donation.getState()!=null) {
+			if(donation.getState().equals(State.inprogress)) {
+				paidDonations.add(donation);
+		}
+			}
 		return paidDonations;
 	}
 
