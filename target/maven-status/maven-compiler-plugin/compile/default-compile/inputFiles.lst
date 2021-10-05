@@ -8,6 +8,7 @@
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/entities/User.java
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/config/ServletInitializer.java
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/controller/EventController.java
+/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/controller/DashboardPromoterController.java
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/controller/UserController.java
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/entities/LoginAssociation.java
 /home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/controller/LoginAssociationController.java

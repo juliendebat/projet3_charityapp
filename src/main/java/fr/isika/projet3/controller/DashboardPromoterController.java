@@ -107,10 +107,8 @@ public class DashboardPromoterController {
 		}
 		boolean isSaved = promoterService.savePromoter(promoter);
 		if (!isSaved) {
-
 			return new ModelAndView("error");
 		}
-
 		return mv;
 	}
 
@@ -120,7 +118,6 @@ public class DashboardPromoterController {
 		System.out.println("promoter deletion response: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
 		return mv;
-
 	}
 	
 	@RequestMapping(value = "/dashboardPromoter/editEvent/{id}", method = RequestMethod.GET)
@@ -143,10 +140,8 @@ public class DashboardPromoterController {
 		event.setPromoter(promoterinProgress);
 		boolean isSaved = eventService.saveEvent(event);
 		if (!isSaved) {
-
 			return new ModelAndView("error");
 		}
-
 		return mv;
 	}
 

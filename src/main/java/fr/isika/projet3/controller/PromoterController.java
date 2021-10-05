@@ -88,9 +88,6 @@ public class PromoterController {
 				association = associationService.getAssociationById(id);
 				user.setAssociation(association);
 				promoter.setUser(user);
-				//event.setPromoter(promoter);
-				//boolean isPromoterAdded = promoterService.savePromoter(promoter);
-				//boolean isUserAdded = userService.saveUser(user);
 				boolean isEventAdded = promoterService.savePromoter(promoter);
 
 			if ( isEventAdded ) {
