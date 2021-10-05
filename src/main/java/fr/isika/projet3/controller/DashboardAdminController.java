@@ -79,7 +79,7 @@ public class DashboardAdminController {
 	}
 
 	@RequestMapping(value = "/dashboardAdmin/mailForm/{id}", method = RequestMethod.GET)
-	public ModelAndView mailSender(HttpServletRequest request, @PathVariable int id) {
+	public ModelAndView mailSender(HttpServletRequest request, @PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("dashboardAdmin/mailForm");
 		User user = userService.getUserById(id);
 		String userMail = user.getEmail();
@@ -88,7 +88,7 @@ public class DashboardAdminController {
 	}
 
 	@RequestMapping(value = "/dashboardAdmin/mailForm/{id}", method = RequestMethod.POST)
-	public ModelAndView mailsend(HttpServletRequest request, @PathVariable int id) {
+	public ModelAndView mailsend(HttpServletRequest request, @PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/home");
 		User user = userService.getUserById(id);
 		String userMail = user.getEmail();
@@ -132,7 +132,7 @@ public class DashboardAdminController {
 }
     
     @RequestMapping(value = "/dashboardAdmin/checkDonation/{id}", method = RequestMethod.GET)
-    public ModelAndView checkDonation(@PathVariable int id) {
+    public ModelAndView checkDonation(@PathVariable Long id) {
 	ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
 
    donationService.checkDonation(id);
@@ -142,7 +142,7 @@ public class DashboardAdminController {
 }
 
     @RequestMapping(value = "/dashboardAdmin/cancelDonation/{id}", method = RequestMethod.GET)
-    public ModelAndView cancelDonation(@PathVariable int id) {
+    public ModelAndView cancelDonation(@PathVariable Long id) {
 	ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/allDonations");
 
    donationService.cancelDonation(id);

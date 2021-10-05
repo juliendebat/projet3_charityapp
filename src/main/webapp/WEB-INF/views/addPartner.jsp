@@ -128,11 +128,11 @@
 			<br />
 			</spring:bind>
 			
-			<spring:bind path="partner.password">
+		<%--	<spring:bind path="partner.password">
 		 <label for="password">Mot de passe :</label>
 			<input id="password" type="password" name="${status.expression}"
 				value="${status.value}">
-			<br />
+			<br />--%>
 		</spring:bind>
 		<p>Détail de l' entreprise ou de l'association représentée :</p>	
 		<spring:bind path="partnerEntity.entityName">

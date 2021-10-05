@@ -11,8 +11,6 @@ public interface PromoterService {
 	public Promoter getPromoterById(Long id);
 	public boolean savePromoter(Promoter promoter);
 	public boolean deletePromoterById(Long id);
-<<<<<<< HEAD
-=======
-	Promoter getPromotertByUser(User user);
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
+	public Promoter getPromotertByUser(User user);
+
 }

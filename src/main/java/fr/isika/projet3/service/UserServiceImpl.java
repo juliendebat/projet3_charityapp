@@ -3,22 +3,21 @@ package fr.isika.projet3.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
-import fr.isika.projet3.entities.Event;
+
 import fr.isika.projet3.entities.Partner;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
-<<<<<<< HEAD
+
 import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.repository.EventRepository;
-=======
-import fr.isika.projet3.repository.AssociationRepository;
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
+
+
+
 import fr.isika.projet3.repository.PartnerRepository;
 import fr.isika.projet3.repository.PromoterRepository;
 import fr.isika.projet3.repository.UserRepository;
@@ -35,23 +34,19 @@ public class UserServiceImpl implements UserService {
 	         
 	         @Autowired
 			private PartnerRepository partnerrepository;
-<<<<<<< HEAD
 	         @Autowired
 			private VolonteerRepository volonteerRepository;
 	         @Autowired
 	        private PromoterRepository promoterRepository;
 	         @Autowired
 	        private EventRepository eventRepository;
-	        
-=======
-	         
 	         @Autowired
 			private PromoterRepository promoterrepository;
 	     
 	         @Autowired
 	         private AssociationService associationService;
 			
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
+
 			public UserServiceImpl() {
 				
 			}

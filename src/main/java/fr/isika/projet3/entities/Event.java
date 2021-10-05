@@ -24,7 +24,7 @@ public class Event {
 //    @ManyToOne(cascade = CascadeType.ALL)
 //    private Association association;
     
-<<<<<<< HEAD
+
     public Volonteer getVolonteer() {
 		return volonteer;
 	}
@@ -33,10 +33,9 @@ public class Event {
 		this.volonteer = volonteer;
 	}
 
-	@ManyToOne(fetch=FetchType.EAGER)
-=======
+
+
     @ManyToOne(fetch=FetchType.EAGER)
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
     private Promoter promoter;
 
     @ManyToOne(cascade = CascadeType.ALL)

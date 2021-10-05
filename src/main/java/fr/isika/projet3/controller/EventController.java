@@ -80,42 +80,7 @@ public class EventController {
 				return mv;
 			}
 
-<<<<<<< HEAD
-			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView displayEditEventForm(@PathVariable int id) {
-				ModelAndView mv = new ModelAndView("/editEvent");
-				Event event = eventService.getEventById(id);
-				mv.addObject("headerMessage", "Edit Event Details");
-				mv.addObject("event", event);
-				return mv;
-			}
 
-			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.POST)
-			public ModelAndView saveEditedEvent(@ModelAttribute Event event, BindingResult result) {
-				ModelAndView mv = new ModelAndView("redirect:/home_event");
-
-				if (result.hasErrors()) {
-					System.out.println(result.toString());
-					return new ModelAndView("error");
-				}
-				boolean isSaved = eventService.saveEvent(event);
-				if (!isSaved) {
-
-					return new ModelAndView("error");
-				}
-
-				return mv;
-			}
-
-			@RequestMapping(value = "/deleteEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView deleteEventById(@PathVariable int id) {
-				boolean isDeleted = eventService.deleteEventById(id);
-				System.out.println("Event deletion response: " + isDeleted);
-				ModelAndView mv = new ModelAndView("redirect:/home_event");
-				return mv;
-
-			}
-=======
 //			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
 //			public ModelAndView displayEditEventForm(@PathVariable Long id) {
 //				ModelAndView mv = new ModelAndView("/editEvent");
@@ -150,6 +115,6 @@ public class EventController {
 //				return mv;
 //
 //			}
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
+
 
 }

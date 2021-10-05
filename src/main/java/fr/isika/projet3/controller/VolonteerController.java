@@ -83,7 +83,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.POST)
-	public ModelAndView saveNewVolonteer(@PathVariable int id, @ModelAttribute User user, @ModelAttribute Event event,
+	public ModelAndView saveNewVolonteer(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Event event,
 			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
 
@@ -109,7 +109,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/editVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditVolonteerForm(@PathVariable int id) {
+	public ModelAndView displayEditVolonteerForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editVolonteer");
 		Volonteer volonteer = volonteerService.getVolonteerById(id);
 		mv.addObject("headerMessage", "Edit volonteer Details");
@@ -136,7 +136,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/deleteVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteVolonteerById(@PathVariable int id) {
+	public ModelAndView deleteVolonteerById(@PathVariable Long id) {
 		boolean isDeleted = volonteerService.deleteVolonteerById(id);
 		System.out.println("Deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");

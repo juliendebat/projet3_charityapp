@@ -70,7 +70,7 @@ public class PartnerController {
 	}
 
 		@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@PathVariable int id,@ModelAttribute("User") User user,
+		public ModelAndView saveNewUser(@PathVariable Long id,@ModelAttribute("User") User user,
 				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home");

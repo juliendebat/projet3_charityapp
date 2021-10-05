@@ -12,14 +12,11 @@ import fr.isika.projet3.entities.Volonteer;
 public interface UserService  {
 
 	public List<User> getAllUsers();
-<<<<<<< HEAD
-	public User getUserById(Long id2);
-	
 
-=======
+
 	public User getUserById(Long id);
 	
->>>>>>> b8022a3fc02ca38cede83f6397d9a9340023080b
+
 	public boolean saveUser(User user);
 	public boolean deleteUserById(Long id);
 	
