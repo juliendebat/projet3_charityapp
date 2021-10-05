@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 
-@Table(name = "event")
+@Table(name = "events")
 
 public class Event {
 
@@ -21,10 +21,10 @@ public class Event {
     private String eventDateEnd;
     private String eventThumbnailLink;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Association association;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Association association;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch=FetchType.EAGER)
     private Promoter promoter;
 
     public Long getId() {
@@ -99,13 +99,13 @@ public class Event {
         this.eventThumbnailLink = eventThumbnailLink;
     }
 
-    public Association getAssociation() {
-        return association;
-    }
-
-    public void setAssociation(Association association) {
-        this.association = association;
-    }
+//    public Association getAssociation() {
+//        return association;
+//    }
+//
+//    public void setAssociation(Association association) {
+//        this.association = association;
+//    }
 
     public Promoter getPromoter() {
 		return promoter;

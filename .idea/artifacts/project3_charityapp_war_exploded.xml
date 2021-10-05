@@ -41,7 +41,11 @@
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.17" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
+<<<<<<< HEAD
+          <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1" />
+=======
           <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+>>>>>>> ee197663900a69ecf0588cfa8478b88ba5de9216
           <element id="library" level="project" name="Maven: org.apache.taglibs:taglibs-standard-impl:1.2.3" />
           <element id="library" level="project" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.4-1" />
           <element id="library" level="project" name="Maven: javax.mail:javax.mail-api:1.5.5" />

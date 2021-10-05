@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Promoter;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.PromoterRepository;
 
 
@@ -39,7 +40,7 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public Promoter getPromoterById(int id) {
+	public Promoter getPromoterById(Long id) {
 		Promoter promoter = repository.findById(id).get();
 		return promoter;
 	}
@@ -56,13 +57,18 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public boolean deletePromoterById(int id) {
+	public boolean deletePromoterById(Long id) {
 		try {
 			repository.deleteById(id);
 			return true;
 		}catch(Exception ex) {
 			return false;
 		}
+	}
+	@Override
+	public Promoter getPromotertByUser(User user) {
+		Promoter promoter = repository.findByUser(user);
+		return promoter;
 	}
 
 }

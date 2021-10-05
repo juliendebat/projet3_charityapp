@@ -150,6 +150,7 @@ public class Association {
 		this.lUser = lUser;
 	}
 
+
 }
 
 

@@ -32,6 +32,10 @@ public interface UserService  {
 		
 	public User getUserByEmailAndAssociation(String email, Association association);
 	
+	//julien check Promoter Login
+	public boolean isPromoterConnected(String email, String pasword, Long id);
+	public User getUserByEmail(String email);
+	
 	
 	
 }

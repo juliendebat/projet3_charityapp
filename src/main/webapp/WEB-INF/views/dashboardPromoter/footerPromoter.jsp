@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:choose>
-    <c:when test="${!empty sessionScope.assos}">
+    <c:when test="${!empty sessionScope.promotersession}">
 
                     <!-- Begin Page Content -->
                     <!-- /.container-fluid -->
@@ -55,7 +55,7 @@
     
 	</c:when>
 	<c:otherwise>
-       <c:redirect url="/loginAssociation"/>
+       <c:redirect url="/loginPromoter2"/>
 	</c:otherwise>
 
 

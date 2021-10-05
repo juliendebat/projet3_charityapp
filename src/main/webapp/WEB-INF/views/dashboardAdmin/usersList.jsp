@@ -1,7 +1,7 @@
 
 <%@include file="headerAdmin.jsp"%>
 <c:choose>
-    <c:when test="${!empty sessionScope.assos}"> 
+    <c:when test="${!empty sessionScope.assos}">
 <div class="container">
 
     <table class="table table-striped table-bordered" id="usersList" style="width:100%" >
@@ -16,7 +16,7 @@
             <th>Complement d'adresse</th>
             <th>Code postal</th>
             <th>Ville</th>
-            <th>NÂ° TÃ©lephone</th>
+            <th>N° Télephone</th>
         </tr>
         </thead>
 
@@ -27,20 +27,14 @@
                 <td>${users.id}</td>
                 <td>${users.firstName}</td>
                 <td>${users.lastName}</td>
-                <td>${users.email}</td>
+                <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}">${users.email}</a></td>
                 <td>${users.age}</td>
                 <td>${users.address}</td>
                 <td>${users.complementaryAddress}</td>
                 <td>${users.zipCode}</td>
                 <td>${users.town}</td>
                 <td>${users.mobilePhone}</td>
-
-                    <%-- 					<td>${user.userName}</td> --%>
-                <td><a
-                        href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
-                <td><a
-                        href="${pageContext.request.contextPath}/deleteUser/${user.id}">Delete</a></td>
-            </tr>
+             </tr>
         </c:forEach>
         </tbody>
     </table>
@@ -51,5 +45,5 @@
 <c:otherwise>
     <c:redirect url="/loginAssociation"/>
 </c:otherwise>
-</c:choose>--%>
+</c:choose>
 <%@include file="footerAdmin.jsp"%>

@@ -5,7 +5,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-		
+		<meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -23,20 +23,47 @@
         <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
 </head>
 <body>
-<h2>DasboardAdmin</h2>
+	<h1>${headerMessage}</h1>
+	
+        <form:form method="POST" action="" modelAttribute="event">
+             <table>
+               <tr>
+				<td><form:label path="eventName">Nom de l'évènement</form:label></td>
+				<td><form:input path="eventName" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDescription">Description de l'évènement</form:label></td>
+				<td><form:input path="eventDescription" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCategory">Catégorie de l'évènement</form:label></td>
+				<td><form:input path="eventCategory" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCity">Ville de l'évènement</form:label></td>
+				<td><form:input path="eventCity" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventCountry">Pays</form:label></td>
+				<td><form:input path="eventCountry" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDateStart">Date de début</form:label></td>
+				<td><form:input path="eventDateStart" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventDateEnd">Date de fin</form:label></td>
+				<td><form:input path="eventDateEnd" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="eventThumbnailLink">Lien photo</form:label></td>
+				<td><form:input path="eventThumbnailLink" /></td>
+			</tr>
+                <tr>
+                    <td><input type="submit" value="Submit"/></td>
+                </tr>
+            </table>
+        </form:form>
 
-
-	<p>
-		<c:if
-			test="${!empty sessionScope.assos}">
-			<p>Vous êtes ${ sessionScope.assos.associationName } !</p>
-			<p>Association Id : ${ sessionScope.assos.id } !</p>
-		</c:if>
-	</p>
 </body>
 </html>
-
-
-
-
-

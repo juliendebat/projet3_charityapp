@@ -160,7 +160,7 @@
 											if(result=="success"){
 												console.log("fonction success");
 												console.log(result);
-												var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/index"; // might be a good idea to return this URL in the successful AJAX call
+												var successUrl ="${pageContext.request.contextPath}/dashboardAdmin/home"; // might be a good idea to return this URL in the successful AJAX call
 												window.location.href = successUrl;
 											}
 											else {console.log("fonction error");

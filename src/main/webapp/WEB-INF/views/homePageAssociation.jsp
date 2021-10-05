@@ -33,6 +33,7 @@
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/addPromoter/${association.id}">Devenir Promoteur</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/addPartner/${association.id}">Devenir Partenaire</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/donation/add_donation/${association.id}">Faire un don</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/loginPromoter/${association.id}">Promoter Connexion</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Blog</a></li>
                     </ul>

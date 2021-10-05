@@ -3,6 +3,7 @@ package fr.isika.projet3.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.isika.projet3.entities.Association;
@@ -46,9 +47,10 @@ public class PromoterController {
 		}
 		
 		@RequestMapping(value = {"/home_promoter" }, method = RequestMethod.GET)
-		public ModelAndView hello(HttpServletResponse response) throws IOException {
+		public ModelAndView hello(HttpServletResponse response, HttpServletRequest request) throws IOException {
 			ModelAndView mv = new ModelAndView();
 			mv.setViewName("home_promoter");
+
 			return mv;
 		}
 		
@@ -57,6 +59,7 @@ public class PromoterController {
 		public ModelAndView showAllPromoters() {
 			System.out.println("Promotor Page Requested : All Promotors");
 			ModelAndView mv = new ModelAndView();
+
 			List<Promoter> promoterList = promoterService.getAllPromoters();
 			mv.addObject("promoterList", promoterList);
 			mv.setViewName("allPromoters");
@@ -69,14 +72,14 @@ public class PromoterController {
 			mv.addObject("headerMessage", "Add promoter Details");
 			mv.addObject("user", new User());
 			mv.addObject("promoter", new Promoter());
-			mv.addObject("event", new Event());
+//			mv.addObject("event", new Event());
 			mv.addObject("association", new Association());
 			return mv;
 		}
 
 		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.POST)
 		public ModelAndView saveNewUser(@PathVariable Long id, @ModelAttribute User user,@ModelAttribute Association association,
-				@ModelAttribute Promoter promoter, @ModelAttribute Event event, BindingResult result) {
+				@ModelAttribute Promoter promoter, BindingResult result) {
 			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
 			
 			if (result.hasErrors()) {
@@ -85,58 +88,53 @@ public class PromoterController {
 				association = associationService.getAssociationById(id);
 				user.setAssociation(association);
 				promoter.setUser(user);
-				event.setPromoter(promoter);
+				//event.setPromoter(promoter);
 				//boolean isPromoterAdded = promoterService.savePromoter(promoter);
 				//boolean isUserAdded = userService.saveUser(user);
-				boolean isEventAdded = eventService.saveEvent(event);
-
+				boolean isEventAdded = promoterService.savePromoter(promoter);
 
 			if ( isEventAdded ) {
-
-
-
 				mv.addObject("message", "New promotor successfully added");
 			} else {
 				return new ModelAndView("error");
 			}
-
 			return mv;
 		}
 		
-		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.GET)
-		public ModelAndView displayEditPromoterForm(@PathVariable int id) {
-			ModelAndView mv = new ModelAndView("/editPromoter");
-			Promoter promoter = promoterService.getPromoterById(id);
-			mv.addObject("headerMessage", "Edit promoter Details");
-			mv.addObject("promoter", promoter);
-			return mv;
-		}
-
-		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.POST)
-		public ModelAndView saveEditedPromoter(@ModelAttribute Promoter promoter, BindingResult result) {
-			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
-		
-
-			if (result.hasErrors()) {
-				System.out.println(result.toString());
-				return new ModelAndView("error");
-			}
-			boolean isSaved = promoterService.savePromoter(promoter);
-			if (!isSaved) {
-
-				return new ModelAndView("error");
-			}
-
-			return mv;
-		}
-
-		@RequestMapping(value = "/deletePromoter/{id}", method = RequestMethod.GET)
-		public ModelAndView deletePromoterById(@PathVariable int id) {
-			boolean isDeleted = promoterService.deletePromoterById(id);
-			System.out.println("promoter deletion response: " + isDeleted);
-			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
-			return mv;
-
-		}
+//		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.GET)
+//		public ModelAndView displayEditPromoterForm(@PathVariable Long id) {
+//			ModelAndView mv = new ModelAndView("/editPromoter");
+//			Promoter promoter = promoterService.getPromoterById(id);
+//			mv.addObject("headerMessage", "Edit promoter Details");
+//			mv.addObject("promoter", promoter);
+//			return mv;
+//		}
+//
+//		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.POST)
+//		public ModelAndView saveEditedPromoter(@ModelAttribute Promoter promoter, BindingResult result) {
+//			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
+//		
+//
+//			if (result.hasErrors()) {
+//				System.out.println(result.toString());
+//				return new ModelAndView("error");
+//			}
+//			boolean isSaved = promoterService.savePromoter(promoter);
+//			if (!isSaved) {
+//
+//				return new ModelAndView("error");
+//			}
+//
+//			return mv;
+//		}
+//
+//		@RequestMapping(value = "/deletePromoter/{id}", method = RequestMethod.GET)
+//		public ModelAndView deletePromoterById(@PathVariable Long id) {
+//			boolean isDeleted = promoterService.deletePromoterById(id);
+//			System.out.println("promoter deletion response: " + isDeleted);
+//			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
+//			return mv;
+//
+//		}
 
 }

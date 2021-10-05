@@ -11,5 +11,7 @@ public interface EventService {
 	public Event getEventById(Long id);
 	public boolean saveEvent(Event event);
 	public boolean deleteEventById(Long id);
+	public List<Event> getEventsByPromoter(Promoter promoterinProgress);
+	
 
 }

@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Partner;
+import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.repository.AssociationRepository;
 import fr.isika.projet3.repository.PartnerRepository;
+import fr.isika.projet3.repository.PromoterRepository;
 import fr.isika.projet3.repository.UserRepository;
 
 
@@ -22,8 +25,15 @@ public class UserServiceImpl implements UserService {
 	// Implementing Constructor based DI
 	         @Autowired
 			private UserRepository repository;
+	         
 	         @Autowired
 			private PartnerRepository partnerrepository;
+	         
+	         @Autowired
+			private PromoterRepository promoterrepository;
+	     
+	         @Autowired
+	         private AssociationService associationService;
 			
 			public UserServiceImpl() {
 				
@@ -118,6 +128,31 @@ public class UserServiceImpl implements UserService {
 		public User getUserByEmailAndAssociation(String email, Association association) {		
 			User user=repository.findByEmailAndAssociation(email, association);
 			return user;			
+		}
+
+		@Override
+		public boolean isPromoterConnected(String email, String password, Long id) {
+			 Association association=associationService.getAssociationById(id);
+			 
+			 User user = repository.findByEmailAndAssociation(email, association);
+			 if(user!=null) {
+				 
+			Promoter promoter = promoterrepository.findByUser(user);
+	
+			if(promoter.getPassword().equals(password)) return true;
+			
+			else return false;
+			 }
+			 else return false;
+			
+	
+			
+		}
+
+		@Override
+		public User getUserByEmail(String email) {
+			User user = repository.findByEmail(email);
+			return user;
 		}
 
 		

@@ -2,7 +2,7 @@
 
 <%@page contentType="text/html" pageEncoding="utf-8" %>
 <c:choose>
-    <c:when test="${!empty sessionScope.assos}">
+    <c:when test="${!empty sessionScope.promotersession}">
         <!DOCTYPE html>
         <html lang="fr">
         <head>
@@ -111,7 +111,7 @@
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
-                    <div class="sidebar-brand-text mx-3">${assos.associationName} <sup>R</sup></div>
+                    <div class="sidebar-brand-text mx-3">${promotersession.lastName} <sup>R</sup></div>
                 </a>
 
                 <!-- Divider -->
@@ -119,7 +119,7 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/dashboardAdmin/home">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/dashboardPromoter/home">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
@@ -164,11 +164,9 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Lstes</h6>
-                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/usersList">Utilisateurs</a>
-                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPromoters">Organisateurs</a>
-                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPartnersAss">Partenaire</a>
-                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allDonations">Partenaire</a>
+                        <h6 class="collapse-header">Listes</h6>
+                        <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardPromoter/addEventToOnePromoter">Add Event</a>
+                  
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
@@ -188,7 +186,7 @@
             
               <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/killSession/">
+                <a class="nav-link" href="${pageContext.request.contextPath}/killPromoterSession/">
                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     <span>Deconnexion</span></a>
             </li>
@@ -414,6 +412,6 @@
                     
 	</c:when>
 	<c:otherwise>
-    <c:redirect url="/loginAssociation"/>
+    <c:redirect url="/loginPromoter"/>
 	</c:otherwise>
 </c:choose>
