@@ -118,7 +118,7 @@
  
     </c:when>
 <c:otherwise>
-    <c:redirect url="/loginAssociation"/>
+    <c:redirect url="/loginPromoter"/>
 </c:otherwise>
 </c:choose>
 <%@include file="footerPromoter.jsp"%>
