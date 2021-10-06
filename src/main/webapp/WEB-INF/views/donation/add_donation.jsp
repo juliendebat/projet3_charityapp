@@ -65,7 +65,7 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+					<li class="nav-item"><a href="${pageContext.request.contextPath}/template/homePageAssociation/${id}" class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 					<li class="nav-item"><a href="causes.html" class="nav-link">Causes</a></li>
 					<li class="nav-item active"><a href="donate.html"
@@ -81,7 +81,7 @@
 	<!-- END nav -->
 
 	<section class="ftco-section-3 img"
-		style="background-image: url(resources/template_HomePageAssoc/images/bg_3.jpg);">
+		style="background-image: url(${pageContext.request.contextPath}/resources/template_HomePageAssoc/images/bg_3.jpg);">
 		<div class="overlay"></div>
 
 
@@ -89,7 +89,7 @@
 			<div class="row d-md-flex">
 				<div class="col-md-6 d-flex ftco-animate">
 					<div class="img img-2 align-self-stretch"
-						style="background-image: url(resources/template_HomePageAssoc/images/bg_4.jpg);"></div>
+						style="background-image: url(${pageContext.request.contextPath}/resources/template_HomePageAssoc/images/bg_4.jpg);"></div>
 				</div>
 				<div class="col-md-6 volunteer pl-md-5 ftco-animate">
 					<h3 class="mb-3">Faites un Don</h3>

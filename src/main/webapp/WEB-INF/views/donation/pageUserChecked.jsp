@@ -66,6 +66,7 @@ Vous êtes ${user.firstName} ${user.lastName }
 			
 
 			cb : <form:radiobutton path="donation.state" value="done"/>  
+			
 			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 
 			
 			 <input type="Submit" value="Faire un don"/>
