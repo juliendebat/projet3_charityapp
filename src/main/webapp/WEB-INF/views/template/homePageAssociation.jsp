@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css"/>">
     <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css"/>">
     <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css"/>">
-    <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/styles.css"/>">
+    <link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css"/>">
   </head>
   <body id="page-top">
     
@@ -76,7 +76,7 @@
             <div class="block-18 color-1 align-items-stretch">
               <div class="text">
               	<span>Déjà récolté plus de </span>
-                <strong class="number" data-number="15456" style="font-size: 35px">0</strong>
+                <strong class="number" data-number="${sumDonations}" style="font-size: 35px">0</strong>
                 <span>€uros de Dons pour cette Association</span>
               </div>
             </div>
@@ -270,7 +270,7 @@
         	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
         			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(../../resources/images/emoji.png);"></div>
+        				<div class="img" style="background-image: url(${pageContext.request.contextPath}/template_HomePageAssociation/resources/images/emoji.png);"></div>
         				<div class="info ml-4">
         					<h3><a class="${user.firstName}" href="#">${user.firstName}</a></h3>
         					<h3><a class="${user.lastName}" href="#">${user.lastName}</a></h3>

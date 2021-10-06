@@ -3,6 +3,7 @@ package fr.isika.projet3.controller;
 import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.PromoterService;
@@ -67,7 +68,6 @@ public class PromoterController {
         mv.addObject("headerMessage", "Add promoter Details");
         mv.addObject("user", new User());
         mv.addObject("promoter", new Promoter());
-//			mv.addObject("event", new Event());
         mv.addObject("association", new Association());
         return mv;
     }

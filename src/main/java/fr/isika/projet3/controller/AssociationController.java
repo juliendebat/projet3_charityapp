@@ -191,9 +191,8 @@ public class AssociationController {
 		List<User> contributors = userService.getAllContributorsByAssociation(association);
 		Double sumDonations = donationService.getSumDonationsByAssociation(contributors);
 		 mv.addObject("association", association);
-	        mv.addObject("sumdonations",sumDonations);
-		    mv.addObject("headerAssociationName", association.getAssociationName());
-	        mv.addObject("description", association.getDescription());
+	        mv.addObject("sumDonations",sumDonations);
+
 
         
         return mv;

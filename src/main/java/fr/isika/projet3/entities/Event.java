@@ -19,9 +19,19 @@ public class Event {
     private String eventDateStart;
     private String eventDateEnd;
     private String eventThumbnailLink;
+    private String photo;
     
-    
-    //julien
+    public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+
+
+	//julien
     private int targetBudget;
     private int inprogressBudget;
     
