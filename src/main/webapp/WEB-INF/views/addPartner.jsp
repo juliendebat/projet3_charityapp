@@ -127,6 +127,7 @@
 				value="${status.value}">
 			<br />
 			</spring:bind>
+
 			
 		<%--	<spring:bind path="partner.password">
 		 <label for="password">Mot de passe :</label>
@@ -136,6 +137,7 @@
 			
 		</spring:bind>>--%>
 		
+
 		<p>Détail de l' entreprise ou de l'association représentée :</p>	
 		<spring:bind path="partnerEntity.entityName">
 		<p> <label for="entityName">Nom de l'entitée représentée :</label>
@@ -154,10 +156,5 @@
 		
 		<input type="submit" value="Create" />
 	</form>
-
-
-
-
-
 </body>
 </html>

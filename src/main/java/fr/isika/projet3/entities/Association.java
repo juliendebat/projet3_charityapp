@@ -1,7 +1,5 @@
 package fr.isika.projet3.entities;
 
-
-
 import java.util.ArrayList;
 
 import java.util.List;
@@ -28,8 +26,7 @@ public class Association {
 	private String theme;
 	private String photo;
 
-	
-    
+
     @OneToMany(mappedBy ="association")
     private List<User> lUser;
 	
@@ -149,7 +146,6 @@ public class Association {
 	public void setlUser(List<User> lUser) {
 		this.lUser = lUser;
 	}
-
 
 }
 

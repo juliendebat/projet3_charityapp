@@ -93,6 +93,20 @@ public class PromoterController {
     }
 
 
+//		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.POST)
+//		public ModelAndView saveNewUser(@PathVariable Long id, @ModelAttribute User user,@ModelAttribute Association association,
+//				@ModelAttribute Promoter promoter, BindingResult result) {
+//			ModelAndView mv = new ModelAndView("redirect:/home_promoter");
+//			
+//			if (result.hasErrors()) {
+//				return new ModelAndView("error");
+//			}
+//				association = associationService.getAssociationById(id);
+//				user.setAssociation(association);
+//				promoter.setUser(user);
+//				boolean isEventAdded = promoterService.savePromoter(promoter);
+
+
 //		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.GET)
 //		public ModelAndView displayEditPromoterForm(@PathVariable Long id) {
 //			ModelAndView mv = new ModelAndView("/editPromoter");
