@@ -28,10 +28,6 @@ public class Partner {
 	@OneToOne(mappedBy ="partner")
 	PartnerEntity partnerentity;
 
-	
-//	@OneToOne(cascade = CascadeType.ALL)
-//	private PartnerEntity partnerEntity;
-
 
 	public User getUser() {
 		return user;

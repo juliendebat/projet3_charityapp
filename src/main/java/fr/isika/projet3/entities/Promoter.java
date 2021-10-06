@@ -1,68 +1,58 @@
 package fr.isika.projet3.entities;
 
 
-
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
 @Entity
-@Table(name="promoters")
+@Table(name = "promoters")
 public class Promoter {
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private int mdp;
+	private Long id;
+	private String password;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Event> lEvent;
+	@OneToMany(mappedBy="promoter")
+	private List<Event> events;
 	
 	
 	public Promoter() {
-		super();
-		lEvent = new ArrayList<Event>();
+		events = new ArrayList<Event>();
 	}
-	public List<Event> getlEvent() {
-		return lEvent;
-	}
-	public void setlEvent(List<Event> lEvent) {
-		this.lEvent = lEvent;
-	}
+
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getMdp() {
-		return mdp;
-	}
-	public void setMdp(int mdp) {
-		this.mdp = mdp;
-	}
 	
+	public List<Event> getEvents() {
+		return events;
+	}
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
 	public void addEvent(Event event) {
-		lEvent.add(event);
+		events.add(event);
 	}
-	
-	
-	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }

@@ -12,10 +12,10 @@ import fr.isika.projet3.entities.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>{
-
+    
 	//julien
-		List<User> findByAssociation(Association association);
-		List<User> findByAssociationAndHasDonated(Association association, Boolean bool);
-
-	
+	List<User> findByAssociation(Association association);
+	List<User> findByAssociationAndHasDonated(Association association, Boolean bool);
+    User findByEmailAndAssociation(String email, Association association);    
+    User findByEmail(String email);
 }

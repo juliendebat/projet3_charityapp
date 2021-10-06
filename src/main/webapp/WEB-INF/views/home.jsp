@@ -178,8 +178,8 @@
 				<div class="col-lg-4 col-sm-6">
 					<a class="portfolio-box"
 						href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
-						title="Project Name"> <img class="img-fluid"
-						src="resources/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+						title="Project Name"> 
+						<img class="mx-auto" src="${association.photo}" height="350" alt="..." />
 						<div class="portfolio-box-caption">
 							<div class="project-category text-white-50">Evenement</div>
 							<div class="${association.associationName}">${association.associationName}</div>
@@ -307,6 +307,16 @@
                         <div class="invalid-feedback"
                              data-sb-feedback="email:email">l'email n'est
                             pas valide.</div>
+                    </div>
+                     <!-- Logo Association input-->
+                    <div class="form-floating mb-3">
+                        <form:input class="form-control" id="photo" type="text"
+                               placeholder="Entrez l'url de votre logo"
+                               data-sb-validations="required" path="photo"/>
+                               <form:label for="photo" path="photo">Logo*</form:label>
+                        <div class="invalid-feedback"
+                             data-sb-feedback="photo:required">Un logo est
+                            requis.</div>
                     </div>
                      <!-- Password Association input-->
                     <div class="form-floating mb-3">

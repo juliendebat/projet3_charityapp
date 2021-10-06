@@ -20,6 +20,7 @@ public class Event {
     private String eventDateStart;
     private String eventDateEnd;
     private String eventThumbnailLink;
+    private String photo;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Association association;
@@ -124,6 +125,14 @@ public class Event {
 
 	public void setVolonteer(Volonteer volonteer) {
 		this.volonteer = volonteer;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 

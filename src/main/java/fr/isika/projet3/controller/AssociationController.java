@@ -5,8 +5,13 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Event;
+import fr.isika.projet3.entities.Promoter;
+import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.MailService;
+import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +28,9 @@ import javax.servlet.http.HttpSession;
 public class AssociationController {
 
     private AssociationService associationService;
-
+    private EventService eventService;
+    private UserService userService;
+    private PromoterService promoterService;
     private MailService mailService;
     private String mailReceiver;
     private String subject = "FELICITATION";
@@ -31,7 +38,7 @@ public class AssociationController {
     private String message = "Bonjour" +
             "Ce mail vous confirme votre inscription !!!!";
 
-    private UserService userService;
+    
 
 
     public AssociationController() {
@@ -39,9 +46,12 @@ public class AssociationController {
     }
 
     @Autowired
-    public AssociationController(AssociationService associationService, MailService mailService) {
+    public AssociationController(AssociationService associationService, MailService mailService, EventService eventService,UserService userService,PromoterService promoterService) {
         this.associationService = associationService;
         this.mailService = mailService;
+        this.eventService = eventService;
+        this.userService = userService;
+        this.promoterService = promoterService;
 
 
     }
@@ -164,8 +174,14 @@ public class AssociationController {
     public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("/homePageAssociation");
         Association association = associationService.getAssociationById(id);
+        List<User> userList = userService.getAllUserByAssociation(association);
+        List<User> userHasDonatedList = userService.getAllContributorsByAssociation(association);
+        List<Promoter> promoterList = promoterService.getAllPromotersByUsers(userList);
+        List<Event> eventList = eventService.getAllEventsByPromoters(promoterList);
         mv.addObject("headerMessage", "Edit home Page Association Details");
         mv.addObject("association", association);
+        mv.addObject("eventList", eventList);
+        mv.addObject("userHasDonatedList", userHasDonatedList);
         return mv;
     }
 }

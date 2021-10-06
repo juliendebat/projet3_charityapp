@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,26 +23,25 @@ import fr.isika.projet3.service.UserService;
 @Controller
 public class PartnerController {
 	// Constructor based Dependency Injection
-
-	 
-	    @Autowired
 		private UserService userService;	    
-        @Autowired
 	    private PartnerService partnerService ;       
-        @Autowired
 	    private PartnerEntityService partnerEntityService ;
-        @Autowired
 	    private AssociationService associationService ;
 	    
 
 		public PartnerController() {
 		}
 
+	@Autowired	
+	public PartnerController(UserService userService, PartnerService partnerService,
+				PartnerEntityService partnerEntityService, AssociationService associationService) {
+			super();
+			this.userService = userService;
+			this.partnerService = partnerService;
+			this.partnerEntityService = partnerEntityService;
+			this.associationService = associationService;
+		}
 
-	public PartnerController(PartnerService partnerService) {
-		super();
-		this.partnerService = partnerService;
-	}
 
 
 	// Get All Users
@@ -55,56 +55,42 @@ public class PartnerController {
 		return mv;
 	}
 
-	@RequestMapping(value = "/addPartner", method = RequestMethod.GET)
-	public ModelAndView displayNewUserForm() {
+	@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.GET)
+	public ModelAndView displayNewUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addPartner");
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("partner", new Partner());
 		mv.addObject("partnerEntity", new PartnerEntity());
+		mv.addObject("association", new Association());
 		return mv;
 	}
 
-
-		@RequestMapping(value = "/addPartner", method = RequestMethod.POST)
-		public ModelAndView saveNewUser(@ModelAttribute("User") User user,
+		@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.POST)
+		public ModelAndView saveNewUser(@PathVariable Long id,@ModelAttribute("User") User user,
 				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
-			ModelAndView mv = new ModelAndView("redirect:/home");
+			ModelAndView mv = new ModelAndView("redirect:/loginPartner");
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
-			//a supprimer (test):
-			Long id=1l;
-			
-			//julien user-asso
+
 			Association association=associationService.getAssociationById(id);
 			user.setAssociation(association);
 			
-			
-			boolean isPartnerEntityAdded = true;
-	
+			boolean isPartnerEntityAdded = true;	
 			boolean isPartnerAdded = true;
 			
 			if (partnerentity.getEntityName() == "") {				
 				isPartnerAdded=false;
-			    //isUserAdded = userService.saveUser(user);
 				partner.setUser(user);
-				isPartnerAdded = partnerService.savePartner(partner);
-				
-			}
-			
+				isPartnerAdded = partnerService.savePartner(partner);				
+			}			
 			else {
-			
-			
-				isPartnerEntityAdded=false;
-				
-				partnerentity.setPartner(partner);
-				//partner.setPartnerentity(partnerentity);
-				
-	            //isUserAdded = userService.saveUser(user);	
-				partner.setUser(user);				
-				//isPartnerAdded = partnerService.savePartner(partner);		
+
+				isPartnerEntityAdded=false;				
+				partnerentity.setPartner(partner);				
+				partner.setUser(user);					
 				isPartnerEntityAdded = partnerEntityService.savePartnerEntity(partnerentity);
 			}
 
@@ -115,6 +101,7 @@ public class PartnerController {
 			}
 			return mv;
 
+	
 	}
 
 }
