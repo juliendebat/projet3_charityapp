@@ -1,11 +1,8 @@
 package fr.isika.projet3.service;
 
 import java.util.List;
-
 import fr.isika.projet3.entities.Donation;
 import fr.isika.projet3.entities.User;
-
-
 public interface DonationService {
 
 
@@ -20,6 +17,7 @@ public interface DonationService {
 	public void cancelDonation(Long iddonation);
 	
 	public List<Donation> getDonationsByUser(User user);
+	public List<Donation> getAllNotPaidDonationsByAssociation(List<Donation> donations);
 
 	
 }

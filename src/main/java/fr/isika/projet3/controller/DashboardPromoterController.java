@@ -20,8 +20,12 @@ import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.PartnerService;
 import fr.isika.projet3.service.PromoterService;
+import fr.isika.projet3.service.UserService;
+import fr.isika.projet3.service.VolonteerService;
 
 @Controller
 public class DashboardPromoterController {
@@ -30,14 +34,20 @@ public class DashboardPromoterController {
 	private HttpSession promoterSession;
 	
     private PromoterService promoterService ;
+    private UserService userService ;
+    private VolonteerService volonteerService ;
  
     private EventService eventService ;
+    private PartnerService partnerService;
     
 	@Autowired
-	public DashboardPromoterController(PromoterService promoterService,EventService eventService) {
+	public DashboardPromoterController(PartnerService partnerService, PromoterService promoterService,EventService eventService, UserService userService,VolonteerService volonteerService) {
 		super();
 		this.promoterService = promoterService;
 		this.eventService=eventService;
+		this.userService=userService;
+		this.volonteerService= volonteerService;
+		this.partnerService= partnerService;
 	}
 
 	@RequestMapping(value = { "/dashboardPromoter/home" }, method = RequestMethod.GET)
@@ -47,13 +57,24 @@ public class DashboardPromoterController {
 		promoterSession = request.getSession();
 		promoterInProgress = (User) promoterSession.getAttribute("promotersession");
 		
+		
+		
 		Promoter promoterinProgress=promoterService.getPromotertByUser(promoterInProgress);
 		List<Event> levent = eventService.getEventsByPromoter(promoterinProgress);
 		
-				// recupérer session de LoginControler
+		List<Volonteer> volunters = volonteerService.getAllVoluntersByAssociation(promoterInProgress.getAssociation());
+		
+        mv.addObject("volunters",volunters);
+		
+		
+		
+		int sumFunding=partnerService.countFundingByByAssociation(promoterInProgress.getAssociation());
 		
 		mv.setViewName("dashboardPromoter/home");
 		mv.addObject("levent",levent);
+		mv.addObject("volunters",volunters);
+		mv.addObject("sumFunding", sumFunding);	
+		
 		return mv;
 	}
 	
@@ -87,30 +108,29 @@ public class DashboardPromoterController {
 	}
 	
 	
-	@RequestMapping(value = "/dashboardPromoter/editPromoter/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditPromoterForm(@PathVariable Long id) {
+	@RequestMapping(value = "/dashboardPromoter/editPromoter", method = RequestMethod.GET)
+	public ModelAndView displayEditPromoterForm() {
 		ModelAndView mv = new ModelAndView("dashboardPromoter/editPromoter");
-		Promoter promoter = promoterService.getPromoterById(id);
+		
 		mv.addObject("headerMessage", "Edit promoter Details");
-		mv.addObject("promoter", promoter);
+		Promoter promoterinProgress=promoterService.getPromotertByUser(promoterInProgress);
+		mv.addObject("promoter", promoterinProgress);
 		return mv;
 	}
 
-	@RequestMapping(value = "/dashboardPromoter/editPromoter/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/dashboardPromoter/editPromoter", method = RequestMethod.POST)
 	public ModelAndView saveEditedPromoter(@ModelAttribute Promoter promoter, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
-	
-
+		
 		if (result.hasErrors()) {
 			System.out.println(result.toString());
 			return new ModelAndView("error");
 		}
+
 		boolean isSaved = promoterService.savePromoter(promoter);
 		if (!isSaved) {
-
 			return new ModelAndView("error");
 		}
-
 		return mv;
 	}
 
@@ -120,35 +140,8 @@ public class DashboardPromoterController {
 		System.out.println("promoter deletion response: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
 		return mv;
-
 	}
 	
-	@RequestMapping(value = "/dashboardPromoter/editEvent/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditEventForm(@PathVariable Long id) {
-		ModelAndView mv = new ModelAndView("dashboardPromoter/editEvent");
-		Event event = eventService.getEventById(id);
-		mv.addObject("headerMessage", "Edit Event Details");
-		mv.addObject("event", event);
-		return mv;
-	}
-
-	@RequestMapping(value = "/dashboardPromoter/editEvent/{id}", method = RequestMethod.POST)
-	public ModelAndView saveEditedEvent(@ModelAttribute Event event, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
-		Promoter promoterinProgress=promoterService.getPromotertByUser(promoterInProgress);
-		if (result.hasErrors()) {
-			System.out.println(result.toString());
-			return new ModelAndView("error");
-		}
-		event.setPromoter(promoterinProgress);
-		boolean isSaved = eventService.saveEvent(event);
-		if (!isSaved) {
-
-			return new ModelAndView("error");
-		}
-
-		return mv;
-	}
 
 	@RequestMapping(value = "/dashboardPromoter/deleteEvent/{id}", method = RequestMethod.GET)
 	public ModelAndView deleteEventById(@PathVariable Long id) {
@@ -157,6 +150,31 @@ public class DashboardPromoterController {
 		ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
 		return mv;
 	}
+	
+	//julien 05/09
+	 @RequestMapping(value = {"/dashboardPromoter/manageEvent/{id}"}, method = RequestMethod.GET)
+	    public ModelAndView manageEvent(@PathVariable Long id) throws IOException {
+	        ModelAndView mv = new ModelAndView();
+	        mv.setViewName("dashboardPromoter/manageEvent");                 
+	        Event event= eventService.getEventById(id);	        
+	        mv.addObject("event",event);	        
+	        return mv;}
+	
+	 @RequestMapping(value = "/dashboardPromoter/manageEvent/{id}", method = RequestMethod.POST)
+		public ModelAndView saveEditedEvent(@ModelAttribute Event event, BindingResult result) {
+			ModelAndView mv = new ModelAndView("redirect:/dashboardPromoter/home");
+			Promoter promoterinProgress=promoterService.getPromotertByUser(promoterInProgress);
+			if (result.hasErrors()) {
+				System.out.println(result.toString());
+				return new ModelAndView("error");
+			}
+			event.setPromoter(promoterinProgress);
+			boolean isSaved = eventService.saveEvent(event);
+			if (!isSaved) {
+				return new ModelAndView("error");
+			}
+			return mv;
+		}
 
 	@RequestMapping(value = "/killPromoterSession")
 	public String logout(HttpServletRequest request) {

@@ -19,6 +19,7 @@ fr\isika\projet3\service\EventService.class
 fr\isika\projet3\service\UserServiceImpl.class
 fr\isika\projet3\controller\DashboardPromoterController.class
 fr\isika\projet3\service\PromoterServiceImpl.class
+fr\isika\projet3\service\PaymentServices.class
 fr\isika\projet3\repository\DonationRepository.class
 fr\isika\projet3\entities\Partner.class
 fr\isika\projet3\controller\PromoterController.class

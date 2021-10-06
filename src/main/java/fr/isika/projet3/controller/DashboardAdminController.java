@@ -6,10 +6,12 @@ import fr.isika.projet3.service.MailService;
 
 
 import fr.isika.projet3.service.DonationService;
+import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.PartnerEntityService;
 import fr.isika.projet3.service.PartnerService;
-
+import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
+import fr.isika.projet3.service.VolonteerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,7 +46,12 @@ public class DashboardAdminController {
     private PartnerEntityService partnerEntityService;
 	@Autowired
     private DonationService donationService;
-	
+	@Autowired
+    private PromoterService promoterService;
+	@Autowired
+    private VolonteerService volunterService;
+	@Autowired
+    private EventService eventService;
 
 
 	public DashboardAdminController(MailService mailService, UserService userService, PartnerService partnerService,
@@ -57,6 +64,7 @@ public class DashboardAdminController {
 		this.donationService = donationService;
 	}
 
+	@SuppressWarnings("null")
 	@RequestMapping(value = { "/dashboardAdmin/home" }, method = RequestMethod.GET)
 	public ModelAndView pageindex(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ModelAndView mv = new ModelAndView();
@@ -66,6 +74,45 @@ public class DashboardAdminController {
 		ass = (Association) associationSession.getAttribute("assos");
 		mv.setViewName("dashboardAdmin/home");
 
+		
+		//recuperer les compteurs dons + autres
+		//-1 liste user/asso
+		List<User> contributors = userService.getAllContributorsByAssociation(ass);
+		List<Donation> donations =donationService.getAllDonationByAssociation(contributors);
+		List<Donation> paidDonations=donationService.getAllPaidDonationsByAssociation(donations);
+		List<Donation> NotpaidDonations=donationService.getAllNotPaidDonationsByAssociation(donations);
+		
+		double sumNotpaidDonations=0;
+		double sumPaidDonation = 0;
+		double sumDonation = 0;
+		
+		
+		for (Donation donation : paidDonations) {
+			sumDonation+=donation.getAmount();
+		}
+		
+		for (Donation donation : NotpaidDonations) {
+			sumNotpaidDonations+=donation.getAmount();
+		}
+		
+		for (Donation donation : donations) {
+			sumNotpaidDonations+=donation.getAmount();
+		}
+		
+		int sumPromoter=promoterService.countPromoterByAssociation(ass);
+		int sumPartner=partnerService.countPartnerByAssociation(ass);
+		int sumVolunter=volunterService.countVoluntersByAssociation(ass);
+		int sumEvent=eventService.countEventsByAssociation(ass);
+		int sumFunding=partnerService.countFundingByByAssociation(ass);
+		
+		mv.addObject("sumDonation", sumNotpaidDonations);
+		mv.addObject("sumPaidDonation", sumPaidDonation);
+		mv.addObject("sumDonation", sumDonation);
+		mv.addObject("sumPromoter", sumPromoter);
+		mv.addObject("sumPartner", sumPartner);
+		mv.addObject("sumVolunter", sumVolunter);
+		mv.addObject("sumEvent", sumEvent);
+		mv.addObject("sumFunding", sumFunding);		
 		return mv;
 	}
 
@@ -160,6 +207,7 @@ public class DashboardAdminController {
        mv.addObject("ass",ass);
         return mv;}
     
+    
     @RequestMapping(value = {"/dashboardAdmin/allPromoters"}, method = RequestMethod.GET)
     public ModelAndView showAllPromoters(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
@@ -168,6 +216,7 @@ public class DashboardAdminController {
        mv.addObject("promoterlist", promoter );
        mv.addObject("ass",ass);
         return mv;}
+    
     
     @RequestMapping(value = {"/dashboardAdmin/allVolonteers"}, method = RequestMethod.GET)
     public ModelAndView showAllVolunteer(HttpServletResponse response) throws IOException {
@@ -178,15 +227,23 @@ public class DashboardAdminController {
        mv.addObject("ass",ass);
         return mv;}
     
-//    @RequestMapping(value = {"/dashboardAdmin/allEvents"}, method = RequestMethod.GET)
-//    public ModelAndView showAllEvents(HttpServletResponse response) throws IOException {
-//        ModelAndView mv = new ModelAndView();
-//        mv.setViewName("dashboardAdmin/allEvents");        
-//       List<Event> events = userService.getAllEventsByAssociation(ass);
-//       mv.addObject("volonteerslist", events );
-//       mv.addObject("ass",ass);
-//        return mv;}
+    
+    @RequestMapping(value = {"/dashboardAdmin/allEventsAss"}, method = RequestMethod.GET)
+    public ModelAndView showAllEvents(HttpServletResponse response) throws IOException {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("dashboardAdmin/allEventsAss");        
+       List<Event> events = eventService.getAllEventsByAssociation(ass);
+       mv.addObject("events", events );
+       mv.addObject("ass",ass);
+        return mv;}
+    
+    
+    
+   
 
+    
+
+    
 	// julien kill session
 	@RequestMapping(value = "/killSession")
 	public String logout(HttpServletRequest request) {

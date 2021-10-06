@@ -52,9 +52,9 @@ public class DonationController {
         return mv;
     }
 
-    @RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "donation/add_donationstdby/{id}", method = RequestMethod.GET)
     public ModelAndView displayNewDonationForm(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("donation/add_donation");
+        ModelAndView mv = new ModelAndView("donation/add_donationstdby");
         mv.addObject("headerMessage", "Add partner Details");
         mv.addObject("user", new User());
         mv.addObject("donation", new Donation());
@@ -62,15 +62,12 @@ public class DonationController {
         return mv;
     }
 
-
-    @RequestMapping(value = "donation/add_donation/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "donation/add_donationstdby/{id}", method = RequestMethod.POST)
     public ModelAndView saveNewDonationNewUser(@PathVariable Long id, @ModelAttribute("User") User user,
                                                @ModelAttribute("donation") Donation donation, BindingResult result) {
         ModelAndView mv = new ModelAndView("/donation/home_donation");
-
         Association association = associationService.getAssociationById(id);
         user.setAssociation(association);
-
         if (result.hasErrors()) {
             return new ModelAndView("error");
         }
@@ -101,7 +98,6 @@ public class DonationController {
 
     public String getUserInformation(String email, Association association) {
         return userService.getUserInformation(email, association);
-
     }
 
     //encours
