@@ -161,7 +161,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Lstes</h6>
+                        <h6 class="collapse-header">Listes</h6>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/usersList">Utilisateurs</a>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPromoters">Organisateurs</a>
                         <a class="collapse-item" href="${pageContext.request.contextPath}/dashboardAdmin/allPartnersAss">Partenaires</a>
@@ -249,7 +249,7 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/editAssociation/${sessionScope.assos.id}">
+                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/dashboardAdmin/editAssociation/${sessionScope.assos.id}">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>

@@ -56,9 +56,7 @@ public class DashboardPromoterController {
 		
 		promoterSession = request.getSession();
 		promoterInProgress = (User) promoterSession.getAttribute("promotersession");
-		
-		
-		
+
 		Promoter promoterinProgress=promoterService.getPromotertByUser(promoterInProgress);
 		List<Event> levent = eventService.getEventsByPromoter(promoterinProgress);
 		
@@ -73,7 +71,8 @@ public class DashboardPromoterController {
 		mv.setViewName("dashboardPromoter/home");
 		mv.addObject("levent",levent);
 		mv.addObject("volunters",volunters);
-		mv.addObject("sumFunding", sumFunding);	
+		mv.addObject("sumFunding", sumFunding);
+		mv.addObject("promoterInProgress",promoterInProgress);
 		
 		return mv;
 	}
@@ -177,12 +176,18 @@ public class DashboardPromoterController {
 		}
 
 	@RequestMapping(value = "/killPromoterSession")
-	public String logout(HttpServletRequest request) {
+	public ModelAndView saveEditedEvent(HttpServletRequest request) {
+	Long	id=promoterInProgress.getAssociation().getId();
+		ModelAndView mv = new ModelAndView("redirect:/loginPromoter/"+id);
+		
+	
 		HttpSession session = request.getSession(false);
+	
+		
 		if (session != null) {
 			session.invalidate();
 		}
-		return "redirect:/loginPromoter";
+		return mv;
 	}
 	
 	

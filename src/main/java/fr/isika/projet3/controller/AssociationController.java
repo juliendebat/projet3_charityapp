@@ -1,12 +1,7 @@
 package fr.isika.projet3.controller;
 
 
-import fr.isika.projet3.entities.Association;
-import fr.isika.projet3.entities.User;
-import fr.isika.projet3.service.AssociationService;
-import fr.isika.projet3.service.DonationService;
-import fr.isika.projet3.service.MailService;
-import fr.isika.projet3.service.UserService;
+
 import javassist.NotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.User;
+import fr.isika.projet3.service.AssociationService;
+import fr.isika.projet3.service.DonationService;
+import fr.isika.projet3.service.MailService;
+import fr.isika.projet3.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -60,10 +62,7 @@ public class AssociationController {
         this.mailService = mailService;
         this.donationService=donationService;
         this.userService=userService;
-
-
     }
-
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public ModelAndView hello(HttpServletResponse response) throws IOException {
@@ -139,36 +138,35 @@ public class AssociationController {
         } else {
             return new ModelAndView("error");
         }
-
         return mv;
     }
 
-    //edit one Association
-    @RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.GET)
-    public ModelAndView displayEditAssociationForm(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("/editAssociation");
-        Association association = associationService.getAssociationById(id);
-        mv.addObject("headerMessage", "Edit Association Details");
-        mv.addObject("association", association);
-        return mv;
-    }
-
-    @RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.POST)
-    public ModelAndView saveEditedAssociation(@ModelAttribute Association association, BindingResult result) {
-        ModelAndView mv = new ModelAndView("redirect:/home");
-
-        if (result.hasErrors()) {
-            System.out.println(result.toString());
-            return new ModelAndView("error");
-        }
-        boolean isSaved = associationService.saveAssociation(association);
-        if (!isSaved) {
-
-            return new ModelAndView("error");
-        }
-
-        return mv;
-    }
+//    //edit one Association
+//    @RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.GET)
+//    public ModelAndView displayEditAssociationForm(@PathVariable Long id) {
+//        ModelAndView mv = new ModelAndView("/editAssociation");
+//        Association association = associationService.getAssociationById(id);
+//        mv.addObject("headerMessage", "Edit Association Details");
+//        mv.addObject("association", association);
+//        return mv;
+//    }
+//
+//    @RequestMapping(value = "/editAssociation/{id}", method = RequestMethod.POST)
+//    public ModelAndView saveEditedAssociation(@ModelAttribute Association association, BindingResult result) {
+//        ModelAndView mv = new ModelAndView("redirect:/home");
+//
+//        if (result.hasErrors()) {
+//            System.out.println(result.toString());
+//            return new ModelAndView("error");
+//        }
+//        boolean isSaved = associationService.saveAssociation(association);
+//        if (!isSaved) {
+//
+//            return new ModelAndView("error");
+//        }
+//
+//        return mv;
+//    }
 
     //delete one association
     @RequestMapping(value = "/deleteAssociation/{id}", method = RequestMethod.GET)

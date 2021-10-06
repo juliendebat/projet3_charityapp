@@ -55,7 +55,7 @@
     
 	</c:when>
 	<c:otherwise>
-       <c:redirect url="/loginPromoter2"/>
+       <c:redirect url="/loginPromoter"/>
 	</c:otherwise>
 
 
