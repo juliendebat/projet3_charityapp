@@ -1,15 +1,14 @@
-<%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib  prefix="spring" uri="http://www.springframework.org/tags" %>
-
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
- <script language="javascript" type="text/javascript" src="resources/js/jquery-3.6.0.min.js"> 
-        </script>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Welfare - Free Bootstrap 4 Template by Colorlib</title>
+<meta charset="utf-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -81,64 +80,166 @@
 	</nav>
 	<!-- END nav -->
 
-	<section class="ftco-section-3 img">
+	<section class="ftco-section-3 img"
+		style="background-image: url(resources/template_HomePageAssoc/images/bg_3.jpg);">
+		<div class="overlay"></div>
 
-		Vous êtes ${user.firstName} ${user.lastName }
 
-		<p>Pour modifier les dons en cours, merci de contacter
-			l'administateur de l'association</p>
-		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%"
-				cellspacing="0">
-				<thead>
-					<tr>
-						<th>Montant :</th>
-						<th>Etat du don:</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="donation" items="${donations}">
+		<div class="container">
+			<div class="row d-md-flex">
+				<div class="col-md-6 d-flex ftco-animate">
+					<div class="img img-2 align-self-stretch"
+						style="background-image: url(resources/template_HomePageAssoc/images/bg_4.jpg);"></div>
+				</div>
+				<div class="col-md-6 volunteer pl-md-5 ftco-animate">
+					<h3 class="mb-3">Faites un Don</h3>
+					<button id="btn2">Je suis déjà inscrit ou j'ai déjà fait
+						un don</button>
+					<form id="form1" name="form" action="" class="volunter-form"
+						method="post">
 
-						<tr>
-							<td><c:out value="${ donation.amount }" /></td>
-							<td><c:out value="${ donation.state }" /></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+						<spring:bind path="user.lastName">
+							<label hidden id="1" for="lastname"></label>
+							<div class="form-group">
+								<input id="2" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Votre Nom">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.firstName">
+							<label hidden id="3" for="firstname"></label>
+							<div class="form-group">
+								<input id="firstname" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Votre Prénom">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.email">
+							<label hidden for="email"></label>
+							<div class="form-group">
+								<input id="email" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Email">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.age">
+							<label hidden id="5" for="age"></label>
+							<div class="form-group">
+								<input id="age" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Âge">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.address">
+							<label hidden id="7" for="address"></label>
+							<div class="form-group">
+								<input id="address" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Adresse">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.complementaryAddress">
+							<label hidden id="10" for="compAdd"></label>
+							<div class="form-group">
+								<input id="compAdd" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Adresse complémentaire">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.town">
+							<label hidden id="8" for="town"></label>
+							<div class="form-group">
+								<input id="town" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Ville">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="user.mobilePhone">
+							<label hidden id="9" for="mobile"></label>
+							<div class="form-group">
+								<input id="mobile" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Téléphone">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="donation.amount">
+							<label hidden id="11" for="amount"></label>
+							<div class="form-group">
+								<input id="funding" type="text" class="form-control"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Montant de votre Don">
+							</div>
+						</spring:bind>
+
+						<form:label id="13" value="CB :" path="donation.state">CB</form:label>
+						<form:radiobutton id="12" path="donation.state" value="done" />
+						<form:label id="14" value="chèque :" path="donation.state">Chèque</form:label>
+						<form:radiobutton id="15" path="donation.state" value="inprogress" />
+
+
+						<div class="form-group">
+							<input type="submit" value="Valider votre Don"
+								class="btn btn-white py-3 px-5">
+						</div>
+
+					</form>
+					<div id="div2" style="color: #ff0000"></div>
+					<a id="div3"
+						href="${pageContext.request.contextPath}/donation/pageUserChecked/${id}">Confirmer
+						mon identitée</a>
+					<script>
+						$(document)
+								.ready(
+										function() {
+
+											$("#div3").hide();
+											var ret = false;
+
+											$("#form1")
+													.submit(
+															function(event) {
+																if (!ret) {
+																	//Empeche la validation du formulaire
+																	event.preventDefault();
+
+																	var email = document.getElementById("email").value;
+																	
+																	var idAsso = ${id};
+																	alert(email);
+																	alert(idAsso);
+																	$.ajax({
+																				url : "${pageContext.request.contextPath}/checkIdentityContributor",
+																				type : "POST",
+																				data : {
+																					"email" : email,
+																					"idAsso" : idAsso
+																				},
+																				success : function(result) {
+																					if (result == "inconnu") {
+																						ret = true;
+																						$("#form1")[0].submit();
+																					} else {
+																						$("#div2").text(result);
+																						$("#div3").show();
+																						ret = false;
+																					};
+																				}
+																			});
+																}//fin if ret	    
+															});
+										});
+					</script>
+				</div>
+			</div>
 		</div>
-
-
-<!-- 		<button id="b1">Je souhaite refaire un don pour l'association</button> -->
-<!-- 		<script language="javascript" type="text/javascript"> -->
-
-	</script>
-		<form name="form" id="form1" action="" method="post">
-			<spring:bind path="donation.amount">
-				<label for="amount">Montant du don :</label>
-				<input id="funding" type="text" name="${status.expression}"
-					value="${status.value}">
-				<br />
-			</spring:bind>
-
-<div hidden>
-			<spring:bind  path="user.id">
-				<input id="id" type="text" name="${status.expression}"
-					value="${status.value}">
-				<br />
-			</spring:bind>
-</div>
-
-			cb :
-			<form:radiobutton path="donation.state" value="done" />
-			cheque :
-			<form:radiobutton path="donation.state" value="inprogress" />
-
-			<input type="Submit" value="Faire un don" />
-		</form>
-
-		<a href="${pageContext.request.contextPath}/homePageAssociation/${id}">Retour
-			en page principale</a>
 	</section>
 
 	<footer class="ftco-footer ftco-section img">
@@ -268,6 +369,7 @@
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
 
+
 	<script
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.min.js"></script>
 	<script
@@ -302,12 +404,36 @@
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/google-map.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/main.js"></script>
-
-
-
-
-
-
+	<script language="javascript" type="text/javascript">
+                $(document).ready(function(){
+                	$("#btn2").click(hide);
+                                   
+                });                
+                function hide(){                   
+                $("#1").toggle();
+                $("#firstname").toggle();
+                $("#2").toggle();
+                $("#3").toggle();
+                $("#4").toggle();
+                $("#5").toggle();
+                $("#6").toggle();
+                $("#7").toggle();
+                $("#8").toggle();
+                $("#9").toggle();
+                $("#10").toggle();
+                $("#11").toggle();
+                $("#12").toggle();
+                $("#13").toggle();
+                $("#age").toggle();
+                $("#address").toggle();
+                $("#town").toggle();
+                $("#mobile").toggle();
+                $("#compAdd").toggle();
+                $("#funding").toggle();
+                $("#14").toggle();
+                $("#15").toggle();               
+                }      
+</script>
 
 </body>
 </html>

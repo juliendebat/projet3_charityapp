@@ -1,33 +1,34 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Edit event</title>
-</head>
-<body>
-	<h1>${headerMessage}</h1>
 
+<%@include file="headerPromoter.jsp"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<c:choose>
+    <c:when test="${!empty sessionScope.promotersession}">
+    
+    <div class="container-fluid">
+	<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Gestion de l'Evènement ${event.eventName}
+					</h6>
+				</div>
+	<div class="card-body">
 	<form:form method="POST" action="editevent" modelAttribute="event">
 
 		<form:hidden path="id" />
 		<table>
 			<tr>
-				<td><form:label path="eventName">Nom de l'Ã©vÃ¨nement</form:label></td>
+				<td><form:label path="eventName">Nom de l'évènement</form:label></td>
 				<td><form:input path="eventName" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="eventDescription">Description de l'Ã©vÃ¨nement</form:label></td>
+				<td><form:label path="eventDescription">Description de l'évènement</form:label></td>
 				<td><form:input path="eventDescription" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="eventCategory">CatÃ©gorie de l'Ã©vÃ¨nement</form:label></td>
+				<td><form:label path="eventCategory">Catégorie de l'évènement</form:label></td>
 				<td><form:input path="eventCategory" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="eventCity">Ville de l'Ã©vÃ¨nement</form:label></td>
+				<td><form:label path="eventCity">Ville de l'évènement</form:label></td>
 				<td><form:input path="eventCity" /></td>
 			</tr>
 			<tr>
@@ -35,7 +36,7 @@
 				<td><form:input path="eventCountry" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="eventDateStart">Date de dÃ©but</form:label></td>
+				<td><form:label path="eventDateStart">Date de début</form:label></td>
 				<td><form:input path="eventDateStart" /></td>
 			</tr>
 			<tr>
@@ -43,29 +44,27 @@
 				<td><form:input path="eventDateEnd" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="targetBudget">Lien photo</form:label></td>
+				<td><form:label path="targetBudget">Budget cible</form:label></td>
 				<td><form:input path="targetBudget" /></td>
 			</tr>
 			
 				<tr>
-				<td><form:label path="inprogressBudget">Lien photo</form:label></td>
+				<td><form:label path="inprogressBudget">Budget en cours</form:label></td>
 				<td><form:input path="inprogressBudget" /></td>
-			</tr>
-				<tr>
-				<td><form:label path="volunterRequired">Lien photo</form:label></td>
-				<td><form:input path="volunterRequired" /></td>
-			</tr>
-				<tr>
-				<td><form:label path="volunterinProgress">Lien photo</form:label></td>
-				<td><form:input path="volunterinProgress" /></td>
-			</tr>
-				
+							
 			<tr>
-				<td><input type="submit" value="Submit" /></td>
+				<td><input type="submit" value="Valider modification" /></td>
 			</tr>
 		</table>
 	</form:form>
-	
+	</div>
+
+	<div class="card shadow mb-4">
+				<div class="card-header py-3">
+					<h6 class="m-0 font-weight-bold text-primary">Lites des
+						Bénévoles disponibles de l'association
+					</h6>
+				</div>
 	<div class="card-body">
 					<div class="table-responsive">
 						<table class="table table-bordered" id="dataTable" width="100%"
@@ -75,13 +74,13 @@
 									<th>Nom</th>
 									<th>Prenom</th>
 									<th>email</th>
-									<th>NÂ° TÃ©lephone</th>
+									<th>N° Télephone</th>
 									<th>Age</th>
 									<th>Adresse</th>
 									<th>Complement d'adresse</th>
 									<th>Code postal</th>
 									<th>Ville</th>
-									<th>Choisir</th>
+									
 									
 								</tr>
 							</thead>
@@ -106,8 +105,13 @@
 					</div>
 				</div>
 	
-	
+	</div>
 	
 
-</body>
-</html>
+</div>
+ </c:when>
+<c:otherwise>
+    <c:redirect url="/loginAssociation"/>
+</c:otherwise>
+</c:choose>
+<%@include file="footerPromoter.jsp"%>

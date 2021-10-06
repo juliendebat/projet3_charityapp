@@ -129,8 +129,6 @@
 	    if(!ret) {
 	        //Empeche la validation du formulaire
 	        event.preventDefault();
-	 
-	         
 	          var email= document.getElementById("email").value;
 	          var  idAsso = ${id};	
 	        
@@ -148,10 +146,12 @@
 							}
 							else {$("#div2").text(result);
 							$("#div3").show();
-
 							ret=false;							
 							}; 
-						}
+						},
+						error:function(){
+							alert("error");
+							}
 					});	      
 	    }//fin if ret	    
 		});
