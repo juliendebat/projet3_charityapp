@@ -18,6 +18,8 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import fr.isika.projet3.entities.Association;
+
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories("fr.isika.projet3.repository")
@@ -26,8 +28,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 })
 public class HibernateConfig {
 
+    private final Environment environment;
     @Autowired
-    private Environment environment;
+    public HibernateConfig(Environment environment) {
+        this.environment = environment;
+    }
 
     /************* Start Spring JPA config details **************/
     @Bean(name = "entityManagerFactory")
@@ -75,5 +80,8 @@ public class HibernateConfig {
         return properties;
     }
 
+    
+ 
+    
 }
 

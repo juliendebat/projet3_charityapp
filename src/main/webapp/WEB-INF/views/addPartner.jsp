@@ -60,7 +60,7 @@
                    
                 
                 }
-                
+                  
 </script>
 
 	<form action="" method="post">
@@ -128,12 +128,14 @@
 			<br />
 			</spring:bind>
 			
-			<spring:bind path="partner.mdp">
+		<%--	<spring:bind path="partner.password">
 		 <label for="password">Mot de passe :</label>
 			<input id="password" type="password" name="${status.expression}"
 				value="${status.value}">
-			<br />
-		</spring:bind>
+			<br /
+			
+		</spring:bind>>--%>
+		
 		<p>Détail de l' entreprise ou de l'association représentée :</p>	
 		<spring:bind path="partnerEntity.entityName">
 		<p> <label for="entityName">Nom de l'entitée représentée :</label>

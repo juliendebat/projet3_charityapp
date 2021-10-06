@@ -1,17 +1,9 @@
 package fr.isika.projet3.entities;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
-
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
 
 @Entity
 @Table(name="users")
@@ -20,33 +12,56 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+	private Long id;
 	private String lastName;
 	private String firstName;
 	private String email;
 	private int age;
 	private String address;
-	private int zip;
+	private int zipCode;
 	private String town;
 	private int mobilePhone;
 	private String complementaryAddress;
 	private boolean hasDonated;
+
+	@OneToMany(mappedBy ="user")
+	List<Donation> donations;
+
+	@OneToOne(mappedBy = "user")
+	Partner partner;
 	
-	@ManyToOne 
-	private Association association;
+	@OneToOne(mappedBy = "user")
+	Promoter promoter;
 	
-	public String getEmail() {
-		return email;
+	@OneToOne(mappedBy = "user")
+	Volonteer volonteer;
+	
+
+	public Promoter getPromoter() {
+		return promoter;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setPromoter(Promoter promoter) {
+		this.promoter = promoter;
 	}
-	public int getId() {
+
+	@ManyToOne
+	private Association association;
+
+
+	public void addDonation(Donation donation) {
+		this.donations.add(donation);
+	}
+
+	public User() {
+		donations=new ArrayList<Donation>();
+	}
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -66,6 +81,14 @@ public class User {
 		this.firstName = firstName;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -82,12 +105,12 @@ public class User {
 		this.address = address;
 	}
 
-	public int getZip() {
-		return zip;
+	public int getZipCode() {
+		return zipCode;
 	}
 
-	public void setZip(int zip) {
-		this.zip = zip;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
 
 	public String getTown() {
@@ -114,13 +137,28 @@ public class User {
 		this.complementaryAddress = complementaryAddress;
 	}
 
-
 	public boolean isHasDonated() {
 		return hasDonated;
 	}
 
 	public void setHasDonated(boolean hasDonated) {
 		this.hasDonated = hasDonated;
+	}
+
+	public List<Donation> getDonations() {
+		return donations;
+	}
+
+	public void setDonations(List<Donation> donations) {
+		this.donations = donations;
+	}
+
+	public Partner getPartner() {
+		return partner;
+	}
+
+	public void setPartner(Partner partner) {
+		this.partner = partner;
 	}
 
 	public Association getAssociation() {
@@ -130,10 +168,5 @@ public class User {
 	public void setAssociation(Association association) {
 		this.association = association;
 	}
-	
-	
 
-	
-	
 }
-
