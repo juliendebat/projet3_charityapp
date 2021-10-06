@@ -1,10 +1,8 @@
 package fr.isika.projet3.controller;
-
 import fr.isika.projet3.entities.*;
 
 import fr.isika.projet3.service.MailService;
-
-
+import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.DonationService;
 import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.PartnerEntityService;
@@ -15,7 +13,8 @@ import fr.isika.projet3.service.VolonteerService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,14 +31,12 @@ import java.util.List;
 @Controller
 public class DashboardAdminController {
 
-
 	private MailService mailService;
 	private String emailSender = "bravoexcellent74@gmail.com";
 	private HttpSession associationSession;
 	private Association ass;
 	private UserService userService;
 
-	
 	@Autowired
     private PartnerService partnerService;
 	@Autowired
@@ -52,9 +49,10 @@ public class DashboardAdminController {
     private VolonteerService volunterService;
 	@Autowired
     private EventService eventService;
+	private AssociationService associationService;
 
 
-	public DashboardAdminController(MailService mailService, UserService userService, PartnerService partnerService,
+	public DashboardAdminController(AssociationService associationService,MailService mailService, UserService userService, PartnerService partnerService,
 			PartnerEntityService partnerEntityService, DonationService donationService) {
 		super();
 		this.mailService = mailService;
@@ -62,6 +60,7 @@ public class DashboardAdminController {
 		this.partnerService = partnerService;
 		this.partnerEntityService = partnerEntityService;
 		this.donationService = donationService;
+		this.associationService=associationService;
 	}
 
 	@SuppressWarnings("null")
@@ -207,7 +206,6 @@ public class DashboardAdminController {
        mv.addObject("ass",ass);
         return mv;}
     
-    
     @RequestMapping(value = {"/dashboardAdmin/allPromoters"}, method = RequestMethod.GET)
     public ModelAndView showAllPromoters(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
@@ -217,7 +215,7 @@ public class DashboardAdminController {
        mv.addObject("ass",ass);
         return mv;}
     
-    
+   
     @RequestMapping(value = {"/dashboardAdmin/allVolonteers"}, method = RequestMethod.GET)
     public ModelAndView showAllVolunteer(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
@@ -226,8 +224,7 @@ public class DashboardAdminController {
        mv.addObject("volonteerslist", volonteers );
        mv.addObject("ass",ass);
         return mv;}
-    
-    
+       
     @RequestMapping(value = {"/dashboardAdmin/allEventsAss"}, method = RequestMethod.GET)
     public ModelAndView showAllEvents(HttpServletResponse response) throws IOException {
         ModelAndView mv = new ModelAndView();
@@ -236,14 +233,30 @@ public class DashboardAdminController {
        mv.addObject("events", events );
        mv.addObject("ass",ass);
         return mv;}
-    
-    
-    
-   
-
-    
-
-    
+        
+      //julien 06/09 edit one Association
+    @RequestMapping(value = "/dashboardAdmin/editAssociation/{id}", method = RequestMethod.GET)
+    public ModelAndView displayEditAssociationForm(@PathVariable Long id) {
+        ModelAndView mv = new ModelAndView("dashboardAdmin/editAssociation");
+        Association association = associationService.getAssociationById(id);
+      
+        mv.addObject("association", association);
+        return mv;
+    }
+      //julien 06/09 edit one Association
+    @RequestMapping(value = "/dashboardAdmin/editAssociation/{id}", method = RequestMethod.POST)
+    public ModelAndView saveEditedAssociation(@ModelAttribute Association association, BindingResult result) {
+        ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/home");
+        if (result.hasErrors()) {
+            System.out.println(result.toString());
+            return new ModelAndView("error");
+        }
+        boolean isSaved = associationService.saveAssociation(association);
+        if (!isSaved) {
+            return new ModelAndView("error");
+        }
+        return mv;
+    }
 	// julien kill session
 	@RequestMapping(value = "/killSession")
 	public String logout(HttpServletRequest request) {
@@ -253,5 +266,4 @@ public class DashboardAdminController {
 		}
 		return "redirect:/loginAssociation"; // Where you go after logout here.
 	}
-
 }
