@@ -377,7 +377,7 @@
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script>
-    var mymap = L.map('mapid').setView([48.822689, 2.323608], 13);
+    var mymap = L.map('mapid').setView([48.822689, 2.323608], 7);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
         maxZoom: 18,
@@ -386,7 +386,7 @@
         zoomOffset: -1,
         accessToken: 'pk.eyJ1Ijoid2Fycnk1NSIsImEiOiJja3VlNXNoaDIwM2d4MzBva2pndWN3MG9rIn0.NU5krvNXQ-XaHze2ssvZOg'
     }).addTo(mymap);
-    var popup = L.popup();
+     var popup = L.popup();
     function onMapClick(e) {
        // alert("You clicked the map at " + e.latlng);
         popup
@@ -395,8 +395,51 @@
         .openOn(mymap);
     }
 
-    mymap.on('click', onMapClick);
-  			
+    mymap.on('click', onMapClick); */
+    
+     mymap.on('click', function (e) {
+        geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom()), function (results) {
+            var r = results[0];
+            if (r) {
+                if (marker) {
+                    marker
+                        .setLatLng(r.center)
+                        .setPopupContent(r.html || r.name)
+                        .openPopup();
+                } else {
+                    marker = L.marker(r.center)
+                        .bindPopup(r.name)
+                        .addTo(mymap)
+                        .openPopup();
+                }
+            }
+            /*
+function localisation() {
+    let address = $("#address").val();
+
+    var geocoder = L.Control.Geocoder.nominatim();
+    var marker;
+
+    geocoder.geocode(address, function (result) {
+        var r = result[0];
+
+        if (r) {
+            if (marker) {
+                marker
+                    .setLatLng(r.center)
+                    .setPopupContent(r.html || r.name)
+                    .openPopup();
+            } else {
+                marker = L.marker(r.center)
+                    .bindPopup(r.name)
+                    .addTo(mymap)
+                    .openPopup();
+            }
+        }
+    });
+} */
+
+   	
     </script>
 
 <!-- Portfolio-->
