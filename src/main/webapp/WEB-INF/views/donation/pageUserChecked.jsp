@@ -255,10 +255,7 @@
 				</div>
 			</div>
 		</div>
-	</footer>
-
-
-
+	</footer>	
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
 		<svg class="circular" width="48px" height="48px">
@@ -308,15 +305,6 @@
 
 
 
-<<<<<<< HEAD
-			cb : <form:radiobutton path="donation.state" value="done"/>  
-			
-			cheque : <form:radiobutton path="donation.state" value="inprogress"/> 
-			
-			 <input type="Submit" value="Faire un don"/>
-	</form>	
-=======
->>>>>>> c8798be89a8dea814fc7f4d833d77c2ee3ffed62
 
 </body>
 </html>

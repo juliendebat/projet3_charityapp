@@ -67,8 +67,12 @@
                     <td><form:input path="phone"/></td>
                 </tr>
                 <tr>
-                    <td><form:label path="theme">Thème :</form:label></td>
+                    <td><form:label path="theme">url_background :</form:label></td>
                     <td><form:input path="theme"/></td>
+                </tr>
+                 <tr>
+                    <td><form:label path="photo"> url_logo :</form:label></td>
+                    <td><form:input path="photo"/></td>
                 </tr>
                 
                 <tr>
