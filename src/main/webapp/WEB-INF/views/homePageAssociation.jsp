@@ -76,27 +76,27 @@
     			<div class="col-md-5 d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18 color-1 align-items-stretch">
               <div class="text">
-              	<span>Served Over</span>
+              	<span>Sauvez plus de</span>
                 <strong class="number" data-number="1432805">0</strong>
-                <span>Children in 190 countries in the world</span>
+                <span>Enfants dans les pays du monde</span>
               </div>
             </div>
           </div>
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18 color-2 align-items-stretch">
               <div class="text">
-              	<h3 class="mb-4">Donate Money</h3>
-              	<p>Even the all-powerful Pointing has no control about the blind texts.</p>
-              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">Donate Now</a></p>
+              	<h3 class="mb-4">Faites un don</h3>
+              	<p>Ne restez pas silencieux face aux difficultés que subissent ces enfants.</p>
+              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">Donner maintenant</a></p>
               </div>
             </div>
           </div>
           <div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
             <div class="block-18 color-3 align-items-stretch">
               <div class="text">
-              	<h3 class="mb-4">Be a Volunteer</h3>
-              	<p>Even the all-powerful Pointing has no control about the blind texts.</p>
-              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">Be A Volunteer</a></p>
+              	<h3 class="mb-4">Devenez volontaire</h3>
+              	<p>Ne restez pas silencieux face aux difficultés que subissent ces enfants.</p>
+              	<p><a href="#" class="btn btn-white px-3 py-2 mt-2">Devenir volontairer</a></p>
               </div>
             </div>
           </div>
@@ -474,7 +474,7 @@
           <div class="col-md-3">
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">A propos</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <p>Au loin, derrière le mot montagnes, loin des pays Vokalia et Consonantia, vivent des enfants démunis.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                 <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -488,7 +488,7 @@
               <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(resources/template/images/image_1.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="#">Ne restez pas silencieux.</a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>
@@ -499,7 +499,7 @@
               <div class="block-21 mb-4 d-flex">
                 <a class="blog-img mr-4" style="background-image: url(resources/template/images/image_2.jpg);"></a>
                 <div class="text">
-                  <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
+                  <h3 class="heading"><a href="#">Ne restez pas silencieux.</a></h3>
                   <div class="meta">
                     <div><a href="#"><span class="icon-calendar"></span> July 12, 2018</a></div>
                     <div><a href="#"><span class="icon-person"></span> Admin</a></div>

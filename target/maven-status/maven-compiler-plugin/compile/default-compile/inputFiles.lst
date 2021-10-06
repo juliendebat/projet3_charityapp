@@ -1,7 +1,0 @@
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/service/UserService.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/config/WebMvcConfig.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/entities/User.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/config/HibernateConfig.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/repository/UserRepository.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/config/ServletInitializer.java
-/home/julien/Bureau/WS_Projet3/project3_charityapp/src/main/java/fr/isika/projet3/controller/UserController.java
