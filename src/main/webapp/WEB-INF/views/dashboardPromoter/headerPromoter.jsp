@@ -175,7 +175,7 @@
 
               <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="${pageContext.request.contextPath}/killPromoterSession/">
+                <a class="nav-link" href="${pageContext.request.contextPath}/killPromoterSession">
                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     <span>Deconnexion</span></a>
             </li>
@@ -264,14 +264,11 @@
                                     </a>
                                 </div>
                             </li>
-
                         </ul>
-
                     </nav>
-                    <!-- End of Topbar -->
-                    
+                    <!-- End of Topbar -->                
 	</c:when>
 	<c:otherwise>
-    <c:redirect url="/loginPromoter"/>
+    <c:redirect url="/loginPromoter/"/>
 	</c:otherwise>
 </c:choose>

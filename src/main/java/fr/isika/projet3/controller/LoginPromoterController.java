@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.LoginAssociation;
 import fr.isika.projet3.entities.User;
+import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.UserService;
 import javassist.NotFoundException;
 
@@ -21,24 +24,29 @@ public class LoginPromoterController {
 
 
         private UserService userService;
+        private AssociationService associationService;
 
 	    public LoginPromoterController() {
 	    }
 	    
 	    
 	       @Autowired
-	    public LoginPromoterController(UserService userService) {
+	    public LoginPromoterController(UserService userService,AssociationService associationService) {
 			super();
 			this.userService = userService;
+			this.associationService=associationService;
 		}
 
 
 
-		@RequestMapping(value = "/loginPromoter2/{id}", method = RequestMethod.GET)
+		@RequestMapping(value = "/loginPromoter/{id}", method = RequestMethod.GET)
 	    public ModelAndView displayPromoterConnexionPAge(@PathVariable Long id) {
-	        ModelAndView mv = new ModelAndView("loginPromoter2");
+	        ModelAndView mv = new ModelAndView("loginPromoter");
 	        mv.addObject("loginAssociation", new LoginAssociation());
+	        Association association = associationService.getAssociationById(id);
 	        mv.addObject("id",id);
+	        mv.addObject("association",association);
+	        
 	        return mv;
 	    }
 

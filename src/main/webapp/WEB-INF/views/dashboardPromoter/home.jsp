@@ -60,21 +60,17 @@
 										<td><c:out value="${ volonteer.user.complementaryAddress }" /></td>
 										<td><c:out value="${ volonteer.user.zipCode }" /></td>
 										<td><c:out value="${ volonteer.user.town }" /></td>
-									
-																		
+						
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
 				</div>
 			</div>
-
-
 			<div class="container">
 				<div class="row">
 					<div class="col">
 					<c:forEach var="event" items="${levent}">
-
 							<li><div class="card" style="width: 18rem;">
 									<div class="card-body">
 										<h5 class="card-title"><td><c:out value="${ event.eventName}" /></td></h5>
@@ -84,41 +80,19 @@
 										<a href="${pageContext.request.contextPath}/dashboardPromoter/manageEvent/${event.id}" class="btn btn-primary">Gérer</a>
 									<a href="${pageContext.request.contextPath}/dashboardPromoter/deleteEvent/${event.id}" class="btn btn-danger">Supprimer</a>
 									</div>
-								</div>
-								
+								</div>								
 								</li>
-
-
-
 						</c:forEach>
 					
-					
-					
-					
-					
+
 					</div>
 					<div class="col">2 of 2</div>
 				</div>
 			</div>
-
-
-
-
-		</div>
-    
-    
-    
-    
-    
- 
-    
-    
-    
-    
- 
+		</div>    
     </c:when>
 <c:otherwise>
-    <c:redirect url="/loginPromoter"/>
+    <c:redirect url="/loginPromoter/${promoterinProgress.id}"/>
 </c:otherwise>
 </c:choose>
 <%@include file="footerPromoter.jsp"%>
