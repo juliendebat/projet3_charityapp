@@ -1,7 +1,6 @@
 package fr.isika.projet3.config;
 
 
-
 import fr.isika.projet3.service.MailService;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

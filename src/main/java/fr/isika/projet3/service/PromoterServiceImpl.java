@@ -8,9 +8,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import fr.isika.projet3.entities.Association;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.PromoterRepository;
+import fr.isika.projet3.repository.UserRepository;
 
 
 
@@ -19,16 +21,17 @@ public class PromoterServiceImpl implements PromoterService{
 
 	// Implementing Constructor based DI
 		private PromoterRepository repository;
-		
+		private UserRepository userrepository;
 	   
 		public PromoterServiceImpl() {
 			
 		}
 		
 		@Autowired	
-		public PromoterServiceImpl(PromoterRepository repository) {
+		public PromoterServiceImpl(PromoterRepository repository,UserRepository userrepository ) {
 			super();
 			this.repository = repository;
+			this.userrepository = userrepository;
 		}
 		
 	
@@ -40,7 +43,7 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public Promoter getPromoterById(int id) {
+	public Promoter getPromoterById(Long id) {
 		Promoter promoter = repository.findById(id).get();
 		return promoter;
 	}
@@ -57,7 +60,7 @@ public class PromoterServiceImpl implements PromoterService{
 	}
 
 	@Override
-	public boolean deletePromoterById(int id) {
+	public boolean deletePromoterById(Long id) {
 		try {
 			repository.deleteById(id);
 			return true;
@@ -65,8 +68,12 @@ public class PromoterServiceImpl implements PromoterService{
 			return false;
 		}
 	}
+	@Override
+	public Promoter getPromotertByUser(User user) {
+		Promoter promoter = repository.findByUser(user);
+		return promoter;
+	}
 	
-
 	@Override
 	public List<Promoter> getAllPromotersByUsers(List<User> users){
 		
@@ -79,6 +86,16 @@ public class PromoterServiceImpl implements PromoterService{
 			}			
 		}
 		return promoters;
+	}
+	
+	
+	
+	@Override
+	public int countPromoterByAssociation(Association association) {
+		
+		List<User> users= userrepository.findByAssociation(association);
+		List<Promoter> promoters=getAllPromotersByUsers(users);
+		return promoters.size();
 	}
 
 }

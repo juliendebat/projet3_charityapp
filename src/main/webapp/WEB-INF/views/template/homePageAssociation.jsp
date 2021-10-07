@@ -9,28 +9,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
-    <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700" rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/animate.css">
 
-    
-    <link rel="stylesheet" href="<c:out value="../resources/css/open-iconic-bootstrap.min.css"/>">
-    
-    <link rel="stylesheet" href="<c:out value="../resources/css/animate.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/owl.carousel.min.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/owl.theme.default.min.css"/>">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.theme.default.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="<c:out value="../resources/css/magnific-popup.css"/>">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/aos.css">
 
-    <link rel="stylesheet" href="<c:out value="../resources/css/aos.css"/>">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="<c:out value="../resources/css/ionicons.min.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/bootstrap-datepicker.css"/>">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css">
 
-    
-    <link rel="stylesheet" href="<c:out value="../resources/css/jquery.timepicker.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/flaticon.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/icomoon.css"/>">
-    <link rel="stylesheet" href="<c:out value="../resources/css/styles2.css"/>">
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css">
   </head>
   <body id="page-top">
     
@@ -45,9 +55,9 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="#page-top" class="nav-link">Accueil</a></li>
-          <li class="nav-item"><a href="${pageContext.request.contextPath}/donation/add_donation/${association.id}" class="nav-link">Faire un Don</a></li>
+          <li class="nav-item"><a href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}" class="nav-link">Faire un Don</a></li>
           <li class="nav-item"><a href="#events" class="nav-link">Evènements</a></li>
-          <li class="nav-item"><a href="${pageContext.request.contextPath}/login" class="nav-link">Se connecter</a></li>
+          <li class="nav-item"><a href="${pageContext.request.contextPath}/loginPromoter/${association.id}" class="nav-link">Se connecter</a></li>
           
         </ul>
       </div>
@@ -55,7 +65,7 @@
   </nav>
     <!-- END nav -->
     
-    <div class="hero-wrap" style="background-image: url(${association.theme});" data-stellar-background-ratio="0.5">
+    <div class="hero-wrap" style="background-image: url('${association.theme}');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
@@ -86,7 +96,7 @@
               <div class="text">
               	<h3 class="mb-2">Faites un Don</h3>
               	<p>Vous pouvez faire un don ponctuel en ligne, par carte bancaire ou paypal, en quelques clics seulement, sur notre formulaire de don sécurisé. C'est rapide et très simple : il vous suffit de renseigner le montant de votre don, vos coordonnées personnelles, ainsi que vos informations bancaires.</p>
-              	<p><a href="${pageContext.request.contextPath}/donation/add_donation/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Faire un don</a></p>
+              	<p><a href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Faire un don</a></p>
               </div>
             </div>
           </div>
@@ -270,7 +280,7 @@
         	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
         			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(../resources/images/emoji.png);"></div>
+        				<div class="img" style="background-image: url(../../resources/template_HomePageAssoc/images/emoji.png);"></div>
         				<div class="info ml-4">
         					<h3><a class="${user.firstName}" href="#">${user.firstName}</a></h3>
         					<h3><a class="${user.lastName}" href="#">${user.lastName}</a></h3>
@@ -403,7 +413,7 @@
         	<c:forEach var="event" items="${eventList}">
         	<div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url(${event.photo});">
+              <a href="blog-single.html" class="block-20" style="background-image: url('${event.photo}');">
               </a>
               <div class="text p-4 d-block">
                 <div class="${event.eventName}">
@@ -541,24 +551,40 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="<c:out value="../resources/js/jquery.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery-migrate-3.0.1.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/popper.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/bootstrap.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.easing.1.3.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.waypoints.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.stellar.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/owl.carousel.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.magnific-popup.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/aos.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.animateNumber.min.js"/>"></script>
-  <script src="<c:out value="../resources/js/bootstrap-datepicker.js"/>"></script>
-  <script src="<c:out value="../resources/js/jquery.timepicker.min.js"/>"></script>
-  
-  <script src="<c:out value="../resources/js/scrollax.min.js"/>"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  
-  <script src="<c:out value="../resources/js/google-map.js"/>"></script>
-  <script src="<c:out value="../resources/js/main.js"/>"></script> 
+<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery-migrate-3.0.1.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/popper.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/bootstrap.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.easing.1.3.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.waypoints.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.stellar.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.magnific-popup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/aos.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.animateNumber.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/bootstrap-datepicker.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.timepicker.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/scrollax.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/google-map.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/main.js"></script>
+
   </body>
 </html>

@@ -53,12 +53,11 @@
 			<c:forEach var="user" items="${userList}">
 				<tr>
 					<td>${user.lastName}</td>
-<<<<<<< HEAD
-=======
+
 
 <%-- 					<td>${user.userName}</td> --%>
 
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
+
 					<td>${user.firstName}</td>
 					<td>${user.age}</td>
 					<td>${user.email}</td>
@@ -68,12 +67,6 @@
 					<td>${user.town}</td>
 <%-- 					<td>${user.country}</td> --%>
 					<td>${user.mobilePhone}</td>
-					
-					
-<<<<<<< HEAD
-=======
-
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
 					<td><a
 						href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
 					<td><a

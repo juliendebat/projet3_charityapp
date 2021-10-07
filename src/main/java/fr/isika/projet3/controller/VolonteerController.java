@@ -71,14 +71,15 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayNewVolonteerForm() {
+	public ModelAndView displayNewVolonteerForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addVolonteer");
+		Association association = associationService.getAssociationById(id);
 		List<Event> eventList = eventService.getAllEvents();
 		mv.addObject("headerMessage", "Add User Details");
 		mv.addObject("user", new User());
 		mv.addObject("volonteer", new Volonteer());
 		mv.addObject("eventList", eventList);
-		mv.addObject("association", new Association());
+		mv.addObject("association", association);
 		return mv;
 	}
 
@@ -109,7 +110,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/editVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayEditVolonteerForm(@PathVariable int id) {
+	public ModelAndView displayEditVolonteerForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("/editVolonteer");
 		Volonteer volonteer = volonteerService.getVolonteerById(id);
 		mv.addObject("headerMessage", "Edit volonteer Details");
@@ -136,7 +137,7 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/deleteVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteVolonteerById(@PathVariable int id) {
+	public ModelAndView deleteVolonteerById(@PathVariable Long id) {
 		boolean isDeleted = volonteerService.deleteVolonteerById(id);
 		System.out.println("Deletion respone: " + isDeleted);
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");

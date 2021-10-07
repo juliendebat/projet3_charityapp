@@ -66,11 +66,12 @@ public class PromoterController {
 		@RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.GET)
 		public ModelAndView displayNewPromotorForm(@PathVariable Long id) {
 			ModelAndView mv = new ModelAndView("addPromoter");
+			Association association = associationService.getAssociationById(id);
 			mv.addObject("headerMessage", "Add promoter Details");
 			mv.addObject("user", new User());
 			mv.addObject("promoter", new Promoter());
 			mv.addObject("event", new Event());
-			mv.addObject("association", new Association());
+			mv.addObject("association", association);
 			return mv;
 		}
 
@@ -104,7 +105,7 @@ public class PromoterController {
 		}
 		
 		@RequestMapping(value = "/editPromoter/{id}", method = RequestMethod.GET)
-		public ModelAndView displayEditPromoterForm(@PathVariable int id) {
+		public ModelAndView displayEditPromoterForm(@PathVariable Long id) {
 			ModelAndView mv = new ModelAndView("/editPromoter");
 			Promoter promoter = promoterService.getPromoterById(id);
 			mv.addObject("headerMessage", "Edit promoter Details");
@@ -131,7 +132,7 @@ public class PromoterController {
 		}
 
 		@RequestMapping(value = "/deletePromoter/{id}", method = RequestMethod.GET)
-		public ModelAndView deletePromoterById(@PathVariable int id) {
+		public ModelAndView deletePromoterById(@PathVariable Long id) {
 			boolean isDeleted = promoterService.deletePromoterById(id);
 			System.out.println("promoter deletion response: " + isDeleted);
 			ModelAndView mv = new ModelAndView("redirect:/home_promoter");

@@ -1,9 +1,8 @@
 package fr.isika.projet3.service;
 
-import java.util.List;
-
 import fr.isika.projet3.entities.Association;
 
+import java.util.List;
 
 public interface AssociationService {
 
@@ -19,6 +18,12 @@ public interface AssociationService {
     public boolean deleteAssociationById(Long id);
 
     public boolean isAuthentificationOk(String email, String password);
+
+	public boolean isRnaNumberAlreadyUsed(int rnaNumber);
+
+	public boolean isEmailNotAlreadyUsed(String email);
+
+	
 
 
 }

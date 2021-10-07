@@ -58,11 +58,12 @@ public class PartnerController {
 	@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.GET)
 	public ModelAndView displayNewUserForm(@PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addPartner");
+		Association association = associationService.getAssociationById(id);
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("partner", new Partner());
 		mv.addObject("partnerEntity", new PartnerEntity());
-		mv.addObject("association", new Association());
+		mv.addObject("association", association);
 		return mv;
 	}
 

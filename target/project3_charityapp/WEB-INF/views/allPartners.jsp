@@ -33,11 +33,9 @@
 				<tr>
 					<td>${user.firstName}</td>
 					<td>${user.lastName}</td>
-<<<<<<< HEAD
-					<td>${user.userName}</td>
-=======
+
 <%-- 					<td>${user.userName}</td> --%>
->>>>>>> 9db6ec955dca275f9a47d9fb354553be622eea39
+
 					<td><a
 						href="${pageContext.request.contextPath}/editUser/${user.id}">Edit</a></td>
 					<td><a

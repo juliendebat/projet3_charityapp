@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VolonteerRepository extends CrudRepository<Volonteer, Integer>{
+public interface VolonteerRepository extends CrudRepository<Volonteer, Long>{
 
 	Volonteer findByUser(User user);
 

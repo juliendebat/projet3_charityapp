@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="javascript" type="text/javascript"
-	src="resources/js/jquery-3.6.0.min.js">
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js">
 	
 </script>
 <meta name="viewport"
@@ -27,35 +27,35 @@
 
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/open-iconic-bootstrap.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/animate.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/animate.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/owl.carousel.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/owl.theme.default.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/magnific-popup.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/magnific-popup.css"/>">
-
-<link rel="stylesheet" href="<c:out value="../resources/css/aos.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/aos.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/ionicons.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/ionicons.min.css">
+
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/bootstrap-datepicker.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css">
 
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/jquery.timepicker.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/flaticon.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/icomoon.css"/>">
-<link rel="stylesheet"
-	href="<c:out value="../resources/css/styles2.css"/>">
-<link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css">
 <title>S'inscrire comme organisateur</title>
 </head>
 <body id="page-top">
@@ -64,7 +64,7 @@
 		id="ftco-navbar">
 	<div class="container">
 		<img class="img-fluid" src="${association.photo}" height="50"
-			width="50" alt="..." /> <a class="navbar-brand" href="#page-top">${association.associationName}</a>
+			width="50" alt="..." /> <a class="navbar-brand" href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}">${association.associationName}</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -74,30 +74,30 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 					class="nav-link">Accueil</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
+					href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/homePageAssociation/#events"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/#events"
 					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/loginUser"
+					href="${pageContext.request.contextPath}/loginPromoter/${association.id}"
 					class="nav-link">Se Connecter</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
 	<section class="ftco-section-3 img"
-		style="background-image: url(resources/template_HomePageAssoc/images/bg_3.jpg);">
+		style="background-image: url(../resources/template_HomePageAssoc/images/bg_3.jpg);">
 	<div class="overlay"></div>
 
 	<div class="container">
 		<div class="row d-md-flex">
 			<div class="col-md-6 d-flex ftco-animate">
 				<div class="img img-2 align-self-stretch"
-					style="background-image: url(../resources/images/event.jpg);"></div>
+					style="background-image: url(../resources/template_HomePageAssoc/images/event.jpg);"></div>
 			</div>
 			<div class="col-md-6 volunteer pl-md-5 ftco-animate">
 				<h3 class="mb-3">S'inscrire comme organisateur</h3>

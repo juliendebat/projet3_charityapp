@@ -31,6 +31,13 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+ <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -177,7 +184,7 @@
 			<c:forEach var="association" items="${associationList}">
 				<div class="col-lg-4 col-sm-6">
 					<a class="portfolio-box"
-						href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
+						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 						title="Project Name"> 
 						<img class="mx-auto" src="${association.photo}" height="350" alt="..." />
 						<div class="portfolio-box-caption">
