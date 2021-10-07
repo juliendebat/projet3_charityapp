@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Event;
 import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.repository.PromoterRepository;
@@ -97,5 +98,20 @@ public class PromoterServiceImpl implements PromoterService{
 		List<Promoter> promoters=getAllPromotersByUsers(users);
 		return promoters.size();
 	}
+
+	//Add seb
+//	@Override
+//	public Promoter getPromoterByEvents(List<Event> events) {
+//		
+//			Promoter promoter = new Promoter();
+//			for(Event event : events) {
+//			promoter = repository.findByEvent(event);
+//			}
+//			return promoter;
+//		
+//	}
+	
+	
+	
 
 }

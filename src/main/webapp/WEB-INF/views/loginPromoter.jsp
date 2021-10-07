@@ -57,7 +57,9 @@
 		id="ftco-navbar">
 	<div class="container">
 		<img class="img-fluid" src="${association.photo}" height="50"
+
 			width="50" alt="..." /> <a class="navbar-brand" href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}">${association.associationName}</a>
+
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -77,6 +79,7 @@
 					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
 					href="${pageContext.request.contextPath}/loginPromoter/${association.id}"
+
 					class="nav-link">Se Connecter</a></li>
 			</ul>
 		</div>
@@ -85,7 +88,9 @@
 	<!-- END nav -->
 
 	<section class="ftco-section-3 img"
+
 		style="background-image: url(../resources/template_HomePageAssoc/images/bg_3.jpg);">
+
 		<div class="overlay"></div>
 
 
@@ -124,6 +129,7 @@
 						<div class="form-group">
 							<input type="submit" id="btn" value="Accéder à ma page"
 								class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">
+
 						</div>
 					<div id="div2" style="color: #ff0000"></div>
 				
@@ -164,6 +170,7 @@
 			</div>
 		</div>
 	</section>
+
 
 <!-- 	<footer class="ftco-footer ftco-section img"> -->
 <!-- 		<div class="overlay"></div> -->
@@ -291,6 +298,7 @@
 <%-- 			<circle class="path" cx="24" cy="24" r="22" fill="none" --%>
 <%-- 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg> --%>
 <!-- 	</div> -->
+
 
 
 	<script

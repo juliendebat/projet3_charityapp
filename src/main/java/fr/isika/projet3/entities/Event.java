@@ -4,8 +4,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-
-@Table(name = "event")
+@Table(name = "events")
 
 public class Event {
 
@@ -20,17 +19,33 @@ public class Event {
     private String eventDateStart;
     private String eventDateEnd;
     private String eventThumbnailLink;
+
     private String photo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Association association;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    
+    //julien
+    private int targetBudget;
+    private int inprogressBudget;
+    
+    private int volunterRequired;
+    private int volunterinProgress;
+    
+    
+    //ajouter attribut nombre de volontaire requis + budget
+
+
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    private Association association;
+
+
+    @ManyToOne(fetch=FetchType.EAGER)
     private Promoter promoter;
     
     @ManyToOne(cascade = CascadeType.ALL)
     private Volonteer volonteer;
 
+    
     public Long getId() {
         return id;
     }
@@ -103,13 +118,13 @@ public class Event {
         this.eventThumbnailLink = eventThumbnailLink;
     }
 
-    public Association getAssociation() {
-        return association;
-    }
-
-    public void setAssociation(Association association) {
-        this.association = association;
-    }
+//    public Association getAssociation() {
+//        return association;
+//    }
+//
+//    public void setAssociation(Association association) {
+//        this.association = association;
+//    }
 
     public Promoter getPromoter() {
 		return promoter;
@@ -118,6 +133,7 @@ public class Event {
 	public void setPromoter(Promoter promoter) {
 		this.promoter = promoter;
 	}
+
 
 	public Volonteer getVolonteer() {
 		return volonteer;
@@ -133,6 +149,38 @@ public class Event {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+	
+	public int getTargetBudget() {
+		return targetBudget;
+	}
+
+	public void setTargetBudget(int targetBudget) {
+		this.targetBudget = targetBudget;
+	}
+
+	public int getInprogressBudget() {
+		return inprogressBudget;
+	}
+
+	public void setInprogressBudget(int inprogressBudget) {
+		this.inprogressBudget = inprogressBudget;
+	}
+
+	public int getVolunterRequired() {
+		return volunterRequired;
+	}
+
+	public void setVolunterRequired(int volunterRequired) {
+		this.volunterRequired = volunterRequired;
+	}
+
+	public int getVolunterinProgress() {
+		return volunterinProgress;
+	}
+
+	public void setVolunterinProgress(int volunterinProgress) {
+		this.volunterinProgress = volunterinProgress;
 	}
 
 

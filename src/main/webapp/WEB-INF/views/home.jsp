@@ -81,42 +81,6 @@
 			</div>
 		</div>
 	</header>
-<!-- Tests-->
-<!-- 	<div class="row gx-4 gx-lg-5 justify-content-center mb-5"> -->
-<!-- 		<div class="col-lg-6"> -->
-<!-- 			<div class="form-floating mb-3"> -->
-<!-- 				<form action="allAssociations" method="post" id="contactForm"> -->
-<!-- 					<input type="submit" value="Liste de toutes les associations" /> -->
-<!-- 				</form> -->
-<!-- 				</br> -->
-<!-- 								<form action="addAssociation" method="get" id="contactForm"> -->
-<!-- 									<input type="submit" value="ajouter une association" /> -->
-<!-- 								</form> -->
-<!-- 				</br> -->
-<!-- 				<form action="allUsers" method="post" id="contactForm"> -->
-<!-- 					<input type="submit" value="Liste de tous les utilisateurs" /> -->
-<!-- 				</form> -->
-<!-- 				</br> -->
-<!-- 								<form action="addUser" method="get" id="contactForm"> -->
-<!-- 									<input type="submit" value="ajouter un utilisateur" /> -->
-<!-- 								</form> -->
-<!-- 				</br> -->
-<!-- 				<form action="allEvents" method="post" id="contactForm"> -->
-<!-- 					<input type="submit" value="Liste de tous les évènements" /> -->
-<!-- 				</form> -->
-<!-- 				</br> -->
-<!-- 								<form action="addEvent" method="get" id="contactForm"> -->
-<!-- 									<input type="submit" value="ajouter un évènement" /> -->
-<!-- 								</form> -->
-<!-- 				</br> -->
-<!-- 				<form action="upload" method="post" id="contactForm"> -->
-<!-- 					<input type="submit" value="Upload un fichier" /> -->
-<!-- 				</form> -->
-<!-- 				</br> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- Services-->
 	<section class="page-section" id="services">
 		<div class="container px-4 px-lg-5">
 			<h2 class="text-center mt-0">Ce qu'on peut faire pour vous</h2>
@@ -162,18 +126,6 @@
 			</div>
 		</div>
 	</section>
-	
-<!-- 	<!-- Events List--> 
-<!-- 	<section class="page-section" id="subscribe"> -->
-<!-- 		<div class="container px-4 px-lg-5"> -->
-<!-- 			<div class="row gx-4 gx-lg-5 justify-content-center"> -->
-<!-- 				<div class="col-lg-4 text-center mb-5 mb-lg-0"> -->
-<!-- 					<i class="bi-phone fs-2 mb-3 text-muted"></i> -->
-<!-- 					<div>+1 (555) 123-4567</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</section> -->
 	<!-- Portfolio-->
 	<section class="page-section" id="associations">
 	<div id="portfolio">
@@ -186,9 +138,9 @@
 					<a class="portfolio-box"
 						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 						title="Project Name"> 
-						<img class="mx-auto" src="${association.photo}" height="350" alt="..." />
+						<img class="d-flex mx-auto" src="${association.photo}" height="350" alt="..." />
 						<div class="portfolio-box-caption">
-							<div class="project-category text-white-50">Evenement</div>
+							<div class="project-category text-white-50">Association</div>
 							<div class="${association.associationName}">${association.associationName}</div>
 							<div class="${association.city}">${association.city}</div>
 							<div class="${association.description}">${association.description}</div>
@@ -200,16 +152,6 @@
 		</div>
 	</div>
 	</section>
-<!-- 	<!-- Call to action--> 
-<!-- 	<section class="page-section bg-dark text-white"> -->
-<!-- 		<div class="container px-4 px-lg-5 text-center"> -->
-<!-- 			<h2 class="mb-4">Découvrez des projets déjà créés !</h2> -->
-<!-- 			<a class="btn btn-light btn-xl" -->
-<!-- 				href="https://startbootstrap.com/theme/creative/">Voir davantage -->
-<!-- 				de projets !...</a> -->
-<!-- 		</div> -->
-<!-- 	</section> -->
-	
 	<!-- Subscribe-->
 	<section class="page-section" id="subscribe">
 		<div class="container px-4 px-lg-5">
@@ -221,13 +163,6 @@
 						aujourd'hui à gérez votre plateforme !</p>
 			<div class="row gx-4 gx-lg-5 justify-content-center mb-5">
             <div class="col-lg-6">
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
                 <h5>Coordonnées de l'association</h5>
                 <form:form id="contactForm" method="POST" action="home" modelAttribute="association">
                     <!--Official Association Name input-->
@@ -340,10 +275,6 @@
                             pas valide.</div>
                         
                     </div>
-                    <!-- Submit success message-->
-					<!---->
-					<!-- This is what your users will see when the form-->
-					<!-- has successfully submitted-->
 					<div class="d-none" id="submitSuccessMessage">
 						<div class="text-center mb-3">
 							<div class="fw-bolder">Form submission successful!</div>
@@ -351,10 +282,6 @@
 								href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
 						</div>
 					</div>
-					<!-- Submit error message-->
-					<!---->
-					<!-- This is what your users will see when there is-->
-					<!-- an error submitting the form-->
 					<div class="d-none" id="submitErrorMessage">
 						<div class="text-center text-danger mb-3">Error sending
 							message!</div>
@@ -369,13 +296,6 @@
                 </form:form>
             </div>
         </div>
-
-<!-- 			<div class="row gx-4 gx-lg-5 justify-content-center"> -->
-<!-- 				<div class="col-lg-4 text-center mb-5 mb-lg-0"> -->
-<!-- 					<i class="bi-phone fs-2 mb-3 text-muted"></i> -->
-<!-- 					<div>+1 (555) 123-4567</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
 		</div>
 	</section>
 	<!-- Footer-->
@@ -390,13 +310,77 @@
 	<!-- SimpleLightbox plugin JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="<c:out value="resources/js/scripts.js"/>"></script>
-	
-	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-	<!-- * *                               SB Forms JS                               * *-->
-	<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+	<script src="<c:out value="${pageContext.request.contextPath}/resources/js/scripts1.js"/>"></script>
+
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script>
+    var mymap = L.map('mapid').setView([48.822689, 2.323608], 7);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoid2Fycnk1NSIsImEiOiJja3VlNXNoaDIwM2d4MzBva2pndWN3MG9rIn0.NU5krvNXQ-XaHze2ssvZOg'
+    }).addTo(mymap);
+     var popup = L.popup();
+    function onMapClick(e) {
+       // alert("You clicked the map at " + e.latlng);
+        popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+    }
+
+    mymap.on('click', onMapClick); */
+    
+     mymap.on('click', function (e) {
+        geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom()), function (results) {
+            var r = results[0];
+            if (r) {
+                if (marker) {
+                    marker
+                        .setLatLng(r.center)
+                        .setPopupContent(r.html || r.name)
+                        .openPopup();
+                } else {
+                    marker = L.marker(r.center)
+                        .bindPopup(r.name)
+                        .addTo(mymap)
+                        .openPopup();
+                }
+            }
+            /*
+function localisation() {
+    let address = $("#address").val();
+
+    var geocoder = L.Control.Geocoder.nominatim();
+    var marker;
+
+    geocoder.geocode(address, function (result) {
+        var r = result[0];
+
+        if (r) {
+            if (marker) {
+                marker
+                    .setLatLng(r.center)
+                    .setPopupContent(r.html || r.name)
+                    .openPopup();
+            } else {
+                marker = L.marker(r.center)
+                    .bindPopup(r.name)
+                    .addTo(mymap)
+                    .openPopup();
+            }
+        }
+    });
+} */
+
+   	
+    </script>
 
 </body>
 </html>

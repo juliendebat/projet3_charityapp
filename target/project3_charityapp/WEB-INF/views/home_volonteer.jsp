@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+  
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
 <%@page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">

@@ -2,6 +2,7 @@ package fr.isika.projet3.controller;
 
 import fr.isika.projet3.entities.Event;
 import java.util.List;
+import fr.isika.projet3.entities.Promoter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.PromoterService;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -20,7 +23,8 @@ public class EventController {
 
 	// Constructor based Dependency Injection
 			private EventService eventService;
-
+			@Autowired
+		    private PromoterService promoterService ;
 			public EventController() {
 
 			}
@@ -64,6 +68,7 @@ public class EventController {
 				if (result.hasErrors()) {
 					return new ModelAndView("error");
 				}
+		
 				boolean isAdded = eventService.saveEvent(event);
 				if (isAdded) {
 					mv.addObject("message", "New event successfully added");
@@ -74,42 +79,41 @@ public class EventController {
 				return mv;
 			}
 
-			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView displayEditEventForm(@PathVariable Long id) {
-				ModelAndView mv = new ModelAndView("/editEvent");
-				Event event = eventService.getEventById(id);
-				mv.addObject("headerMessage", "Edit Event Details");
-				mv.addObject("event", event);
-				return mv;
-			}
 
-			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.POST)
-			public ModelAndView saveEditedEvent(@ModelAttribute Event event, BindingResult result) {
-				ModelAndView mv = new ModelAndView("redirect:/home_event");
-
-				if (result.hasErrors()) {
-					System.out.println(result.toString());
-					return new ModelAndView("error");
-				}
-				boolean isSaved = eventService.saveEvent(event);
-				if (!isSaved) {
-
-					return new ModelAndView("error");
-				}
-
-				return mv;
-			}
-
-			@RequestMapping(value = "/deleteEvent/{id}", method = RequestMethod.GET)
-			public ModelAndView deleteEventById(@PathVariable Long id) {
-				boolean isDeleted = eventService.deleteEventById(id);
-				System.out.println("Event deletion response: " + isDeleted);
-				ModelAndView mv = new ModelAndView("redirect:/home_event");
-				return mv;
-
-			}
-			
-
+//			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.GET)
+//			public ModelAndView displayEditEventForm(@PathVariable Long id) {
+//				ModelAndView mv = new ModelAndView("/editEvent");
+//				Event event = eventService.getEventById(id);
+//				mv.addObject("headerMessage", "Edit Event Details");
+//				mv.addObject("event", event);
+//				return mv;
+//			}
+//
+//			@RequestMapping(value = "/editEvent/{id}", method = RequestMethod.POST)
+//			public ModelAndView saveEditedEvent(@ModelAttribute Event event, BindingResult result) {
+//				ModelAndView mv = new ModelAndView("redirect:/home_event");
+//
+//				if (result.hasErrors()) {
+//					System.out.println(result.toString());
+//					return new ModelAndView("error");
+//				}
+//				boolean isSaved = eventService.saveEvent(event);
+//				if (!isSaved) {
+//
+//					return new ModelAndView("error");
+//				}
+//
+//				return mv;
+//			}
+//
+//			@RequestMapping(value = "/deleteEvent/{id}", method = RequestMethod.GET)
+//			public ModelAndView deleteEventById(@PathVariable Long id) {
+//				boolean isDeleted = eventService.deleteEventById(id);
+//				System.out.println("Event deletion response: " + isDeleted);
+//				ModelAndView mv = new ModelAndView("redirect:/home_event");
+//				return mv;
+//
+//			}
 
 
 }

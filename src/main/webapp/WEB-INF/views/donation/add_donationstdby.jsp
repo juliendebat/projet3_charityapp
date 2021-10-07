@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <title>Faire un don</title>
+
 <meta charset="utf-8">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -81,11 +83,14 @@
 			</ul>
 		</div>
 	</div>
+
 	</nav>
 	<!-- END nav -->
 
 	<section class="ftco-section-3 img"
+
 		style="background-image: url(../../resources/template_HomePageAssoc/images/bg_3.jpg);">
+
 		<div class="overlay"></div>
 
 
@@ -93,6 +98,7 @@
 			<div class="row d-md-flex">
 				<div class="col-md-6 d-flex ftco-animate">
 					<div class="img img-2 align-self-stretch"
+
 						style="background-image: url(../../resources/template_HomePageAssoc/images/donation.jpg);"></div>
 				</div>
 				<div class="col-md-6 volunteer pl-md-5 ftco-animate">
@@ -361,18 +367,6 @@
 <!-- 			</div> -->
 <!-- 		</div> -->
 <!-- 	</footer> -->
-
-
-
-	<!-- loader -->
-	<div id="ftco-loader" class="show fullscreen">
-		<svg class="circular" width="48px" height="48px">
-			<circle class="path-bg" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke="#eeeeee" />
-			<circle class="path" cx="24" cy="24" r="22" fill="none"
-				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
-	</div>
-
 
 	<script
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery.min.js"></script>

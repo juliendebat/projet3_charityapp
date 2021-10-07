@@ -11,7 +11,9 @@
 	<br>
 	<br>
 	<br>
+
 	<a href="${pageContext.request.contextPath}/addVolonteer">Add Volonteer</a>
+
 	<br>
 	<h3>List of all volonteers</h3>
 	${message}
@@ -41,4 +43,5 @@
 
 	</table>
 </body>
+
 </html>

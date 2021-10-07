@@ -4,6 +4,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
+<<<<<<< HEAD
 <meta charset="UTF-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -31,6 +32,47 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+ <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+=======
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Charity Raise - Plateforme de Gestion de Dons
+        évènementiel pour les associations</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon"
+          href="<c:out value="resources/assets/favicon.ico"/>" />
+    <!-- Bootstrap Icons-->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+            rel="stylesheet" />
+    <!-- Google fonts-->
+    <link
+            href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700"
+            rel="stylesheet" />
+    <link
+            href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
+            rel="stylesheet" type="text/css" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css"
+            rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
 </head>
 <body id="page-top">
 	<!-- Navigation-->
@@ -177,9 +219,9 @@
 			<c:forEach var="association" items="${associationList}">
 				<div class="col-lg-4 col-sm-6">
 					<a class="portfolio-box"
-						href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
-						title="Project Name"> <img class="img-fluid"
-						src="resources/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
+						title="Project Name"> 
+						<img class="mx-auto" src="${association.photo}" height="350" alt="..." />
 						<div class="portfolio-box-caption">
 							<div class="project-category text-white-50">Evenement</div>
 							<div class="${association.associationName}">${association.associationName}</div>
@@ -308,6 +350,16 @@
                              data-sb-feedback="email:email">l'email n'est
                             pas valide.</div>
                     </div>
+                     <!-- Logo Association input-->
+                    <div class="form-floating mb-3">
+                        <form:input class="form-control" id="photo" type="text"
+                               placeholder="Entrez l'url de votre logo"
+                               data-sb-validations="required" path="photo"/>
+                               <form:label for="photo" path="photo">Logo*</form:label>
+                        <div class="invalid-feedback"
+                             data-sb-feedback="photo:required">Un logo est
+                            requis.</div>
+                    </div>
                      <!-- Password Association input-->
                     <div class="form-floating mb-3">
                         <form:input class="form-control" id="password" type="password"
@@ -352,6 +404,7 @@
                 </form:form>
             </div>
         </div>
+<<<<<<< HEAD
 
 <!-- 			<div class="row gx-4 gx-lg-5 justify-content-center"> -->
 <!-- 				<div class="col-lg-4 text-center mb-5 mb-lg-0"> -->
@@ -381,5 +434,283 @@
 	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+=======
+    </div>
+</section>
+<!-- Events List-->
+<section class="page-section" id="subscribe">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+
+            <div class="col-lg-6" text-align="center">
+                <table border="1px" cellpadding="0" cellspacing="0">
+                    <thead>
+                    <tr>
+                        <th>Nom de l'Association</th>
+                        <th>Ville</th>
+                        <th>Description/objet</th>
+                        <th>Lien vers l'association</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <c:forEach var="association" items="${associationList}">
+                        <tr>
+                            <td>${association.associationName}</td>
+                            <td>${association.city}</td>
+                            <td>${association.description}</td>
+                            <td><a
+                                    href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}">Visitez leur plateforme !</a></td>
+                            <td>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+        
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-4 text-center mb-5 mb-lg-0">
+                <i class="bi-phone fs-2 mb-3 text-muted"></i>
+                <div>+1 (555) 123-4567</div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section" id="subscribe">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center mb-5">
+            <div class="col-lg-6" text-align="center">
+              <div id="mapid" style="width:100%; height: 480px;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script>
+    var mymap = L.map('mapid').setView([48.822689, 2.323608], 7);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoid2Fycnk1NSIsImEiOiJja3VlNXNoaDIwM2d4MzBva2pndWN3MG9rIn0.NU5krvNXQ-XaHze2ssvZOg'
+    }).addTo(mymap);
+     var popup = L.popup();
+    function onMapClick(e) {
+       // alert("You clicked the map at " + e.latlng);
+        popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+    }
+
+    mymap.on('click', onMapClick); */
+    
+     mymap.on('click', function (e) {
+        geocoder.reverse(e.latlng, map.options.crs.scale(map.getZoom()), function (results) {
+            var r = results[0];
+            if (r) {
+                if (marker) {
+                    marker
+                        .setLatLng(r.center)
+                        .setPopupContent(r.html || r.name)
+                        .openPopup();
+                } else {
+                    marker = L.marker(r.center)
+                        .bindPopup(r.name)
+                        .addTo(mymap)
+                        .openPopup();
+                }
+            }
+            /*
+function localisation() {
+    let address = $("#address").val();
+
+    var geocoder = L.Control.Geocoder.nominatim();
+    var marker;
+
+    geocoder.geocode(address, function (result) {
+        var r = result[0];
+
+        if (r) {
+            if (marker) {
+                marker
+                    .setLatLng(r.center)
+                    .setPopupContent(r.html || r.name)
+                    .openPopup();
+            } else {
+                marker = L.marker(r.center)
+                    .bindPopup(r.name)
+                    .addTo(mymap)
+                    .openPopup();
+            }
+        }
+    });
+} */
+
+   	
+    </script>
+
+<!-- Portfolio-->
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/1.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/1.jpg" alt="..." />
+          S          <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/2.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/2.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/3.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/3.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/4.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/4.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/5.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/5.jpg" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box"
+                   href="resources/assets/img/portfolio/fullsize/6.jpg"
+                   title="Project Name"> <img class="img-fluid"
+                                              src="resources/assets/img/portfolio/thumbnails/6.jpg" alt="..." />
+                    <div class="portfolio-box-caption p-3">
+                        <div class="project-category text-white-50">Category</div>
+                        <div class="project-name">Project Name</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Call to action-->
+<section class="page-section bg-dark text-white">
+    <div class="container px-4 px-lg-5 text-center">
+        <h2 class="mb-4">Découvrez des projets déjà créés !</h2>
+        <a class="btn btn-light btn-xl"
+           href="https://startbootstrap.com/theme/creative/">Voir davantage
+            de projets !...</a>
+    </div>
+</section>
+<!-- Services-->
+<section class="page-section" id="services">
+    <div class="container px-4 px-lg-5">
+        <h2 class="text-center mt-0">At Your Service</h2>
+        <hr class="divider" />
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2">
+                        <i class="bi-gem fs-1 text-primary"></i>
+                    </div>
+                    <h3 class="h4 mb-2">Sturdy Themes</h3>
+                    <p class="text-muted mb-0">Our themes are updated regularly to
+                        keep them bug free!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2">
+                        <i class="bi-laptop fs-1 text-primary"></i>
+                    </div>
+                    <h3 class="h4 mb-2">Up to Date</h3>
+                    <p class="text-muted mb-0">All dependencies are kept current
+                        to keep things fresh.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2">
+                        <i class="bi-globe fs-1 text-primary"></i>
+                    </div>
+                    <h3 class="h4 mb-2">Ready to Publish</h3>
+                    <p class="text-muted mb-0">You can use this design as is, or
+                        you can make changes!</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="mt-5">
+                    <div class="mb-2">
+                        <i class="bi-heart fs-1 text-primary"></i>
+                    </div>
+                    <h3 class="h4 mb-2">Made with Love</h3>
+                    <p class="text-muted mb-0">Is it really open source if it's
+                        not made with love?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="bg-light py-5">
+    <div class="container px-4 px-lg-5">
+        <div class="small text-center text-muted">Copyright &copy; 2021
+            - Charity Raise</div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SimpleLightbox plugin JS-->
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+<!-- Core theme JS-->
+<script src="<c:out value="resources/js/scripts.js"/>"></script>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
 </body>
 </html>

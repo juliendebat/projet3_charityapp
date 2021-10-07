@@ -10,3 +10,4 @@ public interface VolonteerRepository extends CrudRepository<Volonteer, Long>{
 	Volonteer findByUser(User user);
 
 }
+

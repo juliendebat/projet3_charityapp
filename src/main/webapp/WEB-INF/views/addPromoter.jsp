@@ -101,12 +101,12 @@
 			</div>
 			<div class="col-md-6 volunteer pl-md-5 ftco-animate">
 				<h3 class="mb-3">S'inscrire comme organisateur</h3>
-				<button class="btn btn-secondary bg-dark mb-3 border-white rounded-pill" id="b1">Je propose une activité</button>
+<!-- 				<button class="btn btn-secondary bg-dark mb-3 border-white rounded-pill" id="b1">Je propose une activité</button> -->
 				<form id="form1" name="form" action="" class="volunter-form"
 					method="post">
 
 					<spring:bind path="user.lastName">
-						<label hidden id="1" for="lastname"></label>
+						<label for="lastname"></label>
 						<div class="form-group">
 							<input id="2" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -115,7 +115,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.firstName">
-						<label hidden id="3" for="firstname"></label>
+						<label for="firstname"></label>
 						<div class="form-group">
 							<input id="firstname" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -124,7 +124,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.email">
-						<label hidden for="email"></label>
+						<label for="email"></label>
 						<div class="form-group">
 							<input id="email" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -133,7 +133,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.age">
-						<label hidden id="5" for="age"></label>
+						<label for="age"></label>
 						<div class="form-group">
 							<input id="age" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -142,7 +142,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.address">
-						<label hidden id="7" for="address"></label>
+						<label for="address"></label>
 						<div class="form-group">
 							<input id="address" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -151,7 +151,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.complementaryAddress">
-						<label hidden id="10" for="compAdd"></label>
+						<label for="compAdd"></label>
 						<div class="form-group">
 							<input id="compAdd" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -160,7 +160,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.town">
-						<label hidden id="8" for="town"></label>
+						<label for="town"></label>
 						<div class="form-group">
 							<input id="town" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -169,7 +169,7 @@
 					</spring:bind>
 
 					<spring:bind path="user.mobilePhone">
-						<label hidden id="9" for="mobile"></label>
+						<label for="mobile"></label>
 						<div class="form-group">
 							<input id="mobile" type="text" class="form-control"
 								name="${status.expression}" value="${status.value}"
@@ -179,44 +179,44 @@
 
 
 					<spring:bind path="promoter.password">
-						<label hidden id="10" for="password"></label>
+						<label for="password"></label>
 						<div class="form-group">
 							<input class="form-control" id="password" type="password"
 								name="${status.expression}" value="${status.value}"
 								placeholder="Mot de passe">
 					</spring:bind>
-					<div id="prom">
+<!-- 					<div id="prom"> -->
 
-						<h3 class="mb-3">Détail de l'activité proposée :</h3>
+<!-- 						<h3 class="mb-3">Détail de l'activité proposée :</h3> -->
 
-						<spring:bind path="event.eventName">
-							<label hidden id="11" for="eventName"></label>
-							<div class="form-group">
-								<input class="form-control" id="eventName" type="text"
-									name="${status.expression}" value="${status.value}"
-									placeholder="Nom de l'activité">
-							</div>
-						</spring:bind>
+<%-- 						<spring:bind path="event.eventName"> --%>
+<!-- 							<label for="eventName"></label> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<input class="form-control" id="eventName" type="text" -->
+<%-- 									name="${status.expression}" value="${status.value}" --%>
+<!-- 									placeholder="Nom de l'activité"> -->
+<!-- 							</div> -->
+<%-- 						</spring:bind> --%>
 
 
-						<spring:bind path="event.eventDescription">
-							<label hidden id="12" for="eventDescription"></label>
-							<div class="form-group">
-								<input class="form-control" id="eventDescription" type="text"
-									name="${status.expression}" value="${status.value}"
-									placeholder="Description de l'activité">
-							</div>
-						</spring:bind>
+<%-- 						<spring:bind path="event.eventDescription"> --%>
+<!-- 							<label for="eventDescription"></label> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<input class="form-control" id="eventDescription" type="text" -->
+<%-- 									name="${status.expression}" value="${status.value}" --%>
+<!-- 									placeholder="Description de l'activité"> -->
+<!-- 							</div> -->
+<%-- 						</spring:bind> --%>
 
-						<spring:bind path="event.photo">
-							<label hidden id="13" for="photo"></label>
-							<div class="form-group">
-								<input class="form-control" id="photo" type="text"
-									name="${status.expression}" value="${status.value}"
-									placeholder="Image de l'activité">
-							</div>
-						</spring:bind>
-					</div>
+<%-- 						<spring:bind path="event.photo"> --%>
+<!-- 							<label for="photo"></label> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<input class="form-control" id="photo" type="text" -->
+<%-- 									name="${status.expression}" value="${status.value}" --%>
+<!-- 									placeholder="Image de l'activité"> -->
+<!-- 							</div> -->
+<%-- 						</spring:bind> --%>
+<!-- 					</div> -->
 
 					<div class="form-group">
 						<input type="submit" value="S'inscrire"
@@ -262,12 +262,11 @@
 
 		function hide1() {
 
+
 			$("#prom").toggle();
 
 		}
 	</script>
-
-
 
 
 </body>

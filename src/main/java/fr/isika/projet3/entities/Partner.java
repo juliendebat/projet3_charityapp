@@ -19,7 +19,7 @@ public class Partner {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private int funding;
-	private String password;
+
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
@@ -53,11 +53,6 @@ public class Partner {
 	public void setFunding(int funding) {
 		this.funding = funding;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 
 }

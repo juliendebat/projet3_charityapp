@@ -1,4 +1,3 @@
-
 <%@include file="headerAdmin.jsp"%>
     <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <c:choose>
@@ -60,7 +59,6 @@
                     <td><form:label path="photo">Logo :</form:label></td>
                     <td><form:input path="photo"/></td>
                 </tr>
-	
                 <tr>
                     <td><input type="submit" value="Valider"/></td>
                 </tr>

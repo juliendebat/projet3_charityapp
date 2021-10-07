@@ -267,3 +267,4 @@ public class DashboardAdminController {
 		return "redirect:/loginAssociation"; // Where you go after logout here.
 	}
 }
+

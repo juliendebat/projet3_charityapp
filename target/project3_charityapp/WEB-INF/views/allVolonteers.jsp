@@ -11,7 +11,12 @@
 	<br>
 	<br>
 	<br>
+<<<<<<< HEAD
 	<a href="${pageContext.request.contextPath}/addVolonteer">Add Volonteer</a>
+=======
+	<a href="${pageContext.request.contextPath}/addVolonteer">Add
+		Volonteer</a>
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
 	<br>
 	<h3>List of all volonteers</h3>
 	${message}
@@ -41,4 +46,9 @@
 
 	</table>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe

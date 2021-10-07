@@ -12,7 +12,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="javascript" type="text/javascript"
-	src="resources/js/jquery-3.6.0.min.js">
+	src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js">
 	
 </script>
 <meta name="viewport"
@@ -27,44 +27,44 @@
 
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/open-iconic-bootstrap.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/open-iconic-bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/animate.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/animate.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.carousel.min.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/owl.carousel.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.theme.default.min.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/owl.theme.default.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/magnific-popup.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/magnific-popup.css"/>">
-
-<link rel="stylesheet" href="<c:out value="../resources/css/aos.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/aos.css">
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/ionicons.min.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/ionicons.min.css">
+
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/bootstrap-datepicker.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/bootstrap-datepicker.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css">
 
 
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/jquery.timepicker.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/flaticon.css"/>">
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css">
 <link rel="stylesheet"
-	href="<c:out value="../resources/css/icomoon.css"/>">
-<link rel="stylesheet"
-	href="<c:out value="../resources/css/styles2.css"/>">
-<link href="<c:out value="resources/css/styles.css"/>" rel="stylesheet" />
+	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css">
 <title>S'inscrire comme organisateur</title>
 </head>
-<body>
+<body id="page-top">
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 	<div class="container">
-		<a class="navbar-brand"
-			href="${pageContext.request.contextPath}/homePageAssociation/${association.id}">${association.associationName}</a>
+		<img class="img-fluid" src="${association.photo}" height="50"
+			width="50" alt="..." /> <a class="navbar-brand" href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}">${association.associationName}</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#ftco-nav" aria-controls="ftco-nav"
 			aria-expanded="false" aria-label="Toggle navigation">
@@ -74,280 +74,160 @@
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 					class="nav-link">Accueil</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
+					href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/allEvents/${association.id}"
-					class="nav-link">Evenements</a></li>
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
+					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/loginUser"
+					href="${pageContext.request.contextPath}/loginPromoter/${association.id}"
 					class="nav-link">Se Connecter</a></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
+	<section class="ftco-section-3 img"
+		style="background-image: url(../resources/template_HomePageAssoc/images/bg_3.jpg);">
+	<div class="overlay"></div>
 
-	<section class="ftco-section contact-section ftco-degree-bg"
-		style="background-image:url(../resources/images/bg_2.jpg)">
-	<div class="container px-4 px-lg-5">
-		<h4 class="text-center mt-0" style="color: white">S'inscrire
-			comme organisateur</h4>
-		<hr class="divider"
-			style="height: 2px; border-width: 0; color: #f86f2d; background-color: #f86f2d;" />
-		
-		<div class="row gx-4 gx-lg-5 justify-content-center mb-5">
-			<div class="col-lg-6">
-			<button class="btn btn-primary py-2 px-5 col mb-3" id="b1">Je
-			propose une activité</button>
-		<br />
-				<form action="" method="post">
-					<div class="form-group row">
-						<spring:bind path="user.lastName">
-							<label style="color: white" for="lastname">Nom :</label>
-							<div class="col">
-								<input class="col" id="lastname " type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.firstName">
-							<label style="color: white" for="firstname">Prénom :</label>
-							<div class="col">
-								<input class="col" id="firstname" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.email">
-							<label style="color: white" for="email">Mail :</label>
-							<div class="col">
-								<input class="col" id="email" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.age">
-							<label style="color: white" for="age">Age :</label>
-							<div class="col">
-								<input class="col" id="age" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.address">
-							<label style="color: white" for="address">Adresse :</label>
-							<div class="col">
-								<input class="col" id="address" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.town">
-							<label style="color: white" for="town">Ville :</label>
-							<div class="col">
-								<input class="col" id="town" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.mobilePhone">
-							<label style="color: white" for="mobile">Numéro de mobile
-								:</label>
-							<div class="col">
-								<input class="col" id="mobile" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="user.complementaryAddress">
-							<label style="color: white" for="compAdd">Complément
-								d'addresse :</label>
-							<div class="col">
-								<input class="col" id="compAdd" type="text"
-									name="${status.expression}" value="${status.value}">
-							</div>
-							<br />
-						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="promoter.mdp">
-							<label style="color: white" for="password">Mot de passe :</label>
-							<div class="col">
-								<input class="col" id="password" type="password"
-									name="${status.expression}" value="${status.value}"> <br />
-							</div>
-						</spring:bind>
-					</div>
-					<div id="prom" style="color: white">
-					
-					<h3 class="mb-3 text-center" style="color: white">Détail de l'activité proposée :</h3>
-					<div class="form-group row">
+	<div class="container">
+		<div class="row d-md-flex">
+			<div class="col-md-6 d-flex ftco-animate">
+				<div class="img img-2 align-self-stretch"
+					style="background-image: url(../resources/template_HomePageAssoc/images/event.jpg);"></div>
+			</div>
+			<div class="col-md-6 volunteer pl-md-5 ftco-animate">
+				<h3 class="mb-3">S'inscrire comme organisateur</h3>
+				<button class="btn btn-secondary bg-dark mb-3 border-white rounded-pill" id="b1">Je propose une activité</button>
+				<form id="form1" name="form" action="" class="volunter-form"
+					method="post">
+
+					<spring:bind path="user.lastName">
+						<label hidden id="1" for="lastname"></label>
+						<div class="form-group">
+							<input id="2" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Votre Nom">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.firstName">
+						<label hidden id="3" for="firstname"></label>
+						<div class="form-group">
+							<input id="firstname" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Votre Prénom">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.email">
+						<label hidden for="email"></label>
+						<div class="form-group">
+							<input id="email" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Email">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.age">
+						<label hidden id="5" for="age"></label>
+						<div class="form-group">
+							<input id="age" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Âge">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.address">
+						<label hidden id="7" for="address"></label>
+						<div class="form-group">
+							<input id="address" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Adresse">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.complementaryAddress">
+						<label hidden id="10" for="compAdd"></label>
+						<div class="form-group">
+							<input id="compAdd" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Adresse complémentaire">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.town">
+						<label hidden id="8" for="town"></label>
+						<div class="form-group">
+							<input id="town" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Ville">
+						</div>
+					</spring:bind>
+
+					<spring:bind path="user.mobilePhone">
+						<label hidden id="9" for="mobile"></label>
+						<div class="form-group">
+							<input id="mobile" type="text" class="form-control"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Téléphone">
+						</div>
+					</spring:bind>
+
+
+					<spring:bind path="promoter.password">
+						<label hidden id="10" for="password"></label>
+						<div class="form-group">
+							<input class="form-control" id="password" type="password"
+								name="${status.expression}" value="${status.value}"
+								placeholder="Mot de passe">
+					</spring:bind>
+					<div id="prom">
+
+						<h3 class="mb-3">Détail de l'activité proposée :</h3>
+
 						<spring:bind path="event.eventName">
-							
-								<label  style="color: white" for="eventName">Nom
-									de l'évènement :</label>
-								<div class="col">
-									<input class="col" id="eventName" type="text" name="${status.expression}"
-										value="${status.value}">
-								</div>
-							
-							<br />
+							<label hidden id="11" for="eventName"></label>
+							<div class="form-group">
+								<input class="form-control" id="eventName" type="text"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Nom de l'activité">
+							</div>
 						</spring:bind>
-					</div>
-					<div class="form-group row">
-						<spring:bind path="event.eventDescription">
-							
-								<label style="color: white" for="eventDescription">Description
-									:</label>
-								<div class="col">
-									<input class="col" id="eventDescription" type="text"
-										name="${status.expression}" value="${status.value}">
-								</div>
-							
-							<br />
 
+
+						<spring:bind path="event.eventDescription">
+							<label hidden id="12" for="eventDescription"></label>
+							<div class="form-group">
+								<input class="form-control" id="eventDescription" type="text"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Description de l'activité">
+							</div>
+						</spring:bind>
+
+						<spring:bind path="event.photo">
+							<label hidden id="13" for="photo"></label>
+							<div class="form-group">
+								<input class="form-control" id="photo" type="text"
+									name="${status.expression}" value="${status.value}"
+									placeholder="Image de l'activité">
+							</div>
 						</spring:bind>
 					</div>
-					</div>
-					<div class="form-group row">
+
+					<div class="form-group">
 						<input type="submit" value="S'inscrire"
-							class="btn btn-primary py-2 px-5 col">
+							class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">
 					</div>
+
 				</form>
 			</div>
 		</div>
 	</div>
 	</section>
-
-	<!-- <!-- 	<button id="b1">Je représente un promoteur</button> -->
-
-	<!-- <!-- 	<script language="javascript" type="text/javascript"> -->
-	<!-- // 		$(document).ready(function() { -->
-
-	<!-- // 			$("p").hide(); -->
-	<!-- // 			$("#b1").click(hide1); -->
-	<!-- // 		}); -->
-
-	<!-- // 		function hide1() { -->
-
-	<!-- // 			$("p").toggle(); -->
-
-	<!-- // 		} -->
-	<!-- <!-- 	</script> -->
-
-
-	<%-- 	<form action="" method="post"> --%>
-
-
-	<%-- 		<spring:bind path="user.lastName"> --%>
-	<!-- 			<label for="lastname">Nom :</label> -->
-	<%-- 			<input id="lastname " type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-	<%-- 		<spring:bind path="user.firstName"> --%>
-	<!-- 			<label for="firstname">Prénom :</label> -->
-	<%-- 			<input id="firstname" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-
-	<%-- 		</spring:bind> --%>
-	<%-- 		<spring:bind path="user.email"> --%>
-	<!-- 			<label for="email">Mail :</label> -->
-	<%-- 			<input id="email" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="user.age"> --%>
-	<!-- 			<label for="age">Age :</label> -->
-	<%-- 			<input id="age" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="user.address"> --%>
-	<!-- 			<label for="adress">Adresse :</label> -->
-	<%-- 			<input id="address" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="user.town"> --%>
-	<!-- 			<label for="town">Ville :</label> -->
-	<%-- 			<input id="town" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-
-	<%-- 		<spring:bind path="user.mobilePhone"> --%>
-	<!-- 			<label for="mobile">Numéro de mobile :</label> -->
-	<%-- 			<input id="mobile" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="user.complementaryAddress"> --%>
-	<!-- 			<label for="compAdd">Complément d'addresse :</label> -->
-	<%-- 			<input id="compAdd" type="text" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="promoter.mdp"> --%>
-	<!-- 			<label for="password">Mot de passe :</label> -->
-	<%-- 			<input id="password" type="password" name="${status.expression}" --%>
-	<%-- 				value="${status.value}"> --%>
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-	<!-- 		<p>Détail de l' entreprise ou de l'association représentée :</p> -->
-	<%-- 		<spring:bind path="event.eventName"> --%>
-	<!-- 			<p> -->
-	<!-- 				<label for="eventName">Nom de l'évènement :</label> <input -->
-	<%-- 					id="eventName" type="text" name="${status.expression}" --%>
-	<%-- 					value="${status.value}"> --%>
-	<!-- 			</p> -->
-	<!-- 			<br /> -->
-	<%-- 		</spring:bind> --%>
-
-	<%-- 		<spring:bind path="event.eventDescription"> --%>
-	<!-- 			<p> -->
-	<!-- 				<label for="eventDescription">Description :</label> <input -->
-	<%-- 					id="eventDescription" type="text" name="${status.expression}" --%>
-	<%-- 					value="${status.value}"> --%>
-	<!-- 			</p> -->
-	<!-- 			<br /> -->
-
-	<%-- 		</spring:bind> --%>
-
-	<!-- 		<input type="submit" value="Create" /> -->
-	<%-- 	</form> --%>
-
-	<!-- loader -->
-<!-- 	<div id="ftco-loader" class="show fullscreen"> -->
-<%-- 		<svg class="circular" width="48px" height="48px"> <circle --%>
-<%-- 			class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" --%>
-<%-- 			stroke="#eeeeee" /> <circle class="path" cx="24" cy="24" r="22" --%>
-<%-- 			fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg> --%>
-<!-- 	</div> -->
 
 
 	<script src="<c:out value="../resources/js/jquery.min.js"/>"></script>
@@ -382,7 +262,91 @@
 
 		function hide1() {
 
+<<<<<<< HEAD
 			$("#prom").toggle();
+=======
+	<form action="" method="post" >
+		<spring:bind path="user.lastName">
+		    <label for="lastname">Nom :</label>
+			<input id="lastname "type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		<spring:bind path="user.firstName">
+		 <label for="firstname">Prénom :</label>
+			<input id="firstname"type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />
+			
+		</spring:bind>
+		<spring:bind path="user.email">
+		 <label for="email">Mail :</label>
+			<input id="email" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+
+		<spring:bind path="user.age">
+		 <label for="age">Age :</label>
+			<input id="age" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		
+		<spring:bind path="user.address">
+		 <label for="adress">Adresse :</label>
+			<input id="address" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		
+			<spring:bind path="user.town">
+		 <label for="town">Ville :</label>
+			<input id="town" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		
+		
+			<spring:bind path="user.mobilePhone">
+		 <label for="mobile">Numéro de mobile :</label>
+			<input id="mobile" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+		
+			<spring:bind path="user.complementaryAddress">
+		 <label for="compAdd">Complément d'addresse :</label>
+			<input id="compAdd" type="text" name="${status.expression}"
+				value="${status.value}">
+			<br />			
+		</spring:bind>
+			
+			<spring:bind path="promoter.password">
+		 <label for="password">Mot de passe :</label>
+			<input id="password" type="password" name="${status.expression}"
+				value="${status.value}">
+			<br />
+		</spring:bind>
+<!-- 		<p>Détail de l' entreprise ou de l'association représentée :</p>	 -->
+<%-- 		<spring:bind path="event.eventName"> --%>
+<!-- 		<p> <label for="eventName">Nom de l'évènement :</label> -->
+<%-- 			<input id="eventName" type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"></p> --%>
+<!-- 			<br /> -->
+<%-- 				</spring:bind> --%>
+			
+<%-- 				<spring:bind path="event.eventDescription"> --%>
+<!-- 		<p> <label for="eventDescription">Description :</label> -->
+<%-- 			<input id="eventDescription" type="text" name="${status.expression}" --%>
+<%-- 				value="${status.value}"></p> --%>
+<!-- 			<br /> -->
+			
+<%-- 		</spring:bind> --%>
+		
+		<input type="submit" value="Create" />
+	</form>
+>>>>>>> 3256f414cf3bbf9fc1806423f75459c38f6706fe
 
 		}
 	</script>

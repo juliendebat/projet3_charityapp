@@ -1,6 +1,7 @@
 package fr.isika.projet3.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -23,6 +24,7 @@ import fr.isika.projet3.entities.User;
 import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
 import fr.isika.projet3.service.VolonteerService;
 
@@ -33,6 +35,7 @@ public class VolonteerController {
 	private EventService eventService;
 	private UserService userService;
 	private AssociationService associationService;
+	private PromoterService promoterService;
 
 
 	public VolonteerController() {
@@ -41,12 +44,13 @@ public class VolonteerController {
 
 	@Autowired
 	public VolonteerController(VolonteerService volonteerService, UserService userService,
-			AssociationService associationService, EventService eventService) {
+			AssociationService associationService, EventService eventService, PromoterService promoterService) {
 		super();
 		this.volonteerService = volonteerService;
 		this.eventService = eventService;
 		this.userService = userService;
 		this.associationService = associationService;
+		this.promoterService = promoterService;
 	}
 	
 	
@@ -71,32 +75,40 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayNewVolonteerForm(@PathVariable Long id) {
+	public ModelAndView displayNewVolonteerForm(@PathVariable Long id, @ModelAttribute Association association) {
 		ModelAndView mv = new ModelAndView("addVolonteer");
-		Association association = associationService.getAssociationById(id);
-		List<Event> eventList = eventService.getAllEvents();
+		association = associationService.getAssociationById(id);
+		//List<Event> eventList = eventService.getAllEventsByAssociation(association);
+		//Add seb
+		List<Promoter> promoters = userService.getAllPromoterByAssociation(association);
+		List<Event> eventList = eventService.getAllEventsByPromoters(promoters);
 		mv.addObject("headerMessage", "Add User Details");
 		mv.addObject("user", new User());
 		mv.addObject("volonteer", new Volonteer());
 		mv.addObject("eventList", eventList);
 		mv.addObject("association", association);
+		//Add seb
+		mv.addObject("promoters", promoters);
 		return mv;
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.POST)
 	public ModelAndView saveNewVolonteer(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Event event,
-			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, BindingResult result) {
+			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, @ModelAttribute Promoter promoter, BindingResult result) {
 		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
 		}
 		association = associationService.getAssociationById(id);
+		//Add seb
+		//promoter = promoterService.getPromoterByEvent(event);
 		user.setAssociation(association);
 		//boolean isUserAdded = userService.saveUser(user);
 		volonteer.setUser(user);
 		//boolean isVolonteerAdded = volonteerService.saveVolonteer(volonteer);
 		event.setVolonteer(volonteer);
+		
 		boolean isEventAdded = eventService.saveEvent(event);
 
 

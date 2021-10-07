@@ -22,7 +22,8 @@ public class Volonteer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
+
+	private Long id;
 	private String dispo;
 	
 	
@@ -52,11 +53,12 @@ public class Volonteer {
 		this.user = user;
 	}
 	
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
@@ -69,12 +71,6 @@ public class Volonteer {
 		lEvent.add(event);
 	}
 
-
-
-	
-	
-	
-	
-	
-
 }
+
+	

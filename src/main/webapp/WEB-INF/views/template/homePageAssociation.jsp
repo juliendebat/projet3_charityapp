@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <title>Bienvenue sur la plateforme de ${association.associationName}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,6 +55,7 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
+
           <li class="nav-item active"><a href="#page-top" class="nav-link">Accueil</a></li>
           <li class="nav-item"><a href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}" class="nav-link">Faire un Don</a></li>
           <li class="nav-item"><a href="#events" class="nav-link">Evènements</a></li>
@@ -65,11 +67,14 @@
   </nav>
     <!-- END nav -->
     
+
     <div class="hero-wrap" style="background-image: url('${association.theme}');" data-stellar-background-ratio="0.5">
+
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-7 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+
             <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">${association.description}</h1>
 <!--             <p class="mb-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Created by <a href="#">Colorlib.com</a></p> -->
 
@@ -86,7 +91,9 @@
             <div class="block-18 color-1 align-items-stretch">
               <div class="text">
               	<span>Déjà récolté plus de </span>
-                <strong class="number" data-number="15456" style="font-size: 35px">0</strong>
+
+                <strong class="number" data-number="${fullDonationAmountForOneAssociation}" style="font-size: 35px">0</strong>
+
                 <span>€uros de Dons pour cette Association</span>
               </div>
             </div>
@@ -95,8 +102,10 @@
             <div class="block-18 color-2 align-items-stretch">
               <div class="text">
               	<h3 class="mb-2">Faites un Don</h3>
+
               	<p>Vous pouvez faire un don ponctuel en ligne, par carte bancaire ou paypal, en quelques clics seulement, sur notre formulaire de don sécurisé. C'est rapide et très simple : il vous suffit de renseigner le montant de votre don, vos coordonnées personnelles, ainsi que vos informations bancaires.</p>
               	<p><a href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Faire un don</a></p>
+
               </div>
             </div>
           </div>
@@ -104,8 +113,10 @@
             <div class="block-18 color-3 align-items-stretch">
               <div class="text">
               	<h3 class="mb-2">Devenez Bénévole</h3>
+
               	<p>Vous souhaitez vous investir auprès d’une association et vous vous posez de nombreuses questions : Est-ce vraiment fait pour moi ? Puis-je concilier cet engagement avec mon emploi du temps ? Comment valoriser cette expérience ? Étudiants, salariés, retraités, demandeurs d’emploi… Rassurez-vous ! Tout le monde peut devenir bénévole, et c’est bien plus simple qu’on ne le pense.</p>
               	<p><a href="${pageContext.request.contextPath}/addVolonteer/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Devenir bénévole</a></p>
+
               </div>
             </div>
           </div>
@@ -113,8 +124,10 @@
             <div class="block-18 color-2 align-items-stretch">
               <div class="text">
               	<h3 class="mb-2">Devenez Organisateur</h3>
+              	
               	<p>Rien de plus simple ! Cliquez sur le bouton ci-dessous et remplissez le formulaire. Nous vous contacterons pour nous assurer que vous partagez la même vision que nous. Si le courant passe, nous vous donnerons accès à différents documents utiles et nous vous aiderons à organiser l'événement.</p>
               	<p><a href="${pageContext.request.contextPath}/addPromoter/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Devenir organisateur</a></p>
+
               </div>
             </div>
           </div>
@@ -122,14 +135,17 @@
             <div class="block-18 color-3 align-items-stretch">
               <div class="text">
               	<h3 class="mb-2">Devenez Sponsor</h3>
+
               	<p>Souvent associé aux partenariats liant de grands équipementiers aux sportifs stars, devenir est en fait à la portée d’entreprise de toute taille. Il consiste à soutenir par exemple, un évènement culturel ou sportif, une association ou une personne, en contrepartie de visibilité pour l’entreprise.</p>
               	<p><a href="${pageContext.request.contextPath}/addPartner/${association.id}" class="btn btn-secondary bg-dark mb-3 border-white rounded-pill">Devenir sponsor</a></p>
+
               </div>
             </div>
           </div>
     		</div>
     	</div>
     </section>
+
 
 <!--     <section class="ftco-section"> -->
 <!--     	<div class="container"> -->
@@ -267,10 +283,12 @@
 <!--     	</div> -->
 <!--     </section> -->
 
+
     <section class="ftco-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section ftco-animate text-center">
+
             <h2 class="mb-4">Dons</h2>
             <p>“Le don est échange de vie ; et la vie, échange de don.” <i>Paul Zumthor</i></p>
           </div>
@@ -287,15 +305,17 @@
         					<span class="position">Donated Just now</span>
         					<div class="text">
 <!-- 		        				<p>A donné <span>$300</span> pour <a href="#">Children Needs Food</a></p> -->
+
 		        			</div>
         				</div>
         			</div>
         		</div>
         	</div>
-        	</c:forEach>
+        </c:forEach>
         </div>
       </div>
     </section>
+
 
 <!--     <section class="ftco-gallery"> -->
 <!--     	<div class="d-md-flex"> -->
@@ -544,11 +564,13 @@
 <!--         </div> -->
 <!--       </div> -->
 <!--     </footer> -->
+
     
   
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
 
 
 <script
@@ -585,6 +607,7 @@
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/google-map.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/main.js"></script>
+
 
   </body>
 </html>
