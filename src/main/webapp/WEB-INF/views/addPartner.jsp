@@ -76,7 +76,7 @@
 					href="${pageContext.request.contextPath}/donation/add_donationstdby/${association.id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/template/homePageAssociation/#events"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
 					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
 					href="${pageContext.request.contextPath}/loginPromoter/${association.id}"

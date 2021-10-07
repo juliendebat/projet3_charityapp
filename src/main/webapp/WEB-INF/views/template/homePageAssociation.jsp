@@ -413,7 +413,7 @@
         	<c:forEach var="event" items="${eventList}">
         	<div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('${event.photo}');">
+              <a href="#" class="block-20" style="background-image: url('${event.photo}');">
               </a>
               <div class="text p-4 d-block">
                 <div class="${event.eventName}">
