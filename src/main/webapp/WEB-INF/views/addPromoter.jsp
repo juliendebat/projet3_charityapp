@@ -80,10 +80,10 @@
 					href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/template/homePageAssociation/#events"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
 					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/loginUser"
+					href="${pageContext.request.contextPath}/loginPromoter/${association.id}"
 					class="nav-link">Se Connecter</a></li>
 			</ul>
 		</div>

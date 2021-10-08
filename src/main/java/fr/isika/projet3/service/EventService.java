@@ -15,6 +15,6 @@ public interface EventService {
 	public List<Event> getEventsByPromoter(Promoter promoterinProgress);
 	public int countEventsByAssociation(Association association);
 	public List<Event> getAllEventsByAssociation(Association association);
-	
+	public List<Event> getAllEventsByPromoters(List<Promoter> promoters);
 
 }

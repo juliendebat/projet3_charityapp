@@ -47,7 +47,7 @@
           <li class="nav-item active"><a href="#page-top" class="nav-link">Accueil</a></li>
           <li class="nav-item"><a href="${pageContext.request.contextPath}/donation/add_donation/${association.id}" class="nav-link">Faire un Don</a></li>
           <li class="nav-item"><a href="#events" class="nav-link">Evènements</a></li>
-          <li class="nav-item"><a href="${pageContext.request.contextPath}/loginPromote" class="nav-link">Se connecter</a></li>
+          <li class="nav-item"><a href="${pageContext.request.contextPath}/loginPromoter/${association.id}" class="nav-link">Se connecter</a></li>
           
         </ul>
       </div>
@@ -270,7 +270,7 @@
         	<div class="col-lg-4 d-flex mb-sm-4 ftco-animate">
         		<div class="staff">
         			<div class="d-flex mb-4">
-        				<div class="img" style="background-image: url(${pageContext.request.contextPath}/template_HomePageAssociation/resources/images/emoji.png);"></div>
+        				<div class="img" style="background-image: url(${pageContext.request.contextPath}/resources/template_HomePageAssoc/images/emoji.png);"></div>
         				<div class="info ml-4">
         					<h3><a class="${user.firstName}" href="#">${user.firstName}</a></h3>
         					<h3><a class="${user.lastName}" href="#">${user.lastName}</a></h3>
@@ -403,9 +403,9 @@
         	<c:forEach var="event" items="${eventList}">
         	<div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url(${event.photo});">
+              <a href="${pageContext.request.contextPath}/addVolonteer/${association.id}" class="block-20" style="background-image: url(${event.eventThumbnailLink});">
               </a>
-              <div class="text p-4 d-block">
+              <div class="text p-4 d-block">              
                 <div class="${event.eventName}">
                 <h3 class="heading mb-4"><a href="#">${event.eventName}</a></h3>
                 </div>

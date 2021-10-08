@@ -56,6 +56,10 @@
                     <td><form:label path="theme">Thème :</form:label></td>
                     <td><form:input path="theme"/></td>
                 </tr>
+                <tr>
+                    <td><form:label path="photo">Photo :</form:label></td>
+                    <td><form:input path="photo"/></td>
+                </tr>
 	
                 <tr>
                     <td><input type="submit" value="Valider"/></td>

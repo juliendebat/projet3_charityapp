@@ -53,7 +53,7 @@
 									<tr>
 										<td><c:out value="${ volonteer.user.firstName }" /></td>
 										<td><c:out value="${ volonteer.user.lastName }" /></td>
-										<td> <td><a href="${pageContext.request.contextPath}/dashboardAdmin/mailForm/${users.id}"><c:out value="${ volonteer.user.email }" /></a></td>
+										<td> <td><a href="${pageContext.request.contextPath}/dashboardPromoter/mailForm/${volonteer.user.id}"><c:out value="${ volonteer.user.email }" /></a></td>
 										<td><c:out value="${ volonteer.user.mobilePhone }" /></td>
 										<td><c:out value="${ volonteer.user.age }" /></td>
 										<td><c:out value="${ volonteer.user.address }" /></td>

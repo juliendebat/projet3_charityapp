@@ -54,8 +54,7 @@
 <title>S'inscrire comme sponsor</title>
 </head>
 <body>
-<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 	<div class="container">
 		<img class="img-fluid" src="${association.photo}" height="50"
@@ -75,11 +74,9 @@
 					href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/template/homePageAssociation/#events"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
 					class="nav-link">Evènements</a></li>
-				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/loginUser"
-					class="nav-link">Se Connecter</a></li>
+				
 			</ul>
 		</div>
 	</div>

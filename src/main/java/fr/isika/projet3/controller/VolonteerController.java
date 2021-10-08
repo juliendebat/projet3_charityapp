@@ -23,6 +23,7 @@ import fr.isika.projet3.entities.User;
 import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
 import fr.isika.projet3.service.VolonteerService;
 
@@ -33,20 +34,21 @@ public class VolonteerController {
 	private EventService eventService;
 	private UserService userService;
 	private AssociationService associationService;
-
+	private PromoterService promoterService;
 
 	public VolonteerController() {
 
 	}
 
 	@Autowired
-	public VolonteerController(VolonteerService volonteerService, UserService userService,
+	public VolonteerController(VolonteerService volonteerService, UserService userService,PromoterService promoterService,
 			AssociationService associationService, EventService eventService) {
 		super();
 		this.volonteerService = volonteerService;
 		this.eventService = eventService;
 		this.userService = userService;
 		this.associationService = associationService;
+		this.promoterService = promoterService;
 	}
 	
 	
@@ -71,21 +73,25 @@ public class VolonteerController {
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.GET)
-	public ModelAndView displayNewVolonteerForm() {
+	public ModelAndView displayNewVolonteerForm(@ModelAttribute Association association, @PathVariable Long id) {
 		ModelAndView mv = new ModelAndView("addVolonteer");
-		List<Event> eventList = eventService.getAllEvents();
+		association = associationService.getAssociationById(id);
+		List<Promoter> promoter = userService.getAllPromoterByAssociation(association);
+		List<Event> eventList = eventService.getAllEventsByAssociation(association);
+		
 		mv.addObject("headerMessage", "Add User Details");
 		mv.addObject("user", new User());
 		mv.addObject("volonteer", new Volonteer());
 		mv.addObject("eventList", eventList);
-		mv.addObject("association", new Association());
+		mv.addObject("association", association);
+		mv.addObject("promoter", promoter);
 		return mv;
 	}
 
 	@RequestMapping(value = "/addVolonteer/{id}", method = RequestMethod.POST)
 	public ModelAndView saveNewVolonteer(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Event event,
 			@ModelAttribute Volonteer volonteer,@ModelAttribute Association association, BindingResult result) {
-		ModelAndView mv = new ModelAndView("redirect:/home_volonteer");
+		ModelAndView mv = new ModelAndView("redirect:/template/homePageAssociation/{id}");
 
 		if (result.hasErrors()) {
 			return new ModelAndView("error");
@@ -100,6 +106,7 @@ public class VolonteerController {
 
 
 		if (isEventAdded) {
+			
 			mv.addObject("message", "New volonteer successfully added");
 		} else {
 			return new ModelAndView("error");

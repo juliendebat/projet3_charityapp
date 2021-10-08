@@ -10,11 +10,10 @@
 		  content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<meta name="description" content="" />
 	<meta name="author" content="" />
-	<title>Charity Raise - Plateforme de Gestion de Dons
-		évènementiel pour les associations</title>
+	<title>Charity Raise</title>
 	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon"
-		  href="<c:out value="resources/assets/favicon.ico"/>" />
+		  href="<c:out value="${pageContext.request.contextPath}/resources/assets/favicon.ico"/>" />
 	<!-- Bootstrap Icons-->
 	<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
@@ -50,10 +49,9 @@
 			<ul class="navbar-nav ms-auto my-2 my-lg-0">
 				<li class="nav-item"><a class="nav-link"
 										href="${pageContext.request.contextPath}/home">Accueil</a></li>
-				<li class="nav-item"><a class="nav-link" href="#services">Associations</a></li>
-				<li class="nav-item"><a class="nav-link" href="#subscribe">S'inscrire</a></li>
-				<li class="nav-item"><a class="nav-link" href="#portfolio">Se
-					Connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/home#services">Associations</a></li>
+				<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/home#subscribe">S'inscrire</a></li>
+
 			</ul>
 		</div>
 	</div>
@@ -204,7 +202,6 @@
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-<script language="javascript" type="text/javascript"
-		src="resources/js/jquery-3.6.0.min.js">
+<script language="javascript" type="text/javascript" src="${pageContext.request.contextPath}/resources/js/jquery-3.6.0.min.js"></script>
 	</body>
 	</html>

@@ -15,11 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import fr.isika.projet3.entities.Association;
+import fr.isika.projet3.entities.Event;
+import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.service.AssociationService;
 import fr.isika.projet3.service.DonationService;
+import fr.isika.projet3.service.EventService;
 import fr.isika.projet3.service.MailService;
+import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,27 +47,33 @@ public class AssociationController {
 
    
     private UserService userService;
-
-	private DonationService donationService;
+    private PromoterService promoterService;
+    private DonationService donationService;
+    private EventService eventService;
 	
-	   static {
+	  /* static {
 	    	
 	    	Association asso = new Association();
 	    	asso.setAssociationName("testLancemennt");
 	    	System.out.println("bloc static");
-	    }
+	    }*/
 
     public AssociationController() {
 
     }
-
     @Autowired
-    public AssociationController(AssociationService associationService, MailService mailService,UserService userService,DonationService donationService) {
-        this.associationService = associationService;
-        this.mailService = mailService;
-        this.donationService=donationService;
-        this.userService=userService;
-    }
+    public AssociationController(AssociationService associationService, MailService mailService,
+			UserService userService, PromoterService promoterService, DonationService donationService,
+			EventService eventService) {
+		super();
+		this.associationService = associationService;
+		this.mailService = mailService;
+		this.userService = userService;
+		this.promoterService = promoterService;
+		this.donationService = donationService;
+		this.eventService = eventService;
+	}
+   
 
     @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public ModelAndView hello(HttpServletResponse response) throws IOException {
@@ -74,7 +85,9 @@ public class AssociationController {
         return mv;
     }
 
-    //add one Association
+   
+
+	//add one Association
     @RequestMapping(value = "/home", method = RequestMethod.POST)
     public ModelAndView homeSave(HttpServletRequest request, @ModelAttribute Association association, BindingResult result) {
         ModelAndView mv = new ModelAndView("redirect:/home");
@@ -180,21 +193,25 @@ public class AssociationController {
 
 
     @RequestMapping(value = "/template/homePageAssociation/{id}", method = RequestMethod.GET)
-    public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("template/homePageAssociation");
-        Association association = associationService.getAssociationById(id);
-       
-       
-        //maj compteur don
+	public ModelAndView displayHomePageAssociationForm(@PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("template/homePageAssociation");
+		Association association = associationService.getAssociationById(id);
+		List<User> userList = userService.getAllUserByAssociation(association);
+		List<Promoter> promoterList = promoterService.getAllPromotersByUsers(userList);
+		List<Event> eventList = eventService.getAllEventsByPromoters(promoterList);
+		// maj compteur don
 		List<User> contributors = userService.getAllContributorsByAssociation(association);
 		Double sumDonations = donationService.getSumDonationsByAssociation(contributors);
-		 mv.addObject("association", association);
-	        mv.addObject("sumDonations",sumDonations);
-
-
-        
-        return mv;
-    }
+		mv.addObject("association", association);
+		mv.addObject("sumDonations", sumDonations);
+		mv.addObject("headerAssociationName", association.getAssociationName());
+		mv.addObject("description", association.getDescription());
+		
+		mv.addObject("association", association);
+		mv.addObject("eventList", eventList);
+		mv.addObject("userHasDonatedList", contributors);
+		return mv;
+	}
     
     
     

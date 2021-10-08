@@ -22,6 +22,7 @@ import fr.isika.projet3.entities.Promoter;
 import fr.isika.projet3.entities.User;
 import fr.isika.projet3.entities.Volonteer;
 import fr.isika.projet3.service.EventService;
+import fr.isika.projet3.service.MailService;
 import fr.isika.projet3.service.PartnerService;
 import fr.isika.projet3.service.PromoterService;
 import fr.isika.projet3.service.UserService;
@@ -32,22 +33,23 @@ public class DashboardPromoterController {
 
 	private User promoterInProgress;
 	private HttpSession promoterSession;
-	
+	private String emailSender = "bravoexcellent74@gmail.com";
     private PromoterService promoterService ;
     private UserService userService ;
     private VolonteerService volonteerService ;
- 
+    private MailService mailService;
     private EventService eventService ;
     private PartnerService partnerService;
     
 	@Autowired
-	public DashboardPromoterController(PartnerService partnerService, PromoterService promoterService,EventService eventService, UserService userService,VolonteerService volonteerService) {
+	public DashboardPromoterController(PartnerService partnerService, PromoterService promoterService,MailService mailService,EventService eventService, UserService userService,VolonteerService volonteerService) {
 		super();
 		this.promoterService = promoterService;
 		this.eventService=eventService;
 		this.userService=userService;
 		this.volonteerService= volonteerService;
 		this.partnerService= partnerService;
+		this.mailService = mailService;
 	}
 
 	@RequestMapping(value = { "/dashboardPromoter/home" }, method = RequestMethod.GET)
@@ -105,7 +107,25 @@ public class DashboardPromoterController {
 
 		return mv;
 	}
-	
+	@RequestMapping(value = "/dashboarPromoter/mailForm/{id}", method = RequestMethod.GET)
+	public ModelAndView mailSenderuser(HttpServletRequest request, @PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("dashboardAdmin/mailForm");
+		User user = userService.getUserById(id);
+		String userMail = user.getEmail();
+		mv.addObject("userMail", userMail);
+		return mv;
+	}
+
+	@RequestMapping(value = "/dashboardPromoter/mailForm/{id}", method = RequestMethod.POST)
+	public ModelAndView mailsenduser(HttpServletRequest request, @PathVariable Long id) {
+		ModelAndView mv = new ModelAndView("redirect:/dashboardAdmin/home");
+		User user = userService.getUserById(id);
+		String userMail = user.getEmail();
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
+		mailService.sendEmail(emailSender, userMail, subject ,message );
+		return mv;
+	}
 	
 	@RequestMapping(value = "/dashboardPromoter/editPromoter", method = RequestMethod.GET)
 	public ModelAndView displayEditPromoterForm() {

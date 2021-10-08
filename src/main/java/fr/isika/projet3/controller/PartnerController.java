@@ -60,8 +60,11 @@ public class PartnerController {
 	}
 
 	@RequestMapping(value = "/addPartner/{id}", method = RequestMethod.GET)
-	public ModelAndView displayNewUserForm(@PathVariable Long id) {
+	public ModelAndView displayNewUserForm(@ModelAttribute Association association ,@PathVariable Long id ) {
+		
 		ModelAndView mv = new ModelAndView("addPartner");
+		association = associationService.getAssociationById(id);
+		mv.addObject("association",association);
 		mv.addObject("headerMessage", "Add partner Details");
 		mv.addObject("user", new User());
 		mv.addObject("partner", new Partner());
@@ -73,12 +76,12 @@ public class PartnerController {
 		public ModelAndView saveNewUser(@PathVariable Long id,@ModelAttribute("User") User user,
 				@ModelAttribute("partnerEntity") PartnerEntity partnerentity,
 				@ModelAttribute("Partner") Partner partner, BindingResult result) {
-			ModelAndView mv = new ModelAndView("redirect:/home");
+			ModelAndView mv = new ModelAndView("redirect:/template/homePageAssociation");
 			if (result.hasErrors()) {
 				return new ModelAndView("error");
 			}
 
-			Association association=associationService.getAssociationById(id);
+			Association association = associationService.getAssociationById(id);
 			user.setAssociation(association);
 			
 			boolean isPartnerEntityAdded = true;	

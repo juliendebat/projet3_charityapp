@@ -4,12 +4,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>Faire un don</title>
 <head>
-<title>Welfare - Free Bootstrap 4 Template by Colorlib</title>
-<meta charset="utf-8">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script language="javascript" type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/jquery-3.6.0.min.js">
+	
+</script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -20,67 +22,67 @@
 	href="https://fonts.googleapis.com/css?family=Overpass:300,400,400i,600,700"
 	rel="stylesheet">
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/open-iconic-bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/animate.css">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.theme.default.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/magnific-popup.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/open-iconic-bootstrap.min.css"/>">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/aos.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/animate.css"/>">
+<link rel="stylesheet"
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.carousel.min.css"/>">
+<link rel="stylesheet"
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/owl.theme.default.min.css"/>">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/ionicons.min.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/magnific-popup.css"/>">
+
+<link rel="stylesheet" href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/aos.css"/>">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/bootstrap-datepicker.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/ionicons.min.css"/>">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/bootstrap-datepicker.css"/>">
 
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/jquery.timepicker.css"/>">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/flaticon.css"/>">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css">
+	href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/icomoon.css"/>">
 
+<link href="<c:out value="${pageContext.request.contextPath}/resources/template_HomePageAssoc/css/style.css"/>" rel="stylesheet" />
+<title>S'inscrire comme sponsor</title>
 </head>
-
 <body>
-
-	<nav
-		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
-		<div class="container">
-			<a class="navbar-brand" href="index.html">${associationName}</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#ftco-nav" aria-controls="ftco-nav"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="oi oi-menu"></span> Menu
-			</button>
+	<div class="container">
+		<img class="img-fluid" src="${association.photo}" height="50"
+			width="50" alt="..." /> <a class="navbar-brand" href="#page-top">${association.associationName}</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#ftco-nav" aria-controls="ftco-nav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
 
-			<div class="collapse navbar-collapse" id="ftco-nav">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a href="${pageContext.request.contextPath}/template/homePageAssociation/${id}" class="nav-link">Home</a></li>
-					<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-					<li class="nav-item"><a href="causes.html" class="nav-link">Causes</a></li>
-					<li class="nav-item active"><a href="donate.html"
-						class="nav-link">Donate</a></li>
-					<li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-					<li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-					<li class="nav-item"><a href="event.html" class="nav-link">Events</a></li>
-					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-				</ul>
-			</div>
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
+					class="nav-link">Accueil</a></li>
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
+					class="nav-link">Faire un Don</a></li>
+				<li class="nav-item"><a
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
+					class="nav-link">Evènements</a></li>
+				
+			</ul>
 		</div>
+	</div>
 	</nav>
+		
 	<!-- END nav -->
 
 	<section class="ftco-section-3 img"
@@ -96,8 +98,9 @@
 				</div>
 				<div class="col-md-6 volunteer pl-md-5 ftco-animate">
 					<h3 class="mb-3">Faites un Don</h3>
-					<button id="btn2">Je suis déjà inscrit ou j'ai déjà fait
-						un don</button>
+					<div class="mb-3"><button class="btn btn-white py-3 px-5" id="btn2">Je suis déjà inscrit ou j'ai déjà fait
+						un don</button></div>
+					
 					<form id="form1" name="form" action="" class="volunter-form"
 						method="post">
 
@@ -201,45 +204,6 @@
 					<a id="div3"
 						href="${pageContext.request.contextPath}/donation/pageUserChecked/${id}">Confirmer
 						mon identitée</a>
-					<script type="text/javascript">
-						$(document).ready(
-										function() {
-
-											$("#div3").hide();
-											var ret = false;
-											$("#form1").submit(
-															function(event) {
-																if (!ret) {
-																	//Empeche la validation du formulaire
-																	event.preventDefault();
-
-																	var email = document.getElementById("email").value;
-																	var idAsso = ${id};
-																	alert(email);
-																	$.ajax({
-																				url : "${pageContext.request.contextPath}/checkIdentityContributor",
-																				type : "POST",
-																				data : {
-																					"email" : email,
-																					"idAsso" : idAsso
-																				},
-																				success : function(
-																						result) {
-																					if (result == "inconnu") {
-																						ret = true;
-																						$("#form1")[0].submit();
-																					} else {
-																						$("#div2").text(result);
-																						$("#div3").show();
-																						ret = false;
-																					}
-																				}
-																			});
-																}//fin
-																
-															});
-										});
-					</script>
 				</div>
 			</div>
 		</div>
@@ -410,54 +374,9 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/template_HomePageAssoc/js/main.js"></script>
 	<script language="javascript" type="text/javascript">
-		$(document).ready(function() {
-			$("#btn2").click(hide);
-
-
-			<input type="Submit" value="Valider"/>
-	</form>		
-	<br>
-	<br>
-<div id="div2" style="color:#ff0000"></div>
-<a id="div3" href="${pageContext.request.contextPath}/donation/pageUserChecked/${id}">Confirmer mon identitée</a>
-	<script>	
-	$(document).ready(function(){
-		
-		$("#div3").hide();
-
-		var ret = false;
-		
-		$("#form1").submit(function(event){
-	    if(!ret) {
-	        //Empeche la validation du formulaire
-	        event.preventDefault();
-	          var email= document.getElementById("email").value;
-	          var  idAsso = ${id};	
-	        
-	    	$.ajax({ url: "${pageContext.request.contextPath}/checkIdentityContributor",
-						type: "POST",
-						data: {				
-							"email":email,
-							"idAsso":idAsso
-						},
-						success: function(result)
-						{											
-							if(result=="inconnu"){		
-								ret=true;
-								 $("#form1")[0].submit();
-							}
-							else {$("#div2").text(result);
-							$("#div3").show();
-							ret=false;							
-							}; 
-						},
-						error:function(){
-							alert("error");
-							}
-					});	      
-	    }//fin if ret	    
-
-		});
+	 $(document).ready(function(){
+     	$("#btn2").click(hide);
+     });
 
 		function hide() {
 			$("#1").toggle();
@@ -484,6 +403,68 @@
 			$("#15").toggle();
 		}
 	</script>
+	<script type="text/javascript">
+						$(document).ready(
+										function() {
+											$("#div3").hide();
+											var ret = false;
+											$("#form1").submit(
+															function(event) {
+																if (!ret) {
+																	//Empeche la validation du formulaire
+																	event.preventDefault();
+																	var email = document.getElementById("email").value;
+																	var idAsso = ${id};
+																
+																	$.ajax({
+																				url : "${pageContext.request.contextPath}/checkIdentityContributor",
+																				type : "POST",
+																				data : {
+																					"email" : email,
+																					"idAsso" : idAsso
+																				},
+																				success : function(
+																						result) {
+																					if (result == "inconnu") {
+																						ret = true;
+																						$("#form1")[0].submit();
+																					} else {
+																						$("#div2").text(result);
+																						$("#div3").show();
+																						ret = false;
+																					}
+																				}
+																			});
+																}//fin
+																
+															});
+										});
+					</script>
+
+
+
+
+
+
+
+Envoyer un message à Gaëtan, Julien D, MARTINETTI Sébastien, Pinauchel Ngassa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 </body>
 </html>

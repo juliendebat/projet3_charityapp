@@ -73,10 +73,10 @@
 					href="${pageContext.request.contextPath}/donation/add_donation/${id}"
 					class="nav-link">Faire un Don</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/homePageAssociation/#events"
+					href="${pageContext.request.contextPath}/template/homePageAssociation/${id}#events"
 					class="nav-link">Evènements</a></li>
 				<li class="nav-item"><a
-					href="${pageContext.request.contextPath}/loginUser"
+					href="${pageContext.request.contextPath}/loginPromoter/${id}"
 					class="nav-link">Se Connecter</a></li>
 			</ul>
 		</div>
@@ -85,15 +85,15 @@
 	<!-- END nav -->
 
 	<section class="ftco-section-3 img"
-		style="background-image: url(resources/template_HomePageAssoc/images/bg_3.jpg);">
+		style="background-image: url(${pageContext.request.contextPath}/resources/template_HomePageAssoc/images/bg_3.jpg);">
 		<div class="overlay"></div>
 
-
+s
 		<div class="container">
 			<div class="row d-md-flex">
 				<div class="col-md-6 d-flex ftco-animate">
 					<div class="img img-2 align-self-stretch"
-						style="background-image: url(../resources/images/donation.jpg);"></div>
+						style="background-image: url(${pageContext.request.contextPath}/resources/template_HomePageAssoc/images/person_3.jpg);"></div>
 				</div>
 				<div class="col-md-6 volunteer pl-md-5 ftco-animate">
 					<h3 class="mb-3">Accès Organisateurs</h3>

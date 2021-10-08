@@ -24,25 +24,20 @@ public class Volonteer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String dispo;
-	
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
 	private User user;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Event> lEvent;
-	
-
 
 	public String getDispo() {
 		return dispo;
 	}
 
-
 	public void setDispo(String dispo) {
 		this.dispo = dispo;
 	}
-
 
 	public User getUser() {
 		return user;
@@ -59,7 +54,7 @@ public class Volonteer {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Volonteer() {
 		super();
 		lEvent = new ArrayList<Event>();
@@ -68,13 +63,5 @@ public class Volonteer {
 	public void addEvent(Event event) {
 		lEvent.add(event);
 	}
-
-
-
-	
-	
-	
-	
-	
 
 }

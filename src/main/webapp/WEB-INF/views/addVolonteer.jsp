@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html lang="en">
-<html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script language="javascript" type="text/javascript"
@@ -67,17 +67,15 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a
-						href="${pageContext.request.contextPath}/homePageAssociation/${association.id}"
+						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 						class="nav-link">Accueil</a></li>
 					<li class="nav-item"><a
 						href="${pageContext.request.contextPath}/donation/add_donation/${association.id}"
 						class="nav-link">Faire un Don</a></li>
 					<li class="nav-item"><a
-						href="${pageContext.request.contextPath}/homePageAssociation/#events"
+						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}#events"
 						class="nav-link">Evènements</a></li>
-					<li class="nav-item"><a
-						href="${pageContext.request.contextPath}/loginUser"
-						class="nav-link">Se Connecter</a></li>
+					
 				</ul>
 			</div>
 		</div>
@@ -97,7 +95,7 @@
 					<h3 class="mb-3">S'inscrire comme bénévole</h3>
 					<form id="form1" name="form" action="" class="volunter-form"
 						method="post">
-
+						 
 						<spring:bind path="user.lastName">
 							<label hidden id="1" for="lastname"></label>
 							<div class="form-group">
@@ -178,14 +176,14 @@
 									placeholder="Disponibilités">
 							</div>
 						</spring:bind>
-
-
+				
 						<label for="event">Choix de l'activté</label>
 						<div class="form-group">
 							<select class="form-control" name="eventList">
 								<c:forEach var="event" items="${eventList}">
 									<option id="eventName" name="eventName"
 										value="${event.eventName}" selected="selected">${event.eventName}</option>
+										 <input type="hidden" name="promoter_id" value="${event.promoter}">
 								</c:forEach>
 							</select>
 						</div>

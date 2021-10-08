@@ -26,6 +26,8 @@
 	href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic"
 	rel="stylesheet" type="text/css" />
 <!-- SimpleLightbox plugin CSS-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css"
 	rel="stylesheet" />
@@ -168,7 +170,7 @@
 <!-- 		</div> -->
 <!-- 	</section> -->
 	<!-- Portfolio-->
-	<section class="page-section" id="associations">
+<section class="page-section" id="associations">
 	<div id="portfolio">
 		<div class="container-fluid p-0">
 		<h2 class="text-center mt-0">Ils nous font confiance</h2>
@@ -176,12 +178,12 @@
 			<div class="row g-0">
 			<c:forEach var="association" items="${associationList}">
 				<div class="col-lg-4 col-sm-6">
-					<a class="portfolio-bo"
+					<a class="portfolio-box"
 						href="${pageContext.request.contextPath}/template/homePageAssociation/${association.id}"
 						title="Project Name"> 
-						<img class="mx-auto" src="${association.photo}" height="350" alt="..." />
+						<img class="d-flex mx-auto" src="${association.photo}" height="350" alt="..." />
 						<div class="portfolio-box-caption">
-							<div class="project-category text-white-50">Evenement</div>
+							<div class="project-category text-white-50">Association</div>
 							<div class="${association.associationName}">${association.associationName}</div>
 							<div class="${association.city}">${association.city}</div>
 							<div class="${association.description}">${association.description}</div>
@@ -193,6 +195,7 @@
 		</div>
 	</div>
 	</section>
+
 <!-- 	<!-- Call to action--> 
 <!-- 	<section class="page-section bg-dark text-white"> -->
 <!-- 		<div class="container px-4 px-lg-5 text-center"> -->
@@ -308,16 +311,6 @@
                              data-sb-feedback="email:email">l'email n'est
                             pas valide.</div>
                     </div>
-                     <!-- Logo Association input-->
-                    <div class="form-floating mb-3">
-                        <form:input class="form-control" id="photo" type="text"
-                               placeholder="Entrez l'url de votre logo"
-                               data-sb-validations="required" path="photo"/>
-                               <form:label for="photo" path="photo">Logo*</form:label>
-                        <div class="invalid-feedback"
-                             data-sb-feedback="photo:required">Un logo est
-                            requis.</div>
-                    </div>
                      <!-- Password Association input-->
                     <div class="form-floating mb-3">
                         <form:input class="form-control" id="password" type="password"
@@ -333,6 +326,27 @@
                             pas valide.</div>
                         
                     </div>
+                     <!-- Logo Association input-->
+                    <div class="form-floating mb-3">
+                        <form:input class="form-control" id="photo" type="text"
+                               placeholder="Entrez l'url de votre logo"
+                               data-sb-validations="required" path="photo"/>
+                               <form:label for="photo" path="photo">Logo*</form:label>
+                        <div class="invalid-feedback"
+                             data-sb-feedback="photo:required">Un logo est
+                            requis.</div>
+                    </div>
+                    
+                     <!-- BackupPic Association input-->
+                    <div class="form-floating mb-3">
+                        <form:input class="form-control" id="theme" type="text"
+                               placeholder="Entrez l'url de votre image"
+                               data-sb-validations="required" path="theme"/>
+                               <form:label for="teme" path="theme">Fond d'écran *</form:label>
+                        <div class="invalid-feedback"
+                             data-sb-feedback="theme:required">Une image pour arriere plan.</div>
+                    </div>
+                    
                     <!-- Submit success message-->
 					<!---->
 					<!-- This is what your users will see when the form-->
@@ -358,11 +372,47 @@
 					</div>
 					<br>
 					<br>
-					<div id="div2" style="color:#ff0000"></div>
+				<div id="div2" style="color:#ff0000"></div>
                 </form:form>
+                  
+    
             </div>
         </div>
+<script>	
+	$(document).ready(function(){		 
+		var ret = false;		
+		$("#contactForm").submit(function(event){
+	    if(!ret) {
+	        //Empeche la validation du formulaire
+	        event.preventDefault();
 
+	         var email = document.getElementById("email").value;
+	          var rna = document.getElementById("rnaNumber").value;	         
+	
+	    	$.ajax(
+	    			{ url: "${pageContext.request.contextPath}/checkAssociationAlreadyExist",
+						type: "POST",
+						data: {				
+							"email":email,
+							"rna":rna
+						},
+						success: function(result)
+						{											
+							if(result=="success"){
+								ret=true;
+								 $("#contactForm")[0].submit();
+							}
+							else {
+								
+								$("#div2").text(result);
+							ret=false;							
+							}; 
+						}
+					});	      
+	    }//fin if ret	    
+		});
+	});
+	</script>
 <!-- 			<div class="row gx-4 gx-lg-5 justify-content-center"> -->
 <!-- 				<div class="col-lg-4 text-center mb-5 mb-lg-0"> -->
 <!-- 					<i class="bi-phone fs-2 mb-3 text-muted"></i> -->
@@ -383,7 +433,7 @@
 	<!-- SimpleLightbox plugin JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
 	<!-- Core theme JS-->
-	<script src="<c:out value="resources/js/scripts.js"/>"></script>
+	<script src="<c:out value="${pageContext.request.contextPath}/resources/js/scripts1.js"/>"></script>
 	
 	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 	<!-- * *                               SB Forms JS                               * *-->

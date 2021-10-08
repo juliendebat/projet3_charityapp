@@ -63,19 +63,21 @@ public class PromoterController {
     }
 
     @RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.GET)
-    public ModelAndView displayNewPromotorForm(@PathVariable Long id) {
+    public ModelAndView displayNewPromotorForm(@ModelAttribute Association association, @PathVariable Long id) {
         ModelAndView mv = new ModelAndView("addPromoter");
+        association = associationService.getAssociationById(id);
+		mv.addObject("association",association);
         mv.addObject("headerMessage", "Add promoter Details");
         mv.addObject("user", new User());
         mv.addObject("promoter", new Promoter());
-        mv.addObject("association", new Association());
+        mv.addObject("association", association);
         return mv;
     }
 
     @RequestMapping(value = "/addPromoter/{id}", method = RequestMethod.POST)
     public ModelAndView saveNewUser(@PathVariable Long id, @ModelAttribute User user, @ModelAttribute Association association,
                                     @ModelAttribute Promoter promoter, BindingResult result) {
-        ModelAndView mv = new ModelAndView("redirect:/home_promoter");
+        ModelAndView mv = new ModelAndView("redirect:/loginPromoter/{id}");
 
         if (result.hasErrors()) {
             return new ModelAndView("error");
